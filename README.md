@@ -32,12 +32,35 @@ Built on **FastAPI/Vertex AI/Google Cloud (backend)**.
 ## 📂 Backend Project Structure
 
 ```bash
-backend/
-├── backend/              # FastAPI + pipeline services
-│   ├── main.py           # API entry point
-│   └── services/         # Core pipeline steps (storage, parsing, etc.)
-├── models/               # Model configs (InLegalBert, classifiers)
-├── infra/                # Deployment (Docker, K8s, CI/CD)
-├── tests/                # Unit & integration tests
-├── docs/                 # Documentation
+legal-ai-platform/
+│
+├── backend/                 # All backend logic
+│   ├── main.py              # Entry point (FastAPI/Express)
+│   ├── services/            # Core pipeline steps
+│   │   ├── storage.py       # GCS upload + metadata
+│   │   ├── preprocessing.py # Normalization + OCR
+│   │   ├── parsing.py       # DocAI client
+│   │   ├── classification.py# Vertex AI model
+│   │   ├── kag.py           # InLegalBert + KB
+│   │   ├── agents.py        # QnA + Insights
+│   │   ├── comparison.py    # Multi-doc semantic search
+│   │   └── monitoring.py    # Logging + feedback
+│   └── security.py          # Auth, audit logs, compliance
+│
+├── models/                  # Model configs
+│   ├── inlegalbert_config.json
+│   └── classification_config.json
+│
+├── infra/                   # Deployment
+│   ├── dockerfiles/
+│   ├── k8s/
+│   └── ci_cd/
+│
+├── tests/                   # Tests for backend & frontend
+│
+├── docs/                    # Documentation
+│   ├── mvp_pipeline.md
+│   └── full_pipeline.md
+│
 └── README.md
+
