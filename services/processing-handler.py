@@ -19,10 +19,34 @@ from pydantic import BaseModel, Field
 import uvicorn
 from dotenv import load_dotenv
 
-# Import our services
-from util_services import PDFToImageConverter, validate_pdf_file, get_file_info
-from preprocessing.OCR_processing import GoogleVisionOCR, OCRResult
+# Import our services - fix for util-services.py filename
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
+
+# Import from util-services.py file
+import importlib.util
+util_services_spec = importlib.util.spec_from_file_location("util_services", 
+    os.path.join(os.path.dirname(__file__), "util-services.py"))
+util_services = importlib.util.module_from_spec(util_services_spec)
+util_services_spec.loader.exec_module(util_services)
+
+PDFToImageConverter = util_services.PDFToImageConverter
+validate_pdf_file = util_services.validate_pdf_file  
+get_file_info = util_services.get_file_info
+
+# Import from OCR-processing.py file
+ocr_spec = importlib.util.spec_from_file_location("ocr_processing", 
+    os.path.join(os.path.dirname(__file__), "preprocessing", "OCR-processing.py"))
+ocr_module = importlib.util.module_from_spec(ocr_spec)
+ocr_spec.loader.exec_module(ocr_module)
+
+GoogleVisionOCR = ocr_module.GoogleVisionOCR
+OCRResult = ocr_module.OCRResult
+
 from preprocessing.parsing import LocalTextParser, ParsedDocument
+import hashlib
+from PIL import Image
 
 
 # Load environment variables
@@ -138,6 +162,45 @@ def get_ocr_service() -> GoogleVisionOCR:
             )
     
     return ocr_service
+
+
+def get_image_dimensions(image_path: str) -> tuple:
+    """
+    Get image dimensions (width, height).
+    
+    Args:
+        image_path: Path to the image file
+        
+    Returns:
+        Tuple of (width, height)
+    """
+    try:
+        with Image.open(image_path) as img:
+            return img.size
+    except Exception as e:
+        logger.warning(f"Could not get dimensions for {image_path}: {e}")
+        return (1240, 1754)  # Default dimensions
+
+
+def generate_document_id(pdf_path: str) -> str:
+    """
+    Generate a unique document ID.
+    
+    Args:
+        pdf_path: Path to the PDF file
+        
+    Returns:
+        Unique document ID
+    """
+    timestamp = datetime.now().strftime("%Y%m%d")
+    pdf_name = Path(pdf_path).stem
+    
+    # Create a short hash from the file path and current time
+    hasher = hashlib.md5()
+    hasher.update(f"{pdf_path}_{datetime.now().isoformat()}".encode())
+    short_hash = hasher.hexdigest()[:8]
+    
+    return f"upload_{timestamp}_{short_hash}"
 
 
 @app.get("/")
@@ -278,9 +341,10 @@ async def ocr_process(
     background_tasks: BackgroundTasks
 ):
     """
-    Process PDF with OCR pipeline.
+    Process PDF with OCR pipeline using DocAI-compatible format.
     
-    Converts PDF to images, runs OCR on each page, and stores results.
+    Converts PDF to images, runs OCR on each page, and stores results
+    in the new DocAI schema format.
     
     Args:
         request: OCR processing request
@@ -314,6 +378,10 @@ async def ocr_process(
         processing_folder = Path(conversion_metadata["output_info"]["folder_path"])
         total_pages = conversion_metadata["processing_info"]["total_pages"]
         
+        # Generate document ID
+        document_id = generate_document_id(request.pdf_path)
+        original_filename = Path(request.pdf_path).name
+        
         # Check if OCR results already exist and not forcing reprocess
         ocr_results_path = processing_folder / f"{Path(request.pdf_path).stem}-{uid}.json"
         
@@ -330,75 +398,105 @@ async def ocr_process(
                 message="OCR results already available (use force_reprocess=true to reprocess)",
                 processing_folder=str(processing_folder),
                 total_pages=total_pages,
-                processed_pages=len(existing_results.get("pages", {})),
+                processed_pages=len(existing_results.get("ocr_result", {}).get("pages", [])),
                 ocr_results_path=str(ocr_results_path),
                 metadata=conversion_metadata
             )
         
         # Process each page with OCR
-        ocr_results = {
-            "uid": uid,
-            "pdf_path": request.pdf_path,
-            "processing_date": datetime.now().isoformat(),
-            "language_hints": ocr.language_hints,
-            "total_pages": total_pages,
-            "pages": {}
-        }
-        
+        pages_data = []
         processing_errors = []
         processed_count = 0
+        
+        # Create derived images metadata
+        derived_images = []
         
         for i, image_path in enumerate(image_paths, 1):
             try:
                 logger.info(f"Processing page {i}/{total_pages}: {image_path}")
                 
-                # Run OCR on image
-                ocr_result = ocr.extract_text(image_path)
+                # Get image dimensions
+                width, height = get_image_dimensions(image_path)
                 
-                # Store results for this page
-                ocr_results["pages"][str(i)] = {
-                    "page_number": i,
-                    "image_path": image_path,
-                    "text": ocr_result.text,
-                    "confidence": ocr_result.confidence,
-                    "blocks": ocr_result.blocks,
-                    "word_count": len(ocr_result.text.split()) if ocr_result.text else 0,
-                    "character_count": len(ocr_result.text) if ocr_result.text else 0
+                # Create image metadata
+                image_metadata = {
+                    "width": width,
+                    "height": height,
+                    "dpi": CONFIG["image_dpi"]
                 }
                 
+                # Add to derived images list
+                derived_images.append({
+                    "page": i,
+                    "image_uri": f"file://{image_path}",  # Local file URI
+                    "width": width,
+                    "height": height,
+                    "dpi": CONFIG["image_dpi"]
+                })
+                
+                # Run OCR on image
+                page_result = ocr.extract_text(image_path, i, image_metadata)
+                pages_data.append(page_result)
+                
                 processed_count += 1
-                logger.debug(f"Page {i} OCR completed (confidence: {ocr_result.confidence:.2f})")
+                logger.debug(f"Page {i} OCR completed")
                 
             except Exception as e:
                 error_msg = f"OCR failed for page {i}: {str(e)}"
                 logger.error(error_msg)
                 processing_errors.append(error_msg)
                 
-                # Store error info
-                ocr_results["pages"][str(i)] = {
-                    "page_number": i,
-                    "image_path": image_path,
-                    "error": error_msg,
-                    "text": "",
-                    "confidence": 0.0,
-                    "blocks": []
+                # Create error page data
+                width, height = get_image_dimensions(image_path)
+                error_page = {
+                    "page_data": {
+                        "page": i,
+                        "width": width,
+                        "height": height,
+                        "page_confidence": 0.0,
+                        "text_blocks": []
+                    },
+                    "warnings": [{
+                        "page": i,
+                        "block_id": None,
+                        "code": "PROCESSING_ERROR",
+                        "message": error_msg
+                    }],
+                    "full_text": ""
                 }
+                pages_data.append(error_page)
         
-        # Add summary statistics
-        ocr_results["summary"] = {
-            "processed_pages": processed_count,
-            "failed_pages": len(processing_errors),
-            "success_rate": (processed_count / total_pages) * 100,
-            "total_words": sum(
-                page.get("word_count", 0) 
-                for page in ocr_results["pages"].values()
-            ),
-            "total_characters": sum(
-                page.get("character_count", 0) 
-                for page in ocr_results["pages"].values()
-            ),
-            "processing_errors": processing_errors
-        }
+        # Create complete DocAI document
+        try:
+            docai_result = ocr.create_docai_document(
+                document_id=document_id,
+                original_filename=original_filename,
+                pdf_path=request.pdf_path,
+                pages_data=pages_data,
+                derived_images=derived_images,
+                pdf_uri=None  # Could be set if using GCS
+            )
+            
+            # Convert to dictionary for JSON serialization
+            ocr_results = {
+                "document_id": docai_result.document_id,
+                "original_filename": docai_result.original_filename,
+                "file_fingerprint": docai_result.file_fingerprint,
+                "pdf_uri": docai_result.pdf_uri,
+                "derived_images": docai_result.derived_images,
+                "language_detection": docai_result.language_detection,
+                "ocr_result": docai_result.ocr_result,
+                "extracted_assets": docai_result.extracted_assets,
+                "preprocessing": docai_result.preprocessing,
+                "warnings": docai_result.warnings
+            }
+            
+        except Exception as e:
+            logger.error(f"Error creating DocAI document: {e}")
+            raise HTTPException(
+                status_code=500,
+                detail=f"Failed to create DocAI document: {str(e)}"
+            )
         
         # Save OCR results
         with open(ocr_results_path, 'w', encoding='utf-8') as f:
@@ -481,6 +579,7 @@ async def get_results(uid: str):
             "folder_path": str(folder_path),
             "ocr_results": ocr_results,
             "metadata": metadata,
+            "docai_format": True,  # Indicate new format
             "files": {
                 "ocr_results": str(ocr_results_path),
                 "metadata": str(folder_path / "metadata.json"),
@@ -520,9 +619,20 @@ async def list_processing_folders():
             ocr_files = list(folder_path.glob("*.json"))
             ocr_files = [f for f in ocr_files if f.name != "metadata.json"]
             
+            # Check if it's DocAI format
+            docai_format = False
+            if ocr_files:
+                try:
+                    with open(ocr_files[0], 'r', encoding='utf-8') as f:
+                        result_data = json.load(f)
+                        docai_format = "document_id" in result_data and "ocr_result" in result_data
+                except:
+                    pass
+            
             folder["ocr_status"] = {
                 "has_results": len(ocr_files) > 0,
-                "results_files": [str(f) for f in ocr_files]
+                "results_files": [str(f) for f in ocr_files],
+                "docai_format": docai_format
             }
         
         return {
