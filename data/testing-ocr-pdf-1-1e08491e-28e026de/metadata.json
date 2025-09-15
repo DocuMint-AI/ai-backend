@@ -1,0 +1,46 @@
+{
+  "uid": "1e08491e-28e026de",
+  "pdf_info": {
+    "name": "testing-ocr-pdf-1",
+    "original_path": "data/uploads/testing-ocr-pdf-1.pdf",
+    "filename": "testing-ocr-pdf-1.pdf",
+    "file_size_bytes": 1350710,
+    "file_size_mb": 1.29,
+    "created_date": "2025-09-15T15:41:06.515476",
+    "modified_date": "2025-09-15T15:41:06.515476"
+  },
+  "processing_info": {
+    "processed_date": "2025-09-15T15:41:07.970758",
+    "total_pages": 6,
+    "processed_pages": 6,
+    "success_rate": 100.0,
+    "image_format": "PNG",
+    "dpi": 300,
+    "processing_errors": []
+  },
+  "output_info": {
+    "folder_path": "data/testing-ocr-pdf-1-1e08491e-28e026de",
+    "folder_name": "testing-ocr-pdf-1-1e08491e-28e026de",
+    "image_paths": [
+      "data/testing-ocr-pdf-1-1e08491e-28e026de/images/page_001.png",
+      "data/testing-ocr-pdf-1-1e08491e-28e026de/images/page_002.png",
+      "data/testing-ocr-pdf-1-1e08491e-28e026de/images/page_003.png",
+      "data/testing-ocr-pdf-1-1e08491e-28e026de/images/page_004.png",
+      "data/testing-ocr-pdf-1-1e08491e-28e026de/images/page_005.png",
+      "data/testing-ocr-pdf-1-1e08491e-28e026de/images/page_006.png"
+    ],
+    "relative_image_paths": [
+      "images/page_001.png",
+      "images/page_002.png",
+      "images/page_003.png",
+      "images/page_004.png",
+      "images/page_005.png",
+      "images/page_006.png"
+    ]
+  },
+  "status": {
+    "conversion_complete": true,
+    "has_errors": false,
+    "ready_for_ocr": true
+  }
+}

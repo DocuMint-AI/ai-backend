@@ -1,0 +1,1477 @@
+{
+  "document_id": "test_doc_001",
+  "original_filename": "test_document.png",
+  "file_fingerprint": "sha256:f4ab8090ae3ce5e3f62b494a5820f9f166d7c954ba51237766d047a8b288861a",
+  "pdf_uri": null,
+  "derived_images": [
+    {
+      "page": 1,
+      "image_uri": "file:///home/sborra/Documents/projects/ai-backend/data/test_document.png",
+      "width": 800,
+      "height": 600,
+      "dpi": 300
+    }
+  ],
+  "language_detection": {
+    "primary": "en",
+    "confidence": 0.3,
+    "language_hints": [
+      "en",
+      "es",
+      "fr"
+    ]
+  },
+  "ocr_result": {
+    "full_text": "SAMPLE DOCUMENT\nThis is a test document for OCR processing .\nIt contains multiple lines of text to test\nthe Google Vision API integration .\nInformation : Key\nDocument Type : Test Sample\nDate : September 15 , 2025\nStatus : Active\nContact test@example.com\nPhone : ( 555 ) 123-4567",
+    "pages": [
+      {
+        "page": 1,
+        "width": 800,
+        "height": 600,
+        "page_confidence": 0.0,
+        "text_blocks": [
+          {
+            "block_id": "p1_b1",
+            "page": 1,
+            "bounding_box": [
+              [
+                50,
+                52
+              ],
+              [
+                149,
+                52
+              ],
+              [
+                149,
+                60
+              ],
+              [
+                50,
+                60
+              ]
+            ],
+            "text": "SAMPLE DOCUMENT",
+            "confidence": 0.0,
+            "lines": [
+              {
+                "line_id": "p1_b1_l1",
+                "text": "SAMPLE DOCUMENT",
+                "confidence": 0.9930194020271301,
+                "words": [
+                  {
+                    "text": "SAMPLE",
+                    "confidence": 0.9918700456619263,
+                    "bounding_box": [
+                      [
+                        50,
+                        52
+                      ],
+                      [
+                        88,
+                        52
+                      ],
+                      [
+                        88,
+                        60
+                      ],
+                      [
+                        50,
+                        60
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "DOCUMENT",
+                    "confidence": 0.994168758392334,
+                    "bounding_box": [
+                      [
+                        91,
+                        52
+                      ],
+                      [
+                        149,
+                        52
+                      ],
+                      [
+                        149,
+                        60
+                      ],
+                      [
+                        91,
+                        60
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b2",
+            "page": 1,
+            "bounding_box": [
+              [
+                50,
+                100
+              ],
+              [
+                244,
+                102
+              ],
+              [
+                244,
+                113
+              ],
+              [
+                50,
+                111
+              ]
+            ],
+            "text": "This is a test document for OCR processing .",
+            "confidence": 0.0,
+            "lines": [
+              {
+                "line_id": "p1_b2_l1",
+                "text": "This is a test document for OCR processing .",
+                "confidence": 0.9492037031385634,
+                "words": [
+                  {
+                    "text": "This",
+                    "confidence": 0.9650275111198425,
+                    "bounding_box": [
+                      [
+                        50,
+                        101
+                      ],
+                      [
+                        71,
+                        101
+                      ],
+                      [
+                        71,
+                        111
+                      ],
+                      [
+                        50,
+                        111
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "is",
+                    "confidence": 0.9842840433120728,
+                    "bounding_box": [
+                      [
+                        71,
+                        101
+                      ],
+                      [
+                        80,
+                        101
+                      ],
+                      [
+                        80,
+                        111
+                      ],
+                      [
+                        71,
+                        111
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "a",
+                    "confidence": 0.9584022760391235,
+                    "bounding_box": [
+                      [
+                        81,
+                        101
+                      ],
+                      [
+                        86,
+                        101
+                      ],
+                      [
+                        86,
+                        111
+                      ],
+                      [
+                        81,
+                        111
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "test",
+                    "confidence": 0.9890810251235962,
+                    "bounding_box": [
+                      [
+                        87,
+                        101
+                      ],
+                      [
+                        103,
+                        101
+                      ],
+                      [
+                        103,
+                        111
+                      ],
+                      [
+                        87,
+                        111
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "document",
+                    "confidence": 0.9922008514404297,
+                    "bounding_box": [
+                      [
+                        104,
+                        101
+                      ],
+                      [
+                        155,
+                        101
+                      ],
+                      [
+                        155,
+                        111
+                      ],
+                      [
+                        104,
+                        111
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "for",
+                    "confidence": 0.9858028888702393,
+                    "bounding_box": [
+                      [
+                        155,
+                        101
+                      ],
+                      [
+                        169,
+                        101
+                      ],
+                      [
+                        169,
+                        111
+                      ],
+                      [
+                        155,
+                        111
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "OCR",
+                    "confidence": 0.9704468250274658,
+                    "bounding_box": [
+                      [
+                        168,
+                        102
+                      ],
+                      [
+                        189,
+                        102
+                      ],
+                      [
+                        189,
+                        112
+                      ],
+                      [
+                        168,
+                        112
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "processing",
+                    "confidence": 0.9721779823303223,
+                    "bounding_box": [
+                      [
+                        192,
+                        102
+                      ],
+                      [
+                        241,
+                        102
+                      ],
+                      [
+                        241,
+                        112
+                      ],
+                      [
+                        192,
+                        112
+                      ]
+                    ]
+                  },
+                  {
+                    "text": ".",
+                    "confidence": 0.7254099249839783,
+                    "bounding_box": [
+                      [
+                        241,
+                        102
+                      ],
+                      [
+                        244,
+                        102
+                      ],
+                      [
+                        244,
+                        112
+                      ],
+                      [
+                        241,
+                        112
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b3",
+            "page": 1,
+            "bounding_box": [
+              [
+                50,
+                127
+              ],
+              [
+                221,
+                127
+              ],
+              [
+                221,
+                137
+              ],
+              [
+                50,
+                137
+              ]
+            ],
+            "text": "It contains multiple lines of text to test",
+            "confidence": 0.0,
+            "lines": [
+              {
+                "line_id": "p1_b3_l1",
+                "text": "It contains multiple lines of text to test",
+                "confidence": 0.9739260151982307,
+                "words": [
+                  {
+                    "text": "It",
+                    "confidence": 0.9076237082481384,
+                    "bounding_box": [
+                      [
+                        50,
+                        127
+                      ],
+                      [
+                        56,
+                        127
+                      ],
+                      [
+                        56,
+                        137
+                      ],
+                      [
+                        50,
+                        137
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "contains",
+                    "confidence": 0.9863463640213013,
+                    "bounding_box": [
+                      [
+                        58,
+                        127
+                      ],
+                      [
+                        97,
+                        127
+                      ],
+                      [
+                        97,
+                        137
+                      ],
+                      [
+                        58,
+                        137
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "multiple",
+                    "confidence": 0.9946112632751465,
+                    "bounding_box": [
+                      [
+                        99,
+                        127
+                      ],
+                      [
+                        139,
+                        127
+                      ],
+                      [
+                        139,
+                        137
+                      ],
+                      [
+                        99,
+                        137
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "lines",
+                    "confidence": 0.9891728162765503,
+                    "bounding_box": [
+                      [
+                        141,
+                        127
+                      ],
+                      [
+                        164,
+                        127
+                      ],
+                      [
+                        164,
+                        137
+                      ],
+                      [
+                        141,
+                        137
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "of",
+                    "confidence": 0.9693261384963989,
+                    "bounding_box": [
+                      [
+                        165,
+                        127
+                      ],
+                      [
+                        175,
+                        127
+                      ],
+                      [
+                        175,
+                        137
+                      ],
+                      [
+                        165,
+                        137
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "text",
+                    "confidence": 0.9925604462623596,
+                    "bounding_box": [
+                      [
+                        175,
+                        127
+                      ],
+                      [
+                        194,
+                        127
+                      ],
+                      [
+                        194,
+                        137
+                      ],
+                      [
+                        175,
+                        137
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "to",
+                    "confidence": 0.9745652675628662,
+                    "bounding_box": [
+                      [
+                        194,
+                        127
+                      ],
+                      [
+                        203,
+                        127
+                      ],
+                      [
+                        203,
+                        137
+                      ],
+                      [
+                        194,
+                        137
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "test",
+                    "confidence": 0.9772021174430847,
+                    "bounding_box": [
+                      [
+                        204,
+                        127
+                      ],
+                      [
+                        221,
+                        127
+                      ],
+                      [
+                        221,
+                        137
+                      ],
+                      [
+                        204,
+                        137
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b4",
+            "page": 1,
+            "bounding_box": [
+              [
+                49,
+                152
+              ],
+              [
+                202,
+                152
+              ],
+              [
+                202,
+                162
+              ],
+              [
+                49,
+                162
+              ]
+            ],
+            "text": "the Google Vision API integration .",
+            "confidence": 0.0,
+            "lines": [
+              {
+                "line_id": "p1_b4_l1",
+                "text": "the Google Vision API integration .",
+                "confidence": 0.9450818101565043,
+                "words": [
+                  {
+                    "text": "the",
+                    "confidence": 0.9916533827781677,
+                    "bounding_box": [
+                      [
+                        49,
+                        152
+                      ],
+                      [
+                        65,
+                        152
+                      ],
+                      [
+                        65,
+                        162
+                      ],
+                      [
+                        49,
+                        162
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "Google",
+                    "confidence": 0.9880554676055908,
+                    "bounding_box": [
+                      [
+                        67,
+                        152
+                      ],
+                      [
+                        100,
+                        152
+                      ],
+                      [
+                        100,
+                        162
+                      ],
+                      [
+                        67,
+                        162
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "Vision",
+                    "confidence": 0.9579899311065674,
+                    "bounding_box": [
+                      [
+                        102,
+                        152
+                      ],
+                      [
+                        129,
+                        152
+                      ],
+                      [
+                        129,
+                        162
+                      ],
+                      [
+                        102,
+                        162
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "API",
+                    "confidence": 0.9233317971229553,
+                    "bounding_box": [
+                      [
+                        132,
+                        152
+                      ],
+                      [
+                        147,
+                        152
+                      ],
+                      [
+                        147,
+                        162
+                      ],
+                      [
+                        132,
+                        162
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "integration",
+                    "confidence": 0.979579746723175,
+                    "bounding_box": [
+                      [
+                        149,
+                        152
+                      ],
+                      [
+                        200,
+                        152
+                      ],
+                      [
+                        200,
+                        162
+                      ],
+                      [
+                        149,
+                        162
+                      ]
+                    ]
+                  },
+                  {
+                    "text": ".",
+                    "confidence": 0.8298805356025696,
+                    "bounding_box": [
+                      [
+                        200,
+                        152
+                      ],
+                      [
+                        202,
+                        152
+                      ],
+                      [
+                        202,
+                        162
+                      ],
+                      [
+                        200,
+                        162
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b5",
+            "page": 1,
+            "bounding_box": [
+              [
+                50,
+                195
+              ],
+              [
+                125,
+                194
+              ],
+              [
+                125,
+                206
+              ],
+              [
+                50,
+                207
+              ]
+            ],
+            "text": "Information : Key",
+            "confidence": 0.0,
+            "lines": [
+              {
+                "line_id": "p1_b5_l1",
+                "text": "Information : Key",
+                "confidence": 0.9231297969818115,
+                "words": [
+                  {
+                    "text": "Information",
+                    "confidence": 0.9858960509300232,
+                    "bounding_box": [
+                      [
+                        68,
+                        195
+                      ],
+                      [
+                        122,
+                        194
+                      ],
+                      [
+                        122,
+                        206
+                      ],
+                      [
+                        68,
+                        207
+                      ]
+                    ]
+                  },
+                  {
+                    "text": ":",
+                    "confidence": 0.8306299448013306,
+                    "bounding_box": [
+                      [
+                        121,
+                        194
+                      ],
+                      [
+                        125,
+                        194
+                      ],
+                      [
+                        125,
+                        205
+                      ],
+                      [
+                        121,
+                        205
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "Key",
+                    "confidence": 0.9528633952140808,
+                    "bounding_box": [
+                      [
+                        50,
+                        195
+                      ],
+                      [
+                        67,
+                        195
+                      ],
+                      [
+                        67,
+                        207
+                      ],
+                      [
+                        50,
+                        207
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b6",
+            "page": 1,
+            "bounding_box": [
+              [
+                58,
+                222
+              ],
+              [
+                192,
+                222
+              ],
+              [
+                192,
+                232
+              ],
+              [
+                58,
+                232
+              ]
+            ],
+            "text": "Document Type : Test Sample",
+            "confidence": 0.0,
+            "lines": [
+              {
+                "line_id": "p1_b6_l1",
+                "text": "Document Type : Test Sample",
+                "confidence": 0.9853224754333496,
+                "words": [
+                  {
+                    "text": "Document",
+                    "confidence": 0.9884501695632935,
+                    "bounding_box": [
+                      [
+                        58,
+                        222
+                      ],
+                      [
+                        105,
+                        222
+                      ],
+                      [
+                        105,
+                        232
+                      ],
+                      [
+                        58,
+                        232
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "Type",
+                    "confidence": 0.9920485019683838,
+                    "bounding_box": [
+                      [
+                        107,
+                        222
+                      ],
+                      [
+                        130,
+                        222
+                      ],
+                      [
+                        130,
+                        232
+                      ],
+                      [
+                        107,
+                        232
+                      ]
+                    ]
+                  },
+                  {
+                    "text": ":",
+                    "confidence": 0.9708667993545532,
+                    "bounding_box": [
+                      [
+                        130,
+                        222
+                      ],
+                      [
+                        133,
+                        222
+                      ],
+                      [
+                        133,
+                        232
+                      ],
+                      [
+                        130,
+                        232
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "Test",
+                    "confidence": 0.9906783103942871,
+                    "bounding_box": [
+                      [
+                        134,
+                        222
+                      ],
+                      [
+                        154,
+                        222
+                      ],
+                      [
+                        154,
+                        232
+                      ],
+                      [
+                        134,
+                        232
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "Sample",
+                    "confidence": 0.9845685958862305,
+                    "bounding_box": [
+                      [
+                        155,
+                        222
+                      ],
+                      [
+                        192,
+                        222
+                      ],
+                      [
+                        192,
+                        232
+                      ],
+                      [
+                        155,
+                        232
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b7",
+            "page": 1,
+            "bounding_box": [
+              [
+                57,
+                247
+              ],
+              [
+                176,
+                247
+              ],
+              [
+                176,
+                257
+              ],
+              [
+                57,
+                257
+              ]
+            ],
+            "text": "Date : September 15 , 2025",
+            "confidence": 0.0,
+            "lines": [
+              {
+                "line_id": "p1_b7_l1",
+                "text": "Date : September 15 , 2025",
+                "confidence": 0.9598613580067953,
+                "words": [
+                  {
+                    "text": "Date",
+                    "confidence": 0.9671729803085327,
+                    "bounding_box": [
+                      [
+                        57,
+                        247
+                      ],
+                      [
+                        78,
+                        247
+                      ],
+                      [
+                        78,
+                        257
+                      ],
+                      [
+                        57,
+                        257
+                      ]
+                    ]
+                  },
+                  {
+                    "text": ":",
+                    "confidence": 0.9685409665107727,
+                    "bounding_box": [
+                      [
+                        77,
+                        247
+                      ],
+                      [
+                        80,
+                        247
+                      ],
+                      [
+                        80,
+                        257
+                      ],
+                      [
+                        77,
+                        257
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "September",
+                    "confidence": 0.9889081716537476,
+                    "bounding_box": [
+                      [
+                        82,
+                        247
+                      ],
+                      [
+                        135,
+                        247
+                      ],
+                      [
+                        135,
+                        257
+                      ],
+                      [
+                        82,
+                        257
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "15",
+                    "confidence": 0.9665194153785706,
+                    "bounding_box": [
+                      [
+                        137,
+                        247
+                      ],
+                      [
+                        147,
+                        247
+                      ],
+                      [
+                        147,
+                        257
+                      ],
+                      [
+                        137,
+                        257
+                      ]
+                    ]
+                  },
+                  {
+                    "text": ",",
+                    "confidence": 0.8841893672943115,
+                    "bounding_box": [
+                      [
+                        146,
+                        247
+                      ],
+                      [
+                        149,
+                        247
+                      ],
+                      [
+                        149,
+                        257
+                      ],
+                      [
+                        146,
+                        257
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "2025",
+                    "confidence": 0.9838372468948364,
+                    "bounding_box": [
+                      [
+                        151,
+                        247
+                      ],
+                      [
+                        176,
+                        247
+                      ],
+                      [
+                        176,
+                        257
+                      ],
+                      [
+                        151,
+                        257
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b8",
+            "page": 1,
+            "bounding_box": [
+              [
+                57,
+                272
+              ],
+              [
+                116,
+                272
+              ],
+              [
+                116,
+                281
+              ],
+              [
+                57,
+                281
+              ]
+            ],
+            "text": "Status : Active",
+            "confidence": 0.0,
+            "lines": [
+              {
+                "line_id": "p1_b8_l1",
+                "text": "Status : Active",
+                "confidence": 0.8769331375757853,
+                "words": [
+                  {
+                    "text": "Status",
+                    "confidence": 0.9673169255256653,
+                    "bounding_box": [
+                      [
+                        57,
+                        272
+                      ],
+                      [
+                        85,
+                        272
+                      ],
+                      [
+                        85,
+                        281
+                      ],
+                      [
+                        57,
+                        281
+                      ]
+                    ]
+                  },
+                  {
+                    "text": ":",
+                    "confidence": 0.6734552979469299,
+                    "bounding_box": [
+                      [
+                        82,
+                        272
+                      ],
+                      [
+                        86,
+                        272
+                      ],
+                      [
+                        86,
+                        280
+                      ],
+                      [
+                        82,
+                        280
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "Active",
+                    "confidence": 0.9900271892547607,
+                    "bounding_box": [
+                      [
+                        88,
+                        272
+                      ],
+                      [
+                        116,
+                        272
+                      ],
+                      [
+                        116,
+                        280
+                      ],
+                      [
+                        88,
+                        280
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b9",
+            "page": 1,
+            "bounding_box": [
+              [
+                49,
+                317
+              ],
+              [
+                175,
+                318
+              ],
+              [
+                175,
+                328
+              ],
+              [
+                49,
+                327
+              ]
+            ],
+            "text": "Contact test@example.com",
+            "confidence": 0.0,
+            "lines": [
+              {
+                "line_id": "p1_b9_l1",
+                "text": "Contact test@example.com",
+                "confidence": 0.9787780344486237,
+                "words": [
+                  {
+                    "text": "Contact",
+                    "confidence": 0.9687160849571228,
+                    "bounding_box": [
+                      [
+                        49,
+                        317
+                      ],
+                      [
+                        84,
+                        317
+                      ],
+                      [
+                        84,
+                        327
+                      ],
+                      [
+                        49,
+                        327
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "test@example.com",
+                    "confidence": 0.9888399839401245,
+                    "bounding_box": [
+                      [
+                        87,
+                        317
+                      ],
+                      [
+                        175,
+                        318
+                      ],
+                      [
+                        175,
+                        328
+                      ],
+                      [
+                        87,
+                        327
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b10",
+            "page": 1,
+            "bounding_box": [
+              [
+                50,
+                342
+              ],
+              [
+                157,
+                342
+              ],
+              [
+                157,
+                351
+              ],
+              [
+                50,
+                351
+              ]
+            ],
+            "text": "Phone : ( 555 ) 123-4567",
+            "confidence": 0.0,
+            "lines": [
+              {
+                "line_id": "p1_b10_l1",
+                "text": "Phone : ( 555 ) 123-4567",
+                "confidence": 0.9804340898990631,
+                "words": [
+                  {
+                    "text": "Phone",
+                    "confidence": 0.9871256947517395,
+                    "bounding_box": [
+                      [
+                        50,
+                        342
+                      ],
+                      [
+                        80,
+                        342
+                      ],
+                      [
+                        80,
+                        351
+                      ],
+                      [
+                        50,
+                        351
+                      ]
+                    ]
+                  },
+                  {
+                    "text": ":",
+                    "confidence": 0.9779603481292725,
+                    "bounding_box": [
+                      [
+                        80,
+                        342
+                      ],
+                      [
+                        83,
+                        342
+                      ],
+                      [
+                        83,
+                        351
+                      ],
+                      [
+                        80,
+                        351
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "(",
+                    "confidence": 0.973983645439148,
+                    "bounding_box": [
+                      [
+                        85,
+                        342
+                      ],
+                      [
+                        88,
+                        342
+                      ],
+                      [
+                        88,
+                        351
+                      ],
+                      [
+                        85,
+                        351
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "555",
+                    "confidence": 0.9845169186592102,
+                    "bounding_box": [
+                      [
+                        88,
+                        342
+                      ],
+                      [
+                        106,
+                        342
+                      ],
+                      [
+                        106,
+                        351
+                      ],
+                      [
+                        88,
+                        351
+                      ]
+                    ]
+                  },
+                  {
+                    "text": ")",
+                    "confidence": 0.9791216850280762,
+                    "bounding_box": [
+                      [
+                        106,
+                        342
+                      ],
+                      [
+                        110,
+                        342
+                      ],
+                      [
+                        110,
+                        351
+                      ],
+                      [
+                        106,
+                        351
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "123-4567",
+                    "confidence": 0.9798962473869324,
+                    "bounding_box": [
+                      [
+                        113,
+                        342
+                      ],
+                      [
+                        157,
+                        342
+                      ],
+                      [
+                        157,
+                        351
+                      ],
+                      [
+                        113,
+                        351
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "extracted_assets": {
+    "signatures": [],
+    "tables": [],
+    "key_value_pairs": []
+  },
+  "preprocessing": {
+    "pipeline_version": "preproc-v2.4",
+    "generated_at": "2025-09-15T14:58:17.608914"
+  },
+  "warnings": []
+}

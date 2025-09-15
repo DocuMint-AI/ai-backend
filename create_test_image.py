@@ -67,14 +67,13 @@ def create_test_image():
 def main():
     """Create and save test image."""
     
-    # Create data directory if it doesn't exist
-    data_dir = "/home/sborra/Documents/projects/ai-backend/data"
-    os.makedirs(data_dir, exist_ok=True)
+        # Create test image directory (relative to script location)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(script_dir, "data")
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir, exist_ok=True)
     
-    # Create test image
-    image = create_test_image()
-    
-    # Save image
+    # Create the test image
     image_path = os.path.join(data_dir, "test_document.png")
     image.save(image_path, "PNG")
     

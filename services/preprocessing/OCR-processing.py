@@ -7,13 +7,18 @@ offering clean interfaces for text extraction from images.
 
 import logging
 import os
+import sys
 import hashlib
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Dict, Optional, Any, Tuple
 from datetime import datetime
 
+# Add project root to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from google.cloud import vision
+from project_utils import resolve_path, get_project_root
 from google.api_core import exceptions as gcp_exceptions
 
 # Optional dotenv support
@@ -128,12 +133,15 @@ class GoogleVisionOCR:
             >>> ocr = GoogleVisionOCR.from_env(["en", "fr"])
         """
         project_id = os.getenv("GOOGLE_CLOUD_PROJECT_ID")
-        credentials_path = os.getenv("GOOGLE_CLOUD_CREDENTIALS_PATH")
+        credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
         
         if not project_id:
             raise ValueError("GOOGLE_CLOUD_PROJECT_ID environment variable is required")
         if not credentials_path:
-            raise ValueError("GOOGLE_CLOUD_CREDENTIALS_PATH environment variable is required")
+            raise ValueError("GOOGLE_APPLICATION_CREDENTIALS environment variable is required")
+        
+        # Resolve credentials path relative to project root if needed
+        credentials_path = str(resolve_path(credentials_path))
         
         # Use provided language hints or get from environment
         if language_hints is None:

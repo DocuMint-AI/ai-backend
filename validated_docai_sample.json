@@ -1,0 +1,243 @@
+{
+  "document_id": "upload_20250915_abc12345",
+  "original_filename": "test_document.pdf",
+  "file_fingerprint": "sha256:abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+  "pdf_uri": null,
+  "derived_images": [
+    {
+      "page": 1,
+      "image_uri": "file:///data/test-abc123/images/page_001.png",
+      "width": 1240,
+      "height": 1754,
+      "dpi": 300
+    }
+  ],
+  "language_detection": {
+    "primary": "en",
+    "confidence": 0.95,
+    "language_hints": [
+      "en"
+    ]
+  },
+  "ocr_result": {
+    "full_text": "COMMERCIAL LEASE AGREEMENT\nThis Lease Agreement...",
+    "pages": [
+      {
+        "page": 1,
+        "width": 1240,
+        "height": 1754,
+        "page_confidence": 0.94,
+        "text_blocks": [
+          {
+            "block_id": "p1_b1",
+            "page": 1,
+            "bounding_box": [
+              [
+                55,
+                120
+              ],
+              [
+                1185,
+                120
+              ],
+              [
+                1185,
+                190
+              ],
+              [
+                55,
+                190
+              ]
+            ],
+            "text": "COMMERCIAL LEASE AGREEMENT",
+            "confidence": 0.995,
+            "lines": [
+              {
+                "line_id": "p1_b1_l1",
+                "text": "COMMERCIAL LEASE AGREEMENT",
+                "confidence": 0.995,
+                "words": [
+                  {
+                    "text": "COMMERCIAL",
+                    "confidence": 0.996,
+                    "bounding_box": [
+                      [
+                        55,
+                        120
+                      ],
+                      [
+                        400,
+                        120
+                      ],
+                      [
+                        400,
+                        190
+                      ],
+                      [
+                        55,
+                        190
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "LEASE",
+                    "confidence": 0.994,
+                    "bounding_box": [
+                      [
+                        410,
+                        120
+                      ],
+                      [
+                        600,
+                        120
+                      ],
+                      [
+                        600,
+                        190
+                      ],
+                      [
+                        410,
+                        190
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "AGREEMENT",
+                    "confidence": 0.993,
+                    "bounding_box": [
+                      [
+                        610,
+                        120
+                      ],
+                      [
+                        1185,
+                        120
+                      ],
+                      [
+                        1185,
+                        190
+                      ],
+                      [
+                        610,
+                        190
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b2",
+            "page": 1,
+            "bounding_box": [
+              [
+                55,
+                220
+              ],
+              [
+                800,
+                220
+              ],
+              [
+                800,
+                270
+              ],
+              [
+                55,
+                270
+              ]
+            ],
+            "text": "This Lease Agreement is entered into...",
+            "confidence": 0.89,
+            "lines": [
+              {
+                "line_id": "p1_b2_l1",
+                "text": "This Lease Agreement is entered into...",
+                "confidence": 0.89,
+                "words": [
+                  {
+                    "text": "This",
+                    "confidence": 0.92,
+                    "bounding_box": [
+                      [
+                        55,
+                        220
+                      ],
+                      [
+                        95,
+                        220
+                      ],
+                      [
+                        95,
+                        270
+                      ],
+                      [
+                        55,
+                        270
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "Lease",
+                    "confidence": 0.9,
+                    "bounding_box": [
+                      [
+                        105,
+                        220
+                      ],
+                      [
+                        165,
+                        220
+                      ],
+                      [
+                        165,
+                        270
+                      ],
+                      [
+                        105,
+                        270
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "extracted_assets": {
+    "signatures": [
+      {
+        "signature_id": "sig1",
+        "page": 1,
+        "block_id": "p1_b3",
+        "image_uri": "file:///data/test-abc123/signatures/sig1.png"
+      }
+    ],
+    "tables": [],
+    "key_value_pairs": [
+      {
+        "key": "Tenant Name",
+        "value": "John Doe",
+        "confidence": 0.95,
+        "page": 1,
+        "block_id": "p1_b4"
+      }
+    ]
+  },
+  "preprocessing": {
+    "pipeline_version": "preproc-v2.4",
+    "generated_at": "2025-09-15T13:23:47.635316"
+  },
+  "warnings": [
+    {
+      "page": 1,
+      "block_id": "p1_b2",
+      "code": "LOW_CONFIDENCE",
+      "message": "Block confidence (0.89) below threshold"
+    }
+  ]
+}

@@ -26,12 +26,12 @@ Thumbs.db
 *.log
 
 # Data and cache
-/data/
+#/data/
 *.sqlite3
 *.db
 
 # Credentials and secrets
-*.json
+#*.json
 *.pem
 *.key
 *.crt

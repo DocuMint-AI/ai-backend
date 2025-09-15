@@ -43,7 +43,8 @@ def test_vision_api_connection():
         
         # Test 2: Test OCR on our test image
         print("\n2. Testing OCR on test image...")
-        test_image_path = "/home/sborra/Documents/projects/ai-backend/data/test_document.png"
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        test_image_path = os.path.join(script_dir, "data", "test_document.png")
         
         if not os.path.exists(test_image_path):
             print(f"✗ Test image not found: {test_image_path}")
@@ -122,7 +123,7 @@ def test_vision_api_connection():
             
             # Save the result
             import json
-            output_path = "/home/sborra/Documents/projects/ai-backend/data/test_ocr_result.json"
+            output_path = os.path.join(script_dir, "data", "test_ocr_result.json")
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump({
                     "document_id": docai_doc.document_id,

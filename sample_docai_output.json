@@ -1,0 +1,309 @@
+{
+  "document_id": "upload_20250915_abc12345",
+  "original_filename": "test_document.pdf",
+  "file_fingerprint": "sha256:abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+  "pdf_uri": null,
+  "derived_images": [
+    {
+      "page": 1,
+      "image_uri": "file:///data/test-abc123/images/page_001.png",
+      "width": 1240,
+      "height": 1754,
+      "dpi": 300
+    }
+  ],
+  "language_detection": {
+    "primary": "en",
+    "confidence": 0.95,
+    "language_hints": [
+      "en"
+    ]
+  },
+  "ocr_result": {
+    "full_text": "SAMPLE DOCUMENT\nThis is a test document for validation.",
+    "pages": {
+      "1": {
+        "page": 1,
+        "width": 1240,
+        "height": 1754,
+        "page_confidence": 0.92,
+        "text_blocks": [
+          {
+            "block_id": "p1_b1",
+            "page": 1,
+            "bounding_box": [
+              [
+                100,
+                50
+              ],
+              [
+                800,
+                50
+              ],
+              [
+                800,
+                120
+              ],
+              [
+                100,
+                120
+              ]
+            ],
+            "text": "SAMPLE DOCUMENT",
+            "confidence": 0.98,
+            "lines": [
+              {
+                "line_id": "p1_b1_l1",
+                "text": "SAMPLE DOCUMENT",
+                "confidence": 0.98,
+                "words": [
+                  {
+                    "text": "SAMPLE",
+                    "confidence": 0.99,
+                    "bounding_box": [
+                      [
+                        100,
+                        50
+                      ],
+                      [
+                        350,
+                        50
+                      ],
+                      [
+                        350,
+                        120
+                      ],
+                      [
+                        100,
+                        120
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "DOCUMENT",
+                    "confidence": 0.97,
+                    "bounding_box": [
+                      [
+                        360,
+                        50
+                      ],
+                      [
+                        800,
+                        50
+                      ],
+                      [
+                        800,
+                        120
+                      ],
+                      [
+                        360,
+                        120
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block_id": "p1_b2",
+            "page": 1,
+            "bounding_box": [
+              [
+                100,
+                150
+              ],
+              [
+                900,
+                150
+              ],
+              [
+                900,
+                200
+              ],
+              [
+                100,
+                200
+              ]
+            ],
+            "text": "This is a test document for validation.",
+            "confidence": 0.88,
+            "lines": [
+              {
+                "line_id": "p1_b2_l1",
+                "text": "This is a test document for validation.",
+                "confidence": 0.88,
+                "words": [
+                  {
+                    "text": "This",
+                    "confidence": 0.9,
+                    "bounding_box": [
+                      [
+                        100,
+                        150
+                      ],
+                      [
+                        150,
+                        150
+                      ],
+                      [
+                        150,
+                        200
+                      ],
+                      [
+                        100,
+                        200
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "is",
+                    "confidence": 0.95,
+                    "bounding_box": [
+                      [
+                        160,
+                        150
+                      ],
+                      [
+                        190,
+                        150
+                      ],
+                      [
+                        190,
+                        200
+                      ],
+                      [
+                        160,
+                        200
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "a",
+                    "confidence": 0.85,
+                    "bounding_box": [
+                      [
+                        200,
+                        150
+                      ],
+                      [
+                        220,
+                        150
+                      ],
+                      [
+                        220,
+                        200
+                      ],
+                      [
+                        200,
+                        200
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "test",
+                    "confidence": 0.92,
+                    "bounding_box": [
+                      [
+                        230,
+                        150
+                      ],
+                      [
+                        280,
+                        150
+                      ],
+                      [
+                        280,
+                        200
+                      ],
+                      [
+                        230,
+                        200
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "document",
+                    "confidence": 0.88,
+                    "bounding_box": [
+                      [
+                        290,
+                        150
+                      ],
+                      [
+                        400,
+                        150
+                      ],
+                      [
+                        400,
+                        200
+                      ],
+                      [
+                        290,
+                        200
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "for",
+                    "confidence": 0.9,
+                    "bounding_box": [
+                      [
+                        410,
+                        150
+                      ],
+                      [
+                        450,
+                        150
+                      ],
+                      [
+                        450,
+                        200
+                      ],
+                      [
+                        410,
+                        200
+                      ]
+                    ]
+                  },
+                  {
+                    "text": "validation.",
+                    "confidence": 0.82,
+                    "bounding_box": [
+                      [
+                        460,
+                        150
+                      ],
+                      [
+                        580,
+                        150
+                      ],
+                      [
+                        580,
+                        200
+                      ],
+                      [
+                        460,
+                        200
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "extracted_assets": {
+    "signatures": [],
+    "tables": [],
+    "key_value_pairs": []
+  },
+  "preprocessing": {
+    "pipeline_version": "preproc-v2.4",
+    "generated_at": "2025-09-15T13:15:29.995008"
+  },
+  "warnings": []
+}

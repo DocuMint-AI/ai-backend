@@ -66,7 +66,7 @@ app = FastAPI(
 # Global configuration from environment variables
 CONFIG = {
     "google_project_id": os.getenv("GOOGLE_CLOUD_PROJECT_ID"),
-    "google_credentials_path": os.getenv("GOOGLE_CLOUD_CREDENTIALS_PATH"),
+    "google_credentials_path": os.getenv("GOOGLE_APPLICATION_CREDENTIALS"),
     "data_root": os.getenv("DATA_ROOT", "/data"),
     "image_format": os.getenv("IMAGE_FORMAT", "PNG"),
     "image_dpi": int(os.getenv("IMAGE_DPI", "300")),
@@ -688,7 +688,7 @@ if __name__ == "__main__":
     Run the FastAPI application.
     """
     # Validate configuration
-    required_env_vars = ["GOOGLE_CLOUD_PROJECT_ID", "GOOGLE_CLOUD_CREDENTIALS_PATH"]
+    required_env_vars = ["GOOGLE_CLOUD_PROJECT_ID", "GOOGLE_APPLICATION_CREDENTIALS"]
     missing_vars = [var for var in required_env_vars if not os.getenv(var)]
     
     if missing_vars:
