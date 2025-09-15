@@ -8,6 +8,8 @@ file management, and metadata handling for the AI backend system.
 import json
 import logging
 import os
+import subprocess
+import sys
 import uuid
 from datetime import datetime
 from pathlib import Path
@@ -471,6 +473,211 @@ def validate_pdf_file(file_path: str) -> bool:
         return False
 
 
+def execute_data_purge(
+    operation: str = "quick",
+    dry_run: bool = True,
+    backup: bool = False
+) -> Dict[str, Any]:
+    """
+    Execute data purge operation using the purge.py script.
+    
+    Args:
+        operation: Type of purge operation ('quick', 'standard', 'full', 'nuclear')
+        dry_run: Whether to perform a dry run (preview only)
+        backup: Whether to create backup before deletion
+        
+    Returns:
+        Dictionary containing purge results
+        
+    Example:
+        >>> result = execute_data_purge("quick", dry_run=True)
+        >>> print(f"Would delete {result['preview']['total_files']} files")
+    """
+    try:
+        # Get project root directory
+        current_dir = Path(__file__).parent.parent.absolute()
+        script_path = current_dir / "scripts" / "purge.py"
+        
+        if not script_path.exists():
+            return {
+                "error": f"Purge script not found: {script_path}",
+                "success": False
+            }
+        
+        # Build command
+        cmd = [sys.executable, str(script_path)]
+        
+        # Add operation flag
+        if operation == "quick":
+            cmd.append("--quick")
+        elif operation == "standard":
+            cmd.append("--standard")
+        elif operation == "full":
+            cmd.append("--full")
+        elif operation == "nuclear":
+            cmd.append("--nuclear")
+        else:
+            return {
+                "error": f"Invalid operation: {operation}",
+                "success": False
+            }
+        
+        # Add options
+        if dry_run:
+            cmd.append("--dry-run")
+        if backup:
+            cmd.append("--backup")
+        
+        # Always use JSON output for API
+        cmd.append("--json")
+        cmd.append("--yes")  # Skip confirmation prompts
+        
+        logger.info(f"Executing purge command: {' '.join(cmd)}")
+        
+        # Execute command
+        result = subprocess.run(
+            cmd,
+            cwd=str(current_dir),
+            capture_output=True,
+            text=True,
+            timeout=300  # 5 minute timeout
+        )
+        
+        if result.returncode == 0:
+            try:
+                # Parse JSON output from script
+                output_data = json.loads(result.stdout)
+                output_data["success"] = True
+                logger.info(f"Purge operation '{operation}' completed successfully")
+                return output_data
+            except json.JSONDecodeError as e:
+                logger.error(f"Failed to parse purge script output: {e}")
+                return {
+                    "error": "Failed to parse purge script output",
+                    "raw_output": result.stdout,
+                    "success": False
+                }
+        else:
+            logger.error(f"Purge script failed with return code {result.returncode}")
+            return {
+                "error": f"Purge script failed: {result.stderr}",
+                "return_code": result.returncode,
+                "success": False
+            }
+            
+    except subprocess.TimeoutExpired:
+        logger.error("Purge operation timed out")
+        return {
+            "error": "Purge operation timed out (>5 minutes)",
+            "success": False
+        }
+    except Exception as e:
+        logger.error(f"Error executing purge operation: {e}")
+        return {
+            "error": f"Purge execution error: {str(e)}",
+            "success": False
+        }
+
+
+def get_data_usage_summary() -> Dict[str, Any]:
+    """
+    Get summary of data directory usage and file counts.
+    
+    Returns:
+        Dictionary containing usage statistics
+        
+    Example:
+        >>> usage = get_data_usage_summary()
+        >>> print(f"Total size: {usage['total_size_formatted']}")
+    """
+    try:
+        # Get project root directory
+        current_dir = Path(__file__).parent.parent.absolute()
+        data_dir = current_dir / "data"
+        
+        if not data_dir.exists():
+            return {
+                "error": "Data directory not found",
+                "success": False
+            }
+        
+        def calculate_dir_size(directory: Path) -> Tuple[int, int]:
+            """Calculate total size and file count for directory."""
+            total_size = 0
+            file_count = 0
+            
+            try:
+                for item in directory.rglob("*"):
+                    if item.is_file():
+                        total_size += item.stat().st_size
+                        file_count += 1
+            except (PermissionError, OSError):
+                pass
+            
+            return total_size, file_count
+        
+        def format_size(size_bytes: int) -> str:
+            """Format bytes as human readable string."""
+            for unit in ['B', 'KB', 'MB', 'GB']:
+                if size_bytes < 1024.0:
+                    return f"{size_bytes:.1f} {unit}"
+                size_bytes /= 1024.0
+            return f"{size_bytes:.1f} TB"
+        
+        # Calculate usage for different categories
+        categories = {
+            "uploads": data_dir / "uploads",
+            "processed": data_dir.glob("*-*/"),  # Processing result folders
+            "temp": data_dir / "temp",
+            "test_files": data_dir / "test-files",
+            "logs": data_dir / "logs",
+            "credentials": data_dir / ".cheetah"
+        }
+        
+        usage_summary = {
+            "data_directory": str(data_dir),
+            "categories": {},
+            "total_size": 0,
+            "total_files": 0,
+            "last_updated": datetime.now().isoformat()
+        }
+        
+        for category, path_pattern in categories.items():
+            category_size = 0
+            category_files = 0
+            
+            if isinstance(path_pattern, Path) and path_pattern.exists():
+                category_size, category_files = calculate_dir_size(path_pattern)
+            elif hasattr(path_pattern, '__iter__'):  # glob pattern
+                for folder in path_pattern:
+                    if folder.is_dir():
+                        size, files = calculate_dir_size(folder)
+                        category_size += size
+                        category_files += files
+            
+            usage_summary["categories"][category] = {
+                "size_bytes": category_size,
+                "size_formatted": format_size(category_size),
+                "file_count": category_files
+            }
+            
+            usage_summary["total_size"] += category_size
+            usage_summary["total_files"] += category_files
+        
+        usage_summary["total_size_formatted"] = format_size(usage_summary["total_size"])
+        usage_summary["success"] = True
+        
+        logger.info(f"Data usage calculated: {usage_summary['total_size_formatted']}")
+        return usage_summary
+        
+    except Exception as e:
+        logger.error(f"Error calculating data usage: {e}")
+        return {
+            "error": f"Failed to calculate data usage: {str(e)}",
+            "success": False
+        }
+
+
 if __name__ == "__main__":
     """
     Demo usage of PDF processing utilities.
@@ -493,6 +700,17 @@ if __name__ == "__main__":
         # Get processing folders
         folders = converter.get_processing_folders()
         print(f"Found {len(folders)} existing processing folders")
+        
+        # Test data usage summary
+        usage = get_data_usage_summary()
+        if usage.get("success"):
+            print(f"Data usage: {usage['total_size_formatted']} ({usage['total_files']} files)")
+        
+        # Test purge operation (dry run)
+        purge_result = execute_data_purge("quick", dry_run=True)
+        if purge_result.get("success"):
+            preview = purge_result.get("preview", {})
+            print(f"Quick purge preview: {preview.get('total_files', 0)} files")
         
     except Exception as e:
         print(f"Demo error: {e}")

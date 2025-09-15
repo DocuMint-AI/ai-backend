@@ -683,6 +683,133 @@ async def cleanup_processing_folder(uid: str):
         )
 
 
+# Pydantic models for purge operations
+class PurgeRequest(BaseModel):
+    operation: str = Field(..., description="Type of purge operation", 
+                          regex="^(quick|standard|full|nuclear)$")
+    dry_run: bool = Field(default=True, description="Whether to perform a dry run")
+    backup: bool = Field(default=False, description="Whether to create backup before deletion")
+
+
+class PurgeResponse(BaseModel):
+    operation: str
+    dry_run: bool
+    success: bool
+    preview: Dict[str, Any]
+    deleted_items: Optional[List[str]] = None
+    backup_dir: Optional[str] = None
+    error: Optional[str] = None
+
+
+class DataUsageResponse(BaseModel):
+    success: bool
+    data_directory: str
+    categories: Dict[str, Dict[str, Any]]
+    total_size: int
+    total_size_formatted: str
+    total_files: int
+    last_updated: str
+    error: Optional[str] = None
+
+
+@app.post("/admin/purge", response_model=PurgeResponse)
+async def execute_purge_operation(request: PurgeRequest):
+    """
+    Execute data purge operation.
+    
+    This endpoint allows cleaning up various categories of data files:
+    - quick: Remove uploads and temp files
+    - standard: Remove processing results, logs, temp files
+    - full: Remove all generated data (safe categories)
+    - nuclear: Remove EVERYTHING including test files and credentials
+    
+    Args:
+        request: Purge operation parameters
+        
+    Returns:
+        Purge operation results
+        
+    Example:
+        POST /admin/purge
+        {
+            "operation": "quick",
+            "dry_run": true,
+            "backup": false
+        }
+    """
+    try:
+        logger.info(f"Executing purge operation: {request.operation}, dry_run={request.dry_run}")
+        
+        result = util_services.execute_data_purge(
+            operation=request.operation,
+            dry_run=request.dry_run,
+            backup=request.backup
+        )
+        
+        if not result.get("success"):
+            raise HTTPException(
+                status_code=500,
+                detail=result.get("error", "Purge operation failed")
+            )
+        
+        return PurgeResponse(**result)
+        
+    except Exception as e:
+        logger.error(f"Purge operation error: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Purge operation failed: {str(e)}"
+        )
+
+
+@app.get("/admin/data-usage", response_model=DataUsageResponse)
+async def get_data_usage():
+    """
+    Get data directory usage summary.
+    
+    Returns information about data directory usage including:
+    - File counts and sizes by category
+    - Total usage statistics
+    - Last updated timestamp
+    
+    Returns:
+        Data usage statistics
+        
+    Example:
+        GET /admin/data-usage
+        
+        Response:
+        {
+            "success": true,
+            "total_size_formatted": "25.3 MB",
+            "total_files": 142,
+            "categories": {
+                "uploads": {"size_formatted": "5.2 MB", "file_count": 3},
+                "processed": {"size_formatted": "18.1 MB", "file_count": 125}
+            }
+        }
+    """
+    try:
+        logger.info("Calculating data usage summary")
+        
+        result = util_services.get_data_usage_summary()
+        
+        if not result.get("success"):
+            raise HTTPException(
+                status_code=500,
+                detail=result.get("error", "Failed to calculate data usage")
+            )
+        
+        return DataUsageResponse(**result)
+        
+    except Exception as e:
+        logger.error(f"Data usage calculation error: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to get data usage: {str(e)}"
+        )
+
+
 if __name__ == "__main__":
     """
     Run the FastAPI application.
