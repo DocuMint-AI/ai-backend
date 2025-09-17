@@ -1,735 +1,278 @@
-# AI Backend OCR Pipeline# AI Backend OCR Pipeline# AI Backend OCR Pipeline
+# AI Backend Document Processing API
 
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green)](https://fastapi.tiangolo.com/)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue)](https://www.python.org/)
+[![Google Cloud Vision](https://img.shields.io/badge/Google%20Cloud-Vision%20API-red)](https://cloud.google.com/vision)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
+A high-performance FastAPI service for PDF document processing, OCR (Optical Character Recognition), and text parsing using Google Cloud Vision API. Features DocAI-compatible output format and modular router architecture for scalability.
 
-A production-ready OCR pipeline that integrates **Google Cloud Vision API** with **DocAI schema compliance**. This FastAPI-based service processes documents (PDFs, images) and returns structured OCR results in standardized DocAI format.
+## 🚀 Features
 
+- **PDF Processing**: Convert PDF documents to high-quality images
+- **OCR Integration**: Google Cloud Vision API for accurate text extraction
+- **DocAI Compatible**: Output format compatible with Google Document AI
+- **Multi-language Support**: Configurable language hints for better OCR accuracy
+- **File Management**: Upload, process, and manage document processing workflows
+- **Admin Tools**: Data purge operations and usage analytics
+- **Modular Architecture**: Router-based design for easy feature expansion
+- **Background Processing**: Async processing for large documents
+- **Health Monitoring**: Comprehensive health checks and status endpoints
 
+## 📋 Prerequisites
 
-## 🎯 Project OverviewA production-ready OCR pipeline with **DocAI schema compliance** and **Google Vision API integration**.  A production-ready OCR pipeline with **DocAI schema compliance** and **Google Vision API integration**.  
+- Python 3.8 or higher
+- Google Cloud Project with Vision API enabled
+- Google Cloud Service Account with Vision API permissions
 
+## 🛠 Installation
 
-
-This AI backend provides a complete document processing pipeline that:Built with **FastAPI**, **Google Cloud Vision**, and **virtual environment support**.Built with **FastAPI**, **Google Cloud Vision**, and **virtual environment support**.
-
-- Extracts text from PDFs and images using Google Cloud Vision API
-
-- Transforms OCR results into DocAI-compliant JSON format
-
-- Offers RESTful API endpoints for upload, processing, and result retrieval
-
-- Supports multi-language document processing (English, Spanish, French)## 🎯 Key Features## 🎯 Key Features
-
-- Maintains stable document identifiers and structured output
-
-
-
-## ✨ Key Features
-
-- ✅ **DocAI Schema Compliance**: Output strictly follows DocAI format with stable identifiers- ✅ **DocAI Schema Compliance**: Output strictly follows DocAI format with stable identifiers
-
-- **DocAI Schema Compliance**: Standardized output format with stable identifiers
-
-- **Google Vision Integration**: High-accuracy OCR with confidence scores- ✅ **Google Vision API**: High-accuracy OCR with multi-language support (EN, ES, FR)- ✅ **Google Vision API**: High-accuracy OCR with multi-language support (EN, ES, FR)
-
-- **FastAPI Framework**: Production-ready API with automatic documentation
-
-- **Multi-language Support**: Process documents in EN, ES, FR- ✅ **Production Ready**: FastAPI with health monitoring and comprehensive error handling- ✅ **Production Ready**: FastAPI with health monitoring and comprehensive error handling
-
-- **Virtual Environment**: Isolated Python dependencies
-
-- **Health Monitoring**: Built-in health checks and error handling- ✅ **Virtual Environment**: Isolated Python environment with automated setup- ✅ **Virtual Environment**: Isolated Python environment with automated setup
-
-- **Portable Architecture**: Relative paths work across different systems
-
-- ✅ **Portable Architecture**: Relative paths work across different systems- ✅ **Portable Architecture**: Relative paths work across different systems
-
-## 🚀 Quick Setup Instructions
-
-- ✅ **Complete API**: Upload, process, and retrieve results via REST endpoints- ✅ **Complete API**: Upload, process, and retrieve results via REST endpoints
-
-### Prerequisites
-
-
-
-Before starting, ensure you have:
-
-- **Python 3.8+** installed## 🚀 Quick Start Setup## 🚀 Quick Start
-
-- **Google Cloud Project** with billing enabled
-
-- **Service Account** with Vision API permissions
-
-
-
-### Step 1: Environment SetupGet your DocAI-compliant OCR pipeline running in 5 minutes!### Option 1: Automated Setup (Recommended)
-
-
-
-```bash```bash
-
-# Clone the repository
-
-git clone <your-repository-url>### Prerequisites ✅# Clone and run setup
-
-cd ai-backend
-
-git clone <repository-url>
-
-# Run automated setup script
-
-./setup.sh                    # Linux/macOS- **Python 3.8+** (check: `python3 --version`)cd ai-backend
-
-# OR
-
-setup.bat                     # Windows- **Google Cloud Project** with billing enabled./setup.sh                    # Linux/macOS
-
-
-
-# This will:- **Service Account** with Vision API permissions# OR setup.bat                # Windows
-
-# - Create virtual environment
-
-# - Install all dependencies
-
-# - Set up directory structure
-
-```### Step 1: Clone & Setup ⚡# Configure Google Cloud (see QUICKSTART.md)
-
-
-
-### Step 2: Google Cloud Configuration# Then test:
-
-
-
-1. **Create Service Account**:```bashpython test_vision_connection.py
-
-   - Go to [Google Cloud Console](https://console.cloud.google.com/)
-
-   - Enable Cloud Vision API# Clone the repositorypython services/processing-handler.py
-
-   - Create Service Account with Vision API permissions
-
-   - Download JSON credentials filegit clone <repository-url>```
-
-
-
-2. **Configure Credentials**:cd ai-backend
-
-   ```bash
-
-   # Place your credentials file here:### Option 2: Manual Setup
-
-   cp your-service-account.json data/.cheetah/gcloud/vision-credentials.json
-
-   ```# Run automated setup```bash
-
-
-
-3. **Update Environment Variables**:./setup.sh                    # Linux/macOS# Create virtual environment
-
-   Edit `.env` file with your project details:
-
-   ```env# ORpython3 -m venv venv
-
-   GOOGLE_CLOUD_PROJECT_ID=your-project-id
-
-   GOOGLE_APPLICATION_CREDENTIALS=./data/.cheetah/gcloud/vision-credentials.jsonsetup.bat                     # Windowssource venv/bin/activate       # Linux/macOS
-
-   ```
-
-# venv\\Scripts\\activate.bat   # Windows
-
-### Step 3: Verify Installation
-
-# This creates virtual environment and installs all dependencies
-
+### 1. Clone the Repository
 ```bash
-
-# Activate virtual environment```# Install dependencies
-
-source venv/bin/activate       # Linux/macOS
-
-# venv\Scripts\activate.bat    # Windowspip install -r requirements.txt
-
-
-
-# Test Google Vision connection### Step 2: Google Cloud Configuration 🔧
-
-python test_vision_connection.py
-
-# Configure environment (see docs/README-COMPLETE.md)
-
-# Expected output:
-
-# ✓ OCR instance created successfully#### 2.1 Get Your Credentials```
-
-# ✓ OCR processing completed successfully
-
-# ✓ DocAI document created successfully1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-
-# 🎉 SUCCESS: Google Vision API is working correctly!
-
-```2. Create/select your project## 📚 Documentation
-
-
-
-### Step 4: Start the Server3. Enable **Cloud Vision API**
-
-
-
-```bash4. Create **Service Account** → Download JSON credentials- **[🚀 QUICKSTART.md](QUICKSTART.md)** - Get running in 5 minutes
-
-# Start FastAPI server
-
-python services/processing-handler.py- **[📖 Complete Guide](docs/README-COMPLETE.md)** - Full documentation
-
-
-
-# Server will start on: http://localhost:8000#### 2.2 Place Credentials- **[🔧 API Docs](http://localhost:8000/docs)** - Interactive API documentation (when server is running)
-
-# API documentation: http://localhost:8000/docs
-
-``````bash
-
-
-
-### Step 5: Test the API# Save your credentials file as:## 🏗️ Architecture
-
-
-
-```bashcp your-downloaded-file.json data/.cheetah/gcloud/vision-credentials.json
-
-# Health check
-
-curl http://localhost:8000/health```### Project Structure
-
-
-
-# Upload a document```
-
-curl -X POST "http://localhost:8000/upload" \
-
-     -F "file=@your-document.pdf"#### 2.3 Update Project IDai-backend/
-
-
-
-# Process with OCR (use UID from upload response)Edit `.env` file:├── 📁 data/                          # Data directory (gitignored)
-
-curl -X POST "http://localhost:8000/ocr-process" \
-
-     -H "Content-Type: application/json" \```env│   ├── .cheetah/gcloud/             # Google Cloud credentials
-
-     -d '{"uid": "your-document-uid"}'
-
-GOOGLE_CLOUD_PROJECT_ID=your-actual-project-id│   ├── uploads/                      # Uploaded files
-
-# Get results in DocAI format
-
-curl http://localhost:8000/results/your-document-uid```│   └── processed/                    # Processed files
-
+git clone https://github.com/DocuMint-AI/ai-backend.git
+cd ai-backend
 ```
 
-├── 📁 services/                      # Core services
-
-## 📁 Project Structure
-
-### Step 3: Test Everything 🧪│   ├── preprocessing/
-
+### 2. Set Up Virtual Environment
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-ai-backend/│   │   ├── OCR-processing.py        # Google Vision OCR wrapper
-
-├── services/                     # Core application services
-
-│   ├── preprocessing/```bash│   │   └── parsing.py               # Text parsing utilities
-
-│   │   ├── OCR-processing.py    # Google Vision OCR wrapper
-
-│   │   └── parsing.py           # Text processing utilities# Activate environment│   ├── processing-handler.py        # FastAPI endpoints
-
-│   ├── processing-handler.py    # FastAPI main application
-
-│   ├── project_utils.py         # Path and utility functionssource venv/bin/activate       # Linux/macOS│   ├── project_utils.py             # Path utilities
-
-│   └── util-services.py         # Helper services
-
-├── data/                         # Data storage (gitignored)# venv\\Scripts\\activate.bat   # Windows│   └── util-services.py             # Utility functions
-
-│   ├── .cheetah/gcloud/         # Google Cloud credentials
-
-│   ├── uploads/                 # Uploaded documents├── 📁 tests/                         # Test files
-
-│   └── test-files/              # Test data
-
-├── tests/                        # Test suite# Test connection├── 📁 docs/                          # Documentation
-
-├── docs/                         # Documentation
-
-├── models/                       # Configuration filespython test_vision_connection.py├── 📁 venv/                          # Virtual environment
-
-├── venv/                         # Virtual environment
-
-├── requirements.txt              # Python dependencies├── 📄 requirements.txt               # Python dependencies
-
-├── setup.sh / setup.bat          # Setup scripts
-
-└── .env                          # Environment configuration# Expected output:├── 🔧 setup.sh / setup.bat          # Setup scripts
-
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
 ```
 
-# ✓ OCR instance created successfully└── ⚙️ .env                          # Environment configuration
+### 4. Configure Environment Variables
+Create a `.env` file in the project root:
 
-## 🔌 API Endpoints
-
-# ✓ OCR processing completed successfully  ```
-
-| Method | Endpoint | Description |
-
-|--------|----------|-------------|# ✓ DocAI document created successfully
-
-| `GET` | `/health` | System health check |
-
-| `POST` | `/upload` | Upload PDF/image files |# 🎉 SUCCESS: Google Vision API is working correctly!### API Endpoints
-
-| `POST` | `/ocr-process` | Process documents with OCR |
-
-| `GET` | `/results/{uid}` | Retrieve DocAI-formatted results |```- `GET /health` - System health check
-
-| `GET` | `/docs` | Interactive API documentation |
-
-- `POST /upload` - Upload PDF/image files
-
-## 📊 DocAI Output Format
-
-### Step 4: Start the Server 🌐- `POST /ocr-process` - Process documents with OCR
-
-The pipeline produces standardized DocAI-compliant JSON:
-
-- `GET /results/{uid}` - Retrieve DocAI-formatted results
-
-```json
-
-{```bash- `GET /docs` - Interactive API documentation
-
-  "document_id": "doc_20250915_141650_abc123",
-
-  "original_filename": "document.pdf",# Start FastAPI server
-
-  "ocr_result": {
-
-    "pages": [python services/processing-handler.py## 📋 Requirements
-
-      {
-
-        "page": 1,
-
-        "text_blocks": [
-
-          {# Server starts on: http://localhost:8000- **Python 3.8+**
-
-            "block_id": "block_001",
-
-            "text": "Extracted text content...",```- **Google Cloud Project** with Vision API enabled
-
-            "confidence": 0.98,
-
-            "bounding_box": [100, 200, 500, 250],- **Service Account** with Vision API permissions
-
-            "lines": [...]
-
-          }### Step 5: Test the API 📡- **Billing enabled** on Google Cloud project
-
-        ]
-
-      }
-
-    ]
-
-  },#### Health Check## 🧪 Testing
-
-  "language_detection": {
-
-    "primary": "en",```bash
-
-    "confidence": 0.98
-
-  },curl http://localhost:8000/health```bash
-
-  "preprocessing": {
-
-    "pipeline_version": "2.0.0"```# Activate environment
-
-  },
-
-  "warnings": []source venv/bin/activate
-
-}
-
-```#### Upload a Document
-
-
-
-## ⚙️ Configuration```bash# Test Google Vision connection
-
-
-
-Key environment variables in `.env`:curl -X POST "http://localhost:8000/upload" \python test_vision_connection.py
-
-
-
-```env     -F "file=@your-document.pdf"
-
+```env
 # Google Cloud Configuration
+GOOGLE_CLOUD_PROJECT_ID=your-project-id
+GOOGLE_APPLICATION_CREDENTIALS=path/to/your/credentials.json
 
-GOOGLE_CLOUD_PROJECT_ID=your-project-id# Run unit tests
-
-GOOGLE_APPLICATION_CREDENTIALS=./data/.cheetah/gcloud/vision-credentials.json
-
-# Returns: {"uid": "doc_20250915_...", "status": "uploaded"}python -m pytest tests/
-
-# OCR Processing Settings
-
-LANGUAGE_HINTS=en,es,fr```
-
+# Application Configuration
+DATA_ROOT=./data
+IMAGE_FORMAT=PNG
+IMAGE_DPI=300
+LANGUAGE_HINTS=en,es,fr
 MAX_FILE_SIZE_MB=50
-
-PDF_DPI=300# Test health endpoint
-
-
-
-# Server Configuration#### Process with OCRcurl http://localhost:8000/health
-
-API_HOST=0.0.0.0
-
-API_PORT=8000```bash```
-
 ```
 
+### 5. Set Up Google Cloud Credentials
+```bash
+# Download your service account key file from Google Cloud Console
+# Place it in a secure location and update GOOGLE_APPLICATION_CREDENTIALS
+```
+
+## 🚀 Quick Start
+
+### Development Mode
+```bash
+# Start the development server
+python main.py
+
+# Or using uvicorn with auto-reload
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+### Production Mode
+```bash
+uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
+```
+
+### Access the API
+- **API Documentation**: http://localhost:8000/docs
+- **Alternative Docs**: http://localhost:8000/redoc
+- **Health Check**: http://localhost:8000/health
+
+## 📚 API Endpoints
+
+### Core Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/` | API information and available endpoints |
+| `GET` | `/health` | Health check and service status |
+| `POST` | `/upload` | Upload PDF files for processing |
+| `POST` | `/ocr-process` | Process uploaded PDFs with OCR |
+| `GET` | `/results/{uid}` | Retrieve processing results |
+| `GET` | `/folders` | List all processing folders |
+| `DELETE` | `/cleanup/{uid}` | Clean up processing folders |
+
+### Admin Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/admin/purge` | Execute data cleanup operations |
+| `GET` | `/admin/data-usage` | Get storage usage statistics |
+
+## 🔧 Usage Examples
+
+### 1. Upload a PDF File
+```bash
+curl -X POST "http://localhost:8000/upload" \
+  -F "file=@document.pdf"
+```
+
+### 2. Process with OCR
+```bash
 curl -X POST "http://localhost:8000/ocr-process" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "pdf_path": "/data/uploads/document.pdf",
+    "language_hints": ["en", "es"],
+    "force_reprocess": false
+  }'
+```
+
+### 3. Get Processing Results
+```bash
+curl -X GET "http://localhost:8000/results/{uid}"
+```
+
+### 4. Health Check
+```bash
+curl -X GET "http://localhost:8000/health"
+```
+
+## 🏗 Project Structure
+
+```
+ai-backend/
+├── main.py                     # FastAPI application entry point
+├── routers/                    # Modular router architecture
+│   ├── __init__.py            # Router package initialization
+│   └── processing_handler.py  # Document processing endpoints
+├── services/                   # Business logic and utilities
+│   ├── agents.py              # AI agent services
+│   ├── classification.py      # Document classification
+│   ├── processing-handler.py  # Legacy monolithic handler
+│   ├── util-services.py       # Utility functions
+│   └── preprocessing/         # Document preprocessing
+│       ├── OCR-processing.py  # OCR processing logic
+│       └── parsing.py         # Text parsing utilities
+├── data/                      # Data storage directory
+│   ├── uploads/              # Uploaded files
+│   └── test-files/           # Test documents
+├── tests/                     # Test suite
+├── docs/                      # Documentation
+├── requirements.txt           # Python dependencies
+└── README.md                 # Project documentation
+```
 
 ## 🧪 Testing
 
-     -H "Content-Type: application/json" \## 📊 DocAI Schema Output
-
+### Run Migration Tests
 ```bash
-
-# Activate environment     -d '{"uid": "your-uid-from-upload"}'
-
-source venv/bin/activate
-
-The pipeline produces strictly compliant DocAI format:
-
-# Run all tests
-
-python -m pytest tests/# Returns: {"status": "completed", "docai_format": true}
-
-
-
-# Test specific components``````json
-
-python test_vision_connection.py
-
-python tests/test_ocr_processing.py{
-
-
-
-# Test API endpoints#### Get Results (DocAI Format)  "document_id": "doc_20250915_141650_abc123",
-
-curl http://localhost:8000/health
-
-``````bash  "original_filename": "document.pdf", 
-
-
-
-## 🛠️ Troubleshootingcurl http://localhost:8000/results/your-uid  "ocr_result": {
-
-
-
-| Issue | Solution |    "pages": [
-
-|-------|----------|
-
-| `403 Billing disabled` | Enable billing in Google Cloud Console |# Returns complete DocAI-compliant JSON      {
-
-| `Credentials not found` | Verify `.env` file and credentials path |
-
-| `Import errors` | Ensure virtual environment is activated |```        "page": 1,
-
-| `Permission denied` | Check service account has Vision API role |
-
-| `Connection timeout` | Verify internet connection and GCP quotas |        "text_blocks": [
-
-
-
-## 🔧 Development Commands## 🎯 That's It! Your Pipeline is Ready          {
-
-
-
-```bash            "block_id": "block_001",
-
-# Activate virtual environment
-
-source venv/bin/activate### What You Get:            "text": "Extracted text...",
-
-
-
-# Start development server- ✅ **DocAI-compliant output** with stable identifiers            "confidence": 0.98,
-
-python services/processing-handler.py
-
-- ✅ **Multi-language OCR** (EN, ES, FR)            "bounding_box": [100, 200, 500, 250],
-
-# Run tests
-
-python -m pytest tests/ -v- ✅ **Production-ready API** with health monitoring            "lines": [...]
-
-
-
-# Test Google Vision connection- ✅ **Automatic documentation** at http://localhost:8000/docs          }
-
-python test_vision_connection.py
-
-        ]
-
-# Check API health
-
-curl http://localhost:8000/health## 🏗️ Architecture      }
-
+python test_migration.py
 ```
 
-    ]
-
-## 🚀 Production Deployment
-
-### Project Structure  },
-
-For production environments:
-
-```  "language_detection": {"primary": "en", "confidence": 0.98},
-
-1. **Container Deployment**: Use Docker for consistent environments
-
-2. **Cloud Deployment**: Deploy on Google Cloud Run or Kubernetesai-backend/  "preprocessing": {"pipeline_version": "2.0.0"},
-
-3. **Monitoring**: Implement logging and health monitoring
-
-4. **Security**: Add authentication and rate limiting├── 📁 data/                          # Data directory (gitignored)  "warnings": []
-
-5. **Scaling**: Configure auto-scaling based on load
-
-│   ├── .cheetah/gcloud/             # Google Cloud credentials}
-
-## 📚 Documentation
-
-│   ├── uploads/                      # Uploaded files```
-
-- **[Complete Documentation](docs/README-COMPLETE.md)** - Comprehensive guide
-
-- **[API Documentation](http://localhost:8000/docs)** - Interactive API docs│   └── processed/                    # Processed files
-
-- **[OCR Processing Details](docs/OCR-processing.md)** - Technical details
-
-- **[Service Configuration](docs/service-wise-execution.md)** - Setup guide├── 📁 services/                      # Core services## 🔧 Configuration
-
-
-
-## 🤝 Support│   ├── preprocessing/
-
-
-
-- **Health Monitoring**: `curl http://localhost:8000/health`│   │   ├── OCR-processing.py        # Google Vision OCR wrapperEnvironment variables in `.env`:
-
-- **Connection Testing**: `python test_vision_connection.py`
-
-- **API Documentation**: Visit http://localhost:8000/docs│   │   └── parsing.py               # Text parsing utilities```env
-
-- **Logs**: Check terminal output for detailed error messages
-
-│   ├── processing-handler.py        # FastAPI endpoints# Google Cloud
-
-## 📝 License
-
-│   ├── project_utils.py             # Path utilitiesGOOGLE_CLOUD_PROJECT_ID=your-project-id
-
-This project is proprietary software developed for DocuMint-AI.
-
-│   └── util-services.py             # Utility functionsGOOGLE_APPLICATION_CREDENTIALS=./data/.cheetah/gcloud/vision-credentials.json
-
----
-
-├── 📁 tests/                         # Test files
-
-**Ready to process documents with DocAI compliance!** 🎉
-
-├── 📁 docs/                          # Documentation# OCR Settings  
-
-Start by following the Quick Setup Instructions above to get your OCR pipeline running in minutes.
-├── 📁 venv/                          # Virtual environmentLANGUAGE_HINTS=en,es,fr
-
-├── 📄 requirements.txt               # Python dependenciesMAX_FILE_SIZE_MB=50
-
-├── 🔧 setup.sh / setup.bat          # Setup scriptsPDF_DPI=300
-
-└── ⚙️ .env                          # Environment configuration
-
-```# Server
-
-API_HOST=0.0.0.0
-
-### API EndpointsAPI_PORT=8000
-
-- `GET /health` - System health check```
-
-- `POST /upload` - Upload PDF/image files
-
-- `POST /ocr-process` - Process documents with OCR## 🚀 Production Deployment
-
-- `GET /results/{uid}` - Retrieve DocAI-formatted results
-
-- `GET /docs` - Interactive API documentationFor production use:
-
-1. **Containerization**: Use Docker for consistent deployment
-
-## 📊 DocAI Schema Output2. **Scaling**: Deploy on Google Cloud Run or Kubernetes
-
-3. **Monitoring**: Set up logging and health checks
-
-The pipeline produces strictly compliant DocAI format:4. **Security**: Implement authentication and rate limiting
-
-5. **Caching**: Add Redis for result caching
-
-```json
-
-{## 📞 Support
-
-  "document_id": "doc_20250915_141650_abc123",
-
-  "original_filename": "document.pdf", - **Health Check**: `curl http://localhost:8000/health`
-
-  "ocr_result": {- **Connection Test**: `python test_vision_connection.py`
-
-    "pages": [- **API Documentation**: http://localhost:8000/docs
-
-      {- **Complete Guide**: [docs/README-COMPLETE.md](docs/README-COMPLETE.md)
-
-        "page": 1,
-
-        "text_blocks": [## 📄 License
-
-          {
-
-            "block_id": "block_001",This project is proprietary software for DocuMint-AI.
-
-            "text": "Extracted text...",
-
-            "confidence": 0.98,---
-
-            "bounding_box": [100, 200, 500, 250],
-
-            "lines": [...]**🎉 Ready to process documents with DocAI compliance!** Start with [QUICKSTART.md](QUICKSTART.md) for immediate setup.
-
-          }
-
-        ]
-      }
-    ]
-  },
-  "language_detection": {"primary": "en", "confidence": 0.98},
-  "preprocessing": {"pipeline_version": "2.0.0"},
-  "warnings": []
-}
+### Run Full Test Suite
+```bash
+# Install test dependencies
+pip install -r tests/test_requirements.txt
+
+# Run all tests
+pytest tests/
+
+# Run specific test categories
+pytest tests/test_ocr_processing.py
+pytest tests/test_api_endpoints.py
 ```
 
 ## 🔧 Configuration
 
-Environment variables in `.env`:
-```env
-# Google Cloud
-GOOGLE_CLOUD_PROJECT_ID=your-project-id
-GOOGLE_APPLICATION_CREDENTIALS=./data/.cheetah/gcloud/vision-credentials.json
+### Environment Variables
 
-# OCR Settings  
-LANGUAGE_HINTS=en,es,fr
-MAX_FILE_SIZE_MB=50
-PDF_DPI=300
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `GOOGLE_CLOUD_PROJECT_ID` | Google Cloud Project ID | Required |
+| `GOOGLE_APPLICATION_CREDENTIALS` | Path to service account key | Required |
+| `DATA_ROOT` | Data storage directory | `./data` |
+| `IMAGE_FORMAT` | Output image format | `PNG` |
+| `IMAGE_DPI` | Image resolution | `300` |
+| `LANGUAGE_HINTS` | OCR language hints | `en` |
+| `MAX_FILE_SIZE_MB` | Maximum upload size | `50` |
 
-# Server
-API_HOST=0.0.0.0
-API_PORT=8000
-```
+### Google Cloud Setup
 
-## 🧪 Testing
+1. Create a Google Cloud Project
+2. Enable the Cloud Vision API
+3. Create a service account with Vision API permissions
+4. Download the service account key file
+5. Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable
 
+## 🚢 Deployment
+
+### Docker Deployment
 ```bash
-# Activate environment
-source venv/bin/activate
+# Build the container
+docker build -t ai-backend .
 
-# Test Google Vision connection
-python test_vision_connection.py
-
-# Run unit tests
-python -m pytest tests/
-
-# Test health endpoint
-curl http://localhost:8000/health
+# Run the container
+docker run -p 8000:8000 \
+  -e GOOGLE_CLOUD_PROJECT_ID=your-project \
+  -e GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json \
+  -v /path/to/credentials.json:/app/credentials.json:ro \
+  ai-backend
 ```
 
-## Quick Commands Reference 📚
-
+### Docker Compose
 ```bash
-# Activate environment
-source venv/bin/activate
-
-# Start server
-python services/processing-handler.py
-
-# Test connection
-python test_vision_connection.py
-
-# Run tests
-python -m pytest tests/
-
-# Check health
-curl http://localhost:8000/health
+docker-compose up -d
 ```
 
-## Troubleshooting 🔧
+## 📊 Monitoring and Logging
 
-| Issue | Solution |
-|-------|----------|
-| `403 Billing disabled` | Enable billing in Google Cloud Console |
-| `Credentials not found` | Check `.env` file and credentials path |
-| `Import errors` | Activate venv: `source venv/bin/activate` |
-| `Permission denied` | Ensure service account has Vision API role |
+The application provides comprehensive logging and monitoring:
 
-## 🚀 Production Deployment
+- **Health Checks**: Service status and dependency checks
+- **Processing Metrics**: OCR success rates and processing times
+- **Storage Analytics**: Data usage and cleanup statistics
+- **Error Tracking**: Detailed error logs with tracebacks
 
-For production use:
-1. **Containerization**: Use Docker for consistent deployment
-2. **Scaling**: Deploy on Google Cloud Run or Kubernetes
-3. **Monitoring**: Set up logging and health checks
-4. **Security**: Implement authentication and rate limiting
-5. **Caching**: Add Redis for result caching
+## 🤝 Contributing
 
-## 📚 Documentation
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-- **[📖 Complete Guide](docs/README-COMPLETE.md)** - Full documentation
-- **[🔧 API Docs](http://localhost:8000/docs)** - Interactive API documentation (when server is running)
-- **[📄 OCR Processing](docs/OCR-processing.md)** - OCR processing details
-- **[⚙️ Service Execution](docs/service-wise-execution.md)** - Service configuration
+### Development Guidelines
 
-## 📞 Support
-
-- **Health Check**: `curl http://localhost:8000/health`
-- **Connection Test**: `python test_vision_connection.py`
-- **API Documentation**: http://localhost:8000/docs
-- **Complete Guide**: [docs/README-COMPLETE.md](docs/README-COMPLETE.md)
+- Follow PEP 8 style guidelines
+- Add tests for new features
+- Update documentation for API changes
+- Ensure all tests pass before submitting
 
 ## 📄 License
 
-This project is proprietary software for DocuMint-AI.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- **Documentation**: Check the `/docs` directory for detailed guides
+- **API Docs**: Interactive documentation at `/docs` endpoint
+- **Issues**: Report bugs and request features via GitHub Issues
+- **Discussions**: Join project discussions on GitHub
+
+## 🔄 Changelog
+
+### Version 1.0.0
+- ✅ Modular router architecture implementation
+- ✅ Google Cloud Vision API integration
+- ✅ DocAI-compatible output format
+- ✅ Comprehensive test suite
+- ✅ Admin tools and monitoring
+
+## 🙏 Acknowledgments
+
+- [FastAPI](https://fastapi.tiangolo.com/) - Modern web framework
+- [Google Cloud Vision](https://cloud.google.com/vision) - OCR capabilities
+- [PyMuPDF](https://pymupdf.readthedocs.io/) - PDF processing
+- [Pillow](https://pillow.readthedocs.io/) - Image manipulation
 
 ---
 
-**🎉 Congratulations!** Your DocAI-compliant OCR pipeline is now ready for production use!
+**Built with ❤️ by the DocuMint-AI Team**
