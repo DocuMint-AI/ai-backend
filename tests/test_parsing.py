@@ -13,7 +13,9 @@ from pathlib import Path
 import tempfile
 import json
 
-# Add services directory to path for imports
+# Add project root to path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+# Add services directory to path for imports  
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'services', 'preprocessing'))
 
 # Import the modules to test

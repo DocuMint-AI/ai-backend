@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 # Import routers directly to avoid circular imports
 from routers.processing_handler import router as processing_router
 from routers.doc_ai_router import router as docai_router
+from routers.orchestration_router import router as orchestration_router
 
 # Load environment variables
 load_dotenv()
@@ -89,6 +90,12 @@ app.include_router(
     responses={404: {"description": "Not found"}},
 )
 
+app.include_router(
+    orchestration_router,
+    tags=["Pipeline Orchestration"],
+    responses={404: {"description": "Not found"}},
+)
+
 # Root endpoint
 @app.get("/", tags=["Root"])
 async def root():
@@ -110,11 +117,16 @@ async def root():
             "docai_batch": "/api/docai/parse/batch",
             "docai_config": "/api/docai/config",
             "docai_processors": "/api/docai/processors",
-            "docai_health": "/health"
+            "docai_health": "/health",
+            "pipeline_process": "/api/v1/process-document",
+            "pipeline_status": "/api/v1/pipeline-status/{pipeline_id}",
+            "pipeline_results": "/api/v1/pipeline-results/{pipeline_id}",
+            "orchestration_health": "/api/v1/health"
         },
         "routers": [
             "processing_handler",
-            "doc_ai_router"
+            "doc_ai_router",
+            "orchestration_router"
         ]
     }
 

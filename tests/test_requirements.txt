@@ -1,19 +1,33 @@
 # Test requirements for AI backend preprocessing services
-# Install with: pip install -r test_requirements.txt
+# Install with: uv pip install -r test_requirements.txt
 
 # Core testing framework (usually included with Python)
 # unittest - included in Python standard library
 
+# FastAPI testing dependencies
+fastapi>=0.104.0
+uvicorn>=0.24.0
+httpx>=0.25.0    # Required by TestClient
+
 # Mocking and test utilities
 mock>=4.0.3
 
-# Google Cloud Vision API for OCR tests
+# Google Cloud dependencies for OCR/DocAI tests
 google-cloud-vision>=3.4.0
+google-cloud-documentai>=2.20.0
 
-# Additional testing utilities (optional)
+# Additional testing utilities
 coverage>=7.0.0  # For test coverage reports
 pytest>=7.0.0    # Alternative test runner (optional)
+pytest-asyncio>=0.21.0  # For async test support
 
 # Development dependencies
 flake8>=6.0.0    # Code linting
 black>=23.0.0    # Code formatting
+
+# Data processing dependencies
+Pillow>=10.0.0   # Image processing
+PyMuPDF>=1.23.0  # PDF processing
+
+# Environment management
+python-dotenv>=1.0.0

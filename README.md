@@ -9,15 +9,17 @@ A high-performance FastAPI service for PDF document processing, OCR (Optical Cha
 
 ## 🚀 Features
 
-- **PDF Processing**: Convert PDF documents to high-quality images
-- **OCR Integration**: Google Cloud Vision API for accurate text extraction
-- **DocAI Compatible**: Output format compatible with Google Document AI
-- **Multi-language Support**: Configurable language hints for better OCR accuracy
-- **File Management**: Upload, process, and manage document processing workflows
-- **Admin Tools**: Data purge operations and usage analytics
-- **Modular Architecture**: Router-based design for easy feature expansion
-- **Background Processing**: Async processing for large documents
-- **Health Monitoring**: Comprehensive health checks and status endpoints
+- **📄 PDF Processing**: Convert PDF documents to high-quality images
+- **🔍 OCR Integration**: Google Cloud Vision API for accurate text extraction  
+- **🤖 Document AI**: Integration with Google Document AI for structured parsing
+- **🔄 Pipeline Orchestration**: Unified workflow combining PDF → Images → OCR → DocAI
+- **🌐 Multi-language Support**: Configurable language hints for better OCR accuracy
+- **📁 File Management**: Upload, process, and manage document processing workflows
+- **⚙️ Admin Tools**: Data purge operations and usage analytics
+- **🏗️ Modular Architecture**: Router-based design for easy feature expansion
+- **⚡ Background Processing**: Async processing for large documents
+- **📊 Health Monitoring**: Comprehensive health checks and status endpoints
+- **💾 DocAI Compatible**: Output format compatible with Google Document AI
 
 ## 📋 Prerequisites
 
@@ -116,7 +118,46 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
 | `POST` | `/admin/purge` | Execute data cleanup operations |
 | `GET` | `/admin/data-usage` | Get storage usage statistics |
 
+### Document AI Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/docai/parse` | Parse document with Google Document AI |
+| `POST` | `/api/docai/parse/batch` | Batch process multiple documents |
+| `GET` | `/api/docai/processors` | List available DocAI processors |
+| `GET` | `/api/docai/config` | Get DocAI configuration |
+
+### 🔄 Pipeline Orchestration (NEW)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/v1/process-document` | **Complete pipeline**: PDF → Images → OCR → DocAI |
+| `GET` | `/api/v1/pipeline-status/{pipeline_id}` | Get real-time processing status |
+| `GET` | `/api/v1/pipeline-results/{pipeline_id}` | Retrieve complete pipeline results |
+| `GET` | `/api/v1/health` | Orchestration service health check |
+
 ## 🔧 Usage Examples
+
+### 🔄 Complete Document Pipeline (Recommended)
+
+The orchestration API provides a single endpoint for the complete workflow:
+
+```bash
+# Process a document through the complete pipeline
+curl -X POST "http://localhost:8000/api/v1/process-document" \
+  -F "file=@contract.pdf" \
+  -F "language_hints=en,hi" \
+  -F "confidence_threshold=0.8"
+
+# Response includes pipeline_id for tracking
+{
+  "success": true,
+  "pipeline_id": "abc123-def456",
+  "message": "Document processing completed successfully in 45.2s",
+  "total_processing_time": 45.2,
+  "final_results_path": "data/processed/pipeline_result_abc123-def456.json"
+}
+```
+
+### Individual Step Processing
 
 ### 1. Upload a PDF File
 ```bash
@@ -145,6 +186,8 @@ curl -X GET "http://localhost:8000/results/{uid}"
 curl -X GET "http://localhost:8000/health"
 ```
 
+> 📖 **For complete orchestration API documentation with examples, status monitoring, and result formats, see [ORCHESTRATION_API.md](docs/ORCHESTRATION_API.md)**
+
 ## 🏗 Project Structure
 
 ```
@@ -152,21 +195,26 @@ ai-backend/
 ├── main.py                     # FastAPI application entry point
 ├── routers/                    # Modular router architecture
 │   ├── __init__.py            # Router package initialization
-│   └── processing_handler.py  # Document processing endpoints
+│   ├── processing_handler.py  # Document processing endpoints
+│   ├── doc_ai_router.py       # Document AI integration
+│   └── orchestration_router.py # Pipeline orchestration (NEW)
 ├── services/                   # Business logic and utilities
-│   ├── agents.py              # AI agent services
-│   ├── classification.py      # Document classification
-│   ├── processing-handler.py  # Legacy file (migrated to routers/)
+│   ├── doc_ai/               # Document AI services
+│   ├── preprocessing/         # Document preprocessing
+│   │   ├── OCR-processing.py  # OCR processing logic
+│   │   └── parsing.py         # Text parsing utilities
 │   ├── util-services.py       # Utility functions
-│   └── preprocessing/         # Document preprocessing
-│       ├── OCR-processing.py  # OCR processing logic
-│       └── parsing.py         # Text parsing utilities
+│   └── project_utils.py       # Project utilities
 ├── data/                      # Data storage directory
 │   ├── uploads/              # Uploaded files
+│   ├── processed/            # Pipeline results (NEW)
 │   └── test-files/           # Test documents
-├── tests/                     # Test suite
 ├── docs/                      # Documentation
+│   ├── ORCHESTRATION_API.md  # Pipeline API docs (NEW)
+│   └── ...                   # Other documentation
+├── tests/                     # Test suite
 ├── requirements.txt           # Python dependencies
+├── test_orchestration.py      # Orchestration tests (NEW)
 └── README.md                 # Project documentation
 ```
 

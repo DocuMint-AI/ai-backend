@@ -7,8 +7,9 @@ import sys
 import os
 from pathlib import Path
 
-# Add services to path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'services', 'preprocessing'))
+# Add project root and services to path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'services', 'preprocessing'))
 
 def test_vision_api_connection():
     """Test the Google Vision API connection."""

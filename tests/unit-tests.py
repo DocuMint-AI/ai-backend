@@ -9,8 +9,8 @@ import os
 import sys
 import unittest
 
-# Add current directory to path for test imports
-sys.path.insert(0, os.path.dirname(__file__))
+# Add project root to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 # Import test modules
 from test_ocr_processing import TestOCRResult, TestGoogleVisionOCR, TestGoogleVisionOCRIntegration
