@@ -13,10 +13,14 @@ from .schema import (
     KeyValuePair,
     DocumentMetadata,
     ParseRequest,
-    ParseResponse
+    ParseResponse,
+    EntityType,
+    ClauseType,
+    TextSpan,
+    BoundingBox
 )
 
-from .client import DocAIClient
+from .client import DocAIClient, DocAIError, DocAIAuthenticationError, DocAIProcessingError
 from .parser import DocumentParser
 
 __all__ = [
@@ -28,6 +32,13 @@ __all__ = [
     "DocumentMetadata",
     "ParseRequest",
     "ParseResponse",
+    "EntityType",
+    "ClauseType", 
+    "TextSpan",
+    "BoundingBox",
     "DocAIClient",
+    "DocAIError",
+    "DocAIAuthenticationError",
+    "DocAIProcessingError",
     "DocumentParser"
 ]
