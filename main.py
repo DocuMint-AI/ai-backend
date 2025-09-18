@@ -12,8 +12,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-# Import routers
-from routers import processing_handler
+# Import routers directly to avoid circular imports
+from routers.processing_handler import router as processing_router
+from routers.doc_ai_router import router as docai_router
 
 # Load environment variables
 load_dotenv()
@@ -77,8 +78,14 @@ app.add_middleware(
 
 # Register routers
 app.include_router(
-    processing_handler.router,
+    processing_router,
     tags=["Document Processing"],
+    responses={404: {"description": "Not found"}},
+)
+
+app.include_router(
+    docai_router,
+    tags=["Document AI"],
     responses={404: {"description": "Not found"}},
 )
 
@@ -98,10 +105,16 @@ async def root():
             "list_folders": "/folders",
             "cleanup": "/cleanup/{uid}",
             "admin_purge": "/admin/purge",
-            "admin_data_usage": "/admin/data-usage"
+            "admin_data_usage": "/admin/data-usage",
+            "docai_parse": "/api/docai/parse",
+            "docai_batch": "/api/docai/parse/batch",
+            "docai_config": "/api/docai/config",
+            "docai_processors": "/api/docai/processors",
+            "docai_health": "/health"
         },
         "routers": [
-            "processing_handler"
+            "processing_handler",
+            "doc_ai_router"
         ]
     }
 

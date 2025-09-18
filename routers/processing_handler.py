@@ -77,12 +77,27 @@ CONFIG = {
     "max_file_size_mb": int(os.getenv("MAX_FILE_SIZE_MB", "50"))
 }
 
-# Initialize services
-pdf_converter = PDFToImageConverter(
-    data_root=CONFIG["data_root"],
-    image_format=CONFIG["image_format"],
-    dpi=CONFIG["image_dpi"]
-)
+# Initialize services with lazy loading to avoid blocking app startup
+pdf_converter = None
+
+def get_pdf_converter():
+    """Get or initialize PDF converter with error handling."""
+    global pdf_converter
+    if pdf_converter is None:
+        try:
+            pdf_converter = PDFToImageConverter(
+                data_root=CONFIG["data_root"],
+                image_format=CONFIG["image_format"],
+                dpi=CONFIG["image_dpi"]
+            )
+            logger.info("PDF converter initialized successfully")
+        except ImportError as e:
+            logger.error(f"PDF converter initialization failed: {e}")
+            raise HTTPException(
+                status_code=500,
+                detail=f"PDF processing not available: {str(e)}"
+            )
+    return pdf_converter
 
 # Initialize OCR service (will be created when needed to handle auth errors gracefully)
 ocr_service = None
@@ -388,7 +403,8 @@ async def ocr_process(
         logger.info(f"Starting OCR processing for: {request.pdf_path}")
         
         # Convert PDF to images
-        uid, image_paths, conversion_metadata = pdf_converter.convert_pdf_to_images(
+        converter = get_pdf_converter()
+        uid, image_paths, conversion_metadata = converter.convert_pdf_to_images(
             request.pdf_path
         )
         
@@ -557,7 +573,8 @@ async def get_results(uid: str):
     """
     try:
         # Find processing folder
-        folders = pdf_converter.get_processing_folders()
+        converter = get_pdf_converter()
+        folders = converter.get_processing_folders()
         target_folder = None
         
         for folder in folders:
@@ -626,7 +643,8 @@ async def list_processing_folders():
         List of processing folders and their status
     """
     try:
-        folders = pdf_converter.get_processing_folders()
+        converter = get_pdf_converter()
+        folders = converter.get_processing_folders()
         
         # Enhance with OCR status
         for folder in folders:
@@ -677,7 +695,8 @@ async def cleanup_processing_folder(uid: str):
         Cleanup status
     """
     try:
-        success = pdf_converter.cleanup_folder(uid)
+        converter = get_pdf_converter()
+        success = converter.cleanup_folder(uid)
         
         if success:
             return {

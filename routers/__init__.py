@@ -5,13 +5,17 @@ This package contains all API routers organized by functionality.
 Each router focuses on a specific domain (processing, admin, etc.).
 
 Usage:
-    from routers import processing_handler
+    from routers.processing_handler import router as processing_router
+    from routers.doc_ai_router import router as docai_router
     
-    app.include_router(processing_handler.router)
+    app.include_router(processing_router)
+    app.include_router(docai_router)
 """
 
-from . import processing_handler
+# Remove direct imports to avoid circular dependencies
+# Import routers individually in main.py instead
 
 __all__ = [
-    "processing_handler"
+    "processing_handler",
+    "doc_ai_router"
 ]
