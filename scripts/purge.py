@@ -7,12 +7,12 @@ This script provides options to clean up data files generated during OCR process
 testing, and development. It includes safety features and interactive menus.
 
 Usage:
-    python purge.py                    # Interactive menu
-    python purge.py --quick            # Quick purge (uploads + temp)
-    python purge.py --full             # Full purge (all data except test files)
-    python purge.py --nuclear          # Nuclear purge (everything including test files)
-    python purge.py --setup            # Show setup menu
-    python purge.py --dry-run          # Show what would be deleted without deleting
+    uv run purge.py                    # Interactive menu
+    uv run purge.py --quick            # Quick purge (uploads + temp)
+    uv run purge.py --full             # Full purge (all data except test files)
+    uv run purge.py --nuclear          # Nuclear purge (everything including test files)
+    uv run purge.py --setup            # Show setup menu
+    uv run purge.py --dry-run          # Show what would be deleted without deleting
 
 Safety Features:
 - Dry-run mode to preview deletions

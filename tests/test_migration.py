@@ -173,7 +173,7 @@ def main():
         print(f"🎉 All tests passed! ({passed}/{total})")
         print("\n✅ Router migration completed successfully!")
         print("\nYou can now run the application with:")
-        print("  python main.py")
+        print("  uv run main.py")
         print("  or")
         print("  uvicorn main:app --reload")
         return 0

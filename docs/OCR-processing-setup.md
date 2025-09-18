@@ -107,10 +107,9 @@ python test_vision_setup.py
 
 ## 7. Start the FastAPI Service
 ```
-cd services
-python processing-handler.py
+uv run main.py
 # Or:
-uvicorn processing-handler:app --host 0.0.0.0 --port 8000 --reload
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 ---

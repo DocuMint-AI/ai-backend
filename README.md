@@ -33,18 +33,28 @@ git clone https://github.com/DocuMint-AI/ai-backend.git
 cd ai-backend
 ```
 
-### 2. Set Up Virtual Environment
+### 2. Set Up Environment (Using uv - Recommended)
+
+**Option A: Using uv (Recommended)**
+```bash
+# Run setup script (installs uv if needed and sets up environment)
+./setup.sh          # Linux/Mac
+# or
+setup.bat           # Windows
+
+# Or manually:
+uv venv              # Create virtual environment  
+uv pip install -r requirements.txt  # Install dependencies
+```
+
+**Option B: Using traditional Python venv**
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-### 3. Install Dependencies
-```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configure Environment Variables
+### 3. Configure Environment Variables
 Create a `.env` file in the project root:
 
 ```env
@@ -71,7 +81,7 @@ MAX_FILE_SIZE_MB=50
 ### Development Mode
 ```bash
 # Start the development server
-python main.py
+uv run main.py
 
 # Or using uvicorn with auto-reload
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
@@ -146,7 +156,7 @@ ai-backend/
 ├── services/                   # Business logic and utilities
 │   ├── agents.py              # AI agent services
 │   ├── classification.py      # Document classification
-│   ├── processing-handler.py  # Legacy monolithic handler
+│   ├── processing-handler.py  # Legacy file (migrated to routers/)
 │   ├── util-services.py       # Utility functions
 │   └── preprocessing/         # Document preprocessing
 │       ├── OCR-processing.py  # OCR processing logic

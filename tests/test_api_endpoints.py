@@ -51,7 +51,7 @@ class TestOCREndpoints(unittest.TestCase):
             raise Exception(
                 f"❌ Cannot connect to API server at {API_BASE_URL}. "
                 "Please ensure the FastAPI server is running:\n"
-                "source venv/bin/activate && python services/processing-handler.py"
+                "uv run main.py"
             )
         except Exception as e:
             raise Exception(f"❌ Server setup failed: {e}")

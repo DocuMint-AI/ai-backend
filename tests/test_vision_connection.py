@@ -167,7 +167,7 @@ if __name__ == "__main__":
     if success:
         print("\n🚀 Your OCR pipeline is ready for production use!")
         print("\nNext steps:")
-        print("1. Start the FastAPI server: python services/processing-handler.py")
+        print("1. Start the FastAPI server: uv run main.py")
         print("2. Test with PDF files using the /upload and /ocr-process endpoints")
         print("3. Use the /results/{uid} endpoint to retrieve processed results")
     else:

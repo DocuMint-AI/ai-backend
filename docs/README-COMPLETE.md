@@ -114,10 +114,12 @@ source venv/bin/activate  # Linux/macOS
 # venv\\Scripts\\activate.bat  # Windows
 
 # Test Google Vision API connection
-python test_vision_connection.py
+uv run test_vision_connection.py
 
 # Start the FastAPI server
-python services/processing-handler.py
+```bash
+uv run main.py
+```
 ```
 
 ### 4. Verify Health Status
@@ -278,7 +280,7 @@ ai-backend/
 │   ├── preprocessing/
 │   │   ├── OCR-processing.py     # Google Vision OCR wrapper
 │   │   └── parsing.py            # Text parsing utilities
-│   ├── processing-handler.py     # FastAPI endpoints
+│   ├── processing-handler.py     # Legacy file (migrated to routers/)
 │   ├── project_utils.py          # Path utilities
 │   └── util-services.py          # Utility functions
 ├── tests/                         # Test files

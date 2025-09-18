@@ -235,7 +235,7 @@ def run_all_tests(fast_mode: bool = False):
     # Run integration tests (slower)
     if not fast_mode:
         print("\n⚠️  Integration tests require the FastAPI server to be running")
-        print("   Start server: python main.py")
+        print("   Start server: uv run main.py")
         print("   Or skip with --fast flag")
         
         response = input("\nContinue with integration tests? (y/n): ")

@@ -68,7 +68,9 @@ result = ocr.extract_from_bytes(image_data)
 ```bash
 # Start the service
 cd services
-python processing-handler.py
+```bash
+uv run main.py
+```
 
 # Or using uvicorn directly
 uvicorn processing-handler:app --host 0.0.0.0 --port 8000 --reload

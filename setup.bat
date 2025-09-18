@@ -1,37 +1,34 @@
 @echo off
 REM Setup script for AI Backend OCR Pipeline (Windows)
-REM Creates virtual environment and installs dependencies
+REM Creates virtual environment and installs dependencies using uv
 
 echo 🚀 Setting up AI Backend OCR Pipeline...
 
-REM Check if Python is available
-python --version >nul 2>&1
+REM Check if uv is available
+uv --version >nul 2>&1
 if errorlevel 1 (
-    echo ❌ Python is not installed or not in PATH
-    exit /b 1
+    echo 📦 uv not found, installing uv...
+    powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+    if errorlevel 1 (
+        echo ❌ Failed to install uv
+        exit /b 1
+    )
+    echo ✅ uv installed successfully
+) else (
+    echo ✅ uv found
 )
 
-echo ✅ Python found
-
-REM Create virtual environment if it doesn't exist
-if not exist "venv" (
-    echo 📦 Creating virtual environment...
-    python -m venv venv
+REM Create virtual environment using uv
+if not exist ".venv" (
+    echo 📦 Creating virtual environment with uv...
+    uv venv
 ) else (
     echo ✅ Virtual environment already exists
 )
 
-REM Activate virtual environment
-echo 🔧 Activating virtual environment...
-call venv\Scripts\activate.bat
-
-REM Upgrade pip
-echo ⬆️ Upgrading pip...
-python -m pip install --upgrade pip
-
-REM Install dependencies
+REM Install dependencies using uv
 echo 📋 Installing dependencies from requirements.txt...
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 
 REM Create data directories if they don't exist
 echo 📁 Setting up data directories...
@@ -67,20 +64,19 @@ echo.
 echo 🎉 Setup complete!
 echo.
 echo Available commands:
-echo 1. Activate the environment and start the server:
-echo    venv\Scripts\activate.bat
-echo    python services\processing-handler.py
+echo 1. Start the server:
+echo    uv run main.py
 echo.
 echo 2. Test the API:
 echo    curl http://localhost:8000/health
 echo.
 echo 3. Run API tests:
-echo    python tests\test_api_endpoints.py
+echo    uv run tests\test_api_endpoints.py
 echo.
 echo 4. Data management:
-echo    python scripts\purge.py --quick       # Clean uploads and temp files
-echo    python scripts\purge.py --full        # Clean all processing data
-echo    python scripts\purge.py --dry-run     # Preview what would be deleted
+echo    uv run scripts\purge.py --quick       # Clean uploads and temp files
+echo    uv run scripts\purge.py --full        # Clean all processing data
+echo    uv run scripts\purge.py --dry-run     # Preview what would be deleted
 echo.
 echo Next steps:
 echo 1. Place your Google Cloud service account credentials in:
