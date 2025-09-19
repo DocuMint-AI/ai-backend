@@ -1,0 +1,84 @@
+{
+  "test_start_time": "2025-09-20T02:43:50.475648",
+  "test_pdf_path": "data\\test-files\\testing-ocr-pdf-1.pdf",
+  "artifacts_dir": "artifacts\\e2e_validation",
+  "stages": {
+    "gcs_staging": {
+      "success": true,
+      "local_path": "data\\test-files\\testing-ocr-pdf-1.pdf",
+      "staged_uri": "gs://oceanic-antler-471414-k3-docai-test/staging/documents/1758316430-a261f775-testing-ocr-pdf-1.pdf",
+      "file_size": 1350710
+    },
+    "vision_ocr": {
+      "success": true,
+      "gcs_uri": "gs://oceanic-antler-471414-k3-docai-test/staging/documents/1758316430-a261f775-testing-ocr-pdf-1.pdf",
+      "char_count": 223,
+      "word_count": 25,
+      "pages_detected": 1,
+      "confidence_scores": [
+        0.95
+      ],
+      "simulated": true
+    },
+    "docai_parsing": {
+      "success": true,
+      "gcs_uri": "gs://oceanic-antler-471414-k3-docai-test/staging/documents/1758316430-a261f775-testing-ocr-pdf-1.pdf",
+      "text_length": 17468,
+      "entities_count": 4,
+      "kv_pairs_count": 0,
+      "pages_processed": 6
+    },
+    "fallback_metadata": {
+      "success": true,
+      "active_library": "pdfplumber",
+      "fallback_active": true,
+      "pdf_test_successful": true
+    }
+  },
+  "artifacts": {
+    "vision_raw": "artifacts\\e2e_validation\\vision_raw.json",
+    "docai_raw": "artifacts\\e2e_validation\\docai_raw.json",
+    "parsed_output": "artifacts\\e2e_validation\\parsed_output.json",
+    "pdf_processing_summary": "artifacts\\e2e_validation\\pdf_processing_summary.json",
+    "feature_vector": "artifacts\\e2e_validation\\feature_vector.json"
+  },
+  "fallback_info": {
+    "pdf_library": "pdfplumber",
+    "library_module": "<module 'pdfplumber' from 'C:\\\\Users\\\\admin\\\\Documents\\\\Code_Projects\\\\ai-backend\\\\.venv\\\\Lib\\\\site-packages\\\\pdfplumber\\\\__init__.py'>",
+    "fallback_active": true
+  },
+  "diagnostics": {
+    "text_analysis": {
+      "vision_char_count": 223,
+      "docai_char_count": 17468,
+      "similarity_score": 0.0,
+      "text_match": false,
+      "vision_first_200": "LIFE INSURANCE CORPORATION OF INDIA\\n(Established by the Life Insurance Corporation Act, 1956)\\nLIC OF INDIA\\nPolicy Document\\nPolicy No: 123456789\\nName: John Doe\\nSum Assured: Rs. 500,000\\nDate of C",
+      "docai_first_200": "LIFE INSURANCE CORPORATION OF INDIA\n(Established by the Life Insurance Corporation Act, 1956)\nLIC's JEEVAN MANGAL (UIN: 512N257V01)\nMicro Insurance Term Assurance Plan with Return of Premiums\nTHE LIFE"
+    },
+    "extraction_analysis": {
+      "entities_count": 4,
+      "kv_pairs_count": 0,
+      "extraction_success": true,
+      "entity_types": [
+        "generic_entities"
+      ]
+    },
+    "fallback_analysis": {
+      "fallback_used": true,
+      "active_library": "pdfplumber",
+      "impact_on_processing": "Limited image conversion",
+      "recommendation": "Fix PyMuPDF or continue with fallback"
+    },
+    "pipeline_status": {
+      "gcs_staging": true,
+      "vision_ocr": true,
+      "docai_parsing": true,
+      "fallback_metadata": true,
+      "overall_success": true
+    }
+  },
+  "success": true,
+  "exit_code": 0,
+  "test_end_time": "2025-09-20T02:44:10.843601"
+}

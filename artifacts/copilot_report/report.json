@@ -1,0 +1,94 @@
+{
+  "processor_id": {
+    "env_var": "DOCAI_PROCESSOR_ID",
+    "value": "b25eddf84d9758e2",
+    "file_location": ".env line 9",
+    "usage_files": ["routers/doc_ai_router.py lines 45,74,150", "services/config.py line 87"]
+  },
+  "docai_client_call": {
+    "method": "raw_document.content",
+    "file": "services/doc_ai/client.py",
+    "lines": "424-426",
+    "exact_snippet": "request = documentai.ProcessRequest(\n    name=processor_name,\n    raw_document=raw_document\n)"
+  },
+  "raw_response_saving": {
+    "exists": true,
+    "location": "services/doc_ai/client.py line 434",
+    "method": "_save_raw_response(response)",
+    "output_path": "artifacts/vision_to_docai/docai_raw_full.json"
+  },
+  "canonical_schema": {
+    "exists": true,
+    "file": "services/doc_ai/schema.py",
+    "key_models": ["DocumentMetadata", "NamedEntity", "Clause", "KeyValuePair", "CrossReference", "ParsedDocument"],
+    "entity_types": ["PERSON", "ORGANIZATION", "DATE", "MONEY", "LOCATION", "JURISDICTION", "CONTRACT_PARTY", "OBLIGATION", "PENALTY", "DURATION", "OTHER"],
+    "clause_types": ["TERMINATION", "PAYMENT", "CONFIDENTIALITY", "LIABILITY", "GOVERNING_LAW", "DISPUTE_RESOLUTION", "FORCE_MAJEURE", "INDEMNIFICATION", "INTELLECTUAL_PROPERTY", "WARRANTY", "OTHER"]
+  },
+  "fallback_regex_extractor": {
+    "exists": true,
+    "primary_location": "services/doc_ai/parser.py lines 606-650",
+    "secondary_location": "services/preprocessing/parsing.py lines 238-274",
+    "patterns": {
+      "policy_no": "Policy\\s*No[:\\s.]*([A-Za-z0-9\\-/]+)",
+      "date_of_commencement": "Date\\s+of\\s+Commencement\\s+of\\s+Policy[:\\s.]*([0-9\\-/\\.]+)",
+      "sum_assured": "Sum\\s+Assured\\s+for\\s+Basic\\s+Plan[:\\s.]*\\(?\\s*Rs\\.?\\s*\\)?[:\\s.]*([0-9,]+)",
+      "dob": "Date\\s+of\\s+Birth[:\\s.]*([0-9\\-/\\.]+)",
+      "nominee": "Nominee\\s+under\\s+section\\s+39[^:]*?[:\\s.]*([A-Za-z\\s]+)"
+    }
+  },
+  "embedding_calls": {
+    "exists": false,
+    "note": "No Vertex embeddings or local model calls found in codebase"
+  },
+  "feature_vector_emitter": {
+    "exists": false,
+    "note": "No feature_vector.json emitter found in codebase"
+  },
+  "validation_tests": {
+    "exists": true,
+    "test_files": [
+      "tests/test_doc_ai.py - test_extract_entities, test_detect_clauses",
+      "tests/test_docai_comprehensive.py - test_entity_extraction, test_clause_detection", 
+      "tests/test_parsing.py - test_extract_key_values_basic, test_extract_key_values_case_insensitive",
+      "tests/test_docai_schema.py - schema validation tests",
+      "scripts/test_vision_to_docai.py - comprehensive integration test"
+    ]
+  },
+  "immediate_blockers": [
+    {
+      "type": "missing_dependency",
+      "issue": "PyMuPDF not installed",
+      "solution": "pip install PyMuPDF",
+      "impact": "Blocks PDF processing in integration tests"
+    },
+    {
+      "type": "docai_config",
+      "issue": "DocAI processor b25eddf84d9758e2 only extracts text, no entities/clauses/KVs",
+      "solution": "Reconfigure processor or use entity-extraction enabled processor",
+      "impact": "Critical - no structured data extraction possible"
+    },
+    {
+      "type": "text_normalization", 
+      "issue": "Text similarity between Vision and DocAI only 70.7% after P2 fixes",
+      "solution": "Further refinement of text normalization algorithms",
+      "impact": "Medium - affects text matching accuracy"
+    }
+  ],
+  "artifacts_generated": [
+    "artifacts/copilot_report/repo_tree.txt",
+    "artifacts/copilot_report/docai_client.py", 
+    "artifacts/copilot_report/doc_parser.py",
+    "artifacts/copilot_report/docai_router.py",
+    "artifacts/copilot_report/doc_schema.py",
+    "artifacts/copilot_report/test_vision_to_docai.py",
+    "artifacts/copilot_report/docai_raw_full.json",
+    "artifacts/copilot_report/parsed_output.json",
+    "artifacts/copilot_report/test_run.txt"
+  ],
+  "summary": {
+    "repo_inspection_complete": true,
+    "critical_finding": "DocAI processor b25eddf84d9758e2 configured for text extraction only - requires entity-extraction capable processor",
+    "p1p2p3_fixes_status": "P1 (raw response saving) ✅ implemented, P2 (text normalization) ✅ improved similarity 30%→71%, P3 (fallback extraction) ✅ implemented",
+    "next_actions": ["Install PyMuPDF dependency", "Reconfigure DocAI processor for structured extraction", "Run full integration test validation"]
+  }
+}

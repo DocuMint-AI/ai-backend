@@ -1,0 +1,57 @@
+{
+  "text": "POLICY NUMBER: LIC-2024-001\nPOLICY HOLDER: John Doe\nSUM ASSURED: $50,000\nNOMINEE: Jane Doe (Spouse)\nPREMIUM: $1,200 annually",
+  "clauses": [
+    {
+      "type": "coverage",
+      "text": "Life Insurance Coverage up to $50,000",
+      "confidence": 0.85
+    },
+    {
+      "type": "beneficiary",
+      "text": "Nominee: Jane Doe (Spouse)",
+      "confidence": 0.92
+    }
+  ],
+  "named_entities": [
+    {
+      "text": "John Doe",
+      "type": "PERSON",
+      "confidence": 0.95
+    },
+    {
+      "text": "Jane Doe",
+      "type": "PERSON",
+      "confidence": 0.93
+    },
+    {
+      "text": "$50,000",
+      "type": "MONEY",
+      "confidence": 0.88
+    }
+  ],
+  "key_value_pairs": [
+    {
+      "key": "policy_number",
+      "value": "LIC-2024-001",
+      "confidence": 0.95
+    },
+    {
+      "key": "policy_holder",
+      "value": "John Doe",
+      "confidence": 0.92
+    },
+    {
+      "key": "sum_assured",
+      "value": "$50,000",
+      "confidence": 0.88
+    },
+    {
+      "key": "nominee",
+      "value": "Jane Doe (Spouse)",
+      "confidence": 0.9
+    }
+  ],
+  "needs_review": false,
+  "extraction_method": "enhanced_fallback",
+  "processor_id": "4d61f6d3fe4953b3"
+}

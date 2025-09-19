@@ -27,6 +27,7 @@ from services.doc_ai import (
     DocumentMetadata
 )
 from services.doc_ai.client import DocAIError, DocAIAuthenticationError, DocAIProcessingError
+from services.gcs_staging import auto_stage_document, is_gcs_uri
 
 # Load environment variables
 load_dotenv()
@@ -43,8 +44,22 @@ CONFIG = {
     "google_credentials_path": os.getenv("GOOGLE_APPLICATION_CREDENTIALS"),
     "docai_location": os.getenv("DOCAI_LOCATION", "us"),
     "docai_processor_id": os.getenv("DOCAI_PROCESSOR_ID"),
+    "docai_structured_processor_id": os.getenv("DOCAI_STRUCTURED_PROCESSOR_ID"),
     "default_confidence_threshold": float(os.getenv("DOCAI_CONFIDENCE_THRESHOLD", "0.7"))
 }
+
+# Processor selection logic - prefer structured processor if available
+def get_active_processor_id() -> str:
+    """Get the active processor ID, preferring structured processor when available."""
+    structured_id = CONFIG["docai_structured_processor_id"]
+    fallback_id = CONFIG["docai_processor_id"]
+    
+    if structured_id and structured_id.strip():
+        logger.info(f"Using structured DocAI processor: {structured_id}")
+        return structured_id
+    else:
+        logger.info(f"Using fallback DocAI processor: {fallback_id}")
+        return fallback_id
 
 # Initialize services (will be created when needed)
 docai_client = None
@@ -71,7 +86,7 @@ def get_docai_client() -> DocAIClient:
             docai_client = DocAIClient(
                 project_id=CONFIG["google_project_id"],
                 location=CONFIG["docai_location"],
-                processor_id=CONFIG["docai_processor_id"],
+                processor_id=get_active_processor_id(),
                 credentials_path=CONFIG["google_credentials_path"]
             )
             
@@ -147,7 +162,7 @@ async def health_check():
             "config": {
                 "project_id": CONFIG["google_project_id"],
                 "location": CONFIG["docai_location"],
-                "processor_id": CONFIG["docai_processor_id"],
+                "processor_id": get_active_processor_id(),
                 "confidence_threshold": CONFIG["default_confidence_threshold"]
             }
         }
@@ -195,13 +210,27 @@ async def parse_document(
             confidence_threshold=request.confidence_threshold
         )
         
+        # Auto-stage document if it's a local path
+        processed_gcs_uri = request.gcs_uri
+        if not is_gcs_uri(request.gcs_uri):
+            logger.info("Input appears to be local path, staging to GCS", input_path=request.gcs_uri)
+            try:
+                processed_gcs_uri = auto_stage_document(request.gcs_uri)
+                logger.info("Successfully staged document", original_path=request.gcs_uri, gcs_uri=processed_gcs_uri)
+            except Exception as staging_error:
+                logger.error("Failed to stage document to GCS", error=str(staging_error))
+                raise HTTPException(
+                    status_code=400, 
+                    detail=f"Failed to stage document to GCS: {str(staging_error)}"
+                )
+        
         # Get services
         client = get_docai_client()
         parser = get_document_parser(request.confidence_threshold)
         
-        # Process document with DocAI
+        # Process document with DocAI using the (potentially staged) GCS URI
         docai_document, metadata = await client.process_gcs_document_async(
-            gcs_uri=request.gcs_uri,
+            gcs_uri=processed_gcs_uri,
             processor_id=request.processor_id,
             enable_native_pdf_parsing=request.enable_native_pdf_parsing
         )
@@ -320,13 +349,13 @@ async def list_processors():
         # List processors (simplified - real implementation would call DocAI API)
         processors = [
             {
-                "id": CONFIG["docai_processor_id"],
-                "name": f"projects/{CONFIG['google_project_id']}/locations/{CONFIG['docai_location']}/processors/{CONFIG['docai_processor_id']}",
+                "id": get_active_processor_id(),
+                "name": f"projects/{CONFIG['google_project_id']}/locations/{CONFIG['docai_location']}/processors/{get_active_processor_id()}",
                 "type": "FORM_PARSER_PROCESSOR",
                 "state": "ENABLED",
                 "display_name": "Default Form Parser"
             }
-        ] if CONFIG["docai_processor_id"] else []
+        ] if get_active_processor_id() else []
         
         return {
             "processors": processors,
@@ -358,7 +387,7 @@ async def get_configuration():
         return {
             "project_id": CONFIG["google_project_id"],
             "location": CONFIG["docai_location"],
-            "default_processor_id": CONFIG["docai_processor_id"],
+            "default_processor_id": get_active_processor_id(),
             "default_confidence_threshold": CONFIG["default_confidence_threshold"],
             "credentials_configured": bool(CONFIG["google_credentials_path"]),
             "service_status": {

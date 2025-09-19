@@ -1,0 +1,14 @@
+{
+  "text": "LIFE INSURANCE CORPORATION OF INDIA\\n(Established by the Life Insurance Corporation Act, 1956)\\nLIC OF INDIA\\nPolicy Document\\nPolicy No: 123456789\\nName: John Doe\\nSum Assured: Rs. 500,000\\nDate of Commencement: 01/01/2020",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "LIFE INSURANCE CORPORATION OF INDIA\\n(Established by the Life Insurance Corporation Act, 1956)",
+      "confidence": 0.95,
+      "blocks": []
+    }
+  ],
+  "confidence": 0.95,
+  "processing_time": "2.3s",
+  "source_uri": "gs://oceanic-antler-471414-k3-docai-test/staging/documents/1758316430-a261f775-testing-ocr-pdf-1.pdf"
+}

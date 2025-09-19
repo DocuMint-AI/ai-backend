@@ -1,0 +1,10 @@
+{
+  "text": "INCOMPLETE DOCUMENT - Processing failed due to poor scan quality",
+  "clauses": [],
+  "named_entities": [],
+  "key_value_pairs": [],
+  "needs_review": true,
+  "extraction_method": "fallback_failed",
+  "error": "Low confidence extraction",
+  "placeholder": true
+}

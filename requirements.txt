@@ -35,3 +35,7 @@ httpx>=0.25.0
 # Development and testing
 pytest>=7.4.0
 pytest-asyncio>=0.21.0
+
+# Optional ML dependencies for feature vectors
+numpy>=1.24.0  # For variance calculations in feature_emitter
+# google-cloud-aiplatform>=1.38.0  # For Vertex AI embeddings (optional)

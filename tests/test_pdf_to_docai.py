@@ -562,7 +562,7 @@ class PDFToDocAITester:
                 # Method 2: Try GCS URI method (will fail but test the endpoint)
                 logger.info("Testing DocAI parse endpoint with GCS URI...")
                 parse_request = {
-                    "gcs_uri": f"gs://test-bucket/{Path(pdf_path).name}",
+                                        "gcs_uri": f"{os.getenv('GCS_TEST_BUCKET', 'gs://test-bucket/').rstrip('/') + '/'}{Path(pdf_path).name}",
                     "confidence_threshold": self.test_config["confidence_threshold"]
                 }
                 

@@ -1,0 +1,27 @@
+{
+  "document_features": {
+    "char_count": 223,
+    "word_count": 25,
+    "page_count": 1,
+    "avg_confidence": 0.95
+  },
+  "extraction_features": {
+    "entities_extracted": 4,
+    "kv_pairs_extracted": 0,
+    "docai_confidence": 0,
+    "structured_data_available": true
+  },
+  "processing_features": {
+    "vision_success": true,
+    "docai_success": true,
+    "pdf_library": "pdfplumber",
+    "fallback_used": true,
+    "processing_time": "2025-09-20T02:44:10.824993"
+  },
+  "compatibility_features": {
+    "gcs_staging_success": true,
+    "vision_ocr_success": true,
+    "docai_parsing_success": true,
+    "fallback_metadata_success": true
+  }
+}

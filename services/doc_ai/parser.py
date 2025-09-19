@@ -2,12 +2,15 @@
 Document parser for transforming DocAI output into normalized schema.
 
 This module converts raw Google Document AI responses into our
-standardized schema format with proper entity normalization.
+standardized schema format with proper entity normalization and fallback extraction.
 """
 
 import re
 import uuid
+import json
+from pathlib import Path
 from typing import Dict, List, Optional, Any, Set
+from datetime import datetime
 import structlog
 from decimal import Decimal
 
@@ -26,6 +29,12 @@ from .schema import (
     TextSpan,
     BoundingBox
 )
+from ..text_utils import normalize_text, normalize_for_comparison
+from ..feature_emitter import emit_feature_vector
+from ..regex_fallback import run_fallback_kvs, validate_mandatory_kvs
+
+# Import text normalization utilities
+from ..text_utils import normalize_text, normalize_for_comparison
 
 
 logger = structlog.get_logger(__name__)
@@ -124,17 +133,60 @@ class DocumentParser:
         try:
             logger.info("Starting document parsing", document_id=metadata.document_id)
             
-            # Extract full text
-            full_text = self._extract_full_text(docai_document)
+            # Extract and normalize full text
+            raw_full_text = self._extract_full_text(docai_document)
+            full_text = normalize_text(raw_full_text)
             
             # Extract entities
             named_entities = self._extract_entities(docai_document, full_text)
             
-            # Extract key-value pairs
+            # Extract key-value pairs  
             key_value_pairs = self._extract_key_value_pairs(docai_document, full_text)
             
             # Detect clauses
             clauses = self._detect_clauses(docai_document, full_text)
+            
+            # Run fallback extraction if DocAI results are insufficient
+            needs_review = self._check_needs_review(named_entities, key_value_pairs, clauses, full_text)
+            
+            if needs_review:
+                logger.info("Running fallback extraction due to insufficient DocAI results")
+                
+                # Use enhanced fallback extractor for better coverage
+                enhanced_fallback = run_fallback_kvs(normalize_text(full_text))
+                fallback_kvs_dict = enhanced_fallback.get("extracted_kvs", {})
+                
+                # Convert fallback results to schema-compatible KVs
+                for field_name, field_extractions in fallback_kvs_dict.items():
+                    for extraction in field_extractions:
+                        if extraction.get("value"):
+                            # Create schema-compatible KeyValuePair (simplified)
+                            try:
+                                kv_dict = {
+                                    "id": f"fallback_{field_name}_{len(key_value_pairs)}",
+                                    "key": {"text": field_name.replace("_", " ").title()},
+                                    "value": {"text": extraction["normalized_value"]},
+                                    "confidence": extraction.get("confidence", 0.8),
+                                    "source": extraction.get("source", "fallback_regex")
+                                }
+                                # Note: In production, convert to proper KeyValuePair objects
+                                # For MVP, store as dict for JSON serialization
+                                key_value_pairs.append(kv_dict)
+                            except Exception as e:
+                                logger.warning(f"Failed to convert fallback KV {field_name}: {e}")
+                
+                # Also run original fallback for schema objects
+                fallback_entities, fallback_kvs_schema, fallback_clauses = self._run_fallback_extraction_for_schema(full_text)
+                
+                # Merge original fallback results
+                named_entities.extend(fallback_entities)
+                clauses.extend(fallback_clauses)
+                
+                # Re-check needs_review after enhanced fallback
+                enhanced_mandatory = enhanced_fallback.get("mandatory_found", 0)
+                if enhanced_mandatory >= 2:
+                    needs_review = False
+                    logger.info(f"Enhanced fallback found {enhanced_mandatory} mandatory fields - document review not needed")
             
             # Extract cross-references
             cross_references = self._extract_cross_references(named_entities)
@@ -154,6 +206,14 @@ class DocumentParser:
                 raw_docai_response=self._serialize_docai_response(docai_document) if include_raw_response else None
             )
             
+            # Add normalized text to metadata for consistency
+            parsed_doc.metadata.normalized_text = normalize_text(full_text)
+            
+            # Add needs_review flag to metadata
+            if needs_review:
+                parsed_doc.metadata.needs_review = True
+                logger.info("Document marked for review due to low extraction confidence")
+            
             logger.info(
                 "Document parsing completed",
                 document_id=metadata.document_id,
@@ -163,6 +223,18 @@ class DocumentParser:
                 cross_references=len(cross_references),
                 warnings=len(warnings)
             )
+            
+            # Generate feature vector for ML/Vertex integration
+            try:
+                parsed_dict = parsed_doc.dict()
+                feature_output_path = Path("artifacts") / "vision_to_docai" / "feature_vector.json"
+                emit_feature_vector(parsed_dict, str(feature_output_path))
+                
+                # Generate diagnostics summary
+                self._generate_diagnostics_summary(parsed_dict, full_text)
+                
+            except Exception as e:
+                logger.warning("Failed to generate feature vector or diagnostics", error=str(e))
             
             return parsed_doc
             
@@ -526,7 +598,346 @@ class DocumentParser:
         
         # More pattern matches = higher confidence
         confidence = base_confidence + (matches / len(patterns)) * (max_confidence - base_confidence)
-        return min(confidence, max_confidence)
+    def _serialize_docai_response(self, document: documentai.Document) -> Dict[str, Any]:
+        """Serialize DocAI document response to dictionary."""
+        try:
+            # Convert to JSON-serializable format
+            # This is a simplified version - real implementation would handle all DocAI types
+            return {
+                'text': document.text,
+                'pages': len(document.pages) if document.pages else 0,
+                'entities': len(document.entities) if document.entities else 0,
+                'mime_type': document.mime_type if hasattr(document, 'mime_type') else None
+            }
+        except Exception as e:
+            logger.warning("Failed to serialize DocAI response", error=str(e))
+            return {}
+    
+    def _check_needs_review(self, entities: List[NamedEntity], kvs: List[KeyValuePair], clauses: List[Clause], full_text: str = "") -> bool:
+        """
+        Enhanced check if document needs manual review based on extraction quality and fallback success.
+        
+        Args:
+            entities: Extracted named entities
+            kvs: Extracted key-value pairs
+            clauses: Extracted clauses
+            full_text: Full document text for fallback checking
+            
+        Returns:
+            True if document needs review
+        """
+        # Check for minimum mandatory fields in extracted KVs
+        mandatory_kv_types = ["policy_no", "date_of_commencement", "sum_assured", "dob"]
+        
+        found_mandatory = 0
+        for kv in kvs:
+            key_text = kv.key.text.lower() if hasattr(kv.key, 'text') else str(kv.key).lower()
+            if any(mandatory in key_text for mandatory in mandatory_kv_types):
+                found_mandatory += 1
+        
+        # Check fallback extraction for mandatory fields if DocAI failed
+        if found_mandatory < 2 and full_text:  # Less than 2 mandatory fields found
+            logger.info("Running enhanced fallback extraction for mandatory KVs")
+            fallback_result = run_fallback_kvs(normalize_text(full_text))
+            fallback_mandatory = fallback_result.get("mandatory_found", 0)
+            
+            # If fallback found mandatory fields, reduce review need
+            if fallback_mandatory >= 2:
+                logger.info(f"Enhanced fallback extraction found {fallback_mandatory} mandatory fields - reducing review need")
+                return False
+        
+        # Check entity extraction quality
+        high_confidence_entities = [e for e in entities if e.confidence > self.confidence_threshold]
+        
+        # Check clause coverage
+        total_clause_length = sum(c.text_span.end_offset - c.text_span.start_offset for c in clauses)
+        
+        # Needs review if insufficient extraction
+        needs_review = (
+            len(entities) < 3 or  # Too few entities
+            found_mandatory < 2 or  # Missing mandatory KVs
+            len(clauses) < 3 or  # Too few clauses
+            len(high_confidence_entities) < len(entities) * 0.7  # Low confidence
+        )
+        
+        return needs_review
+    
+    def _run_fallback_extraction(self, full_text: str) -> Dict[str, Any]:
+        """
+        P3 Fix: Enhanced fallback extraction using regex patterns.
+        Returns simple dict structure for testing - not schema objects.
+        """
+        logger.info("Running fallback extraction with regex patterns")
+        
+        patterns = {
+            "policy_no": [
+                r'Policy\s*No[:\s.]*([A-Za-z0-9\-/]+)',
+                r'Policy\s*Number[:\s.]*([A-Za-z0-9\-/]+)'
+            ],
+            "date_of_commencement": [
+                r'Date\s+of\s+Commencement\s+of\s+Policy[:\s.]*([0-9\-/\.]+)',
+                r'Commencement\s+Date[:\s.]*([0-9\-/\.]+)'
+            ],
+            "sum_assured": [
+                r'Sum\s+Assured\s+for\s+Basic\s+Plan[:\s.]*\(?\s*Rs\.?\s*\)?[:\s.]*([0-9,]+)',
+                r'Sum\s+Assured[:\s.]*\(?\s*Rs\.?\s*\)?[:\s.]*([0-9,]+)'
+            ],
+            "dob": [
+                r'Date\s+of\s+Birth[:\s.]*([0-9\-/\.]+)',
+                r'DOB[:\s.]*([0-9\-/\.]+)'
+            ],
+            "nominee": [
+                r'Nominee\s+under\s+section\s+39[^:]*?[:\s.]*([A-Za-z\s]+)',
+                r'Nominee[:\s.]*([A-Za-z\s]+)'
+            ]
+        }
+        
+        # Simple extraction - return as plain dict for testing
+        fallback_kv = {}
+        policy_numbers = []
+        
+        for field, field_patterns in patterns.items():
+            fallback_kv[field] = []
+            for pattern in field_patterns:
+                matches = re.findall(pattern, full_text, re.IGNORECASE)
+                for match in matches:
+                    if match.strip():
+                        # Normalize the extracted value
+                        normalized_value = self._normalize_kv_value(field, match.strip())
+                        
+                        fallback_kv[field].append({
+                            "value": match.strip(),
+                            "normalized_value": normalized_value,
+                            "pattern": pattern,
+                            "confidence": "regex_fallback",
+                            "source": "fallback_regex"
+                        })
+                        
+                        # Collect policy numbers separately
+                        if field == "policy_no":
+                            policy_numbers.append(normalized_value)
+        
+        return {
+            "fallback_kv": fallback_kv,
+            "policy_numbers": policy_numbers
+        }
+    
+    def _classify_clause_type(self, heading: str, content: str) -> str:
+        """Classify clause type based on heading and content."""
+        heading_lower = heading.lower()
+        content_lower = content.lower()
+        
+        # Map to valid ClauseType enum values
+        if any(term in heading_lower for term in ['benefit', 'payout', 'death']):
+            return 'OTHER'  # BENEFIT not in enum, use OTHER
+        elif any(term in heading_lower for term in ['exclusion', 'exception', 'not covered']):
+            return 'LIABILITY'  # Map exclusions to LIABILITY
+        elif any(term in heading_lower for term in ['condition', 'term', 'requirement']):
+            return 'OTHER'  # CONDITIONS not in enum
+        elif any(term in heading_lower for term in ['definition', 'meaning']):
+            return 'OTHER'  # DEFINITIONS not in enum
+        elif any(term in heading_lower for term in ['premium', 'payment', 'fee']):
+            return 'PAYMENT'  # Premium maps to PAYMENT
+        elif any(term in heading_lower for term in ['termination', 'cancellation']):
+            return 'TERMINATION'
+        elif any(term in heading_lower for term in ['confidential', 'privacy']):
+            return 'CONFIDENTIALITY'
+        elif any(term in heading_lower for term in ['liability', 'responsible']):
+            return 'LIABILITY'
+        elif any(term in heading_lower for term in ['law', 'jurisdiction', 'governing']):
+            return 'GOVERNING_LAW'
+        elif any(term in heading_lower for term in ['dispute', 'resolution', 'arbitration']):
+            return 'DISPUTE_RESOLUTION'
+        else:
+            return 'OTHER'
+    
+    def _normalize_kv_value(self, field: str, value: str) -> str:
+        """Normalize extracted KV values based on field type."""
+        value = value.strip()
+        
+        if field == "date_of_commencement" or field == "dob":
+            # Normalize dates to ISO format
+            try:
+                from datetime import datetime
+                # Try common date formats
+                for fmt in ["%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d", "%d.%m.%Y"]:
+                    try:
+                        dt = datetime.strptime(value, fmt)
+                        return dt.strftime("%Y-%m-%d")
+                    except ValueError:
+                        continue
+                return value  # Return original if parsing fails
+            except Exception:
+                return value
+        
+        elif field == "sum_assured":
+            # Normalize currency to integer
+            try:
+                # Remove commas and currency symbols
+                clean_value = re.sub(r'[,\s₹$]', '', value)
+                return str(int(clean_value))
+            except (ValueError, TypeError):
+                return value
+        
+        elif field == "policy_no":
+            # Normalize policy number format
+            return value.upper().replace(" ", "")
+        
+        elif field == "nominee":
+            # Normalize person names
+            return value.title().strip()
+        
+        return value
+    
+    def _generate_diagnostics_summary(self, parsed_dict: Dict[str, Any], full_text: str) -> None:
+        """Generate diagnostics summary for pipeline analysis."""
+        try:
+            # Calculate text similarity if Vision data available
+            vision_file = Path("data") / "testing-ocr-pdf-1-1e08491e-28e026de" / "testing-ocr-pdf-1-1e08491e-28e026de.json"
+            text_similarity = 0.0
+            
+            if vision_file.exists():
+                try:
+                    with open(vision_file, 'r', encoding='utf-8') as f:
+                        vision_data = json.load(f)
+                    vision_text = vision_data.get("ocr_result", {}).get("full_text", "")
+                    
+                    from ..text_utils import calculate_text_similarity
+                    similarity_result = calculate_text_similarity(vision_text, full_text)
+                    text_similarity = similarity_result["combined_similarity"]
+                except Exception as e:
+                    logger.warning("Failed to calculate text similarity", error=str(e))
+            
+            # Generate diagnostics
+            diagnostics = {
+                "timestamp": str(datetime.now().isoformat()),
+                "similarity_score": text_similarity,
+                "counts": {
+                    "clauses": len(parsed_dict.get("clauses", [])),
+                    "named_entities": len(parsed_dict.get("named_entities", [])),
+                    "key_value_pairs": len(parsed_dict.get("key_value_pairs", []))
+                },
+                "needs_review": parsed_dict.get("metadata", {}).get("needs_review", False),
+                "text_stats": {
+                    "length": len(full_text),
+                    "normalized_length": len(normalize_text(full_text))
+                }
+            }
+            
+            # Save diagnostics
+            diagnostics_path = Path("artifacts") / "vision_to_docai" / "diagnostics.json"
+            diagnostics_path.parent.mkdir(parents=True, exist_ok=True)
+            
+            with open(diagnostics_path, 'w', encoding='utf-8') as f:
+                json.dump(diagnostics, f, indent=2, ensure_ascii=False)
+            
+            logger.info(
+                "Diagnostics summary generated",
+                path=str(diagnostics_path),
+                similarity=text_similarity,
+                needs_review=diagnostics["needs_review"]
+            )
+            
+            # Print path to console as requested
+            print(f"📊 Diagnostics saved to: {diagnostics_path}")
+            
+        except Exception as e:
+            logger.error("Failed to generate diagnostics summary", error=str(e))
+    
+    def _run_fallback_extraction_for_schema(self, full_text: str) -> tuple[List[NamedEntity], List[KeyValuePair], List[Clause]]:
+        """Run fallback extraction that returns schema objects for production use."""
+        # Placeholder for production fallback extraction
+        return [], [], []
+    
+    def _map_kv_to_entity_type(self, kv_type: str) -> Optional[EntityType]:
+        """Map KV field type to entity type."""
+        mapping = {
+            "policy_no": EntityType.ORGANIZATION,  # Policy numbers are org-related
+            "date_of_commencement": EntityType.DATE,
+            "sum_assured": EntityType.MONEY,
+            "dob": EntityType.DATE,
+            "nominee": EntityType.PERSON
+        }
+        return mapping.get(kv_type)
+    
+    def _extract_clauses_by_headings(self, full_text: str) -> List[Clause]:
+        """Extract clauses based on heading patterns and document structure."""
+        
+        clauses = []
+        
+        # Pattern for detecting headings (uppercase lines or numbered sections)
+        heading_patterns = [
+            r'^\d+\.\s+([A-Z][^:\n]+):?\s*$',  # Numbered sections
+            r'^([A-Z\s]{10,}):?\s*$',  # All caps headings
+            r'^([A-Z][a-z\s]+):\s*$'  # Title case with colon
+        ]
+        
+        lines = full_text.split('\n')
+        current_clause = None
+        clause_content = []
+        
+        for i, line in enumerate(lines):
+            line = line.strip()
+            if not line:
+                continue
+            
+            # Check if this line is a heading
+            is_heading = False
+            heading_text = ""
+            
+            for pattern in heading_patterns:
+                match = re.match(pattern, line)
+                if match:
+                    is_heading = True
+                    heading_text = match.group(1).strip()
+                    break
+            
+            if is_heading:
+                # Save previous clause if exists
+                if current_clause and clause_content:
+                    clause_text = '\n'.join(clause_content)
+                    start_offset = full_text.find(clause_text)
+                    if start_offset >= 0:
+                        clauses.append(Clause(
+                            id=str(uuid.uuid4()),
+                            type=self._classify_clause_type(heading_text, clause_text),
+                            confidence=0.7,  # Medium confidence for regex-based extraction
+                            text_span=TextSpan(
+                                start_offset=start_offset,
+                                end_offset=start_offset + len(clause_text),
+                                text=clause_text
+                            ),
+                            page_number=1,  # Default to page 1 for fallback
+                            metadata={"title": current_clause}
+                        ))
+                
+                # Start new clause
+                current_clause = heading_text
+                clause_content = []
+            else:
+                # Add to current clause content
+                if current_clause:
+                    clause_content.append(line)
+        
+        # Handle final clause
+        if current_clause and clause_content:
+            clause_text = '\n'.join(clause_content)
+            start_offset = full_text.find(clause_text)
+            if start_offset >= 0:
+                clauses.append(Clause(
+                    id=str(uuid.uuid4()),
+                    type=self._classify_clause_type(current_clause, clause_text),
+                    confidence=0.7,
+                    text_span=TextSpan(
+                        start_offset=start_offset,
+                        end_offset=start_offset + len(clause_text),
+                        text=clause_text
+                    ),
+                    page_number=1,  # Default to page 1 for fallback
+                    metadata={"title": current_clause}
+                ))
+        
+        return clauses
     
     def _are_entities_related(self, entity1: NamedEntity, entity2: NamedEntity) -> bool:
         """Check if two entities are related."""

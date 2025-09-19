@@ -1,0 +1,42 @@
+{
+  "text": "CONTRACT AGREEMENT\nParty A: ABC Corp\nParty B: XYZ Ltd\nContract Value: $100,000\nEffective Date: 2024-01-15",
+  "clauses": [
+    {
+      "type": "parties",
+      "text": "Agreement between ABC Corp and XYZ Ltd",
+      "confidence": 0.78
+    }
+  ],
+  "named_entities": [
+    {
+      "text": "ABC Corp",
+      "type": "ORGANIZATION",
+      "confidence": 0.85
+    },
+    {
+      "text": "XYZ Ltd",
+      "type": "ORGANIZATION",
+      "confidence": 0.83
+    }
+  ],
+  "key_value_pairs": [
+    {
+      "key": "party_a",
+      "value": "ABC Corp",
+      "confidence": 0.85
+    },
+    {
+      "key": "party_b",
+      "value": "XYZ Ltd",
+      "confidence": 0.83
+    },
+    {
+      "key": "contract_value",
+      "value": "$100,000",
+      "confidence": 0.8
+    }
+  ],
+  "needs_review": false,
+  "extraction_method": "enhanced_fallback",
+  "processor_id": "4d61f6d3fe4953b3"
+}

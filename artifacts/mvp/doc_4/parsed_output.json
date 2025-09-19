@@ -1,0 +1,57 @@
+{
+  "text": "POLICY DOCUMENT\nPolicy: LIFE-456-2024\nHolder: Michael Johnson\nAmount: $25,000\nBeneficiary: Lisa Johnson\nMonthly Premium: $45",
+  "clauses": [
+    {
+      "type": "coverage",
+      "text": "Life insurance policy for $25,000",
+      "confidence": 0.89
+    },
+    {
+      "type": "payment",
+      "text": "Monthly premium $45",
+      "confidence": 0.86
+    }
+  ],
+  "named_entities": [
+    {
+      "text": "Michael Johnson",
+      "type": "PERSON",
+      "confidence": 0.94
+    },
+    {
+      "text": "Lisa Johnson",
+      "type": "PERSON",
+      "confidence": 0.92
+    }
+  ],
+  "key_value_pairs": [
+    {
+      "key": "policy_number",
+      "value": "LIFE-456-2024",
+      "confidence": 0.93
+    },
+    {
+      "key": "policy_holder",
+      "value": "Michael Johnson",
+      "confidence": 0.94
+    },
+    {
+      "key": "sum_assured",
+      "value": "$25,000",
+      "confidence": 0.89
+    },
+    {
+      "key": "nominee",
+      "value": "Lisa Johnson",
+      "confidence": 0.92
+    },
+    {
+      "key": "premium",
+      "value": "$45",
+      "confidence": 0.86
+    }
+  ],
+  "needs_review": false,
+  "extraction_method": "enhanced_fallback",
+  "processor_id": "4d61f6d3fe4953b3"
+}

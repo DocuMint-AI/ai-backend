@@ -21,6 +21,22 @@ try:
 except ImportError:
     fitz = None
 
+# Fallback PDF libraries
+try:
+    import pdfplumber
+except ImportError:
+    pdfplumber = None
+
+try:
+    import PyPDF2
+except ImportError:
+    PyPDF2 = None
+
+try:
+    import pypdf
+except ImportError:
+    pypdf = None
+
 from PIL import Image
 import io
 
@@ -41,7 +57,7 @@ class PDFToImageConverter:
     
     def __init__(self, data_root: str = "/data", image_format: str = "PNG", dpi: int = 300):
         """
-        Initialize PDF converter with configuration.
+        Initialize PDF converter with configuration and fallback support.
         
         Args:
             data_root: Root directory for storing processed data
@@ -58,11 +74,59 @@ class PDFToImageConverter:
         # Ensure data directory exists
         self.data_root.mkdir(parents=True, exist_ok=True)
         
-        # Validate dependencies
-        if not fitz:
-            raise ImportError("PyMuPDF (fitz) is required. Install with: pip install PyMuPDF")
+        # Determine PDF processing library with fallback hierarchy
+        self.pdf_library = None
+        self.library_name = None
         
-        logger.info(f"Initialized PDF converter: {data_root}, {image_format}, {dpi}DPI")
+        # Try PyMuPDF first
+        if fitz:
+            try:
+                # Test PyMuPDF import with actual functionality
+                test_doc = fitz.open()
+                test_doc.close()
+                self.pdf_library = fitz
+                self.library_name = "PyMuPDF"
+                logger.info("Using PyMuPDF for PDF processing")
+            except Exception as e:
+                logger.warning(f"PyMuPDF import failed: {e}")
+        
+        # Try pdfplumber fallback
+        if not self.pdf_library and pdfplumber:
+            try:
+                # Test pdfplumber functionality
+                self.pdf_library = pdfplumber
+                self.library_name = "pdfplumber"
+                logger.info("Using pdfplumber as fallback for PDF processing")
+            except Exception as e:
+                logger.warning(f"pdfplumber fallback failed: {e}")
+        
+        # Try PyPDF2 fallback
+        if not self.pdf_library and PyPDF2:
+            try:
+                # Test PyPDF2 functionality
+                self.pdf_library = PyPDF2
+                self.library_name = "PyPDF2"
+                logger.info("Using PyPDF2 as fallback for PDF processing")
+            except Exception as e:
+                logger.warning(f"PyPDF2 fallback failed: {e}")
+        
+        # Try pypdf fallback
+        if not self.pdf_library and pypdf:
+            try:
+                # Test pypdf functionality
+                self.pdf_library = pypdf
+                self.library_name = "pypdf"
+                logger.info("Using pypdf as fallback for PDF processing")
+            except Exception as e:
+                logger.warning(f"pypdf fallback failed: {e}")
+        
+        if not self.pdf_library:
+            raise ImportError(
+                "No suitable PDF library available. Install one of: PyMuPDF, pdfplumber, PyPDF2, or pypdf\n"
+                "Recommended: uv pip install PyMuPDF pdfplumber PyPDF2 pypdf"
+            )
+        
+        logger.info(f"Initialized PDF converter using {self.library_name}: {data_root}, {image_format}, {dpi}DPI")
     
     def generate_uid(self, pdf_path: str) -> str:
         """
@@ -170,72 +234,246 @@ class PDFToImageConverter:
             else:
                 folder_path = self.create_folder_structure(pdf_name, uid)
             
-            # Open PDF document
-            pdf_document = fitz.open(str(pdf_path))
-            total_pages = len(pdf_document)
+            logger.info(f"Processing PDF: {pdf_path.name} using {self.library_name}")
             
-            logger.info(f"Processing PDF: {pdf_path.name} ({total_pages} pages)")
+            # Process PDF based on available library
+            if self.library_name == "PyMuPDF":
+                return self._convert_with_pymupdf(pdf_path, folder_path, uid, pdf_name)
+            elif self.library_name == "pdfplumber":
+                return self._convert_with_pdfplumber(pdf_path, folder_path, uid, pdf_name)
+            elif self.library_name == "PyPDF2":
+                return self._convert_with_pypdf2(pdf_path, folder_path, uid, pdf_name)
+            elif self.library_name == "pypdf":
+                return self._convert_with_pypdf(pdf_path, folder_path, uid, pdf_name)
+            else:
+                raise PDFProcessingError(f"Unsupported PDF library: {self.library_name}")
+                
+        except Exception as e:
+            error_msg = f"Failed to process PDF {pdf_path}: {str(e)}"
+            logger.error(error_msg)
+            raise PDFProcessingError(error_msg) from e
+    
+    def _convert_with_pymupdf(self, pdf_path: Path, folder_path: Path, uid: str, pdf_name: str) -> Tuple[str, List[str], Dict[str, Any]]:
+        """Convert PDF using PyMuPDF (optimal with image conversion)."""
+        pdf_document = self.pdf_library.open(str(pdf_path))
+        total_pages = len(pdf_document)
+        
+        image_paths = []
+        processing_errors = []
+        
+        for page_num in range(total_pages):
+            try:
+                page = pdf_document[page_num]
+                
+                # Convert page to image
+                mat = self.pdf_library.Matrix(self.dpi / 72, self.dpi / 72)  # Scale factor for DPI
+                pix = page.get_pixmap(matrix=mat)
+                
+                # Save image
+                image_filename = f"page_{page_num + 1:03d}.{self.image_format.lower()}"
+                image_path = folder_path / "images" / image_filename
+                
+                if self.image_format == "PNG":
+                    pix.save(str(image_path))
+                else:  # JPEG
+                    # Convert to PIL Image for JPEG (better quality control)
+                    img_data = pix.tobytes("ppm")
+                    img = Image.open(io.BytesIO(img_data))
+                    img.save(str(image_path), "JPEG", quality=95, optimize=True)
+                
+                image_paths.append(str(image_path))
+                logger.debug(f"Converted page {page_num + 1} -> {image_path}")
+                
+            except Exception as e:
+                error_msg = f"Error processing page {page_num + 1}: {str(e)}"
+                logger.warning(error_msg)
+                processing_errors.append(error_msg)
+        
+        pdf_document.close()
+        
+        # Create metadata
+        metadata = self.create_metadata(
+            pdf_path=str(pdf_path),
+            uid=uid,
+            pdf_name=pdf_name,
+            total_pages=total_pages,
+            processed_pages=len(image_paths),
+            image_paths=image_paths,
+            processing_errors=processing_errors,
+            folder_path=str(folder_path)
+        )
+        
+        # Save metadata
+        self.save_metadata(folder_path, metadata)
+        
+        logger.info(f"Successfully converted {len(image_paths)}/{total_pages} pages with PyMuPDF")
+        return uid, image_paths, metadata
+    
+    def _convert_with_pdfplumber(self, pdf_path: Path, folder_path: Path, uid: str, pdf_name: str) -> Tuple[str, List[str], Dict[str, Any]]:
+        """Convert PDF using pdfplumber (text extraction focus, limited image conversion)."""
+        with self.pdf_library.open(pdf_path) as pdf:
+            total_pages = len(pdf.pages)
             
-            # Convert each page to image
-            image_paths = []
+            text_files = []
             processing_errors = []
             
-            for page_num in range(total_pages):
+            for i, page in enumerate(pdf.pages):
                 try:
-                    page = pdf_document[page_num]
+                    # Extract text with layout information
+                    text = page.extract_text()
                     
-                    # Convert page to image
-                    mat = fitz.Matrix(self.dpi / 72, self.dpi / 72)  # Scale factor for DPI
-                    pix = page.get_pixmap(matrix=mat)
+                    # Extract tables if any
+                    tables = page.extract_tables()
                     
-                    # Save image
-                    image_filename = f"page_{page_num + 1:03d}.{self.image_format.lower()}"
-                    image_path = folder_path / "images" / image_filename
+                    # Save text file (no image conversion capability)
+                    text_filename = f"page_{i + 1:03d}.txt"
+                    text_path = folder_path / "text" / text_filename
+                    text_path.parent.mkdir(parents=True, exist_ok=True)
                     
-                    if self.image_format == "PNG":
-                        pix.save(str(image_path))
-                    else:  # JPEG
-                        # Convert to PIL Image for JPEG (better quality control)
-                        img_data = pix.tobytes("ppm")
-                        img = Image.open(io.BytesIO(img_data))
-                        img.save(str(image_path), "JPEG", quality=95, optimize=True)
+                    with open(text_path, 'w', encoding='utf-8') as f:
+                        f.write(text or "")
                     
-                    image_paths.append(str(image_path))
-                    logger.debug(f"Converted page {page_num + 1} -> {image_path}")
+                    text_files.append(str(text_path))
+                    
+                    # Save tables if any
+                    if tables:
+                        table_filename = f"page_{i + 1:03d}_tables.json"
+                        table_path = folder_path / "tables" / table_filename
+                        table_path.parent.mkdir(parents=True, exist_ok=True)
+                        
+                        with open(table_path, 'w') as f:
+                            json.dump(tables, f, indent=2)
+                    
+                    logger.debug(f"Extracted text from page {i + 1}")
                     
                 except Exception as e:
-                    error_msg = f"Error processing page {page_num + 1}: {str(e)}"
+                    error_msg = f"Error processing page {i + 1}: {str(e)}"
                     logger.warning(error_msg)
                     processing_errors.append(error_msg)
             
-            pdf_document.close()
-            
-            # Create metadata
+            # Create metadata for text-based processing
             metadata = self.create_metadata(
                 pdf_path=str(pdf_path),
                 uid=uid,
                 pdf_name=pdf_name,
                 total_pages=total_pages,
-                processed_pages=len(image_paths),
-                image_paths=image_paths,
+                processed_pages=len(text_files),
+                image_paths=[],  # No image conversion
+                text_paths=text_files,
                 processing_errors=processing_errors,
-                folder_path=str(folder_path)
+                folder_path=str(folder_path),
+                processing_method="text_extraction_pdfplumber"
             )
             
             # Save metadata
             self.save_metadata(folder_path, metadata)
             
-            logger.info(f"Successfully converted {len(image_paths)}/{total_pages} pages")
+            logger.info(f"Successfully extracted text from {len(text_files)}/{total_pages} pages with pdfplumber")
+            logger.warning("Note: pdfplumber fallback - no image conversion, text extraction only")
             
-            if processing_errors:
-                logger.warning(f"Encountered {len(processing_errors)} processing errors")
+            return uid, text_files, metadata
+    
+    def _convert_with_pypdf2(self, pdf_path: Path, folder_path: Path, uid: str, pdf_name: str) -> Tuple[str, List[str], Dict[str, Any]]:
+        """Convert PDF using PyPDF2 (text extraction only)."""
+        with open(pdf_path, 'rb') as file:
+            reader = self.pdf_library.PdfReader(file)
+            total_pages = len(reader.pages)
             
-            return uid, image_paths, metadata
+            text_files = []
+            processing_errors = []
             
-        except Exception as e:
-            error_msg = f"Failed to process PDF {pdf_path}: {str(e)}"
-            logger.error(error_msg)
-            raise PDFProcessingError(error_msg) from e
+            for i, page in enumerate(reader.pages):
+                try:
+                    text = page.extract_text()
+                    
+                    # Save text file
+                    text_filename = f"page_{i + 1:03d}.txt"
+                    text_path = folder_path / "text" / text_filename
+                    text_path.parent.mkdir(parents=True, exist_ok=True)
+                    
+                    with open(text_path, 'w', encoding='utf-8') as f:
+                        f.write(text)
+                    
+                    text_files.append(str(text_path))
+                    logger.debug(f"Extracted text from page {i + 1}")
+                    
+                except Exception as e:
+                    error_msg = f"Error processing page {i + 1}: {str(e)}"
+                    logger.warning(error_msg)
+                    processing_errors.append(error_msg)
+            
+            # Create metadata for text-based processing
+            metadata = self.create_metadata(
+                pdf_path=str(pdf_path),
+                uid=uid,
+                pdf_name=pdf_name,
+                total_pages=total_pages,
+                processed_pages=len(text_files),
+                image_paths=[],  # No image conversion
+                text_paths=text_files,
+                processing_errors=processing_errors,
+                folder_path=str(folder_path),
+                processing_method="text_extraction_pypdf2"
+            )
+            
+            # Save metadata
+            self.save_metadata(folder_path, metadata)
+            
+            logger.info(f"Successfully extracted text from {len(text_files)}/{total_pages} pages with PyPDF2")
+            logger.warning("Note: PyPDF2 fallback - no image conversion, text extraction only")
+            
+            return uid, text_files, metadata
+    
+    def _convert_with_pypdf(self, pdf_path: Path, folder_path: Path, uid: str, pdf_name: str) -> Tuple[str, List[str], Dict[str, Any]]:
+        """Convert PDF using pypdf (text extraction only)."""
+        with open(pdf_path, 'rb') as file:
+            reader = self.pdf_library.PdfReader(file)
+            total_pages = len(reader.pages)
+            
+            text_files = []
+            processing_errors = []
+            
+            for i, page in enumerate(reader.pages):
+                try:
+                    text = page.extract_text()
+                    
+                    # Save text file
+                    text_filename = f"page_{i + 1:03d}.txt"
+                    text_path = folder_path / "text" / text_filename
+                    text_path.parent.mkdir(parents=True, exist_ok=True)
+                    
+                    with open(text_path, 'w', encoding='utf-8') as f:
+                        f.write(text or "")
+                    
+                    text_files.append(str(text_path))
+                    logger.debug(f"Extracted text from page {i + 1}")
+                    
+                except Exception as e:
+                    error_msg = f"Error processing page {i + 1}: {str(e)}"
+                    logger.warning(error_msg)
+                    processing_errors.append(error_msg)
+            
+            # Create metadata for text-based processing
+            metadata = self.create_metadata(
+                pdf_path=str(pdf_path),
+                uid=uid,
+                pdf_name=pdf_name,
+                total_pages=total_pages,
+                processed_pages=len(text_files),
+                image_paths=[],  # No image conversion
+                text_paths=text_files,
+                processing_errors=processing_errors,
+                folder_path=str(folder_path),
+                processing_method="text_extraction_pypdf"
+            )
+            
+            # Save metadata
+            self.save_metadata(folder_path, metadata)
+            
+            logger.info(f"Successfully extracted text from {len(text_files)}/{total_pages} pages with pypdf")
+            logger.warning("Note: pypdf fallback - no image conversion, text extraction only")
+            
+            return uid, text_files, metadata
     
     def create_metadata(
         self,
@@ -246,7 +484,9 @@ class PDFToImageConverter:
         processed_pages: int,
         image_paths: List[str],
         processing_errors: List[str],
-        folder_path: str
+        folder_path: str,
+        text_paths: Optional[List[str]] = None,
+        processing_method: str = "image_conversion_pymupdf"
     ) -> Dict[str, Any]:
         """
         Create comprehensive metadata for processed PDF.
@@ -260,6 +500,8 @@ class PDFToImageConverter:
             image_paths: List of generated image file paths
             processing_errors: List of any processing errors
             folder_path: Output folder path
+            text_paths: Optional list of text file paths (for fallback processing)
+            processing_method: Method used for processing (e.g., image_conversion_pymupdf, text_extraction_pypdf2)
             
         Returns:
             Dictionary containing metadata
@@ -285,7 +527,9 @@ class PDFToImageConverter:
                 "success_rate": round((processed_pages / total_pages) * 100, 2),
                 "image_format": self.image_format,
                 "dpi": self.dpi,
-                "processing_errors": processing_errors
+                "processing_errors": processing_errors,
+                "processing_method": processing_method,
+                "pdf_library": self.library_name
             },
             "output_info": {
                 "folder_path": folder_path,
@@ -293,12 +537,19 @@ class PDFToImageConverter:
                 "image_paths": image_paths,
                 "relative_image_paths": [
                     str(Path(p).relative_to(folder_path)) for p in image_paths
+                ] if image_paths else [],
+                "text_paths": text_paths or [],
+                "relative_text_paths": [
+                    str(Path(p).relative_to(folder_path)) for p in (text_paths or [])
                 ]
             },
             "status": {
                 "conversion_complete": len(processing_errors) == 0,
                 "has_errors": len(processing_errors) > 0,
-                "ready_for_ocr": processed_pages > 0
+                "ready_for_ocr": processed_pages > 0,
+                "has_images": len(image_paths) > 0 if image_paths else False,
+                "has_text": len(text_paths) > 0 if text_paths else False,
+                "fallback_mode": processing_method.startswith("text_extraction")
             }
         }
         

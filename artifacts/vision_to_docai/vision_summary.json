@@ -1,0 +1,15 @@
+{
+  "full_text_len": 17832,
+  "page_count": 6,
+  "total_blocks": 84,
+  "avg_confidence": 0.46846846846846846,
+  "language_detection": {
+    "primary": "en",
+    "confidence": 0.46846846846846846,
+    "language_hints": [
+      "en",
+      "es",
+      "fr"
+    ]
+  }
+}

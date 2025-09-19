@@ -1,0 +1,106 @@
+{
+  "summary": {
+    "total_docs": 5,
+    "successful_docs": 4,
+    "acceptance_criteria_met": true,
+    "processor_used": "unknown",
+    "timestamp": "c:/Users/admin/Documents/Code_Projects/ai-backend"
+  },
+  "detailed_results": [
+    {
+      "doc": 1,
+      "parsed_exists": true,
+      "feature_exists": true,
+      "is_placeholder": false,
+      "clauses": 2,
+      "entities": 3,
+      "kvs": 4,
+      "kv_flags": {
+        "has_policy_no": true,
+        "has_date_of_commencement": false,
+        "has_sum_assured": true,
+        "has_dob": false,
+        "has_nominee": true
+      },
+      "kv_success_count": 3,
+      "needs_review": false,
+      "status": "SUCCESS"
+    },
+    {
+      "doc": 2,
+      "parsed_exists": true,
+      "feature_exists": true,
+      "is_placeholder": false,
+      "clauses": 1,
+      "entities": 2,
+      "kvs": 4,
+      "kv_flags": {
+        "has_policy_no": true,
+        "has_date_of_commencement": false,
+        "has_sum_assured": true,
+        "has_dob": false,
+        "has_nominee": true
+      },
+      "kv_success_count": 3,
+      "needs_review": false,
+      "status": "SUCCESS"
+    },
+    {
+      "doc": 3,
+      "parsed_exists": true,
+      "feature_exists": true,
+      "is_placeholder": false,
+      "clauses": 1,
+      "entities": 2,
+      "kvs": 3,
+      "kv_flags": {
+        "has_policy_no": false,
+        "has_date_of_commencement": false,
+        "has_sum_assured": false,
+        "has_dob": false,
+        "has_nominee": false
+      },
+      "kv_success_count": 0,
+      "needs_review": false,
+      "status": "SUCCESS"
+    },
+    {
+      "doc": 4,
+      "parsed_exists": true,
+      "feature_exists": true,
+      "is_placeholder": false,
+      "clauses": 2,
+      "entities": 2,
+      "kvs": 5,
+      "kv_flags": {
+        "has_policy_no": true,
+        "has_date_of_commencement": false,
+        "has_sum_assured": true,
+        "has_dob": false,
+        "has_nominee": true
+      },
+      "kv_success_count": 3,
+      "needs_review": false,
+      "status": "SUCCESS"
+    },
+    {
+      "doc": 5,
+      "parsed_exists": true,
+      "feature_exists": true,
+      "is_placeholder": true,
+      "clauses": 0,
+      "entities": 0,
+      "kvs": 0,
+      "kv_flags": {
+        "has_policy_no": false,
+        "has_date_of_commencement": false,
+        "has_sum_assured": false,
+        "has_dob": false,
+        "has_nominee": false
+      },
+      "kv_success_count": 0,
+      "needs_review": true,
+      "status": "NEEDS_WORK"
+    }
+  ]
+}

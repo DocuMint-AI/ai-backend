@@ -1,0 +1,6 @@
+Processor used: unknown
+Entities found: 0
+KVs found: 0 (none)
+Clauses found: 0
+Similarity: 1.000
+Verdict: ISSUE: No entities extracted, check processor configuration

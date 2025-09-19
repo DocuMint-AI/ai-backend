@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-09-20T02:29:21.043287",
+  "overall_status": "critical",
+  "failed_checks": [
+    {
+      "check": "text_matching",
+      "severity": "high",
+      "message": "Vision and DocAI text mismatch (similarity: 0.71)"
+    },
+    {
+      "check": "entity_extraction",
+      "severity": "high",
+      "message": "No entities extracted"
+    }
+  ],
+  "prioritized_fixes": [
+    {
+      "priority": 1,
+      "type": "config",
+      "description": "Configure DocAI processor for entity extraction",
+      "action": "Verify processor supports entity extraction or use specialized processor"
+    },
+    {
+      "priority": 2,
+      "type": "code",
+      "description": "Fix text normalization between Vision and DocAI",
+      "action": "Ensure consistent whitespace and character handling"
+    },
+    {
+      "priority": 3,
+      "type": "code",
+      "description": "Validate and fix offset calculations",
+      "action": "Update parser to correctly map DocAI offsets to full text"
+    }
+  ],
+  "summary": {
+    "total_checks": 4,
+    "failed_checks": 2,
+    "vision_pages": 6,
+    "docai_entities": 0,
+    "text_similarity": 0.7065504753309948
+  }
+}

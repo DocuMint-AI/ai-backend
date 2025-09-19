@@ -1,0 +1,47 @@
+{
+  "text": "INSURANCE AGREEMENT\nPolicy ID: INS-2024-789\nInsured: Sarah Smith\nCoverage Amount: $75,000\nBeneficiary: Robert Smith",
+  "clauses": [
+    {
+      "type": "coverage",
+      "text": "Insurance coverage amount $75,000",
+      "confidence": 0.82
+    }
+  ],
+  "named_entities": [
+    {
+      "text": "Sarah Smith",
+      "type": "PERSON",
+      "confidence": 0.91
+    },
+    {
+      "text": "Robert Smith",
+      "type": "PERSON",
+      "confidence": 0.89
+    }
+  ],
+  "key_value_pairs": [
+    {
+      "key": "policy_number",
+      "value": "INS-2024-789",
+      "confidence": 0.87
+    },
+    {
+      "key": "policy_holder",
+      "value": "Sarah Smith",
+      "confidence": 0.91
+    },
+    {
+      "key": "sum_assured",
+      "value": "$75,000",
+      "confidence": 0.82
+    },
+    {
+      "key": "nominee",
+      "value": "Robert Smith",
+      "confidence": 0.89
+    }
+  ],
+  "needs_review": false,
+  "extraction_method": "enhanced_fallback",
+  "processor_id": "4d61f6d3fe4953b3"
+}

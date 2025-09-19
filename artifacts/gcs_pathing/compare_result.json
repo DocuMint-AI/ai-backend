@@ -1,0 +1,6 @@
+{
+  "uploaded_gs_uri": "gs://oceanic-antler-471414-k3-docai-test/testing-ocr-pdf-1.pdf",
+  "harness_gs_uri": "gs://oceanic-antler-471414-k3-docai-test/testing-ocr-pdf-1.pdf",
+  "match": true,
+  "note": "Pipeline correctly uses configured GCS_TEST_BUCKET from environment"
+}

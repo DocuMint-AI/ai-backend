@@ -3,7 +3,7 @@
 Comprehensive DocAI Integration Test Script
 
 Tests the DocAI integration using the existing test document and credentials.
-This script will process the test PDF through DocAI and validate the complete pipeline.
+This script validates schema compliance, feature vector generation, and fallback extraction.
 """
 
 import asyncio
@@ -13,6 +13,7 @@ import sys
 from pathlib import Path
 from datetime import datetime
 import traceback
+import pytest
 
 # Add the project root to Python path
 project_root = Path(__file__).parent.parent
@@ -20,6 +21,16 @@ sys.path.insert(0, str(project_root))
 
 from dotenv import load_dotenv
 load_dotenv()
+
+# Handle missing dependencies gracefully
+try:
+    from services.doc_ai.parser import DocumentParser
+    from services.doc_ai.schema import ParsedDocument, DocumentMetadata
+    from services.feature_emitter import emit_feature_vector
+    HAS_DOCAI = True
+except ImportError as e:
+    HAS_DOCAI = False
+    IMPORT_ERROR = str(e)
 
 class DocAITester:
     """Comprehensive test suite for DocAI integration."""
@@ -397,10 +408,81 @@ class DocAITester:
             traceback.print_exc()
             return False
 
+            
+        except Exception as e:
+            print(f"\n❌ Test failed: {e}")
+            traceback.print_exc()
+            return False
+
+
+# New pytest-based tests for schema validation and feature vectors
+class TestSchemaValidation:
+    """pytest-based tests for schema validation and feature vector generation."""
+    
+    @pytest.fixture
+    def artifacts_dir(self):
+        """Get artifacts directory path."""
+        return Path("artifacts") / "vision_to_docai"
+    
+    @pytest.mark.skipif(not HAS_DOCAI, reason=f"DocAI dependencies missing: {IMPORT_ERROR if not HAS_DOCAI else ''}")
+    def test_parsed_output_schema_compliance(self, artifacts_dir):
+        """Test that parsed_output.json conforms to canonical schema."""
+        parsed_output_file = artifacts_dir / "parsed_output.json"
+        
+        if not parsed_output_file.exists():
+            pytest.skip(f"Parsed output not found: {parsed_output_file}")
+        
+        with open(parsed_output_file, 'r', encoding='utf-8') as f:
+            parsed_data = json.load(f)
+        
+        # Validate required top-level keys from canonical schema
+        required_keys = ["clauses", "named_entities", "key_value_pairs", "cross_references"]
+        
+        for key in required_keys:
+            assert key in parsed_data, f"Missing required schema key: {key}"
+        
+        # Validate data structures
+        assert isinstance(parsed_data["clauses"], list), "clauses must be a list"
+        assert isinstance(parsed_data["named_entities"], list), "named_entities must be a list"
+        assert isinstance(parsed_data["key_value_pairs"], list), "key_value_pairs must be a list"
+    
+    def test_feature_vector_structure(self, artifacts_dir):
+        """Test that feature_vector.json exists and has required structure."""
+        feature_vector_file = artifacts_dir / "feature_vector.json"
+        
+        if not feature_vector_file.exists():
+            pytest.skip(f"Feature vector not found: {feature_vector_file}")
+        
+        with open(feature_vector_file, 'r', encoding='utf-8') as f:
+            feature_data = json.load(f)
+        
+        # Validate required keys
+        required_keys = ["document_id", "embedding_doc", "kv_flags", "structural", "needs_review"]
+        
+        for key in required_keys:
+            assert key in feature_data, f"Missing required key in feature vector: {key}"
+        
+        # Validate KV flags structure
+        kv_flags = feature_data["kv_flags"]
+        expected_flags = ["has_policy_no", "has_date_of_commencement", "has_sum_assured", "has_dob", "has_nominee"]
+        
+        for flag in expected_flags:
+            assert flag in kv_flags, f"Missing KV flag: {flag}"
+            assert isinstance(kv_flags[flag], bool), f"KV flag {flag} must be boolean"
+
+
 async def main():
     """Main test function."""
     tester = DocAITester()
     success = await tester.run_comprehensive_test()
+    
+    # Also run pytest tests if artifacts exist
+    artifacts_dir = Path("artifacts") / "vision_to_docai"
+    if (artifacts_dir / "parsed_output.json").exists():
+        print("\n✅ Running pytest schema validation...")
+        pytest_result = pytest.main([__file__ + "::TestSchemaValidation", "-v"])
+        success = success and (pytest_result == 0)
+    
     sys.exit(0 if success else 1)
 
 if __name__ == "__main__":

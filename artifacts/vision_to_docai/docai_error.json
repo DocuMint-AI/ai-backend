@@ -1,0 +1,16 @@
+{
+  "detail": [
+    {
+      "type": "value_error",
+      "loc": [
+        "body",
+        "gcs_uri"
+      ],
+      "msg": "Value error, GCS URI must start with gs://",
+      "input": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\data\\test-files\\testing-ocr-pdf-1.pdf",
+      "ctx": {
+        "error": {}
+      }
+    }
+  ]
+}

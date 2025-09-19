@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-09-20T02:44:10.823080",
+  "pdf_library_info": {
+    "active_library": "pdfplumber",
+    "library_module": "<module 'pdfplumber' from 'C:\\\\Users\\\\admin\\\\Documents\\\\Code_Projects\\\\ai-backend\\\\.venv\\\\Lib\\\\site-packages\\\\pdfplumber\\\\__init__.py'>",
+    "fallback_active": true,
+    "pymupdf_available": false
+  },
+  "processing_capabilities": {
+    "text_extraction": true,
+    "image_conversion": false,
+    "table_extraction": true,
+    "metadata_generation": true
+  },
+  "test_results": {
+    "pdf_processing_test": true,
+    "uid_generated": "49d6a2a6-eb834117",
+    "metadata_available": true
+  },
+  "library_hierarchy": [
+    {
+      "name": "PyMuPDF",
+      "status": "failed",
+      "reason": "DLL load error"
+    },
+    {
+      "name": "pdfplumber",
+      "status": "active"
+    },
+    {
+      "name": "PyPDF2",
+      "status": "available"
+    },
+    {
+      "name": "pypdf",
+      "status": "available"
+    }
+  ]
+}

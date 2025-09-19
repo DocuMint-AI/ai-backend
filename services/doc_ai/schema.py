@@ -144,6 +144,7 @@ class DocumentMetadata(BaseModel):
     processor_version: Optional[str] = Field(None, description="DocAI processor version")
     confidence_threshold: float = Field(0.7, description="Confidence threshold applied")
     custom_metadata: Dict[str, Any] = Field(default_factory=dict, description="Custom metadata")
+    needs_review: bool = Field(False, description="Whether document needs manual review due to low extraction quality")
 
 
 class ParsedDocument(BaseModel):
@@ -179,7 +180,7 @@ class ParsedDocument(BaseModel):
 
 class ParseRequest(BaseModel):
     """Request model for document parsing."""
-    gcs_uri: str = Field(..., description="Google Cloud Storage URI of the document")
+    gcs_uri: str = Field(..., description="Google Cloud Storage URI or local file path of the document")
     processor_id: Optional[str] = Field(None, description="Specific DocAI processor ID to use")
     confidence_threshold: float = Field(0.7, ge=0.0, le=1.0, description="Minimum confidence threshold")
     enable_native_pdf_parsing: bool = Field(True, description="Enable native PDF parsing")
@@ -187,11 +188,20 @@ class ParseRequest(BaseModel):
     metadata: Dict[str, Any] = Field(default_factory=dict, description="Additional metadata")
 
     @validator('gcs_uri')
-    def validate_gcs_uri(cls, v):
-        """Validate GCS URI format."""
-        if not v.startswith('gs://'):
-            raise ValueError('GCS URI must start with gs://')
-        return v
+    def validate_gcs_uri_or_path(cls, v):
+        """Validate GCS URI format or local file path."""
+        # Allow both GCS URIs and local file paths
+        if v.startswith('gs://'):
+            # Validate GCS URI format
+            return v
+        else:
+            # Validate local file path
+            from pathlib import Path
+            if not v:
+                raise ValueError('File path cannot be empty')
+            # For validation purposes, we accept any non-empty string as a potential file path
+            # The actual file existence will be checked during staging
+            return v
 
 
 class ParseResponse(BaseModel):

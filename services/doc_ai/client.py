@@ -6,6 +6,7 @@ handling authentication, retries, and GCS URI processing.
 """
 
 import asyncio
+import json
 import logging
 import time
 from pathlib import Path
@@ -18,6 +19,7 @@ from google.api_core import exceptions as gcp_exceptions
 from google.api_core import retry
 
 from .schema import ParseRequest, DocumentMetadata
+from ..text_utils import normalize_text
 
 
 logger = structlog.get_logger(__name__)
@@ -138,6 +140,114 @@ class DocAIClient:
             proc_id
         )
     
+    def _save_raw_response(self, response: documentai.ProcessResponse) -> None:
+        """
+        Save full raw DocAI response for diagnostics with atomic writes.
+        
+        Args:
+            response: Full DocAI process response
+        """
+        try:
+            # Create artifacts directory
+            artifacts_dir = Path("artifacts") / "vision_to_docai"
+            artifacts_dir.mkdir(parents=True, exist_ok=True)
+            
+            # Get active processor ID for logging
+            processor_id = getattr(self, 'processor_id', 'unknown')
+            
+            # Convert response to dictionary for JSON serialization
+            raw_text = response.document.text if response.document.text else ""
+            response_dict = {
+                "text": raw_text,
+                "normalized_text": normalize_text(raw_text),  # Add normalized version
+                "pages": [],
+                "entities": [],
+                "page_count": len(response.document.pages) if response.document.pages else 0,
+                "entity_count": len(response.document.entities) if response.document.entities else 0,
+                "processor_metadata": {
+                    "processor_id": processor_id,
+                    "timestamp": time.time(),
+                    "raw_response_saved": True
+                }
+            }
+            
+            # Extract pages
+            if response.document.pages:
+                for page in response.document.pages:
+                    page_dict = {
+                        "page_number": getattr(page, 'page_number', 0),
+                        "width": page.dimension.width if page.dimension else 0,
+                        "height": page.dimension.height if page.dimension else 0,
+                        "blocks": [],
+                        "tokens": []
+                    }
+                    
+                    # Extract blocks
+                    if hasattr(page, 'blocks') and page.blocks:
+                        for block in page.blocks:
+                            block_dict = {
+                                "text": self._get_text_anchor_text(block.layout.text_anchor, response.document.text) if block.layout and block.layout.text_anchor else "",
+                                "confidence": block.layout.confidence if block.layout else 0.0
+                            }
+                            page_dict["blocks"].append(block_dict)
+                    
+                    response_dict["pages"].append(page_dict)
+            
+            # Extract entities
+            if response.document.entities:
+                for entity in response.document.entities:
+                    entity_dict = {
+                        "type": entity.type_,
+                        "mention_text": entity.mention_text,
+                        "confidence": entity.confidence,
+                        "id": entity.id if entity.id else "",
+                        "start_offset": None,
+                        "end_offset": None
+                    }
+                    
+                    # Extract offsets from text anchor
+                    if entity.text_anchor and entity.text_anchor.text_segments:
+                        segment = entity.text_anchor.text_segments[0]
+                        entity_dict["start_offset"] = segment.start_index
+                        entity_dict["end_offset"] = segment.end_index
+                    
+                    response_dict["entities"].append(entity_dict)
+            
+            # Save to artifacts with atomic write
+            output_file = artifacts_dir / "docai_raw_full.json"
+            temp_file = artifacts_dir / "docai_raw_full.json.tmp"
+            
+            # Write to temporary file first
+            with open(temp_file, 'w', encoding='utf-8') as f:
+                json.dump(response_dict, f, indent=2, ensure_ascii=False)
+            
+            # Atomically rename to final file
+            temp_file.rename(output_file)
+            
+            logger.info(
+                "Full raw DocAI response saved", 
+                processor_id=processor_id,
+                file_path=str(output_file),
+                entities_count=response_dict["entity_count"],
+                text_length=len(response_dict["text"])
+            )
+            
+        except Exception as e:
+            logger.error("Failed to save raw DocAI response", error=str(e))
+    
+    def _get_text_anchor_text(self, text_anchor, full_text: str) -> str:
+        """Extract text from text anchor segments."""
+        if not text_anchor or not text_anchor.text_segments:
+            return ""
+        
+        text_parts = []
+        for segment in text_anchor.text_segments:
+            start = segment.start_index or 0
+            end = segment.end_index or len(full_text)
+            text_parts.append(full_text[start:end])
+        
+        return "".join(text_parts)
+
     def download_from_gcs(self, gcs_uri: str) -> bytes:
         """
         Download document content from Google Cloud Storage with enhanced error handling.
@@ -209,6 +319,83 @@ class DocAIClient:
                 raise DocAIError(f"GCS resource not found: {e}")
             else:
                 raise DocAIError(f"GCS download failed: {e}")
+    
+    def stage_to_gcs(self, local_path: str, bucket_name: str, blob_name: str) -> str:
+        """
+        Upload a local file to Google Cloud Storage.
+        
+        Args:
+            local_path: Path to local file to upload
+            bucket_name: Target GCS bucket name (without gs:// prefix)
+            blob_name: Target blob name in bucket
+            
+        Returns:
+            Full GCS URI (gs://bucket/blob)
+            
+        Raises:
+            DocAIError: If upload fails
+        """
+        try:
+            from pathlib import Path
+            
+            local_file = Path(local_path)
+            if not local_file.exists():
+                raise FileNotFoundError(f"Local file not found: {local_path}")
+            
+            if not local_file.is_file():
+                raise ValueError(f"Path is not a file: {local_path}")
+            
+            # Validate file size
+            file_size = local_file.stat().st_size
+            max_size = 50 * 1024 * 1024  # 50MB limit
+            
+            if file_size > max_size:
+                raise DocAIError(f"File too large: {file_size / 1024 / 1024:.1f}MB (max: {max_size / 1024 / 1024}MB)")
+            
+            logger.info("Staging file to GCS", local_path=local_path, bucket=bucket_name, blob=blob_name)
+            
+            # Get bucket
+            bucket = self.storage_client.bucket(bucket_name)
+            
+            # Create blob and upload
+            blob = bucket.blob(blob_name)
+            
+            # Upload with metadata
+            with open(local_file, 'rb') as f:
+                blob.upload_from_file(f, content_type='application/pdf')
+            
+            # Verify upload
+            blob.reload()
+            uploaded_size = blob.size
+            
+            if uploaded_size != file_size:
+                raise DocAIError(f"Upload verification failed: local size {file_size} != uploaded size {uploaded_size}")
+            
+            gcs_uri = f"gs://{bucket_name}/{blob_name}"
+            
+            logger.info(
+                "Successfully staged file to GCS", 
+                local_path=local_path,
+                gcs_uri=gcs_uri,
+                size_bytes=uploaded_size,
+                size_mb=f"{uploaded_size / 1024 / 1024:.2f}"
+            )
+            
+            return gcs_uri
+            
+        except DocAIError:
+            raise
+        except FileNotFoundError as e:
+            logger.error("Local file not found for staging", local_path=local_path, error=str(e))
+            raise DocAIError(f"Local file not found: {e}")
+        except Exception as e:
+            logger.error("Failed to stage file to GCS", local_path=local_path, bucket=bucket_name, blob=blob_name, error=str(e))
+            if "403" in str(e) or "Forbidden" in str(e):
+                raise DocAIError(f"Access denied to bucket '{bucket_name}'. Check IAM permissions: {e}")
+            elif "404" in str(e):
+                raise DocAIError(f"Bucket '{bucket_name}' not found: {e}")
+            else:
+                raise DocAIError(f"GCS upload failed: {e}")
     
     def ensure_bucket_exists(self, bucket_name: str, location: str = "US") -> bool:
         """
@@ -344,10 +531,14 @@ class DocAIClient:
             response = self.client.process_document(request=request)
             processing_time = time.time() - start_time
             
+            # Save full raw response for diagnostics
+            self._save_raw_response(response)
+            
             logger.info(
                 "Document processing completed",
                 processing_time=processing_time,
-                pages=len(response.document.pages) if response.document.pages else 0
+                pages=len(response.document.pages) if response.document.pages else 0,
+                entities=len(response.document.entities) if response.document.entities else 0
             )
             
             return response.document
