@@ -32,11 +32,11 @@ from typing import List, Dict, Optional
 import time
 
 # Add project root to path for imports
-PROJECT_ROOT = Path(__file__).parent.absolute()
+PROJECT_ROOT = Path(__file__).parent.parent.absolute()
 sys.path.insert(0, str(PROJECT_ROOT))
 
 try:
-    from project_utils import get_project_root
+    from services.project_utils import get_project_root
     project_root = get_project_root()
 except ImportError:
     project_root = PROJECT_ROOT

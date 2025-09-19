@@ -8,6 +8,7 @@ for the AI Backend Document Processing API.
 import logging
 import os
 from contextlib import asynccontextmanager
+from typing import Dict, Any
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
@@ -98,7 +99,7 @@ app.include_router(
 
 # Root endpoint
 @app.get("/", tags=["Root"])
-async def root():
+async def root() -> Dict[str, Any]:
     """Root endpoint with API information."""
     return {
         "message": "AI Backend Document Processing API",

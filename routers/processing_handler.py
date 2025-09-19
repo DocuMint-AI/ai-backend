@@ -11,7 +11,7 @@ import logging
 import os
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Tuple
 import traceback
 import hashlib
 
@@ -21,41 +21,26 @@ from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 from PIL import Image
 
-# Import our services - fix for util-services.py filename
-import sys
-import importlib.util
-
-# Get the services directory path
-services_dir = Path(__file__).parent.parent / "services"
-sys.path.append(str(services_dir))
-
-# Import from util-services.py file
-util_services_spec = importlib.util.spec_from_file_location("util_services", 
-    services_dir / "util-services.py")
-util_services = importlib.util.module_from_spec(util_services_spec)
-util_services_spec.loader.exec_module(util_services)
-
-PDFToImageConverter = util_services.PDFToImageConverter
-validate_pdf_file = util_services.validate_pdf_file  
-get_file_info = util_services.get_file_info
-
-# Import from OCR-processing.py file
-ocr_spec = importlib.util.spec_from_file_location("ocr_processing", 
-    services_dir / "preprocessing" / "OCR-processing.py")
-ocr_module = importlib.util.module_from_spec(ocr_spec)
-ocr_spec.loader.exec_module(ocr_module)
-
-GoogleVisionOCR = ocr_module.GoogleVisionOCR
-OCRResult = ocr_module.OCRResult
-
-# Import parsing module
-parsing_spec = importlib.util.spec_from_file_location("parsing",
-    services_dir / "preprocessing" / "parsing.py")
-parsing_module = importlib.util.module_from_spec(parsing_spec)
-parsing_spec.loader.exec_module(parsing_module)
-
-LocalTextParser = parsing_module.LocalTextParser
-ParsedDocument = parsing_module.ParsedDocument
+# Import our services using proper Python imports
+from services.util_services import (
+    PDFToImageConverter,
+    validate_pdf_file,
+    get_file_info
+)
+from services.preprocessing.ocr_processing import (
+    GoogleVisionOCR,
+    OCRResult
+)
+from services.preprocessing.parsing import (
+    LocalTextParser,
+    ParsedDocument
+)
+from services.exceptions import (
+    PDFProcessingError,
+    OCRProcessingError,
+    FileValidationError,
+    ServiceInitializationError
+)
 
 # Load environment variables
 load_dotenv()
@@ -80,7 +65,7 @@ CONFIG = {
 # Initialize services with lazy loading to avoid blocking app startup
 pdf_converter = None
 
-def get_pdf_converter():
+def get_pdf_converter() -> PDFToImageConverter:
     """Get or initialize PDF converter with error handling."""
     global pdf_converter
     if pdf_converter is None:
@@ -213,7 +198,7 @@ def get_ocr_service() -> GoogleVisionOCR:
     return ocr_service
 
 
-def get_image_dimensions(image_path: str) -> tuple:
+def get_image_dimensions(image_path: str) -> Tuple[int, int]:
     """
     Get image dimensions (width, height).
     

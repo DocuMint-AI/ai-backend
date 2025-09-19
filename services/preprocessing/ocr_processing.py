@@ -14,12 +14,10 @@ from pathlib import Path
 from typing import List, Dict, Optional, Any, Tuple
 from datetime import datetime
 
-# Add project root to path for imports
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
 from google.cloud import vision
-from project_utils import resolve_path, get_project_root
 from google.api_core import exceptions as gcp_exceptions
+from ..project_utils import resolve_path, get_project_root
+from ..exceptions import OCRProcessingError, AuthenticationError
 
 # Optional dotenv support
 try:

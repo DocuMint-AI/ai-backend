@@ -24,15 +24,11 @@ except ImportError:
 from PIL import Image
 import io
 
+from .exceptions import PDFProcessingError, FileValidationError
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-
-class PDFProcessingError(Exception):
-    """Custom exception for PDF processing errors."""
-    pass
 
 
 class PDFToImageConverter:
