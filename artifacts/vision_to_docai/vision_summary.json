@@ -2,7 +2,9 @@
   "full_text_len": 17832,
   "page_count": 6,
   "total_blocks": 84,
-  "avg_confidence": 0.46846846846846846,
+  "total_lines": 231,
+  "total_words": 3330,
+  "avg_confidence": 0.0,
   "language_detection": {
     "primary": "en",
     "confidence": 0.46846846846846846,

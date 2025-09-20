@@ -1,65 +1,28 @@
 {
-  "fallback_kv": {
-    "policy_no": [
-      {
-        "value": "Sum",
-        "normalized_value": "SUM",
-        "pattern": "Policy\\s*No[:\\s.]*([A-Za-z0-9\\-/]+)",
-        "confidence": "regex_fallback",
-        "source": "fallback_regex"
-      }
-    ],
-    "date_of_commencement": [],
-    "sum_assured": [],
-    "dob": [],
-    "nominee": [
-      {
-        "value": "of the Insurance Act",
-        "normalized_value": "Of The Insurance Act",
-        "pattern": "Nominee\\s+under\\s+section\\s+39[^:]*?[:\\s.]*([A-Za-z\\s]+)",
-        "confidence": "regex_fallback",
-        "source": "fallback_regex"
-      },
-      {
-        "value": "under section",
-        "normalized_value": "Under Section",
-        "pattern": "Nominee[:\\s.]*([A-Za-z\\s]+)",
-        "confidence": "regex_fallback",
-        "source": "fallback_regex"
-      },
-      {
-        "value": "is a minor",
-        "normalized_value": "Is A Minor",
-        "pattern": "Nominee[:\\s.]*([A-Za-z\\s]+)",
-        "confidence": "regex_fallback",
-        "source": "fallback_regex"
-      },
-      {
-        "value": "s under section",
-        "normalized_value": "S Under Section",
-        "pattern": "Nominee[:\\s.]*([A-Za-z\\s]+)",
-        "confidence": "regex_fallback",
-        "source": "fallback_regex"
-      }
-    ]
-  },
-  "policy_numbers": [
-    "SUM"
-  ],
-  "clauses_by_headings": {
-    "clause_0": {
-      "id": "aab70402-435b-49ed-a4b9-27ddd5bf927d",
-      "type": "PAYMENT",
-      "title": "MICRO INSURANCE UNIT",
-      "confidence": 0.7,
-      "text_preview": "Policy No.:\nSum Assured for Basic Plan:\n(Rs.):\nSingle/Instalment Premium for\nBasic Plan: (Rs):\nDue D..."
+  "policy_no": [],
+  "date_of_commencement": [],
+  "sum_assured": [],
+  "dob": [],
+  "nominee": [
+    {
+      "value": "of the Insurance Act",
+      "pattern": "Nominee\\s+under\\s+section\\s+39.*?:?\\s*([A-Za-z\\s]+)",
+      "confidence": "regex_fallback"
     },
-    "clause_1": {
-      "id": "896ff35d-1bc1-4716-9f56-92351a592041",
-      "type": "OTHER",
-      "title": "Examined by",
-      "confidence": 0.7,
-      "text_preview": "Form No.\nManager (Micro Insurance Unit)"
+    {
+      "value": "under section",
+      "pattern": "Nominee\\s*:?\\s*([A-Za-z\\s]+)",
+      "confidence": "regex_fallback"
+    },
+    {
+      "value": "is a minor",
+      "pattern": "Nominee\\s*:?\\s*([A-Za-z\\s]+)",
+      "confidence": "regex_fallback"
+    },
+    {
+      "value": "s under section",
+      "pattern": "Nominee\\s*:?\\s*([A-Za-z\\s]+)",
+      "confidence": "regex_fallback"
     }
-  }
+  ]
 }

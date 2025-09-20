@@ -1,0 +1,51 @@
+================================================================================
+DOCAI OUTPUT DIAGNOSTIC SUMMARY
+================================================================================
+
+Session ID: docai_track_1758362068_98c4ae2d
+Start Time: 2025-09-20T15:24:28.732471
+Generation Time: 2025-09-20T15:24:43.047485
+Tracking Duration: 0:00:14.315035
+
+OUTPUT FILE STATUS:
+----------------------------------------
+✅ CREATED docai_raw_full.json (0.06 MB) [VALID]
+   Role: raw_docai_response
+   Description: Complete raw DocAI API response
+
+✅ CREATED feature_vector.json (0.01 MB) [VALID]
+   Role: ml_features
+   Description: Vertex AI ML features extracted from document
+
+✅ CREATED diagnostics.json (0.00 MB) [VALID]
+   Role: processing_diagnostics
+   Description: DocAI processing diagnostics and analysis
+
+✅ CREATED parsed_output.json (0.00 MB) [VALID]
+   Role: structured_output
+   Description: Parsed and structured document content
+
+✅ CREATED vision_raw.json (2.18 MB) [VALID]
+   Role: vision_ocr_output
+   Description: Raw Vision OCR results
+
+✅ CREATED vision_normalized.json (2.03 MB) [VALID]
+   Role: vision_normalized
+   Description: Normalized Vision OCR output
+
+VERIFICATION SUMMARY:
+----------------------------------------
+Expected Files: 6
+Files Created: 6
+Files Missing: 0
+Success Rate: 100.0%
+Total Size: 4.28 MB
+All Valid: YES
+
+RECOMMENDATIONS:
+----------------------------------------
+1. No file operations tracked - verify monitoring is active during processing
+
+================================================================================
+END OF DIAGNOSTIC SUMMARY
+================================================================================

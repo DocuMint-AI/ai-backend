@@ -30,6 +30,14 @@ import uuid
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
+# Import DocAI output diagnostic tracker
+try:
+    from tests.test_docai_output_diagnostic import DocAIOutputTracker
+    DIAGNOSTIC_TRACKING_AVAILABLE = True
+except ImportError:
+    DIAGNOSTIC_TRACKING_AVAILABLE = False
+    DocAIOutputTracker = None
+
 # Third-party imports
 import httpx
 import importlib.util
@@ -66,6 +74,14 @@ class VisionDocAIDiagnostics:
         self.project_root = project_root
         self.artifacts_dir = self.project_root / "artifacts" / "vision_to_docai"
         self.artifacts_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Initialize DocAI output tracking
+        if DIAGNOSTIC_TRACKING_AVAILABLE:
+            self.output_tracker = DocAIOutputTracker(artifacts_base_dir="artifacts")
+            logger.info("✅ DocAI output tracking enabled")
+        else:
+            self.output_tracker = None
+            logger.warning("⚠️ DocAI output tracking not available")
         
         # Configuration
         self.config = {
@@ -347,6 +363,11 @@ class VisionDocAIDiagnostics:
         logger.info("STEP 2: DOCAI PROCESSING")
         logger.info("=" * 60)
         
+        # Start DocAI output tracking
+        if self.output_tracker:
+            self.output_tracker.start_monitoring()
+            logger.info("🔍 DocAI output tracking started")
+        
         start_time = time.time()
         
         try:
@@ -471,6 +492,47 @@ class VisionDocAIDiagnostics:
             traceback.print_exc()
             self.results["errors"].append(f"DocAI processing error: {str(e)}")
             return {"success": False, "error": str(e)}
+        
+        finally:
+            # Complete DocAI output tracking
+            if self.output_tracker:
+                self._complete_docai_tracking()
+    
+    def _complete_docai_tracking(self) -> None:
+        """Complete DocAI output tracking and generate diagnostics."""
+        try:
+            logger.info("📊 Completing DocAI output tracking...")
+            
+            # Capture post-processing state
+            post_state = self.output_tracker.capture_post_processing_state()
+            
+            # Generate output mapping
+            output_mapping = self.output_tracker.generate_output_mapping()
+            
+            # Save diagnostic artifacts
+            saved_artifacts = self.output_tracker.save_diagnostic_artifacts()
+            
+            # Print console summary
+            self.output_tracker.print_console_summary()
+            
+            # Store tracking results in main results
+            self.results["docai_output_tracking"] = {
+                "tracking_completed": True,
+                "files_tracked": len(post_state),
+                "files_created": sum(1 for state in post_state.values() if state.get('exists')),
+                "total_size_mb": sum(state.get('size_mb', 0) for state in post_state.values() if state.get('exists')),
+                "saved_artifacts": saved_artifacts,
+                "output_mapping": output_mapping
+            }
+            
+            logger.info("✅ DocAI output tracking completed")
+            
+        except Exception as e:
+            logger.error(f"❌ DocAI output tracking failed: {e}")
+            self.results["docai_output_tracking"] = {
+                "tracking_completed": False,
+                "error": str(e)
+            }
     
     def _analyze_docai_response(self, docai_data: Dict[str, Any]) -> Dict[str, Any]:
         """Analyze DocAI response and extract key metrics."""
@@ -1362,6 +1424,20 @@ def main():
         print(f"\nProcessing Times:")
         for phase, duration in results.get("timing", {}).items():
             print(f"  {phase.replace('_', ' ').title()}: {duration:.3f}s")
+        
+        # DocAI Output Tracking Summary
+        tracking_results = results.get("docai_output_tracking", {})
+        if tracking_results.get("tracking_completed"):
+            print(f"\n📊 DocAI Output Tracking:")
+            print(f"  Files Tracked: {tracking_results.get('files_tracked', 0)}")
+            print(f"  Files Created: {tracking_results.get('files_created', 0)}")
+            print(f"  Total Size: {tracking_results.get('total_size_mb', 0):.2f} MB")
+            
+            saved_artifacts = tracking_results.get('saved_artifacts', {})
+            if saved_artifacts:
+                print(f"  Diagnostic Artifacts:")
+                for artifact_type, path in saved_artifacts.items():
+                    print(f"    ✅ {artifact_type}: {Path(path).name}")
         
         print(f"\nArtifacts Generated:")
         artifacts = list(diagnostics.artifacts_dir.glob("*.json")) + list(diagnostics.artifacts_dir.glob("*.txt"))
