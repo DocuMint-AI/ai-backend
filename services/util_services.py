@@ -41,6 +41,7 @@ from PIL import Image
 import io
 
 from .exceptions import PDFProcessingError, FileValidationError
+from .project_utils import get_user_session_structure, get_username_from_env
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -55,7 +56,7 @@ class PDFToImageConverter:
     and maintains metadata for processed documents.
     """
     
-    def __init__(self, data_root: str = "/data", image_format: str = "PNG", dpi: int = 300):
+    def __init__(self, data_root: str = "/data", image_format: str = "PNG", dpi: int = 300, username: Optional[str] = None):
         """
         Initialize PDF converter with configuration and fallback support.
         
@@ -63,6 +64,7 @@ class PDFToImageConverter:
             data_root: Root directory for storing processed data
             image_format: Output image format (PNG, JPEG)
             dpi: Resolution for image conversion
+            username: Username for session structure (defaults to environment)
             
         Example:
             >>> converter = PDFToImageConverter("/app/data", "PNG", 300)
@@ -70,6 +72,7 @@ class PDFToImageConverter:
         self.data_root = Path(data_root)
         self.image_format = image_format.upper()
         self.dpi = dpi
+        self.username = username or get_username_from_env()
         
         # Ensure data directory exists
         self.data_root.mkdir(parents=True, exist_ok=True)
@@ -168,32 +171,36 @@ class PDFToImageConverter:
     
     def create_folder_structure(self, pdf_name: str, uid: str) -> Path:
         """
-        Create organized folder structure for PDF processing.
+        Create organized folder structure for PDF processing using user session structure.
         
         Args:
             pdf_name: Name of the PDF file (without extension)
             uid: Unique identifier for the PDF
             
         Returns:
-            Path to the created folder
+            Path to the created processing folder
             
         Example:
             >>> converter = PDFToImageConverter()
             >>> folder = converter.create_folder_structure("invoice", "abc123-def456")
-            >>> print(folder)  # /data/invoice-abc123-def456
+            >>> print(folder)  # /data/processed/{username-UID}/uploads/
         """
-        folder_name = f"{pdf_name}-{uid}"
-        folder_path = self.data_root / folder_name
+        # Get user session structure
+        session_structure = get_user_session_structure(f"{pdf_name}.pdf", self.username, uid)
+        processing_folder = session_structure["uploads"]
         
-        # Create folder structure
-        folder_path.mkdir(parents=True, exist_ok=True)
+        # Create specific processing subfolder for this document
+        document_folder = processing_folder / f"{pdf_name}-{uid}"
+        document_folder.mkdir(parents=True, exist_ok=True)
         
         # Create subdirectories
-        (folder_path / "images").mkdir(exist_ok=True)
-        (folder_path / "ocr_results").mkdir(exist_ok=True)
+        (document_folder / "images").mkdir(exist_ok=True)
+        (document_folder / "ocr_results").mkdir(exist_ok=True)
+        (document_folder / "text").mkdir(exist_ok=True)
+        (document_folder / "tables").mkdir(exist_ok=True)
         
-        logger.info(f"Created folder structure: {folder_path}")
-        return folder_path
+        logger.info(f"Created folder structure: {document_folder}")
+        return document_folder
     
     def convert_pdf_to_images(
         self, 
@@ -557,7 +564,7 @@ class PDFToImageConverter:
     
     def save_metadata(self, folder_path: Path, metadata: Dict[str, Any]) -> str:
         """
-        Save metadata to JSON file in the processing folder.
+        Save metadata to JSON file in the user session metadata directory.
         
         Args:
             folder_path: Path to the processing folder
@@ -566,12 +573,25 @@ class PDFToImageConverter:
         Returns:
             Path to the saved metadata file
         """
+        # Save metadata in both processing folder and session metadata directory
         metadata_path = folder_path / "metadata.json"
         
         with open(metadata_path, 'w', encoding='utf-8') as f:
             json.dump(metadata, f, indent=2, ensure_ascii=False)
         
-        logger.info(f"Saved metadata: {metadata_path}")
+        # Also save in session metadata directory for easy access
+        try:
+            session_structure = get_user_session_structure("metadata.json", self.username)
+            session_metadata_path = session_structure["metadata"] / f"{metadata['uid']}_metadata.json"
+            
+            with open(session_metadata_path, 'w', encoding='utf-8') as f:
+                json.dump(metadata, f, indent=2, ensure_ascii=False)
+            
+            logger.info(f"Saved metadata: {metadata_path} and {session_metadata_path}")
+        except Exception as e:
+            logger.warning(f"Failed to save session metadata: {e}")
+            logger.info(f"Saved metadata: {metadata_path}")
+        
         return str(metadata_path)
     
     def load_metadata(self, folder_path: str) -> Optional[Dict[str, Any]]:

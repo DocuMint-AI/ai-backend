@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Optional
 
 from .doc_ai.client import DocAIClient, DocAIError
+from .project_utils import get_gcs_paths, get_username_from_env
 
 logger = logging.getLogger(__name__)
 
@@ -20,20 +21,24 @@ logger = logging.getLogger(__name__)
 def auto_stage_document(
     input_path: str, 
     bucket_name: Optional[str] = None,
-    blob_prefix: str = "staging/documents",
+    user_session_id: Optional[str] = None,
+    username: Optional[str] = None,
+    blob_prefix: str = "uploads",
     force_upload: bool = False
 ) -> str:
     """
-    Automatically stage a document to GCS, handling both local files and existing GCS URIs.
+    Automatically stage a document to GCS using user session structure.
     
     Args:
         input_path: Local file path or existing gs:// URI
         bucket_name: Target bucket name. If None, uses GCS_TEST_BUCKET from environment
-        blob_prefix: Prefix for blob name in bucket
+        user_session_id: User session identifier (username-UID format)
+        username: Username for session structure (defaults to environment)
+        blob_prefix: Subdirectory within user session (uploads, artifacts, etc.)
         force_upload: If True, upload even if input is already a gs:// URI
         
     Returns:
-        GCS URI (gs://bucket/blob) ready for Vision/DocAI processing
+        GCS URI (gs://bucket/{username-UID}/{blob_prefix}/filename) ready for processing
         
     Raises:
         DocAIError: If staging fails
@@ -67,21 +72,37 @@ def auto_stage_document(
         # Clean bucket name if it includes gs:// prefix
         bucket_name = bucket_name.replace('gs://', '').rstrip('/')
         
-        # Generate unique blob name
-        timestamp = int(time.time())
-        random_suffix = str(uuid.uuid4())[:8]
+        # Get or create user session ID
+        if not user_session_id:
+            if not username:
+                username = get_username_from_env()
+            
+            # Generate UID from filename if not provided
+            from .project_utils import generate_user_uid
+            if input_path.startswith('gs://'):
+                original_filename = input_path.split('/')[-1]
+            else:
+                original_filename = Path(input_path).name
+            
+            uid = generate_user_uid(original_filename)
+            user_session_id = f"{username}-{uid}"
         
+        # Get GCS paths using user session structure
+        gcs_paths = get_gcs_paths(bucket_name, user_session_id)
+        
+        # Generate blob name using user session structure
         if input_path.startswith('gs://'):
-            # Extract original filename from GCS URI
             original_filename = input_path.split('/')[-1]
         else:
             original_filename = Path(input_path).name
         
-        blob_name = f"{blob_prefix}/{timestamp}-{random_suffix}-{original_filename}"
+        # Use user session structure: {username-UID}/{blob_prefix}/filename
+        blob_name = f"{user_session_id}/{blob_prefix}/{original_filename}"
         
         logger.info(
-            f"Starting document staging to GCS: {input_path} -> {bucket_name}/{blob_name}"
+            f"Starting document staging to GCS with user session structure: {input_path} -> {bucket_name}/{blob_name}"
         )
+        logger.info(f"User session: {user_session_id}, blob prefix: {blob_prefix}")
         
         # Create DocAI client for GCS operations
         docai_client = DocAIClient(
@@ -92,8 +113,8 @@ def auto_stage_document(
         
         # Stage the file
         if input_path.startswith('gs://'):
-            # Download from source GCS and re-upload to staging bucket
-            logger.info(f"Re-staging GCS file to staging bucket: {input_path}")
+            # Download from source GCS and re-upload to staging bucket with new structure
+            logger.info(f"Re-staging GCS file to user session structure: {input_path}")
             
             # Download content
             content = docai_client.download_from_gcs(input_path)
@@ -115,8 +136,9 @@ def auto_stage_document(
             gcs_uri = docai_client.stage_to_gcs(input_path, bucket_name, blob_name)
         
         logger.info(
-            f"Document staging completed successfully: {input_path} -> {gcs_uri} (bucket: {bucket_name}, blob: {blob_name})"
+            f"Document staging completed successfully: {input_path} -> {gcs_uri}"
         )
+        logger.info(f"User session structure: bucket={bucket_name}, session={user_session_id}, prefix={blob_prefix}")
         
         return gcs_uri
         

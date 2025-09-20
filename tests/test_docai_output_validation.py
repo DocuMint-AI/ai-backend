@@ -27,6 +27,7 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 from tests.test_docai_output_diagnostic import DocAIOutputTracker
+from services.project_utils import get_user_session_structure, get_username_from_env
 
 # Configure logging
 logging.basicConfig(
@@ -43,18 +44,38 @@ class DocAIOutputValidationTest:
     def __init__(self):
         """Initialize validation test."""
         self.project_root = project_root
-        self.test_artifacts_dir = Path("artifacts/docai_validation_test")
+        
+        # Get username and create user session structure
+        username = get_username_from_env()
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        uid = f"docai_validation_test_{timestamp}"
+        
+        # Create user session structure for artifacts
+        session_structure = get_user_session_structure("validation_test.pdf", username, uid)
+        self.test_artifacts_dir = session_structure["artifacts"] / "docai_validation_test"
         self.test_artifacts_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Also create legacy artifacts directory for backward compatibility
+        self.legacy_artifacts_dir = Path("artifacts/docai_validation_test")
+        self.legacy_artifacts_dir.mkdir(parents=True, exist_ok=True)
+        
+        self.user_session_id = session_structure["user_session_id"]
         
         self.test_results = {
             'test_session_id': f"validation_{int(datetime.now().timestamp())}",
+            'user_session_id': self.user_session_id,
             'start_time': datetime.now().isoformat(),
             'tests_passed': 0,
             'tests_failed': 0,
-            'test_details': {}
+            'test_details': {},
+            'artifacts_path': str(self.test_artifacts_dir),
+            'legacy_artifacts_path': str(self.legacy_artifacts_dir)
         }
         
         logger.info("🧪 DocAI Output Validation Test initialized")
+        logger.info(f"👤 User session: {self.user_session_id}")
+        logger.info(f"📁 Artifacts directory: {self.test_artifacts_dir}")
+        logger.info(f"📁 Legacy directory: {self.legacy_artifacts_dir}")
     
     def test_tracker_initialization(self) -> bool:
         """Test DocAI output tracker initialization."""
@@ -435,7 +456,13 @@ class DocAIOutputValidationTest:
         with open(results_file, 'w') as f:
             json.dump(self.test_results, f, indent=2, ensure_ascii=False)
         
+        # Also save to legacy directory for backward compatibility
+        legacy_results_file = self.legacy_artifacts_dir / "validation_test_results.json"
+        with open(legacy_results_file, 'w') as f:
+            json.dump(self.test_results, f, indent=2, ensure_ascii=False)
+        
         logger.info(f"💾 Test results saved to: {results_file}")
+        logger.info(f"💾 Legacy test results saved to: {legacy_results_file}")
         return str(results_file)
 
 def main():

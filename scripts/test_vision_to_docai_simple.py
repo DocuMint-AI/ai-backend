@@ -29,6 +29,7 @@ load_dotenv()
 # Import our enhanced utilities
 from services.text_utils import normalize_text, normalize_for_comparison, calculate_text_similarity
 from services.validators import validate_offsets, check_mandatory_kv_presence, extract_policy_no
+from services.project_utils import get_user_session_structure, get_username_from_env
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -41,9 +42,22 @@ def main():
     logger.info("🔍 Vision → DocAI Pipeline Diagnostics (Simplified)")
     logger.info("=" * 60)
     
-    # Create artifacts directory
-    artifacts_dir = project_root / "artifacts" / "vision_to_docai"
+    # Get username and create user session structure
+    username = get_username_from_env()
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    uid = f"vision_to_docai_test_{timestamp}"
+    
+    # Create user session structure for artifacts
+    session_structure = get_user_session_structure("test_document.pdf", username, uid)
+    artifacts_dir = session_structure["artifacts"] / "vision_to_docai"
     artifacts_dir.mkdir(parents=True, exist_ok=True)
+    
+    logger.info(f"📁 Using artifacts directory: {artifacts_dir}")
+    logger.info(f"👤 User session: {session_structure['user_session_id']}")
+    
+    # Also create legacy artifacts directory for backward compatibility
+    legacy_artifacts_dir = project_root / "artifacts" / "vision_to_docai"
+    legacy_artifacts_dir.mkdir(parents=True, exist_ok=True)
     
     try:
         # Step 1: Load existing Vision OCR data
@@ -59,6 +73,10 @@ def main():
         
         # Save as vision_raw.json
         with open(artifacts_dir / "vision_raw.json", 'w', encoding='utf-8') as f:
+            json.dump(vision_data, f, indent=2)
+        
+        # Also save to legacy directory
+        with open(legacy_artifacts_dir / "vision_raw.json", 'w', encoding='utf-8') as f:
             json.dump(vision_data, f, indent=2)
         
         # Create normalized version
@@ -78,6 +96,10 @@ def main():
         with open(artifacts_dir / "vision_normalized.json", 'w', encoding='utf-8') as f:
             json.dump(vision_normalized, f, indent=2)
         
+        # Also save to legacy directory
+        with open(legacy_artifacts_dir / "vision_normalized.json", 'w', encoding='utf-8') as f:
+            json.dump(vision_normalized, f, indent=2)
+        
         logger.info(f"✅ Vision data loaded: {vision_normalized['page_count']} pages, {vision_normalized['full_text_length']} chars")
         
         # Step 2: Load existing DocAI data
@@ -95,8 +117,16 @@ def main():
         with open(artifacts_dir / "docai_raw.json", 'w', encoding='utf-8') as f:
             json.dump(docai_data, f, indent=2)
         
+        # Also save to legacy directory
+        with open(legacy_artifacts_dir / "docai_raw.json", 'w', encoding='utf-8') as f:
+            json.dump(docai_data, f, indent=2)
+        
         # Save as parsed_output.json (same data, but separate file as requested)
         with open(artifacts_dir / "parsed_output.json", 'w', encoding='utf-8') as f:
+            json.dump(docai_data, f, indent=2)
+        
+        # Also save to legacy directory
+        with open(legacy_artifacts_dir / "parsed_output.json", 'w', encoding='utf-8') as f:
             json.dump(docai_data, f, indent=2)
         
         logger.info(f"✅ DocAI data loaded: {len(docai_data.get('text', ''))} chars, {docai_data.get('entity_count', 0)} entities")
@@ -126,17 +156,23 @@ def main():
             lineterm=""
         ))
         
+        # Save text diff to both directories
+        diff_content = f"Vision Text Length: {len(vision_text)}\n"
+        diff_content += f"DocAI Text Length: {len(docai_text)}\n"
+        diff_content += f"Exact Match: {exact_match}\n"
+        diff_content += f"Similarity Score: {similarity:.4f}\n"
+        diff_content += "\n" + "=" * 50 + "\n"
+        diff_content += "TEXT DIFF (first 20 lines):\n"
+        diff_content += "\n".join(diff_lines)
+        diff_content += f"\n\nFIRST 200 CHARACTERS:\n"
+        diff_content += f"Vision: {repr(vision_text[:200])}\n"
+        diff_content += f"DocAI:  {repr(docai_text[:200])}\n"
+        
         with open(artifacts_dir / "text_diff.txt", 'w', encoding='utf-8') as f:
-            f.write(f"Vision Text Length: {len(vision_text)}\n")
-            f.write(f"DocAI Text Length: {len(docai_text)}\n")
-            f.write(f"Exact Match: {exact_match}\n")
-            f.write(f"Similarity Score: {similarity:.4f}\n")
-            f.write("\n" + "=" * 50 + "\n")
-            f.write("TEXT DIFF (first 20 lines):\n")
-            f.write("\n".join(diff_lines))
-            f.write(f"\n\nFIRST 200 CHARACTERS:\n")
-            f.write(f"Vision: {repr(vision_text[:200])}\n")
-            f.write(f"DocAI:  {repr(docai_text[:200])}\n")
+            f.write(diff_content)
+        
+        with open(legacy_artifacts_dir / "text_diff.txt", 'w', encoding='utf-8') as f:
+            f.write(diff_content)
         
         logger.info(f"Text match: {exact_match}, Enhanced Similarity: {similarity:.3f}")
         
@@ -177,26 +213,25 @@ def main():
                     "issue": "missing_offsets"
                 })
         
-        with open(artifacts_dir / "mismatch_report.json", 'w', encoding='utf-8') as f:
-            json.dump(offset_validation, f, indent=2)
+        # Save files to both directories
+        files_to_save = [
+            ("mismatch_report.json", offset_validation),
+            ("vision_summary.json", vision_stats),
+            ("docai_summary.json", docai_stats),
+            ("vision_fallback_kv.json", {
+                "fallback_kv": fallback_kv,
+                "policy_numbers": policy_numbers,
+                "clauses_by_headings": clauses_dict
+            }),
+            ("diagnostics.json", diagnostics),
+            ("diagnostic_answers.json", diagnostic_answers)
+        ]
         
-        logger.info(f"Offsets: {offset_validation['valid_offsets']}/{offset_validation['total_entities']} valid")
-        
-        # Step 5: Compute statistics
-        logger.info("📊 Computing statistics...")
-        
-        # Vision stats
-        vision_pages = vision_data.get("ocr_result", {}).get("pages", [])
-        vision_stats = {
-            "full_text_len": len(vision_text),
-            "page_count": len(vision_pages),
-            "total_blocks": sum(len(page.get("text_blocks", [])) for page in vision_pages),
-            "avg_confidence": vision_data.get("language_detection", {}).get("confidence", 0.0),
-            "language_detection": vision_data.get("language_detection", {})
-        }
-        
-        with open(artifacts_dir / "vision_summary.json", 'w', encoding='utf-8') as f:
-            json.dump(vision_stats, f, indent=2)
+        for filename, data in files_to_save:
+            with open(artifacts_dir / filename, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2)
+            with open(legacy_artifacts_dir / filename, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2)
         
         # DocAI stats
         clauses = docai_data.get("clauses", [])
@@ -221,8 +256,20 @@ def main():
             "clause_coverage_ratio": 0.0
         }
         
-        with open(artifacts_dir / "docai_summary.json", 'w', encoding='utf-8') as f:
-            json.dump(docai_stats, f, indent=2)
+        # Step 5: Compute statistics
+        logger.info("📊 Computing statistics...")
+        
+        # Vision stats
+        vision_pages = vision_data.get("ocr_result", {}).get("pages", [])
+        vision_stats = {
+            "full_text_len": len(vision_text),
+            "page_count": len(vision_pages),
+            "total_blocks": sum(len(page.get("text_blocks", [])) for page in vision_pages),
+            "avg_confidence": vision_data.get("language_detection", {}).get("confidence", 0.0),
+            "language_detection": vision_data.get("language_detection", {})
+        }
+        
+
         
         # Step 6: Enhanced fallback extraction with P3 fixes
         logger.info("🔍 Running fallback extractions...")
@@ -350,7 +397,11 @@ Offset Validation: {'✅ VALID' if offset_validation['all_valid'] else '❌ INVA
 EXIT CODE: {0 if exact_match and offset_validation['all_valid'] else 1}
 """
         
+        # Save E2E report to both directories
         with open(artifacts_dir / "e2e_report.txt", 'w', encoding='utf-8') as f:
+            f.write(report_content)
+        
+        with open(legacy_artifacts_dir / "e2e_report.txt", 'w', encoding='utf-8') as f:
             f.write(report_content)
         
         # Answer diagnostic questions
@@ -462,7 +513,10 @@ EXIT CODE: {0 if exact_match and offset_validation['all_valid'] else 1}
         print(f"   Errors: {len(q6_answer['errors'])} encountered")
         print(f"   Credentials: {'✅ Available' if q6_answer['credentials_available'] else '❌ Missing'}")
         
-        print(f"\n📁 All artifacts saved to: {artifacts_dir}")
+        print(f"\n📁 All artifacts saved to:")
+        print(f"   Primary: {artifacts_dir}")
+        print(f"   Legacy:  {legacy_artifacts_dir}")
+        print(f"   User Session: {session_structure['user_session_id']}")
         
         # Determine exit code
         critical_issues = any(c["severity"] == "high" for c in failed_checks)
