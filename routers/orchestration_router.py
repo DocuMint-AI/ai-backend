@@ -37,6 +37,7 @@ from .doc_ai_router import (
 
 # Import services for direct access
 # from services.doc_ai.schema import ParseRequest as DocAIParseRequest
+from services.project_utils import get_user_session_structure, resolve_user_session_paths
 
 # Load environment variables
 load_dotenv()
@@ -158,10 +159,12 @@ def save_final_results(
     upload_result: Dict[str, Any],
     ocr_result: Dict[str, Any],
     docai_result: Dict[str, Any],
-    stage_timings: Dict[str, float]
+    stage_timings: Dict[str, float],
+    pdf_filename: str,
+    username: Optional[str] = None
 ) -> str:
     """
-    Save complete pipeline results to the data folder.
+    Save complete pipeline results to the user session folder structure.
     
     Args:
         pipeline_id: Unique pipeline identifier
@@ -169,18 +172,21 @@ def save_final_results(
         ocr_result: OCR processing results
         docai_result: DocAI parsing results
         stage_timings: Processing time for each stage
+        pdf_filename: Original PDF filename for UID generation
+        username: Username (defaults to environment variable)
         
     Returns:
         Path to saved results file
     """
     try:
-        # Create processed data directory
-        processed_dir = Path(CONFIG["data_root"]) / "processed"
-        processed_dir.mkdir(parents=True, exist_ok=True)
+        # Get user session structure
+        session_structure = get_user_session_structure(pdf_filename, username)
+        pipeline_dir = session_structure["pipeline"]
         
         # Create comprehensive results document
         final_results = {
             "pipeline_id": pipeline_id,
+            "user_session_id": session_structure["user_session_id"],
             "processing_timestamp": datetime.now().isoformat(),
             "pipeline_version": "1.0.0",
             
@@ -224,12 +230,19 @@ def save_final_results(
                 "named_entities": docai_result.get("document", {}).get("named_entities", []),
                 "clauses": docai_result.get("document", {}).get("clauses", []),
                 "key_value_pairs": docai_result.get("document", {}).get("key_value_pairs", [])
+            },
+            
+            # Session information
+            "session_info": {
+                "user_session_id": session_structure["user_session_id"],
+                "base_path": str(session_structure["base_path"]),
+                "pipeline_path": str(pipeline_dir)
             }
         }
         
-        # Save to processed directory
+        # Save to user session pipeline directory
         results_filename = f"pipeline_result_{pipeline_id}.json"
-        results_path = processed_dir / results_filename
+        results_path = pipeline_dir / results_filename
         
         with open(results_path, 'w', encoding='utf-8') as f:
             json.dump(final_results, f, indent=2, ensure_ascii=False, default=str)
@@ -437,7 +450,8 @@ async def process_document_pipeline(
             upload_result=upload_result.dict(),
             ocr_result=ocr_result.dict(),
             docai_result=docai_result.dict(),
-            stage_timings=stage_timings
+            stage_timings=stage_timings,
+            pdf_filename=file.filename
         )
         
         stage_timings["saving"] = time.time() - stage_start
@@ -514,20 +528,37 @@ async def get_pipeline_status(pipeline_id: str):
 
 
 @router.get("/pipeline-results/{pipeline_id}")
-async def get_pipeline_results(pipeline_id: str):
+async def get_pipeline_results(pipeline_id: str, pdf_filename: Optional[str] = None, username: Optional[str] = None):
     """
     Get the final results of a completed pipeline.
     
     Args:
         pipeline_id: Unique pipeline identifier
+        pdf_filename: Optional PDF filename to resolve user session (if known)
+        username: Optional username to resolve user session
         
     Returns:
         Complete pipeline results
     """
     try:
-        # Look for results file in processed directory
-        processed_dir = Path(CONFIG["data_root"]) / "processed"
-        results_file = processed_dir / f"pipeline_result_{pipeline_id}.json"
+        # If we have session info, use new structure
+        if pdf_filename:
+            session_structure = get_user_session_structure(pdf_filename, username)
+            results_file = session_structure["pipeline"] / f"pipeline_result_{pipeline_id}.json"
+        else:
+            # Fallback: search in old structure
+            processed_dir = Path(CONFIG["data_root"]) / "processed"
+            results_file = processed_dir / f"pipeline_result_{pipeline_id}.json"
+            
+            # If not found in old structure, try searching in user session directories
+            if not results_file.exists():
+                # Search all user session directories
+                for user_dir in processed_dir.iterdir():
+                    if user_dir.is_dir() and "-" in user_dir.name:  # username-UID format
+                        potential_file = user_dir / "pipeline" / f"pipeline_result_{pipeline_id}.json"
+                        if potential_file.exists():
+                            results_file = potential_file
+                            break
         
         if not results_file.exists():
             raise HTTPException(

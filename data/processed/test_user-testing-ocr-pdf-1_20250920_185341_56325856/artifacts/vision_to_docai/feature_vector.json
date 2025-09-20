@@ -1,0 +1,13 @@
+{
+  "kv_flags": {
+    "has_payment_terms": true,
+    "has_signatures": false,
+    "has_dates": true,
+    "has_amounts": true,
+    "has_parties": true
+  },
+  "document_type": "contract",
+  "confidence_score": 0.88,
+  "risk_level": "medium",
+  "user_session_id": "test_user-testing-ocr-pdf-1_20250920_185341_56325856"
+}

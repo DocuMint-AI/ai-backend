@@ -4,8 +4,16 @@
 Write-Host "🚀 Starting MVP Legal Document Processing Pipeline" -ForegroundColor Green
 Write-Host "==================================================" -ForegroundColor Green
 
-# Create MVP artifacts directory
-New-Item -Path "artifacts\mvp" -ItemType Directory -Force | Out-Null
+# Get username and create user session structure
+$username = if ($env:USERNAME) { $env:USERNAME } else { "default_user" }
+$timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
+$uid = "mvp_test_${timestamp}"
+$userSessionId = "${username}-${uid}"
+
+# Create user session artifacts directory
+$artifactsDir = "data\processed\${userSessionId}\artifacts\mvp"
+New-Item -Path $artifactsDir -ItemType Directory -Force | Out-Null
+Write-Host "📁 Using artifacts directory: $artifactsDir" -ForegroundColor Cyan
 
 # Available test files
 $FILES = @(
@@ -29,7 +37,7 @@ for ($i = 0; $i -lt $FILES.Count; $i++) {
     Write-Host "📄 Processing Document ${docNum}: $(Split-Path $file -Leaf)" -ForegroundColor Yellow
     Write-Host "----------------------------------------" -ForegroundColor Yellow
     
-    $outputDir = "artifacts\mvp\doc_${docNum}"
+    $outputDir = "${artifactsDir}\doc_${docNum}"
     
     if (Test-Path $file) {
         Write-Host "✅ File exists: $file" -ForegroundColor Green
@@ -91,8 +99,11 @@ results = []
 total_docs = 5
 success_count = 0
 
+# Get artifacts directory from environment or use current session
+artifacts_base = os.getenv("MVP_ARTIFACTS_DIR", "$artifactsDir").replace("\\", "/")
+
 for i in range(1, total_docs + 1):
-    doc_dir = Path(f"artifacts/mvp/doc_{i}")
+    doc_dir = Path(f"{artifacts_base}/doc_{i}")
     parsed_file = doc_dir / "parsed_output.json"
     feature_file = doc_dir / "feature_vector.json"
     
@@ -157,18 +168,20 @@ print(f"🎯 MVP RESULTS: {success_count}/{total_docs} documents successful")
 print(f"📊 Acceptance Criteria: {'✅ PASS' if success_count >= 3 else '❌ FAIL'} (need 3+ successful)")
 
 # Save detailed results
-with open("artifacts/mvp/summary.json", 'w') as f:
+with open(f"{artifacts_base}/summary.json", 'w') as f:
     json.dump({
         "summary": {
             "total_docs": total_docs,
             "successful_docs": success_count,
             "acceptance_criteria_met": success_count >= 3,
-            "processor_used": os.getenv("DOCAI_STRUCTURED_PROCESSOR_ID", "fallback")
+            "processor_used": os.getenv("DOCAI_STRUCTURED_PROCESSOR_ID", "fallback"),
+            "user_session_id": "$userSessionId",
+            "artifacts_path": artifacts_base
         },
         "detailed_results": results
     }, f, indent=2)
 
-print(f"📁 Detailed results saved to: artifacts/mvp/summary.json")
+print(f"📁 Detailed results saved to: {artifacts_base}/summary.json")
 
 # Exit with appropriate code
 sys.exit(0 if success_count >= 3 else 1)

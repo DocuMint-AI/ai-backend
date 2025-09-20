@@ -10,8 +10,19 @@ echo "=================================================="
 # Load environment variables
 export $(cat .env | grep -v '^#' | xargs)
 
-# Create MVP artifacts directory
-mkdir -p artifacts/mvp
+# Get username and create user session structure
+username=${USERNAME:-${USER:-"default_user"}}
+timestamp=$(date +"%Y%m%d_%H%M%S")
+uid="mvp_test_${timestamp}"
+user_session_id="${username}-${uid}"
+
+# Create user session artifacts directory
+artifacts_dir="data/processed/${user_session_id}/artifacts/mvp"
+mkdir -p "$artifacts_dir"
+echo "📁 Using artifacts directory: $artifacts_dir"
+
+# Export for Python scripts
+export MVP_ARTIFACTS_DIR="$artifacts_dir"
 
 # Available test files (use what we have + create placeholders for missing)
 declare -a FILES=(
@@ -35,7 +46,7 @@ for file in "${FILES[@]}"; do
     echo "📄 Processing Document $i: $(basename "$file")"
     echo "----------------------------------------"
     
-    output_dir="artifacts/mvp/doc_${i}"
+    output_dir="${artifacts_dir}/doc_${i}"
     
     if [[ -f "$file" ]]; then
         echo "✅ File exists: $file"
@@ -78,8 +89,12 @@ results = []
 total_docs = 5
 success_count = 0
 
+# Get artifacts directory from environment
+artifacts_base = os.getenv("MVP_ARTIFACTS_DIR", "artifacts/mvp")
+user_session_id = os.getenv("USER_SESSION_ID", "unknown")
+
 for i in range(1, total_docs + 1):
-    doc_dir = Path(f"artifacts/mvp/doc_{i}")
+    doc_dir = Path(f"{artifacts_base}/doc_{i}")
     parsed_file = doc_dir / "parsed_output.json"
     feature_file = doc_dir / "feature_vector.json"
     
@@ -144,17 +159,19 @@ print(f"🎯 MVP RESULTS: {success_count}/{total_docs} documents successful")
 print(f"📊 Acceptance Criteria: {'✅ PASS' if success_count >= 3 else '❌ FAIL'} (need 3+ successful)")
 
 # Save detailed results
-with open("artifacts/mvp/summary.json", 'w') as f:
+with open(f"{artifacts_base}/summary.json", 'w') as f:
     json.dump({
         "summary": {
             "total_docs": total_docs,
             "successful_docs": success_count,
-            "acceptance_criteria_met": success_count >= 3
+            "acceptance_criteria_met": success_count >= 3,
+            "user_session_id": user_session_id,
+            "artifacts_path": artifacts_base
         },
         "detailed_results": results
     }, f, indent=2)
 
-print(f"📁 Detailed results saved to: artifacts/mvp/summary.json")
+print(f"📁 Detailed results saved to: {artifacts_base}/summary.json")
 
 # Exit with appropriate code
 sys.exit(0 if success_count >= 3 else 1)

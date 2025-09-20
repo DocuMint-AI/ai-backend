@@ -1,0 +1,46 @@
+{
+  "uid": "58f4b7f4-fd696bd6",
+  "pdf_info": {
+    "name": "testing-ocr-pdf-1",
+    "original_path": "C:\\Users\\meher\\Documents\\Projects\\ai-backend\\data\\uploads\\testing-ocr-pdf-1.pdf",
+    "filename": "testing-ocr-pdf-1.pdf",
+    "file_size_bytes": 1350710,
+    "file_size_mb": 1.29,
+    "created_date": "2025-09-18T23:46:33.109902",
+    "modified_date": "2025-09-20T18:38:09.580802"
+  },
+  "processing_info": {
+    "processed_date": "2025-09-20T18:53:42.031855",
+    "total_pages": 6,
+    "processed_pages": 0,
+    "success_rate": 0.0,
+    "image_format": "PNG",
+    "dpi": 300,
+    "processing_errors": [
+      "Error processing page 1: code=2: cannot open file 'C:\\Users\\meher\\Documents\\Projects\\ai-backend\\data\\processed\\test_user-testing-ocr-pdf-1_20250920_185341_56325856\\uploads\\testing-ocr-pdf-1-testing-ocr-pdf-1_20250920_185341_56325856\\images\\page_001.png': No such file or directory",
+      "Error processing page 2: code=2: cannot open file 'C:\\Users\\meher\\Documents\\Projects\\ai-backend\\data\\processed\\test_user-testing-ocr-pdf-1_20250920_185341_56325856\\uploads\\testing-ocr-pdf-1-testing-ocr-pdf-1_20250920_185341_56325856\\images\\page_002.png': No such file or directory",
+      "Error processing page 3: code=2: cannot open file 'C:\\Users\\meher\\Documents\\Projects\\ai-backend\\data\\processed\\test_user-testing-ocr-pdf-1_20250920_185341_56325856\\uploads\\testing-ocr-pdf-1-testing-ocr-pdf-1_20250920_185341_56325856\\images\\page_003.png': No such file or directory",
+      "Error processing page 4: code=2: cannot open file 'C:\\Users\\meher\\Documents\\Projects\\ai-backend\\data\\processed\\test_user-testing-ocr-pdf-1_20250920_185341_56325856\\uploads\\testing-ocr-pdf-1-testing-ocr-pdf-1_20250920_185341_56325856\\images\\page_004.png': No such file or directory",
+      "Error processing page 5: code=2: cannot open file 'C:\\Users\\meher\\Documents\\Projects\\ai-backend\\data\\processed\\test_user-testing-ocr-pdf-1_20250920_185341_56325856\\uploads\\testing-ocr-pdf-1-testing-ocr-pdf-1_20250920_185341_56325856\\images\\page_005.png': No such file or directory",
+      "Error processing page 6: code=2: cannot open file 'C:\\Users\\meher\\Documents\\Projects\\ai-backend\\data\\processed\\test_user-testing-ocr-pdf-1_20250920_185341_56325856\\uploads\\testing-ocr-pdf-1-testing-ocr-pdf-1_20250920_185341_56325856\\images\\page_006.png': No such file or directory"
+    ],
+    "processing_method": "image_conversion_pymupdf",
+    "pdf_library": "PyMuPDF"
+  },
+  "output_info": {
+    "folder_path": "C:\\Users\\meher\\Documents\\Projects\\ai-backend\\data\\processed\\test_user-testing-ocr-pdf-1_20250920_185341_56325856\\uploads\\testing-ocr-pdf-1-testing-ocr-pdf-1_20250920_185341_56325856",
+    "folder_name": "testing-ocr-pdf-1-testing-ocr-pdf-1_20250920_185341_56325856",
+    "image_paths": [],
+    "relative_image_paths": [],
+    "text_paths": [],
+    "relative_text_paths": []
+  },
+  "status": {
+    "conversion_complete": false,
+    "has_errors": true,
+    "ready_for_ocr": false,
+    "has_images": false,
+    "has_text": false,
+    "fallback_mode": false
+  }
+}

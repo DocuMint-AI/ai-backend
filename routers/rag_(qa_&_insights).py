@@ -1,13 +1,9 @@
-# -*- coding: utf-8 -*-
-"""RAG (QA & Insights)
-
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
 import os
 import json
 from google.cloud import aiplatform
 from google.cloud import storage
 from vertexai.preview.language_models import TextGenerationModel
+from services.project_utils import get_user_session_structure, get_gcs_paths, get_username_from_env
 
 # Config
 PROJECT_ID = "your-project-id"
@@ -26,13 +22,36 @@ storage_client = storage.Client()
 bucket = storage_client.bucket(BUCKET)
 
 
-def get_chunks_from_json(json_dir):
+def get_chunks_from_json(json_dir, user_session_id=None):
+    """
+    Get text chunks from JSON files in user session structure.
+    
+    Args:
+        json_dir: Directory containing JSON files (legacy) or user session ID
+        user_session_id: Optional user session ID for new structure
+    """
     chunks = []
+    
+    # If user_session_id provided, use new structure
+    if user_session_id:
+        # Parse user_session_id to get parts for path resolution
+        parts = user_session_id.split('-', 1)
+        if len(parts) >= 2:
+            username = parts[0]
+            uid = parts[1]
+            # Create dummy filename for structure resolution
+            session_structure = get_user_session_structure("document.pdf", username, uid)
+            json_dir = session_structure["pipeline"]
+    
     for filename in os.listdir(json_dir):
         if filename.endswith(".json"):
             with open(os.path.join(json_dir, filename), "r") as f:
                 data = json.load(f)
+                # Handle both old and new JSON structures
                 text = data.get("content", "")
+                if not text and "extracted_data" in data:
+                    text = data["extracted_data"].get("text_content", "")
+                
                 for idx, paragraph in enumerate(text.split("\n\n")):
                     if paragraph.strip():
                         chunk_id = f"{filename}_c{idx:04d}"
@@ -48,8 +67,27 @@ def embed_chunks(chunks):
     return chunks
 
 
-def upload_embeddings_to_gcs(chunks, filename):
-    local_path = filename
+def upload_embeddings_to_gcs(chunks, filename, user_session_id=None, username=None):
+    """
+    Upload embeddings to GCS using new user session structure.
+    
+    Args:
+        chunks: Text chunks with embeddings
+        filename: Embedding filename
+        user_session_id: User session identifier
+        username: Username for path resolution
+    """
+    if username is None:
+        username = get_username_from_env()
+    
+    if user_session_id is None:
+        user_session_id = f"{username}-default"
+    
+    # Get user session structure for local storage
+    session_structure = get_user_session_structure("embeddings.jsonl", username)
+    local_path = session_structure["metadata"] / filename
+    
+    # Save locally first
     with open(local_path, "w") as f:
         for chunk in chunks:
             json_obj = {
@@ -58,9 +96,12 @@ def upload_embeddings_to_gcs(chunks, filename):
                 "embedding": chunk["embedding"],
             }
             f.write(json.dumps(json_obj) + "\n")
-    blob = bucket.blob(f"embeddings/{filename}")
+    
+    # Upload to GCS using new path structure
+    gcs_paths = get_gcs_paths(BUCKET, user_session_id)
+    blob = bucket.blob(f"{user_session_id}/embeddings/{filename}")
     blob.upload_from_filename(local_path)
-    gcs_uri = f"gs://{BUCKET}/embeddings/{filename}"
+    gcs_uri = f"{gcs_paths['embeddings']}/{filename}"
     return gcs_uri
 
 
@@ -132,14 +173,17 @@ def generate_answer(prompt):
 
 def main():
     # Load and embed chunks
-    chunks = get_chunks_from_json(RAW_DIR)
+    username = get_username_from_env()
+    user_session_id = f"{username}-default"  # Can be passed as parameter
+    
+    chunks = get_chunks_from_json(RAW_DIR, user_session_id)
     print(f"Loaded {len(chunks)} text chunks from preprocessed data.")
 
     chunks = embed_chunks(chunks)
     print("Generated embeddings for all chunks.")
 
     # Save embeddings to GCS and create index
-    gcs_uri = upload_embeddings_to_gcs(chunks, "legal_chunks_embeddings.jsonl")
+    gcs_uri = upload_embeddings_to_gcs(chunks, "legal_chunks_embeddings.jsonl", user_session_id, username)
     print(f"Uploaded embeddings to GCS: {gcs_uri}")
 
     index_endpoint, deployed_index = create_vertex_ai_index(gcs_uri, dim=len(chunks[0]["embedding"]))
