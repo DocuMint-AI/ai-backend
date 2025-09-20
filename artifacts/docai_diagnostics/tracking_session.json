@@ -1,0 +1,468 @@
+{
+  "session_id": "docai_track_1758362068_98c4ae2d",
+  "start_time": "2025-09-20T15:24:28.732471",
+  "tracked_files": {},
+  "file_operations": [],
+  "verification_results": {
+    "artifacts\\vision_to_docai\\docai_raw_full.json": {
+      "exists": true,
+      "size_bytes": 62062,
+      "size_mb": 0.059,
+      "modified_time": "2025-09-20T02:42:22.243479",
+      "creation_time": "2025-09-20T02:42:22.243479",
+      "is_empty": false,
+      "readable": true,
+      "valid_json": true,
+      "content_type": "dict",
+      "content_keys": [
+        "text",
+        "normalized_text",
+        "pages",
+        "entities",
+        "page_count",
+        "entity_count",
+        "processor_metadata"
+      ],
+      "content_length": 7,
+      "content_analysis": {
+        "has_text": true,
+        "text_length": 17468,
+        "has_entities": true,
+        "entity_count": 4,
+        "has_pages": true,
+        "page_count": 6,
+        "processing_metadata": false
+      }
+    },
+    "artifacts\\vision_to_docai\\feature_vector.json": {
+      "exists": true,
+      "size_bytes": 12144,
+      "size_mb": 0.012,
+      "modified_time": "2025-09-19T19:05:33.633043",
+      "creation_time": "2025-09-19T19:06:12.914707",
+      "is_empty": false,
+      "readable": true,
+      "valid_json": true,
+      "content_type": "dict",
+      "content_keys": [
+        "document_id",
+        "embedding_doc",
+        "embedding_clauses",
+        "kv_flags",
+        "kv_values",
+        "structural",
+        "confidences",
+        "needs_review",
+        "generation_metadata"
+      ],
+      "content_length": 9,
+      "content_analysis": {
+        "feature_categories": [
+          "document_id",
+          "embedding_doc",
+          "embedding_clauses",
+          "kv_flags",
+          "kv_values",
+          "structural",
+          "confidences",
+          "needs_review",
+          "generation_metadata"
+        ],
+        "total_features": 794,
+        "has_ml_features": false
+      }
+    },
+    "artifacts\\vision_to_docai\\diagnostics.json": {
+      "exists": true,
+      "size_bytes": 1200,
+      "size_mb": 0.001,
+      "modified_time": "2025-09-20T02:29:21.043573",
+      "creation_time": "2025-09-19T17:45:28.226692",
+      "is_empty": false,
+      "readable": true,
+      "valid_json": true,
+      "content_type": "dict",
+      "content_keys": [
+        "timestamp",
+        "overall_status",
+        "failed_checks",
+        "prioritized_fixes",
+        "summary"
+      ],
+      "content_length": 5,
+      "content_analysis": {
+        "has_performance_metrics": false,
+        "has_extraction_stats": false,
+        "has_validation_results": false,
+        "diagnostic_categories": [
+          "timestamp",
+          "overall_status",
+          "failed_checks",
+          "prioritized_fixes",
+          "summary"
+        ]
+      }
+    },
+    "artifacts\\vision_to_docai\\parsed_output.json": {
+      "exists": true,
+      "size_bytes": 2,
+      "size_mb": 0.0,
+      "modified_time": "2025-09-20T15:24:43.004665",
+      "creation_time": "2025-09-19T17:42:23.305292",
+      "is_empty": false,
+      "readable": true,
+      "valid_json": true,
+      "content_type": "dict",
+      "content_keys": [],
+      "content_length": 0,
+      "content_analysis": {
+        "has_structured_data": false,
+        "clause_count": 0,
+        "entity_count": 0,
+        "has_metadata": false,
+        "text_preview_length": 0,
+        "page_count": 0
+      }
+    },
+    "artifacts\\vision_to_docai\\vision_raw.json": {
+      "exists": true,
+      "size_bytes": 2285345,
+      "size_mb": 2.179,
+      "modified_time": "2025-09-20T02:29:19.743394",
+      "creation_time": "2025-09-19T17:45:28.035247",
+      "is_empty": false,
+      "readable": true,
+      "valid_json": true,
+      "content_type": "dict",
+      "content_keys": [
+        "document_id",
+        "original_filename",
+        "file_fingerprint",
+        "pdf_uri",
+        "derived_images",
+        "language_detection",
+        "ocr_result",
+        "extracted_assets",
+        "preprocessing",
+        "warnings"
+      ],
+      "content_length": 10
+    },
+    "artifacts\\vision_to_docai\\vision_normalized.json": {
+      "exists": true,
+      "size_bytes": 2129716,
+      "size_mb": 2.031,
+      "modified_time": "2025-09-20T02:29:19.893517",
+      "creation_time": "2025-09-19T17:45:28.125146",
+      "is_empty": false,
+      "readable": true,
+      "valid_json": true,
+      "content_type": "dict",
+      "content_keys": [
+        "document_id",
+        "full_text",
+        "full_text_length",
+        "pages",
+        "page_count",
+        "language_detection",
+        "processing_metadata"
+      ],
+      "content_length": 7
+    }
+  },
+  "output_mapping": {
+    "session_info": {
+      "session_id": "docai_track_1758362068_98c4ae2d",
+      "generation_time": "2025-09-20T15:24:43.047485",
+      "tracking_duration": "0:00:14.315035"
+    },
+    "docai_output_files": {
+      "artifacts\\vision_to_docai\\docai_raw_full.json": {
+        "role": "raw_docai_response",
+        "description": "Complete raw DocAI API response",
+        "exists": true,
+        "size_bytes": 62062,
+        "size_mb": 0.059,
+        "content_valid": true,
+        "content_summary": {
+          "has_text": true,
+          "text_length": 17468,
+          "has_entities": true,
+          "entity_count": 4,
+          "has_pages": true,
+          "page_count": 6,
+          "processing_metadata": false
+        },
+        "atomic_writes": true,
+        "status": "created"
+      },
+      "artifacts\\vision_to_docai\\feature_vector.json": {
+        "role": "ml_features",
+        "description": "Vertex AI ML features extracted from document",
+        "exists": true,
+        "size_bytes": 12144,
+        "size_mb": 0.012,
+        "content_valid": true,
+        "content_summary": {
+          "feature_categories": [
+            "document_id",
+            "embedding_doc",
+            "embedding_clauses",
+            "kv_flags",
+            "kv_values",
+            "structural",
+            "confidences",
+            "needs_review",
+            "generation_metadata"
+          ],
+          "total_features": 794,
+          "has_ml_features": false
+        },
+        "atomic_writes": false,
+        "status": "created"
+      },
+      "artifacts\\vision_to_docai\\diagnostics.json": {
+        "role": "processing_diagnostics",
+        "description": "DocAI processing diagnostics and analysis",
+        "exists": true,
+        "size_bytes": 1200,
+        "size_mb": 0.001,
+        "content_valid": true,
+        "content_summary": {
+          "has_performance_metrics": false,
+          "has_extraction_stats": false,
+          "has_validation_results": false,
+          "diagnostic_categories": [
+            "timestamp",
+            "overall_status",
+            "failed_checks",
+            "prioritized_fixes",
+            "summary"
+          ]
+        },
+        "atomic_writes": false,
+        "status": "created"
+      },
+      "artifacts\\vision_to_docai\\parsed_output.json": {
+        "role": "structured_output",
+        "description": "Parsed and structured document content",
+        "exists": true,
+        "size_bytes": 2,
+        "size_mb": 0.0,
+        "content_valid": true,
+        "content_summary": {
+          "has_structured_data": false,
+          "clause_count": 0,
+          "entity_count": 0,
+          "has_metadata": false,
+          "text_preview_length": 0,
+          "page_count": 0
+        },
+        "atomic_writes": false,
+        "status": "created"
+      },
+      "artifacts\\vision_to_docai\\vision_raw.json": {
+        "role": "vision_ocr_output",
+        "description": "Raw Vision OCR results",
+        "exists": true,
+        "size_bytes": 2285345,
+        "size_mb": 2.179,
+        "content_valid": true,
+        "content_summary": {},
+        "atomic_writes": false,
+        "status": "created"
+      },
+      "artifacts\\vision_to_docai\\vision_normalized.json": {
+        "role": "vision_normalized",
+        "description": "Normalized Vision OCR output",
+        "exists": true,
+        "size_bytes": 2129716,
+        "size_mb": 2.031,
+        "content_valid": true,
+        "content_summary": {},
+        "atomic_writes": false,
+        "status": "created"
+      }
+    },
+    "file_operations_summary": {
+      "total_operations": 0,
+      "operation_types": [],
+      "files_affected": []
+    },
+    "verification_summary": {
+      "total_expected_files": 6,
+      "files_created": 6,
+      "files_missing": 0,
+      "creation_success_rate": 100.0,
+      "total_size_mb": 4.282,
+      "all_files_valid": true
+    },
+    "recommendations": [
+      "No file operations tracked - verify monitoring is active during processing"
+    ]
+  },
+  "initial_state": {
+    "artifacts\\vision_to_docai\\docai_raw_full.json": {
+      "exists": true,
+      "size_bytes": 62062,
+      "modified_time": 1758316342.2434788,
+      "creation_time": 1758316342.2434788,
+      "role": "raw_docai_response"
+    },
+    "artifacts\\vision_to_docai\\feature_vector.json": {
+      "exists": true,
+      "size_bytes": 12144,
+      "modified_time": 1758288933.6330428,
+      "creation_time": 1758288972.9147072,
+      "role": "ml_features"
+    },
+    "artifacts\\vision_to_docai\\diagnostics.json": {
+      "exists": true,
+      "size_bytes": 1200,
+      "modified_time": 1758315561.043573,
+      "creation_time": 1758284128.2266924,
+      "role": "processing_diagnostics"
+    },
+    "artifacts\\vision_to_docai\\parsed_output.json": {
+      "exists": true,
+      "size_bytes": 18304,
+      "modified_time": 1758315559.8935165,
+      "creation_time": 1758283943.3052924,
+      "role": "structured_output"
+    },
+    "artifacts\\vision_to_docai\\vision_raw.json": {
+      "exists": true,
+      "size_bytes": 2285345,
+      "modified_time": 1758315559.7433944,
+      "creation_time": 1758284128.0352468,
+      "role": "vision_ocr_output"
+    },
+    "artifacts\\vision_to_docai\\vision_normalized.json": {
+      "exists": true,
+      "size_bytes": 2129716,
+      "modified_time": 1758315559.8935165,
+      "creation_time": 1758284128.125146,
+      "role": "vision_normalized"
+    }
+  },
+  "post_state": {
+    "artifacts\\vision_to_docai\\docai_raw_full.json": {
+      "exists": true,
+      "role": "raw_docai_response",
+      "description": "Complete raw DocAI API response",
+      "source": "services/doc_ai/client.py:_save_raw_response",
+      "atomic_writes": true,
+      "size_bytes": 62062,
+      "size_mb": 0.059,
+      "created_time": "2025-09-20T02:42:22.243479",
+      "modified_time": "2025-09-20T02:42:22.243479",
+      "content_valid": true,
+      "content_analysis": {
+        "has_text": true,
+        "text_length": 17468,
+        "has_entities": true,
+        "entity_count": 4,
+        "has_pages": true,
+        "page_count": 6,
+        "processing_metadata": false
+      }
+    },
+    "artifacts\\vision_to_docai\\feature_vector.json": {
+      "exists": true,
+      "role": "ml_features",
+      "description": "Vertex AI ML features extracted from document",
+      "source": "services/doc_ai/parser.py:emit_feature_vector",
+      "atomic_writes": false,
+      "size_bytes": 12144,
+      "size_mb": 0.012,
+      "created_time": "2025-09-19T19:06:12.914707",
+      "modified_time": "2025-09-19T19:05:33.633043",
+      "content_valid": true,
+      "content_analysis": {
+        "feature_categories": [
+          "document_id",
+          "embedding_doc",
+          "embedding_clauses",
+          "kv_flags",
+          "kv_values",
+          "structural",
+          "confidences",
+          "needs_review",
+          "generation_metadata"
+        ],
+        "total_features": 794,
+        "has_ml_features": false
+      }
+    },
+    "artifacts\\vision_to_docai\\diagnostics.json": {
+      "exists": true,
+      "role": "processing_diagnostics",
+      "description": "DocAI processing diagnostics and analysis",
+      "source": "services/doc_ai/parser.py:_generate_diagnostics_summary",
+      "atomic_writes": false,
+      "size_bytes": 1200,
+      "size_mb": 0.001,
+      "created_time": "2025-09-19T17:45:28.226692",
+      "modified_time": "2025-09-20T02:29:21.043573",
+      "content_valid": true,
+      "content_analysis": {
+        "has_performance_metrics": false,
+        "has_extraction_stats": false,
+        "has_validation_results": false,
+        "diagnostic_categories": [
+          "timestamp",
+          "overall_status",
+          "failed_checks",
+          "prioritized_fixes",
+          "summary"
+        ]
+      }
+    },
+    "artifacts\\vision_to_docai\\parsed_output.json": {
+      "exists": true,
+      "role": "structured_output",
+      "description": "Parsed and structured document content",
+      "source": "scripts/test_vision_to_docai.py",
+      "atomic_writes": false,
+      "size_bytes": 2,
+      "size_mb": 0.0,
+      "created_time": "2025-09-19T17:42:23.305292",
+      "modified_time": "2025-09-20T15:24:43.004665",
+      "content_valid": true,
+      "content_analysis": {
+        "has_structured_data": false,
+        "clause_count": 0,
+        "entity_count": 0,
+        "has_metadata": false,
+        "text_preview_length": 0,
+        "page_count": 0
+      }
+    },
+    "artifacts\\vision_to_docai\\vision_raw.json": {
+      "exists": true,
+      "role": "vision_ocr_output",
+      "description": "Raw Vision OCR results",
+      "source": "scripts/test_vision_to_docai.py",
+      "atomic_writes": false,
+      "size_bytes": 2285345,
+      "size_mb": 2.179,
+      "created_time": "2025-09-19T17:45:28.035247",
+      "modified_time": "2025-09-20T02:29:19.743394",
+      "content_valid": true,
+      "content_analysis": {}
+    },
+    "artifacts\\vision_to_docai\\vision_normalized.json": {
+      "exists": true,
+      "role": "vision_normalized",
+      "description": "Normalized Vision OCR output",
+      "source": "scripts/test_vision_to_docai.py",
+      "atomic_writes": false,
+      "size_bytes": 2129716,
+      "size_mb": 2.031,
+      "created_time": "2025-09-19T17:45:28.125146",
+      "modified_time": "2025-09-20T02:29:19.893517",
+      "content_valid": true,
+      "content_analysis": {}
+    }
+  }
+}

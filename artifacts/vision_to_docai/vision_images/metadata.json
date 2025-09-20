@@ -1,0 +1,53 @@
+{
+  "uid": "49d6a2a6-eb834117",
+  "pdf_info": {
+    "name": "testing-ocr-pdf-1",
+    "original_path": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\data\\test-files\\testing-ocr-pdf-1.pdf",
+    "filename": "testing-ocr-pdf-1.pdf",
+    "file_size_bytes": 1350710,
+    "file_size_mb": 1.29,
+    "created_date": "2025-09-18T00:20:03.669655",
+    "modified_date": "2025-09-18T00:20:03.672398"
+  },
+  "processing_info": {
+    "processed_date": "2025-09-20T15:24:29.893522",
+    "total_pages": 6,
+    "processed_pages": 6,
+    "success_rate": 100.0,
+    "image_format": "PNG",
+    "dpi": 300,
+    "processing_errors": [],
+    "processing_method": "text_extraction_pdfplumber",
+    "pdf_library": "pdfplumber"
+  },
+  "output_info": {
+    "folder_path": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\vision_to_docai\\vision_images",
+    "folder_name": "vision_images",
+    "image_paths": [],
+    "relative_image_paths": [],
+    "text_paths": [
+      "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\vision_to_docai\\vision_images\\text\\page_001.txt",
+      "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\vision_to_docai\\vision_images\\text\\page_002.txt",
+      "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\vision_to_docai\\vision_images\\text\\page_003.txt",
+      "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\vision_to_docai\\vision_images\\text\\page_004.txt",
+      "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\vision_to_docai\\vision_images\\text\\page_005.txt",
+      "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\vision_to_docai\\vision_images\\text\\page_006.txt"
+    ],
+    "relative_text_paths": [
+      "text\\page_001.txt",
+      "text\\page_002.txt",
+      "text\\page_003.txt",
+      "text\\page_004.txt",
+      "text\\page_005.txt",
+      "text\\page_006.txt"
+    ]
+  },
+  "status": {
+    "conversion_complete": true,
+    "has_errors": false,
+    "ready_for_ocr": true,
+    "has_images": false,
+    "has_text": true,
+    "fallback_mode": true
+  }
+}

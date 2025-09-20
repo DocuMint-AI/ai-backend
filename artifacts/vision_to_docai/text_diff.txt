@@ -1,33 +1,18 @@
 Vision Text Length: 17832
-DocAI Text Length: 17468
+DocAI Text Length: 0
 Exact Match: False
-Similarity Score: 0.7066
+Similarity Score: 0.0000
 
 ==================================================
 TEXT DIFF (first 20 lines):
 --- vision_ocr.txt
 +++ docai.txt
-@@ -1,20 +1,20 @@
+@@ -1,20 +0,0 @@
 -LIFE INSURANCE CORPORATION OF INDIA ( Established by the Life Insurance Corporation Act , 1956 )
 -LIC'S JEEVAN MANGAL ( UIN : 512N257V01 ) Micro Insurance Term Assurance Plan with Return of Premiums
 -THE LIFE INSURANCE CORPORATION OF INDIA ( hereinafter called " the Corporation Proposal and " ) having Declaration received and the a first premium from the Proposer named in the Schedule below and referred the said to Proposal herein and Declaration with the statements contained been and referred agreed to to therein by the said having Proposer . and the Corporation as basis of this assurance in consideration do by this of Policy and subject agree , to the due receipt of the subsequent premiums pay as the set Benefit out in / the s without Schedule interest , to at the Micro Insurance Unit of the Corporation where to the this person Policy or is serviced persons . to whom the same is payable in terms of the said satisfaction Schedule ,, of on the proof Corporation to the of the Benefit / s having become payable as set out in of the the Schedule said person , of or the persons title claiming payment and of the correctness of the age of the the Life Proposal Assured if not stated previously in admitted .
 -And it is hereby declared that this Policy of Assurance shall be subject to the printed Conditions on the back and Privileges hereof and that the following Schedule and every endorsement the Corporation placed on shall the be Policy deemed by part of the Policy .
-+LIFE INSURANCE CORPORATION OF INDIA
-+(Established by the Life Insurance Corporation Act, 1956)
-+LIC's JEEVAN MANGAL (UIN: 512N257V01)
-+Micro Insurance Term Assurance Plan with Return of Premiums
-+THE LIFE INSURANCE CORPORATION OF INDIA (hereinafter called "the Corporation") having received aProposal and Declaration and the first premium from the 
-+Proposer named in the Schedule referred to hereinbelow and the said Proposal and Declaration with the 
-+statements contained and referred to therein havingbeen agreed to by the said Proposer and the Corporation 
-+as basis of this assurance do by this Policy agree,in consideration of and subject to the due receipt of the 
-+subsequent premiums as set out in the Schedule, topay the Benefit/s without interest at the Micro Insurance 
-+Unit of the Corporation where this Policy is servicedto the person or persons to whom the same is payable 
-+in terms of the said Schedule., on proof to thesatisfaction of the Corporation of the Benefit/s having 
-+become payable as set out in the Schedule, of the titleof the said person or persons claiming payment and 
-+of the correctness of the age of the Life Assured stated inthe Proposal if not previously admitted.
-+And it is hereby declared that this Policy of Assurance shall be subject to the Conditions and Privilegesprinted on the back hereof and that the following 
-+Schedule and every endorsement placed on the Policy bythe Corporation shall be deemed part of the Policy.
- SCHEDULE
+-SCHEDULE
 -DIVISIONAL OFFICE Policy No .:
 -MICRO INSURANCE UNIT Single / Instalment Premium for Basic Plan : ( Rs ) : Single / Instalment Premium for Accident Benefit Rider : ( Rs ) :
 -Sum Assured for Basic Plan : ( Rs . ) :
@@ -43,11 +28,7 @@ TEXT DIFF (first 20 lines):
 -Plan & Term :
 -Whether Age admitted ?
 -Nominee under section 39 of the Insurance Act , 1938
-+DIVISIONAL OFFICE
-+MICRO INSURANCE UNIT
-+Policy No.:
-+Sum Assured for Basic Plan:
 
 FIRST 200 CHARACTERS:
 Vision: "LIFE INSURANCE CORPORATION OF INDIA ( Established by the Life Insurance Corporation Act , 1956 )\nLIC'S JEEVAN MANGAL ( UIN : 512N257V01 ) Micro Insurance Term Assurance Plan with Return of Premiums\nTH"
-DocAI:  "LIFE INSURANCE CORPORATION OF INDIA\n(Established by the Life Insurance Corporation Act, 1956)\nLIC's JEEVAN MANGAL (UIN: 512N257V01)\nMicro Insurance Term Assurance Plan with Return of Premiums\nTHE LIFE"
+DocAI:  ''

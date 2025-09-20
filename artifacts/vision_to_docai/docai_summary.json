@@ -1,11 +1,11 @@
 {
-  "full_text_len": 17468,
-  "page_count": 6,
+  "full_text_len": 0,
+  "page_count": 0,
   "entity_count": 0,
   "clauses_count": 0,
   "key_value_pairs_count": 0,
   "cross_references_count": 0,
   "entity_counts_by_type": {},
-  "avg_confidence": 0.8,
+  "avg_confidence": 0.0,
   "clause_coverage_ratio": 0.0
 }

@@ -1,9 +1,9 @@
 {
   "q1_docai_content": {
-    "clause_segmentation": false,
-    "named_entities": false,
-    "key_value_pairs": false,
-    "cross_references": false,
+    "has_clause_segmentation": false,
+    "has_named_entities": false,
+    "has_key_value_pairs": false,
+    "has_cross_references": false,
     "counts": {
       "clauses": 0,
       "entities": 0,
@@ -13,75 +13,55 @@
   },
   "q2_text_matching": {
     "texts_match": false,
+    "vision_length": 17832,
+    "docai_length": 0,
     "first_200_diff": {
-      "vision": "\"LIFE INSURANCE CORPORATION OF INDIA ( Established by the Life Insurance Corporation Act , 1956 )\\nLIC'S JEEVAN MANGAL ( UIN : 512N257V01 ) Micro Insurance Term Assurance Plan with Return of Premiums\\nTH\"",
-      "docai": "\"LIFE INSURANCE CORPORATION OF INDIA\\n(Established by the Life Insurance Corporation Act, 1956)\\nLIC's JEEVAN MANGAL (UIN: 512N257V01)\\nMicro Insurance Term Assurance Plan with Return of Premiums\\nTHE LIFE\""
+      "vision_first_200": "LIFE INSURANCE CORPORATION OF INDIA ( Established by the Life Insurance Corporation Act , 1956 )\nLIC'S JEEVAN MANGAL ( UIN : 512N257V01 ) Micro Insurance Term Assurance Plan with Return of Premiums\nTH",
+      "docai_first_200": "",
+      "difference": "Vision starts: 'LIFE INSURANCE CORPORATION OF INDIA ( Established '...\nDocAI starts: ''..."
     }
   },
   "q3_offset_validation": {
     "offsets_valid": true,
+    "total_entities": 0,
+    "valid_offsets": 0,
+    "invalid_offsets": 0,
     "failure_list": []
   },
   "q4_mandatory_kvs": {
     "policy_no": {
       "docai_extracted": false,
-      "fallback_extracted": true,
-      "values": [
-        {
-          "value": "Sum",
-          "normalized_value": "SUM",
-          "pattern": "Policy\\s*No[:\\s.]*([A-Za-z0-9\\-/]+)",
-          "confidence": "regex_fallback",
-          "source": "fallback_regex"
-        }
-      ]
+      "fallback_extracted": false,
+      "fallback_values": []
     },
     "date_of_commencement": {
       "docai_extracted": false,
       "fallback_extracted": false,
-      "values": []
+      "fallback_values": []
     },
     "sum_assured": {
       "docai_extracted": false,
       "fallback_extracted": false,
-      "values": []
+      "fallback_values": []
     },
     "dob": {
       "docai_extracted": false,
       "fallback_extracted": false,
-      "values": []
+      "fallback_values": []
     },
     "nominee": {
       "docai_extracted": false,
       "fallback_extracted": true,
-      "values": [
+      "fallback_values": [
         {
           "value": "of the Insurance Act",
-          "normalized_value": "Of The Insurance Act",
-          "pattern": "Nominee\\s+under\\s+section\\s+39[^:]*?[:\\s.]*([A-Za-z\\s]+)",
-          "confidence": "regex_fallback",
-          "source": "fallback_regex"
+          "pattern": "Nominee\\s+under\\s+section\\s+39.*?:?\\s*([A-Za-z\\s]+)",
+          "confidence": "regex_fallback"
         },
         {
           "value": "under section",
-          "normalized_value": "Under Section",
-          "pattern": "Nominee[:\\s.]*([A-Za-z\\s]+)",
-          "confidence": "regex_fallback",
-          "source": "fallback_regex"
-        },
-        {
-          "value": "is a minor",
-          "normalized_value": "Is A Minor",
-          "pattern": "Nominee[:\\s.]*([A-Za-z\\s]+)",
-          "confidence": "regex_fallback",
-          "source": "fallback_regex"
-        },
-        {
-          "value": "s under section",
-          "normalized_value": "S Under Section",
-          "pattern": "Nominee[:\\s.]*([A-Za-z\\s]+)",
-          "confidence": "regex_fallback",
-          "source": "fallback_regex"
+          "pattern": "Nominee\\s*:?\\s*([A-Za-z\\s]+)",
+          "confidence": "regex_fallback"
         }
       ]
     }
@@ -91,29 +71,29 @@
       "priority": 1,
       "type": "config",
       "description": "Configure DocAI processor for entity extraction",
-      "action": "Verify processor supports entity extraction or use specialized processor"
-    },
-    {
-      "priority": 2,
-      "type": "code",
-      "description": "Fix text normalization between Vision and DocAI",
-      "action": "Ensure consistent whitespace and character handling"
+      "action": "Verify DOCAI_PROCESSOR_ID supports entity extraction or switch to appropriate processor"
     },
     {
       "priority": 3,
       "type": "code",
-      "description": "Validate and fix offset calculations",
-      "action": "Update parser to correctly map DocAI offsets to full text"
+      "description": "Normalize text processing between Vision and DocAI",
+      "action": "Ensure consistent text normalization in both pipelines"
     }
   ],
   "q6_execution_info": {
     "commands_run": [
-      "python scripts/test_vision_to_docai.py",
-      "Loaded existing Vision OCR data",
-      "Loaded existing DocAI data",
-      "Performed comparative analysis"
+      "python -m venv .venv",
+      "pip install -r requirements.txt",
+      "python scripts/test_vision_to_docai.py"
     ],
-    "errors": [],
-    "credentials_available": true
+    "errors_encountered": [
+      "Vision OCR error: 400 Request must specify image and features."
+    ],
+    "stack_traces": [],
+    "environment_status": {
+      "google_project_id": true,
+      "credentials_path": true,
+      "docai_processor_id": true
+    }
   }
 }

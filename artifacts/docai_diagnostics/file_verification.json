@@ -1,0 +1,167 @@
+{
+  "artifacts\\vision_to_docai\\docai_raw_full.json": {
+    "exists": true,
+    "size_bytes": 62062,
+    "size_mb": 0.059,
+    "modified_time": "2025-09-20T02:42:22.243479",
+    "creation_time": "2025-09-20T02:42:22.243479",
+    "is_empty": false,
+    "readable": true,
+    "valid_json": true,
+    "content_type": "dict",
+    "content_keys": [
+      "text",
+      "normalized_text",
+      "pages",
+      "entities",
+      "page_count",
+      "entity_count",
+      "processor_metadata"
+    ],
+    "content_length": 7,
+    "content_analysis": {
+      "has_text": true,
+      "text_length": 17468,
+      "has_entities": true,
+      "entity_count": 4,
+      "has_pages": true,
+      "page_count": 6,
+      "processing_metadata": false
+    }
+  },
+  "artifacts\\vision_to_docai\\feature_vector.json": {
+    "exists": true,
+    "size_bytes": 12144,
+    "size_mb": 0.012,
+    "modified_time": "2025-09-19T19:05:33.633043",
+    "creation_time": "2025-09-19T19:06:12.914707",
+    "is_empty": false,
+    "readable": true,
+    "valid_json": true,
+    "content_type": "dict",
+    "content_keys": [
+      "document_id",
+      "embedding_doc",
+      "embedding_clauses",
+      "kv_flags",
+      "kv_values",
+      "structural",
+      "confidences",
+      "needs_review",
+      "generation_metadata"
+    ],
+    "content_length": 9,
+    "content_analysis": {
+      "feature_categories": [
+        "document_id",
+        "embedding_doc",
+        "embedding_clauses",
+        "kv_flags",
+        "kv_values",
+        "structural",
+        "confidences",
+        "needs_review",
+        "generation_metadata"
+      ],
+      "total_features": 794,
+      "has_ml_features": false
+    }
+  },
+  "artifacts\\vision_to_docai\\diagnostics.json": {
+    "exists": true,
+    "size_bytes": 1200,
+    "size_mb": 0.001,
+    "modified_time": "2025-09-20T02:29:21.043573",
+    "creation_time": "2025-09-19T17:45:28.226692",
+    "is_empty": false,
+    "readable": true,
+    "valid_json": true,
+    "content_type": "dict",
+    "content_keys": [
+      "timestamp",
+      "overall_status",
+      "failed_checks",
+      "prioritized_fixes",
+      "summary"
+    ],
+    "content_length": 5,
+    "content_analysis": {
+      "has_performance_metrics": false,
+      "has_extraction_stats": false,
+      "has_validation_results": false,
+      "diagnostic_categories": [
+        "timestamp",
+        "overall_status",
+        "failed_checks",
+        "prioritized_fixes",
+        "summary"
+      ]
+    }
+  },
+  "artifacts\\vision_to_docai\\parsed_output.json": {
+    "exists": true,
+    "size_bytes": 2,
+    "size_mb": 0.0,
+    "modified_time": "2025-09-20T15:24:43.004665",
+    "creation_time": "2025-09-19T17:42:23.305292",
+    "is_empty": false,
+    "readable": true,
+    "valid_json": true,
+    "content_type": "dict",
+    "content_keys": [],
+    "content_length": 0,
+    "content_analysis": {
+      "has_structured_data": false,
+      "clause_count": 0,
+      "entity_count": 0,
+      "has_metadata": false,
+      "text_preview_length": 0,
+      "page_count": 0
+    }
+  },
+  "artifacts\\vision_to_docai\\vision_raw.json": {
+    "exists": true,
+    "size_bytes": 2285345,
+    "size_mb": 2.179,
+    "modified_time": "2025-09-20T02:29:19.743394",
+    "creation_time": "2025-09-19T17:45:28.035247",
+    "is_empty": false,
+    "readable": true,
+    "valid_json": true,
+    "content_type": "dict",
+    "content_keys": [
+      "document_id",
+      "original_filename",
+      "file_fingerprint",
+      "pdf_uri",
+      "derived_images",
+      "language_detection",
+      "ocr_result",
+      "extracted_assets",
+      "preprocessing",
+      "warnings"
+    ],
+    "content_length": 10
+  },
+  "artifacts\\vision_to_docai\\vision_normalized.json": {
+    "exists": true,
+    "size_bytes": 2129716,
+    "size_mb": 2.031,
+    "modified_time": "2025-09-20T02:29:19.893517",
+    "creation_time": "2025-09-19T17:45:28.125146",
+    "is_empty": false,
+    "readable": true,
+    "valid_json": true,
+    "content_type": "dict",
+    "content_keys": [
+      "document_id",
+      "full_text",
+      "full_text_length",
+      "pages",
+      "page_count",
+      "language_detection",
+      "processing_metadata"
+    ],
+    "content_length": 7
+  }
+}
