@@ -1,0 +1,278 @@
+{
+  "label": "Constitutional_and_Legislative",
+  "score": 1.0,
+  "confidence": "high",
+  "matched_patterns": [
+    {
+      "keyword": "schedule",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "constitution_documents",
+      "frequency": 7,
+      "positions": [
+        367,
+        704,
+        904,
+        1021,
+        1352,
+        1459,
+        5123
+      ],
+      "context_snippets": [
+        "the first premium from the Proposer named in the Schedule referred to herein\nbelow and the said Proposal an",
+        "eipt of the subsequent premiums as set out in the Schedule, to\npay the Benefit /s without interest at the Mi",
+        "to whom the same is payable in terms of the said Schedule,, on proof to the\nsatisfaction of the Corporation"
+      ]
+    },
+    {
+      "keyword": "act",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 5,
+      "positions": [
+        83,
+        2024,
+        2594,
+        3948,
+        7425
+      ],
+      "context_snippets": [
+        "IA\n(Established by the Life Insurance Corporation Act, 1956)\nLIC'S JEEVAN MANGAL (UIN: 512N257V01)\nMicr",
+        "& Term:\nNominee under section 39 of the Insurance Act, 1938\nIf Nominee is a minor, the name of the Appo",
+        "nees or Nominees under section 39 of the Insuranc\nAct, 1938 or proving Executors or Administrators or o"
+      ]
+    },
+    {
+      "keyword": "section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 3,
+      "positions": [
+        1996,
+        2567,
+        7397
+      ],
+      "context_snippets": [
+        "Whether Age admitted?\nPlan & Term:\nNominee under section 39 of the Insurance Act, 1938\nIf Nominee is a min",
+        ".\nThe Proposer or his Assignees or Nominees under section 39 of the Insuranc\nAct, 1938 or proving Executors",
+        "every such case but subject to the\nprovisions of Section 45 of the Insurance Act, 1938, wherever applicabl"
+      ]
+    },
+    {
+      "keyword": "allowed",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 1,
+      "positions": [
+        5396
+      ],
+      "context_snippets": [
+        "dar months or 60 days whichever is higher will\nbe allowed for all modes of payments.\nIf death occurs within"
+      ]
+    },
+    {
+      "keyword": "against",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        4851
+      ],
+      "context_snippets": [
+        "ccrue and be treated as a debt due by the Assured against the\nsaid Policy and shall be deducted from the Po"
+      ]
+    },
+    {
+      "keyword": "without prejudice",
+      "category": "Judicial_Documents",
+      "subcategory": "legal_notices",
+      "frequency": 1,
+      "positions": [
+        3846
+      ],
+      "context_snippets": [
+        "in case the age is found different from such age, without prejudice to the Corporation's\nother rights and remedies, i"
+      ]
+    },
+    {
+      "keyword": "will",
+      "category": "Personal_and_Family",
+      "subcategory": "wills_succession",
+      "frequency": 4,
+      "positions": [
+        3210,
+        5388,
+        5525,
+        6952
+      ],
+      "context_snippets": [
+        ": Condition No. 10 of \"Conditions and Privileges\" will apply for an amount equal to the Accident\nBenefit",
+        "wo calendar months or 60 days whichever is higher will\nbe allowed for all modes of payments.\nIf death oc",
+        "e the payment of the premium then due, the Policy will still\nbe valid and the sum assured shall be paid"
+      ]
+    },
+    {
+      "keyword": "consideration",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "sale_deeds",
+      "frequency": 1,
+      "positions": [
+        611
+      ],
+      "context_snippets": [
+        "sis of this assurance do by this Policy agree,\nin consideration of and subject to the due receipt of the subseque"
+      ]
+    },
+    {
+      "keyword": "claims",
+      "category": "Intellectual_Property",
+      "subcategory": "patent_documents",
+      "frequency": 1,
+      "positions": [
+        7491
+      ],
+      "context_snippets": [
+        "ver applicable, this policy shall be void and\nall claims to any benefit in virtue hereof shall cease and d"
+      ]
+    },
+    {
+      "keyword": "class",
+      "category": "Intellectual_Property",
+      "subcategory": "trademark_documents",
+      "frequency": 2,
+      "positions": [
+        5073,
+        5144
+      ],
+      "context_snippets": [
+        "such as would have made him\nuninsurable under the class or terms of assurance specified in the said Sched",
+        "urance specified in the said Schedule hereto, the class or\nterms shall stand altered to such as are grant"
+      ]
+    },
+    {
+      "keyword": "endorsement",
+      "category": "Financial_and_Security",
+      "subcategory": "promissory_notes",
+      "frequency": 1,
+      "positions": [
+        1371
+      ],
+      "context_snippets": [
+        "hereof and that the following Schedule and every endorsement placed on the Policy by\nthe Corporation shall be"
+      ]
+    },
+    {
+      "keyword": "life insurance",
+      "category": "Financial_and_Security",
+      "subcategory": "insurance_policies",
+      "frequency": 3,
+      "positions": [
+        0,
+        56,
+        196
+      ],
+      "context_snippets": [
+        "LIFE INSURANCE CORPORATION OF INDIA\n(Established by the Life Ins",
+        "NSURANCE CORPORATION OF INDIA\n(Established by the Life Insurance Corporation Act, 1956)\nLIC'S JEEVAN MANGAL (UIN:",
+        "e Term Assurance Plan with Return of Premiums\nTHE LIFE INSURANCE CORPORATION OF INDIA (hereinafter called \"the Cor"
+      ]
+    },
+    {
+      "keyword": "premium",
+      "category": "Financial_and_Security",
+      "subcategory": "insurance_policies",
+      "frequency": 20,
+      "positions": [
+        328,
+        1693,
+        1741,
+        1807,
+        1833,
+        1861,
+        1898,
+        2299,
+        2375,
+        2397,
+        2921,
+        2968,
+        5496,
+        5607,
+        5623,
+        5695,
+        5886,
+        6088,
+        6262,
+        6429
+      ],
+      "context_snippets": [
+        "received a\nProposal and Declaration and the first premium from the Proposer named in the Schedule referred",
+        "ured (Rs):\nMICRO INSURANCE UNIT\nSingle/Instalment Premium for\nBasic Plan: (Rs):\nSingle/Instalment Premium f",
+        "t Premium for\nBasic Plan: (Rs):\nSingle/Instalment Premium for\nAccident Benefit Rider: (Rs):\nTotal Single/In"
+      ]
+    },
+    {
+      "keyword": "nominee",
+      "category": "Financial_and_Security",
+      "subcategory": "insurance_policies",
+      "frequency": 2,
+      "positions": [
+        1982,
+        2037
+      ],
+      "context_snippets": [
+        "Life Assured:\nWhether Age admitted?\nPlan & Term:\nNominee under section 39 of the Insurance Act, 1938\nIf No",
+        "ee under section 39 of the Insurance Act, 1938\nIf Nominee is a minor, the name of the Appointee:\nName & Add"
+      ]
+    },
+    {
+      "keyword": "claim",
+      "category": "Financial_and_Security",
+      "subcategory": "insurance_policies",
+      "frequency": 5,
+      "positions": [
+        4679,
+        4787,
+        4953,
+        5807,
+        6015
+      ],
+      "context_snippets": [
+        "licy up to the date on which the Policy\nbecomes a claim, with interest on each instalment of such differe",
+        "at such rate as may be\nprevailing at the time of claim, shall accrue and be treated as a debt due by the",
+        "he Policy moneys payable on the Policy becoming a claim.\nProvided further that if the Assured's correct a"
+      ]
+    }
+  ],
+  "text_length": 7784,
+  "total_matches": 57,
+  "category_scores": {
+    "Constitutional_and_Legislative": 1.0,
+    "Judicial_Documents": 0.3447841726618705,
+    "Personal_and_Family": 0.4097122302158273,
+    "Property_and_Real_Estate": 0.12742805755395684,
+    "Business_and_Corporate": 0.0,
+    "Intellectual_Property": 0.3897841726618705,
+    "Financial_and_Security": 1.0,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.0
+  },
+  "processing_metadata": {
+    "classifier_version": "1.0.0",
+    "classification_method": "regex_pattern_matching",
+    "total_patterns_checked": 784,
+    "document_metadata": {},
+    "timestamp": "2025-09-20T21:23:19.046368"
+  },
+  "summary": {
+    "classification_successful": true,
+    "primary_label": "Constitutional_and_Legislative",
+    "confidence_level": "high",
+    "pattern_diversity": 15,
+    "top_keywords": [
+      "premium",
+      "schedule",
+      "act",
+      "claim",
+      "will"
+    ]
+  }
+}

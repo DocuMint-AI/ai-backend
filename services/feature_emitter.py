@@ -27,16 +27,17 @@ except ImportError:
     HAS_NUMPY = False
 
 
-def emit_feature_vector(parsed_output: dict, out_path: str) -> None:
+def emit_feature_vector(parsed_output: dict, out_path: str, classifier_verdict: Optional[dict] = None) -> None:
     """
     Generate feature vector JSON from parsed document output.
     
     Args:
         parsed_output: Parsed document dictionary with clauses, entities, etc.
         out_path: Output path for feature_vector.json
+        classifier_verdict: Optional classification verdict from regex classifier (MVP)
         
     Generates:
-        feature_vector.json with embeddings, KV flags, and structural features
+        feature_vector.json with embeddings, KV flags, structural features, and classifier verdict
     """
     try:
         logger.info("Generating feature vector", output_path=out_path)
@@ -69,6 +70,8 @@ def emit_feature_vector(parsed_output: dict, out_path: str) -> None:
             "kv_flags": kv_flags,
             "structural": structural,
             "needs_review": needs_review,
+            # MVP: Classifier verdict integration
+            "classifier_verdict": classifier_verdict,
             # Additional details
             "embedding_clauses": embedding_clauses,
             "kv_values": kv_values,
@@ -76,7 +79,10 @@ def emit_feature_vector(parsed_output: dict, out_path: str) -> None:
             "generation_metadata": {
                 "timestamp": Path().absolute().as_posix(),
                 "version": "1.0",
-                "feature_count": len(kv_flags) + len(structural) + len(confidences)
+                "feature_count": len(kv_flags) + len(structural) + len(confidences),
+                "mvp_mode": True,
+                "vertex_embedding_disabled": True,
+                "classification_method": "regex_pattern_matching" if classifier_verdict else "none"
             }
         }
         

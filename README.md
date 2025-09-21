@@ -1,18 +1,31 @@
-# AI Backend Document Processing API
+# AI Backend Document Processing API - MVP Prototype
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green)](https://fastapi.tiangolo.com/)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue)](https://www.python.org/)
 [![Google Cloud Vision](https://img.shields.io/badge/Google%20Cloud-Vision%20API-red)](https://cloud.google.com/vision)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-A high-performance FastAPI service for PDF document processing, OCR (Optical Character Recognition), and text parsing using Google Cloud Vision API. Features DocAI-compatible output format and modular router architecture for scalability.
+A high-performance FastAPI service for PDF document processing, OCR (Optical Character Recognition), and text parsing using Google Cloud Vision API. **Prototype uses regex-based classification, no multi-document handling, Vertex embedding disabled, KAG handoff active.**
+
+## 🎯 MVP Prototype Features
+
+**This is a prototype version with the following characteristics:**
+- ✅ **Single-document mode only** - No multi-document handling
+- ✅ **Regex-based classification** - Template matching using legal keywords (no Vertex Matching Engine)
+- ✅ **Vertex embedding disabled** - Embeddings set to null/placeholder values
+- ✅ **KAG handoff active** - Unified KAG Writer component with automatic schema-compliant generation
+- ✅ **Deterministic results** - Consistent outputs for the same test document
+- ✅ **Complete artifact generation** - parsed_output.json, classification_verdict.json, kag_input.json
 
 ## 🚀 Features
 
 - **📄 PDF Processing**: Convert PDF documents to high-quality images
 - **🔍 OCR Integration**: Google Cloud Vision API for accurate text extraction  
 - **🤖 Document AI**: Integration with Google Document AI for structured parsing
-- **🔄 Pipeline Orchestration**: Unified workflow combining PDF → Images → OCR → DocAI
+- **🔄 Pipeline Orchestration**: Unified workflow combining PDF → Images → OCR → DocAI → Classification → KAG
+- **🏷️ Regex Classification**: Pattern-based document classification using legal keywords
+- **🧠 KAG Integration**: Automatic `kag_input.json` generation with unified schema
+- **📋 Schema Compliance**: Structured output pairing DocAI results with classifier verdicts
 - **🌐 Multi-language Support**: Configurable language hints for better OCR accuracy
 - **📁 File Management**: Upload, process, and manage document processing workflows
 - **⚙️ Admin Tools**: Data purge operations and usage analytics
@@ -20,6 +33,7 @@ A high-performance FastAPI service for PDF document processing, OCR (Optical Cha
 - **⚡ Background Processing**: Async processing for large documents
 - **📊 Health Monitoring**: Comprehensive health checks and status endpoints
 - **💾 DocAI Compatible**: Output format compatible with Google Document AI
+- **🔧 KAG Writer**: Unified component for automatic knowledge input generation
 
 ## 📋 Prerequisites
 
@@ -136,26 +150,48 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
 
 ## 🔧 Usage Examples
 
-### 🔄 Complete Document Pipeline (Recommended)
+### 🔄 Complete Document Pipeline (MVP Prototype)
 
-The orchestration API provides a single endpoint for the complete workflow:
+The orchestration API provides a single endpoint for the complete workflow with integrated classification and KAG handoff:
 
 ```bash
-# Process a document through the complete pipeline
+# Process a document through the complete MVP pipeline
 curl -X POST "http://localhost:8000/api/v1/process-document" \
   -F "file=@contract.pdf" \
   -F "language_hints=en,hi" \
   -F "confidence_threshold=0.8"
 
-# Response includes pipeline_id for tracking
+# Response includes pipeline_id and processing artifacts
 {
   "success": true,
   "pipeline_id": "abc123-def456",
   "message": "Document processing completed successfully in 45.2s",
   "total_processing_time": 45.2,
-  "final_results_path": "data/processed/pipeline_result_abc123-def456.json"
+  "final_results_path": "data/processed/pipeline_result_abc123-def456.json",
+  "stage_timings": {
+    "upload": 2.1,
+    "ocr": 15.4,
+    "docai": 20.3,
+    "classification": 1.2,
+    "kag": 3.8,
+    "saving": 2.4
+  }
 }
 ```
+
+**MVP Pipeline Flow:**
+1. 📄 **Upload PDF** - Secure file upload and validation
+2. 🖼️ **PDF → Images** - Multi-library fallback conversion
+3. 👁️ **Vision OCR** - Google Cloud Vision text extraction
+4. 🧠 **Document AI** - Structured document parsing
+5. 🏷️ **Regex Classification** - Pattern-based document categorization
+6. 🤖 **KAG Processing** - Knowledge Augmented Generation preparation
+7. 💾 **Artifact Generation** - Save classification_verdict.json, kag_input.json, feature_vector.json
+
+**Generated Artifacts:**
+- `classification_verdict.json` - Document classification results with matched patterns
+- `kag_input.json` - Structured handoff payload for downstream processing
+- `feature_vector.json` - ML-ready features with classifier verdict (embeddings disabled)
 
 ### Individual Step Processing
 
@@ -197,12 +233,17 @@ ai-backend/
 │   ├── __init__.py            # Router package initialization
 │   ├── processing_handler.py  # Document processing endpoints
 │   ├── doc_ai_router.py       # Document AI integration
-│   └── orchestration_router.py # Pipeline orchestration (NEW)
+│   └── orchestration_router.py # MVP Pipeline orchestration
 ├── services/                   # Business logic and utilities
 │   ├── doc_ai/               # Document AI services
 │   ├── preprocessing/         # Document preprocessing
 │   │   ├── OCR-processing.py  # OCR processing logic
 │   │   └── parsing.py         # Text parsing utilities
+│   ├── template_matching/     # MVP Classification (NEW)
+│   │   ├── legal_keywords.py  # Legal keyword database
+│   │   └── regex_classifier.py # Regex-based classifier
+│   ├── kag_component.py       # KAG handoff component (NEW)
+│   ├── feature_emitter.py     # Enhanced with classifier verdict
 │   ├── util-services.py       # Utility functions
 │   └── project_utils.py       # Project utilities
 ├── data/                      # Data storage directory
@@ -220,9 +261,16 @@ ai-backend/
 
 ## 🧪 Testing
 
-### Run Migration Tests
+### Run MVP Test Suite
 ```bash
-python test_migration.py
+# Run the new MVP regex classification tests
+python -m pytest tests/test_single_doc_regex.py -v
+
+# Run quick validation
+python tests/test_single_doc_regex.py
+
+# Run migration tests
+python test_orchestration.py
 ```
 
 ### Run Full Test Suite
@@ -236,6 +284,7 @@ pytest tests/
 # Run specific test categories
 pytest tests/test_ocr_processing.py
 pytest tests/test_api_endpoints.py
+pytest tests/test_single_doc_regex.py  # MVP tests
 ```
 
 ## 🔧 Configuration
@@ -316,6 +365,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Discussions**: Join project discussions on GitHub
 
 ## 🔄 Changelog
+
+### Version 1.1.0 (MVP Prototype)
+- ✅ Regex-based document classification system
+- ✅ KAG (Knowledge Augmented Generation) component integration
+- ✅ Single-document mode enforcement
+- ✅ Vertex embedding disabled for prototype
+- ✅ Complete artifact generation (classification_verdict.json, kag_input.json, feature_vector.json)
+- ✅ Enhanced pipeline orchestration with 6-stage processing
+- ✅ Comprehensive MVP test suite
 
 ### Version 1.0.0
 - ✅ Modular router architecture implementation

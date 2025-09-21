@@ -1,0 +1,1107 @@
+{
+  "label": "Judicial_Documents",
+  "score": 2.691013227873994,
+  "confidence": "high",
+  "matched_patterns": [
+    {
+      "keyword": "schedule",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "constitution_documents",
+      "frequency": 3,
+      "weight": 1.0,
+      "weighted_score": 3.0,
+      "positions": [
+        11102,
+        14241,
+        27166
+      ],
+      "context_snippets": [
+        "alt in the medicinal preparation for finding out the actual weight of the drugs in reference to the schedule under the NDPS Act. 20. Same view has earlier been taken by the Hon'ble Suprme Court in the case of",
+        "nts had no documents in their possession to disclose as to for what purpose such a huge quantity of Schedule 'H' drug containing narcotic substance was being transported and that too stealthily, it cannot be",
+        "nts had no documents in their possession to disclose as to for what purpose such a huge quantity of Schedule 'H' drug containing narcotic substance was being transported and that too stealthily, it cannot be"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "amendment",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "constitution_documents",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        17983
+      ],
+      "context_snippets": [
+        "Chapter “CHAPTER VA” is added in the Narcotic Drugs and Psychotropic Substances Rule, 1985 by this amendment. For the sake of convenience, relevant Rules of this Chapter-VA are being reproduced below:- “CHAPT"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "act",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 21,
+      "weight": 1.0,
+      "weighted_score": 21.0,
+      "positions": [
+        878,
+        5327,
+        5429,
+        5565,
+        5611,
+        5978,
+        7172,
+        7321,
+        7450,
+        11126,
+        12123,
+        12167,
+        14797,
+        16421,
+        16958,
+        21688,
+        23170,
+        23758,
+        25636,
+        25976,
+        27862
+      ],
+      "context_snippets": [
+        "Ranjan and Sandeep under Section 439 of Cr.P.C. in Crime No.08/2018 under Sections 8/21 of the NDPS Act, 1985 registered at Police Station-Narcotics Cell, District- Indore. 2. In short, the case of the p",
+        "he arguments, much emphasis is been given by the learned senior counsel that Section 21 of the NDPS Act prescribes punishment for dealing in “manufactured drug” in contravention of any provision of The A",
+        "t prescribes punishment for dealing in “manufactured drug” in contravention of any provision of The Act, 1985 or any Rule or Order made or condition of license granted there under. “Manufactured Drug” is",
+        "or condition of license granted there under. “Manufactured Drug” is defined in Section 2(xi) of The Act, 1985. Clause (b) of Section 2(xi) of The Act provides that “Manufactured Drug” means any psychotro",
+        "Manufactured Drug” is defined in Section 2(xi) of The Act, 1985. Clause (b) of Section 2(xi) of The Act provides that “Manufactured Drug” means any psychotropic substance or preparation which the Central",
+        "ficial Gazette, declared to be a “manufactured drug”. 10. In exercise of powers conferred under The Act, 1985, the Central Government issued notification S.O.826 (E) dated 14.11.1985 and S.O.40 (E) dated",
+        "ot fall within the definition of “manufactured drug” and is not punishable under Section 21 of NDPS Act, 1985. 12. It is further asserted by the learned Senior counsel that at the most, the case of the a",
+        "ned Senior counsel that at the most, the case of the applicants falls under the Drugs and Cosmetics Act, for which, appropriate action can be taken by the competent authority, but in any case, they canno",
+        "ction can be taken by the competent authority, but in any case, they cannot punished under the NDPS Act, 1985. 13. To bolster his arguments, learned Senior counsel has placed reliance on two orders of co",
+        "paration for finding out the actual weight of the drugs in reference to the schedule under the NDPS Act. 20. Same view has earlier been taken by the Hon'ble Suprme Court in the case of Shahabuddin and Or",
+        "ted to fulfill any of the statutory requirements either under the provisions of Drugs and Cosmetics Act or under the provisions of the N.D.P.S. Act. 11. It is not in dispute that each 100 ml. bottle of P",
+        "ents either under the provisions of Drugs and Cosmetics Act or under the provisions of the N.D.P.S. Act. 11. It is not in dispute that each 100 ml. bottle of Phensedyl cough syrup contained 183.15 to 189",
+        "nt for human consumption, the same would certainly fall within the penal provisions of the N.D.P.S. Act calling for appropriate punishment to be inflicted upon the appellants. Therefore, the appellants'",
+        "quantity, the restriction contained in Section 37 of the Narcotic Drugs and Psychotropic Substances Act, 1985 (61 of 1985) is directly applicable to the case of the petitioners. Nothing is on record to s",
+        "se of powers conferred by clause (viiia) of Section 2 of Narcotic Drugs and Psychotropic Substances Act, 1985 (61 of 1985), the Central government hereby notices for medical and scientific use,the follow",
+        "(i) has violated any provision of these rules; or (ii) has been convicted of any offence under the Act; or (iii) has, in the opinion of the Controller of Drugs, abused such possession or otherwise been",
+        "tribution by retail or wholesale, manufactured drugs under the rules framed under Section 10 of the Act by State Government of the State in which he has his place of business. (2) Every application for i",
+        "tribution by retail or wholesale, manufactured drugs under the rules framed under section 10 of the Act by the State Government. (4) The licence under this rule shall be obtained within a period of one h",
+        "the syrup containing psychotropic substance was in the permissive limit even then Section 8 of the Act, 1985 provides that no person shall  15. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranj",
+        "medical or scientific purposes or in the manner and to the extent provided by the provisions of the Act or Rules or Orders made thereunder. Nothing is shown before this Court that the seized contraband w",
+        "nt for human consumption, the same would certainly fall within the penal provisions of the N.D.P.S. Act calling for appropriate punishment to be inflicted upon the appellants. Therefore, the appellants'"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 11,
+      "weight": 1.0,
+      "weighted_score": 11.0,
+      "positions": [
+        803,
+        5304,
+        5544,
+        5590,
+        7153,
+        16360,
+        16565,
+        16902,
+        23152,
+        23740,
+        25619
+      ],
+      "context_snippets": [
+        "rder. O R D E R 1. Both these petitions are the first bail applications of Ranjan and Sandeep under Section 439 of Cr.P.C. in Crime No.08/2018 under Sections 8/21 of the NDPS Act, 1985 registered at Police S",
+        "Ranjan Shukla. 9. In the arguments, much emphasis is been given by the learned senior counsel that Section 21 of the NDPS Act prescribes punishment for dealing in “manufactured drug” in contravention of any",
+        "y Rule or Order made or condition of license granted there under. “Manufactured Drug” is defined in Section 2(xi) of The Act, 1985. Clause (b) of Section 2(xi) of The Act provides that “Manufactured Drug” me",
+        "ranted there under. “Manufactured Drug” is defined in Section 2(xi) of The Act, 1985. Clause (b) of Section 2(xi) of The Act provides that “Manufactured Drug” means any psychotropic substance or preparation",
+        "y the police does not fall within the definition of “manufactured drug” and is not punishable under Section 21 of NDPS Act, 1985. 12. It is further asserted by the learned Senior counsel that at the most, th",
+        "eight of psychotropic substance is well above the commercial quantity, the restriction contained in Section 37 of the Narcotic Drugs and Psychotropic Substances Act, 1985 (61 of 1985) is directly applicable",
+        "e to the case of the petitioners. Nothing is on record to satisfy the conditions enunciated in this Section. 23. Further, in the year 2015, The Government of India, Ministry of Finance (Department of Revenue",
+        "this notification reads thus:- S.O.1181(E). - In exercise of powers conferred by clause (viiia) of Section 2 of Narcotic Drugs and Psychotropic Substances Act, 1985 (61 of 1985), the Central government here",
+        "er for sale or distribution by retail or wholesale, manufactured drugs under the rules framed under Section 10 of the Act by State Government of the State in which he has his place of business. (2) Every app",
+        "er for sale or distribution by retail or wholesale, manufactured drugs under the rules framed under section 10 of the Act by the State Government. (4) The licence under this rule shall be obtained within a p",
+        "we consider that the syrup containing psychotropic substance was in the permissive limit even then Section 8 of the Act, 1985 provides that no person shall  15. High Court of M.P. Bench At Indore MCRC No.26"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "clause",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 3,
+      "weight": 1.0,
+      "weighted_score": 3.0,
+      "positions": [
+        5576,
+        16884,
+        21863
+      ],
+      "context_snippets": [
+        "n of license granted there under. “Manufactured Drug” is defined in Section 2(xi) of The Act, 1985. Clause (b) of Section 2(xi) of The Act provides that “Manufactured Drug” means any psychotropic substance",
+        "paragraph no.1 of this notification reads thus:- S.O.1181(E). - In exercise of powers conferred by clause (viiia) of Section 2 of Narcotic Drugs and Psychotropic Substances Act, 1985 (61 of 1985), the Cent",
+        "ossession or otherwise been rendered unfit to possess such drug. (b) When any order is passed under clause (a) of this sub- rule, the registered medical practitioner concerned shall forthwith deliver to the"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "proviso",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        21098
+      ],
+      "context_snippets": [
+        "shed medical standards and practices (4) For renewal of the authorisation referred to in the second proviso to sub-rule (3), application shall be made to the Controller of Drugs atleast thirty days before th"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "explanation",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        12605,
+        20792
+      ],
+      "context_snippets": [
+        "for any licensed dealer dealing with pharmaceutical products and in the absence of any other valid explanation for effecting the transportation of such a huge quantity of the cough syrup which contained the nar",
+        "hat such authorisation may be granted or renewed, for a period not exceeding three years at a time. Explanation.- The expression “for use in his practice” covers only the actual direct administration of the drug"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "rules",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 14,
+      "weight": 1.0,
+      "weighted_score": 14.0,
+      "positions": [
+        17623,
+        18032,
+        18383,
+        18558,
+        21629,
+        22406,
+        22550,
+        22726,
+        23133,
+        23721,
+        23923,
+        24495,
+        25411,
+        25983
+      ],
+      "context_snippets": [
+        "ctice; (2)........ (3)........... (4)...........(5)............ and (6)........ 24. In this regard, Rules are also amended and notified by the Government of India vide notification No.G.S.R.359(E)  11. Hig",
+        "ugs and Psychotropic Substances Rule, 1985 by this amendment. For the sake of convenience, relevant Rules of this Chapter-VA are being reproduced below:- “CHAPTER VA” POSSESSION, TRANSPORT, IMPORT INTER-ST",
+        "shall possess any essential narcotic drug otherwise than in accordance with the provisions of these rules. (2) Any person may possess an essential narcotic drug in such quantity as has been at one time sol",
+        "ty as has been at one time sold or dispensed for his use in accordance with the provisions of these rules. (3) A registered medical practitioner may possess essential narcotic drug, for use in his practice",
+        "of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. (i) has violated any provision of these rules; or (ii) has been convicted of any offence under the Act; or (iii) has, in the opinion of the Contr",
+        "ution may possess essential narcotic drug in such quantity and in such manner as specified in these rules. (8) A manufacturer may possess essential narcotic drug in such quantity as may be specified in the",
+        "ial narcotic drug in such quantity as may be specified in the licence issued under rule 37 of these rules. (9) A licenced dealer or a licenced chemist may possess essential narcotic drug in such quantity a",
+        "cotic drug in such quantity an in such manner as may be specified in the licence issued under these rules. 52B. Provisions regarding licenced dealer and licenced chemist- (1) A licenced dealer or a licence",
+        "ell, exhibit or offer for sale or distribution by retail or wholesale, manufactured drugs under the rules framed under Section 10 of the Act by State Government of the State in which he has his place of bu",
+        "sell exhibit or offer for sale or distribution by retail or wholesale, manufactured drugs under the rules framed under section 10 of the Act by the State Government. (4) The licence under this rule shall b",
+        "l be obtained within a period of one hundred and eighty days from the date of commencement of these rules.” 25. Thus, after May, 2015 licence to keep the composition  14. High Court of M.P. Bench At Indore",
+        "is there to show that the petitioners have ever obtained or possessed any licence required by these Rules. 26. It is submitted by learned senior counsel that this Court is bound by earlier decision taken b",
+        "Shahabuddin and Sanjeev Deshpande (supra) and the notification No.S.O.1181(E) dated 05.05.2015 and Rules made thereunder, therefore, the plea of the learned senior counsel is not tenable. 28. In any case,",
+        "or scientific purposes or in the manner and to the extent provided by the provisions of the Act or Rules or Orders made thereunder. Nothing is shown before this Court that the seized contraband was stored"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "notification",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 11,
+      "weight": 1.0,
+      "weighted_score": 11.0,
+      "positions": [
+        5856,
+        6019,
+        6114,
+        9289,
+        9379,
+        10215,
+        16684,
+        16808,
+        17691,
+        25188,
+        25362
+      ],
+      "context_snippets": [
+        "lable information as to its nature or to a decision, if any, under any International Convention, by notification in the Official Gazette, declared to be a “manufactured drug”. 10. In exercise of powers conferred",
+        "tured drug”. 10. In exercise of powers conferred under The Act, 1985, the Central Government issued notification S.O.826 (E) dated 14.11.1985 and S.O.40 (E) dated 29.01.1993. Entry No.35 of this notification defi",
+        "sued notification S.O.826 (E) dated 14.11.1985 and S.O.40 (E) dated 29.01.1993. Entry No.35 of this notification defined specifications of Codeine, which reads as under:- “35. Methyl morphine (commonly known as '",
+        "shall be calculated, but this controversy is now set at rest. The Government of India has issued a notification No. S.O. 2941(E) dated 18/11/2009. As per note 4 appended at the end of this notification, it is ma",
+        "issued a notification No. S.O. 2941(E) dated 18/11/2009. As per note 4 appended at the end of this notification, it is made clear that for the purpose of determining the quantity, the gross weight of the drug re",
+        "ever existence of such substance is possible and not just its pure drug content.\" 18. The aforesaid notification is considered by the Hon'ble Supreme Court in Harjit Singh Vs. State of Punjab reported in 2011 Cr.",
+        "r, in the year 2015, The Government of India, Ministry of Finance (Department of Revenue), issued a notification No.S.O.1181(E) dated 05.05.2015 and made Codeine as “essential narcotic drug”. Relevant paragraph n",
+        "(E) dated 05.05.2015 and made Codeine as “essential narcotic drug”. Relevant paragraph no.1 of this notification reads thus:- S.O.1181(E). - In exercise of powers conferred by clause (viiia) of Section 2 of Narco",
+        "(6)........ 24. In this regard, Rules are also amended and notified by the Government of India vide notification No.G.S.R.359(E)  11. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of",
+        "h the occasions, the learned Single Bench of this Court has not considered the note appended to the notification No. S.O. 2941(E) dated 18/11/2009 and also the judgement passed by Hon'ble the apex Court in the ca",
+        "ed by Hon'ble the apex Court in the case of Mohd. Shahabuddin and Sanjeev Deshpande (supra) and the notification No.S.O.1181(E) dated 05.05.2015 and Rules made thereunder, therefore, the plea of the learned senio"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "central government",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 3,
+      "weight": 1.0,
+      "weighted_score": 3.0,
+      "positions": [
+        5707,
+        5993,
+        16986
+      ],
+      "context_snippets": [
+        "The Act provides that “Manufactured Drug” means any psychotropic substance or preparation which the Central Government may, having regard to the available information as to its nature or to a decision, if any, under an",
+        "declared to be a “manufactured drug”. 10. In exercise of powers conferred under The Act, 1985, the Central Government issued notification S.O.826 (E) dated 14.11.1985 and S.O.40 (E) dated 29.01.1993. Entry No.35 of th",
+        "ause (viiia) of Section 2 of Narcotic Drugs and Psychotropic Substances Act, 1985 (61 of 1985), the Central government hereby notices for medical and scientific use,the following narcotic drugs to be essential narcotic"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "state government",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        23177,
+        23769
+      ],
+      "context_snippets": [
+        "on by retail or wholesale, manufactured drugs under the rules framed under Section 10 of the Act by State Government of the State in which he has his place of business. (2) Every application for issue of licence refe",
+        "y retail or wholesale, manufactured drugs under the rules framed under section 10 of the Act by the State Government. (4) The licence under this rule shall be obtained within a period of one hundred and eighty days f"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "ministry",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        16630
+      ],
+      "context_snippets": [
+        "the conditions enunciated in this Section. 23. Further, in the year 2015, The Government of India, Ministry of Finance (Department of Revenue), issued a notification No.S.O.1181(E) dated 05.05.2015 and made"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "department",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        16651
+      ],
+      "context_snippets": [
+        "iated in this Section. 23. Further, in the year 2015, The Government of India, Ministry of Finance (Department of Revenue), issued a notification No.S.O.1181(E) dated 05.05.2015 and made Codeine as “essential n"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "rule",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 9,
+      "weight": 1.0,
+      "weighted_score": 9.0,
+      "positions": [
+        5446,
+        17964,
+        21113,
+        21388,
+        21887,
+        22533,
+        23309,
+        23416,
+        23814
+      ],
+      "context_snippets": [
+        "shment for dealing in “manufactured drug” in contravention of any provision of The Act, 1985 or any Rule or Order made or condition of license granted there under. “Manufactured Drug” is defined in Sectio",
+        "d 05.05.2015. A new Chapter “CHAPTER VA” is added in the Narcotic Drugs and Psychotropic Substances Rule, 1985 by this amendment. For the sake of convenience, relevant Rules of this Chapter-VA are being r",
+        "andards and practices (4) For renewal of the authorisation referred to in the second proviso to sub-rule (3), application shall be made to the Controller of Drugs atleast thirty days before the expiry of",
+        "er, prohibit any registered medical practitioner from possessing four use in his practice under sub-rule(3) any essential narcotic drug, where such practitioner  13. High Court of M.P. Bench At Indore MCR",
+        "een rendered unfit to possess such drug. (b) When any order is passed under clause (a) of this sub- rule, the registered medical practitioner concerned shall forthwith deliver to the Controller of Drugs t",
+        "ay possess essential narcotic drug in such quantity as may be specified in the licence issued under rule 37 of these rules. (9) A licenced dealer or a licenced chemist may possess essential narcotic drug",
+        "which he has his place of business. (2) Every application for issue of licence referred to in sub- rule (1) shall be in such form and manner as may by specified by the authority referred to in the said s",
+        ") shall be in such form and manner as may by specified by the authority referred to in the said sub-rule. (3) The licence to possess, sell, exhibit or offer for sale or distribution by retail or wholesale",
+        "er the rules framed under section 10 of the Act by the State Government. (4) The licence under this rule shall be obtained within a period of one hundred and eighty days from the date of commencement of t"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "order",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 13,
+      "weight": 1.0,
+      "weighted_score": 13.0,
+      "positions": [
+        702,
+        5454,
+        15088,
+        15344,
+        15432,
+        15476,
+        15551,
+        20534,
+        21285,
+        21841,
+        22177,
+        22268,
+        28153
+      ],
+      "context_snippets": [
+        "e same police station, therefore, they are heard analogously and are being decided with this common order. O R D E R 1. Both these petitions are the first bail applications of Ranjan and Sandeep under Sect",
+        "or dealing in “manufactured drug” in contravention of any provision of The Act, 1985 or any Rule or Order made or condition of license granted there under. “Manufactured Drug” is defined in Section 2(xi) o",
+        "ferred two notifications, the application of the exemption provided under the said notifications in order to consider the appellants' application for bail by the Courts below does not arise.\" 21. Time and",
+        "the Hon'ble Supreme Court in Shahabuddin and Sanjeev Deshpande cases (supra) in MCRC No. 11448/2016 order dated 13.12.2016, M.Cr.C.No.4310/2017 Gopal Gupta Vs. The State of M.P. & Another order dated 11.05",
+        "11448/2016 order dated 13.12.2016, M.Cr.C.No.4310/2017 Gopal Gupta Vs. The State of M.P. & Another order dated 11.05.2017, MCRC No. 20360/2018 order dated 28.05.2018 and in MCRC 26037 Nilesh @ Nilkamal V/",
+        "o.4310/2017 Gopal Gupta Vs. The State of M.P. & Another order dated 11.05.2017, MCRC No. 20360/2018 order dated 28.05.2018 and in MCRC 26037 Nilesh @ Nilkamal V/s State of MP order dated 10.07.2018. The Ra",
+        "017, MCRC No. 20360/2018 order dated 28.05.2018 and in MCRC 26037 Nilesh @ Nilkamal V/s State of MP order dated 10.07.2018. The Rajsthan High Court has also taken the same view in the case of Ravi alias Ra",
+        "d that the Controller of Drugs or any other officer authorised in this behalf by him may be special order authorise, in Form 3B, any such practitioner to possess the aforesaid drugs in quantity larger then",
+        "hirty days before the expiry of the previous authorisation. (5) (a) The Controller of Drugs may, be order, prohibit any registered medical practitioner from possessing four use in his practice under sub-ru",
+        "f Drugs, abused such possession or otherwise been rendered unfit to possess such drug. (b) When any order is passed under clause (a) of this sub- rule, the registered medical practitioner concerned shall f",
+        "sue orders for the disposal of such drugs. (6) The Controller of Drugs may, be a general or special order, authorise any person to possess essential narcotic drug as may be specified in that order. (7) A r",
+        "special order, authorise any person to possess essential narcotic drug as may be specified in that order. (7) A recognized medical institution may possess essential narcotic drug in such quantity and in s",
+        "ferred two notifications, the application of the exemption provided under the said notifications in order to consider the appellants' application for bail by the Courts below does not arise.\" 31. The obser"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "dismissed",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        29287
+      ],
+      "context_snippets": [
+        "deep vs. The State of M.P. opinion, no case for bail is made out. Therefore, both the petitions are dismissed hereby. (Virender Singh) Judge amit"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "high court",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 20,
+      "weight": 1.0,
+      "weighted_score": 20.0,
+      "positions": [
+        3,
+        1350,
+        3036,
+        4724,
+        6420,
+        8113,
+        8135,
+        9703,
+        11446,
+        13281,
+        13753,
+        15588,
+        15797,
+        17725,
+        19365,
+        21454,
+        23994,
+        25681,
+        27400,
+        29079
+      ],
+      "context_snippets": [
+        "1. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "ded among bags of potatoes and onions. The truck is parked at a petrol pump on A.B. Road before  2. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "dical, Manish Bhaskar, who operates his drugs business from this godown and he works for Manish  3. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "loyees was not concerned nor was aware about the legality or illegality of the goods. He is not  4. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "ns except those which are compounded with one or more other ingredients and containing not more  5. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "y of psychotropic substance was within the permissible limit. 14. A judgement of Punjab and Haryana High Court passed  6. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCR",
+        "tance was within the permissible limit. 14. A judgement of Punjab and Haryana High Court passed  6. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "hus: \"(4) The quantities shown in column 5 and column 6 of the Table relating to the respective  7. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "AIR SCW 817 : (2012) 13 SCC 491. While considering the similar argument, the Court held that :  8. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "ble limit as stipulated in the Notifications dated 14.11.1985 and 29.1.1993. As rightly held by the High Court, the said contention should have satisfied the twin conditions, namely, that the contents of the na",
+        "r dictionary meaning means 'contributing to cure of disease'. In other words, the assessment of  9. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "28.05.2018 and in MCRC 26037 Nilesh @ Nilkamal V/s State of MP order dated 10.07.2018. The Rajsthan High Court has also taken the same view in the case of Ravi alias Ravikant Vs. State of Rajasthan reported in",
+        "2016 CRI. L. J. 3309 that the gross weight has to be considered for calculation of commercial  10. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "les are also amended and notified by the Government of India vide notification No.G.S.R.359(E)  11. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "re than 2.5% in undivided preparations and which have been established in therapeutic practice  12. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "our use in his practice under sub-rule(3) any essential narcotic drug, where such practitioner  13. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "ate of commencement of these rules.” 25. Thus, after May, 2015 licence to keep the composition  14. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "was in the permissive limit even then Section 8 of the Act, 1985 provides that no person shall  15. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "transportation was for therapeutic practice as mentioned in the Notifications dated 14.11.1985  16. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande",
+        "titioners are not entitle for bail. 33. In view of the foregoing discussions, in my considered  17. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sande"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "criminal appeal",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        11262
+      ],
+      "context_snippets": [
+        "taken by the Hon'ble Suprme Court in the case of Shahabuddin and Ors. Vs. State of Assam, passed in Criminal Appeal No.629/2010 decided on 13/12/2012 reported in 2012(11) JT 310 : 2013 AIR SCW 817 : (2012) 13 SCC 49"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "case no",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        161,
+        237
+      ],
+      "context_snippets": [
+        "an vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. Miscellaneous Criminal Case No.26515 of 2018 Ranjan Vs. The State of M.P. & Miscellaneous Criminal Case No.46229 of 2018 Sandeep V",
+        "Miscellaneous Criminal Case No.26515 of 2018 Ranjan Vs. The State of M.P. & Miscellaneous Criminal Case No.46229 of 2018 Sandeep Vs. The State of M.P. Shri C.L.Yadav, learned Senior counsel with Shri N. Dav"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "appeal no",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        11271
+      ],
+      "context_snippets": [
+        "the Hon'ble Suprme Court in the case of Shahabuddin and Ors. Vs. State of Assam, passed in Criminal Appeal No.629/2010 decided on 13/12/2012 reported in 2012(11) JT 310 : 2013 AIR SCW 817 : (2012) 13 SCC 491."
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "petitioner",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 6,
+      "weight": 1.0,
+      "weighted_score": 6.0,
+      "positions": [
+        371,
+        436,
+        2564,
+        3863,
+        4142,
+        5194
+      ],
+      "context_snippets": [
+        "The State of M.P. Shri C.L.Yadav, learned Senior counsel with Shri N. Dave, learned counsel for the petitioner - Ranjan. Shri A.K. Saraswat, learned counsel for the petitioner -Sandeep. Shri Mukesh Kumawat, lea",
+        "i N. Dave, learned counsel for the petitioner - Ranjan. Shri A.K. Saraswat, learned counsel for the petitioner -Sandeep. Shri Mukesh Kumawat, learned Public Prosecutor for the respondent/State. Both these bail",
+        "Gopal Mittal situated near Central Point, Mangliai, Indore and from that godown, Ranjan Shukla (the petitioner) has loaded the syrup. 4. The police went to the godown on next day i.e. 10.04.2018, searched for R",
+        "his elder brother Biharilal. Biharilal disclosed that his godown was taken on rent by Sandeep Kale (petitioner) for vegetable business. The Police seized the rent agreement. 6. The Police took out the samples f",
+        "s, who confirmed existence of Codeine Phosphate and chlorpheniramine maleate. 7. Submissions of the petitioner Sandeep Kale are that he is a transporter and accepts goods to be transported in usual course of hi",
+        "his absconding. Therefore, he be released on bail. 8. Almost similar grounds have been taken by the petitioner Ranjan Shukla. 9. In the arguments, much emphasis is been given by the learned senior counsel that"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "respondent",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        512
+      ],
+      "context_snippets": [
+        "learned counsel for the petitioner -Sandeep. Shri Mukesh Kumawat, learned Public Prosecutor for the respondent/State. Both these bail petitions have arisen out of the same crime number of the same police statio"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "applicant",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        8749
+      ],
+      "context_snippets": [
+        "ted in 2018 Cr.L.R (SC) 206 where Hon'ble the Supreme Court has granted bail on the ground that the applicant was only employee of the transport company which was engaged in the business of transportation of g"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "vs",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 45,
+      "weight": 1.0,
+      "weighted_score": 45.0,
+      "positions": [
+        64,
+        116,
+        190,
+        267,
+        1411,
+        1463,
+        3097,
+        3149,
+        4785,
+        4837,
+        6481,
+        6533,
+        7622,
+        7714,
+        8196,
+        8248,
+        8286,
+        8621,
+        9764,
+        9816,
+        10287,
+        10543,
+        11232,
+        11507,
+        11559,
+        13814,
+        13866,
+        15400,
+        15663,
+        15858,
+        15910,
+        17786,
+        17838,
+        19426,
+        19478,
+        21515,
+        21567,
+        24055,
+        24107,
+        25742,
+        25794,
+        27461,
+        27513,
+        29140,
+        29192
+      ],
+      "context_snippets": [
+        "1. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. Miscellaneous Criminal Case",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. Miscellaneous Criminal Case No.26515 of 2018 Ranjan Vs. The State of M.P. & Misc",
+        "RC Nos.46229/2018 Sandeep vs. The State of M.P. Miscellaneous Criminal Case No.26515 of 2018 Ranjan Vs. The State of M.P. & Miscellaneous Criminal Case No.46229 of 2018 Sandeep Vs. The State of M.P. Shr",
+        "o.26515 of 2018 Ranjan Vs. The State of M.P. & Miscellaneous Criminal Case No.46229 of 2018 Sandeep Vs. The State of M.P. Shri C.L.Yadav, learned Senior counsel with Shri N. Dave, learned counsel for th",
+        "a petrol pump on A.B. Road before  2. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. Dakachya and driver Mohanlal",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. Dakachya and driver Mohanlal will take it to Siliguri (West Bangal) to sell that",
+        "his godown and he works for Manish  3. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. Bhaskar. He also revealed th",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. Bhaskar. He also revealed that 223 boxes of Eskuf Cough Syrup are still lying in",
+        "illegality of the goods. He is not  4. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. named in the FIR. Nothing is",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. named in the FIR. Nothing is recovered from his possession. He is in jail since",
+        "ngredients and containing not more  5. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. than 100 milligrammes of the",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. than 100 milligrammes of the drug per dosage unit and with a concentration of no",
+        "ed reliance on two orders of co-ordinate Bench of this Court passed in the case of Shiv Kumar Gupta vs. The State of Madhya Pradesh dated 16.09.2015 passed in CRR No.200/2015 and Rohit Chanda vs. The St",
+        "r Gupta vs. The State of Madhya Pradesh dated 16.09.2015 passed in CRR No.200/2015 and Rohit Chanda vs. The State of Madhya Pradesh dated 15.10.2015 passed in CRR No.1621/2015 where charges were quashed",
+        "njab and Haryana High Court passed  6. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. in Rajeev Kumar vs. the Stat",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. in Rajeev Kumar vs. the State of Punjab reported in 1998 Cri.L.J. 1460 is also p",
+        "18 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. in Rajeev Kumar vs. the State of Punjab reported in 1998 Cri.L.J. 1460 is also pressed into service, where the proceed",
+        "liance is placed by the learned Senior counsel on the judgement of Binod Kumar @ Binod Kumar Bhagat vs. The State of Bihar reported in 2018 Cr.L.R (SC) 206 where Hon'ble the Supreme Court has granted ba",
+        "e Table relating to the respective  7. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. drugs shown in column 2 shal",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. drugs shown in column 2 shall apply to the entire mixture or any solution or any",
+        "content.\" 18. The aforesaid notification is considered by the Hon'ble Supreme Court in Harjit Singh Vs. State of Punjab reported in 2011 Cr.L.R. (SC) 355. It is held that while considering the quantity",
+        "o be taken into consideration. 19. The Hon'ble Supreme Court in the case of Union of India and Anr. Vs. Sanjeev V Deshpande, reported in 2014 Cr.L.R. SC 896 (2014) 13 SCC 1 : (AIR 2014 SC 3625) consider",
+        "0. Same view has earlier been taken by the Hon'ble Suprme Court in the case of Shahabuddin and Ors. Vs. State of Assam, passed in Criminal Appeal No.629/2010 decided on 13/12/2012 reported in 2012(11) J",
+        "ar argument, the Court held that :  8. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. \"10. At the very outset, the",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. \"10. At the very outset, the above said submission of the Learned Counsel is lia",
+        "In other words, the assessment of  9. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. codeine content on dosage ba",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. codeine content on dosage basis can be made only when the cough syrup is definit",
+        "hpande cases (supra) in MCRC No. 11448/2016 order dated 13.12.2016, M.Cr.C.No.4310/2017 Gopal Gupta Vs. The State of M.P. & Another order dated 11.05.2017, MCRC No. 20360/2018 order dated 28.05.2018 and",
+        "10.07.2018. The Rajsthan High Court has also taken the same view in the case of Ravi alias Ravikant Vs. State of Rajasthan reported in 2016 CRI. L. J. 3309 that the gross weight has to be considered for",
+        "red for calculation of commercial  10. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. quantity. 22. Thus, it is ev",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. quantity. 22. Thus, it is evident that the whole quantity of material recovered",
+        "vide notification No.G.S.R.359(E)  11. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. dated 05.05.2015. A new Chap",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. dated 05.05.2015. A new Chapter “CHAPTER VA” is added in the Narcotic Drugs and",
+        "tablished in therapeutic practice  12. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. 3 250 Dihydroxy Codeinone, (",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. 3 250 Dihydroxy Codeinone, (commonly Milligrammes known as Oxy-codone and Dihydr",
+        "tic drug, where such practitioner  13. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. (i) has violated any provisi",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. (i) has violated any provision of these rules; or (ii) has been convicted of any",
+        "5 licence to keep the composition  14. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. containing psychotropic subs",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. containing psychotropic substance is made compulsory and for the convenience of",
+        "985 provides that no person shall  15. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. possess narcotic drugs or ps",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. possess narcotic drugs or psychotropic substance except for medical or scientifi",
+        "he Notifications dated 14.11.1985  16. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. and 29.1.1993. Therefore, if",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. and 29.1.1993. Therefore, if the said requirement meant for therapeutic practice",
+        "ing discussions, in my considered  17. High Court of M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. opinion, no case for bail is",
+        "M.P. Bench At Indore MCRC No.26515/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. opinion, no case for bail is made out. Therefore, both the petitions are dismiss"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "v/s",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        15535
+      ],
+      "context_snippets": [
+        "er dated 11.05.2017, MCRC No. 20360/2018 order dated 28.05.2018 and in MCRC 26037 Nilesh @ Nilkamal V/s State of MP order dated 10.07.2018. The Rajsthan High Court has also taken the same view in the cas"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "against",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        6884,
+        6965
+      ],
+      "context_snippets": [
+        "ychotropic substance itself it is mentioned that each dose of 5 ML contains 10 mg Codeine Phosphate against permissive limit of 100 Mg. Similarly, its concentration is mentioned 1% against permissive limit o",
+        "Codeine Phosphate against permissive limit of 100 Mg. Similarly, its concentration is mentioned 1% against permissive limit of 2.5% in undivided preparations. Thus, the substance seized by the police does n"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "verification",
+      "category": "Judicial_Documents",
+      "subcategory": "pleadings",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        4269,
+        4565
+      ],
+      "context_snippets": [
+        "that he is a transporter and accepts goods to be transported in usual course of his business after verification of tax invoice and bills, keep them in his godown and got them loaded in the trucks to deliver them",
+        "Medical stating that they contain some medicines. He accepted the goods to transport the same after verification of tax invoice and bills. He or any of his employees was not concerned nor was aware about the lega"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "verification",
+      "category": "Judicial_Documents",
+      "subcategory": "affidavits",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        4269,
+        4565
+      ],
+      "context_snippets": [
+        "that he is a transporter and accepts goods to be transported in usual course of his business after verification of tax invoice and bills, keep them in his godown and got them loaded in the trucks to deliver them",
+        "Medical stating that they contain some medicines. He accepted the goods to transport the same after verification of tax invoice and bills. He or any of his employees was not concerned nor was aware about the lega"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "fir",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        4872
+      ],
+      "context_snippets": [
+        "/2018 Ranjan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. named in the FIR. Nothing is recovered from his possession. He is in jail since 2/05/2018. The investigation is over"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "police station",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 3,
+      "weight": 1.0,
+      "weighted_score": 3.0,
+      "positions": [
+        609,
+        902,
+        1015
+      ],
+      "context_snippets": [
+        "he respondent/State. Both these bail petitions have arisen out of the same crime number of the same police station, therefore, they are heard analogously and are being decided with this common order. O R D E R 1. B",
+        "Section 439 of Cr.P.C. in Crime No.08/2018 under Sections 8/21 of the NDPS Act, 1985 registered at Police Station-Narcotics Cell, District- Indore. 2. In short, the case of the prosecution is that on 09.04.2018, P",
+        "n-Narcotics Cell, District- Indore. 2. In short, the case of the prosecution is that on 09.04.2018, Police Station, Narcotics Cell, Indore received information that last night i.e. 08.04.2018, Eskuf cough syrup hav"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "investigation",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        4954
+      ],
+      "context_snippets": [
+        "M.P. named in the FIR. Nothing is recovered from his possession. He is in jail since 2/05/2018. The investigation is over and charge-sheet is filed. Trial is likely to take time. He will cooperate with the trial."
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "bail",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 9,
+      "weight": 1.0,
+      "weighted_score": 9.0,
+      "positions": [
+        541,
+        757,
+        5139,
+        8721,
+        12811,
+        15138,
+        28203,
+        29009,
+        29235
+      ],
+      "context_snippets": [
+        "ioner -Sandeep. Shri Mukesh Kumawat, learned Public Prosecutor for the respondent/State. Both these bail petitions have arisen out of the same crime number of the same police station, therefore, they are",
+        "ously and are being decided with this common order. O R D E R 1. Both these petitions are the first bail applications of Ranjan and Sandeep under Section 439 of Cr.P.C. in Crime No.08/2018 under Sections",
+        "l cooperate with the trial. There is no possibility of his absconding. Therefore, he be released on bail. 8. Almost similar grounds have been taken by the petitioner Ranjan Shukla. 9. In the arguments, mu",
+        "vs. The State of Bihar reported in 2018 Cr.L.R (SC) 206 where Hon'ble the Supreme Court has granted bail on the ground that the applicant was only employee of the transport company which was engaged in th",
+        "e narcotic substance of codeine phosphate beyond the prescribed limit, the application for grant of bail cannot be considered based on the above submissions made on behalf of the appellants. 12. The submi",
+        "xemption provided under the said notifications in order to consider the appellants' application for bail by the Courts below does not arise.\" 21. Time and again this Court has followed the law laid down b",
+        "xemption provided under the said notifications in order to consider the appellants' application for bail by the Courts below does not arise.\" 31. The observation of the Hon'ble Supreme Court reproduced he",
+        "certainly is commercial quantity. Considering this aspect also, the petitioners are not entitle for bail. 33. In view of the foregoing discussions, in my considered  17. High Court of M.P. Bench At Indore",
+        "njan vs. The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. opinion, no case for bail is made out. Therefore, both the petitions are dismissed hereby. (Virender Singh) Judge amit"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "custody",
+      "category": "Personal_and_Family",
+      "subcategory": "divorce_documents",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        2362
+      ],
+      "context_snippets": [
+        "g all relevant documents regarding transportation of onion and potatoes. 3. Mohanlal was taken into custody. On interrogation, he disclosed that owner Kaushal Singh has taken the truck to the godown of Gopal"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "will",
+      "category": "Personal_and_Family",
+      "subcategory": "wills_succession",
+      "frequency": 3,
+      "weight": 1.0,
+      "weighted_score": 3.0,
+      "positions": [
+        1514,
+        1619,
+        5036
+      ],
+      "context_snippets": [
+        "The State of M.P. & MCRC Nos.46229/2018 Sandeep vs. The State of M.P. Dakachya and driver Mohanlal will take it to Siliguri (West Bangal) to sell that Eskuf cough Syrup to the druggies/addicts. The truck",
+        "take it to Siliguri (West Bangal) to sell that Eskuf cough Syrup to the druggies/addicts. The truck will depart about 5-5:30 P.M. If the action is taken without delay, the contraband can be recovered. Imm",
+        "ce 2/05/2018. The investigation is over and charge-sheet is filed. Trial is likely to take time. He will cooperate with the trial. There is no possibility of his absconding. Therefore, he be released on b"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "agent",
+      "category": "Personal_and_Family",
+      "subcategory": "power_of_attorney",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        14083,
+        26927
+      ],
+      "context_snippets": [
+        "nsported which is exclusively meant for its usage for curing a disease and as an action of remedial agent. 13. As pointed out by us earlier, since the appellants had no documents in their possession to dis",
+        "only or should be exclusively meant for its usage for curing a disease and as an action of remedial agent. 30. At the cost of repetition I can refer para 13 of the judgement, which says that \"As pointed ou"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "consideration",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "sale_deeds",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        9574,
+        10459
+      ],
+      "context_snippets": [
+        "ht of the drug recovered and not the pure content of the psychotropic substance shall be taken into consideration. Note 4 reads thus: \"(4) The quantities shown in column 5 and column 6 of the Table relating to the",
+        "hile considering the quantity of the psychotropic substance, the whole quantity is to be taken into consideration. 19. The Hon'ble Supreme Court in the case of Union of India and Anr. Vs. Sanjeev V Deshpande, repo"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "possession",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "sale_deeds",
+      "frequency": 10,
+      "weight": 1.0,
+      "weighted_score": 10.0,
+      "positions": [
+        3630,
+        4907,
+        14171,
+        16167,
+        18099,
+        18230,
+        21762,
+        22030,
+        27096,
+        28549
+      ],
+      "context_snippets": [
+        "of several banks and a note book, a challan book and two plastic seals were also recovered from his possession. 5. The police approached Gopal Mittal, who revealed that the godown, from where the contraband was",
+        "& MCRC Nos.46229/2018 Sandeep vs. The State of M.P. named in the FIR. Nothing is recovered from his possession. He is in jail since 2/05/2018. The investigation is over and charge-sheet is filed. Trial is likel",
+        "of remedial agent. 13. As pointed out by us earlier, since the appellants had no documents in their possession to disclose as to for what purpose such a huge quantity of Schedule 'H' drug containing narcotic su",
+        "ose of determining the quantity of psychotropic substance and when the psychotropic drug is kept in possession without any document to show that it was meant for therapeutic use and the gross weight of psychotr",
+        "he sake of convenience, relevant Rules of this Chapter-VA are being reproduced below:- “CHAPTER VA” POSSESSION, TRANSPORT, IMPORT INTER-STATE, EXPORT INTER-STATE, SALE,PURCHASE, CONSUMPTION AND USE OF ESSENTIAL",
+        "NTER-STATE, EXPORT INTER-STATE, SALE,PURCHASE, CONSUMPTION AND USE OF ESSENTIAL NARCOTIC DRUGS 52A. Possession of essential narcotic drug.-(1) No person shall possess any essential narcotic drug otherwise than",
+        "of any offence under the Act; or (iii) has, in the opinion of the Controller of Drugs, abused such possession or otherwise been rendered unfit to possess such drug. (b) When any order is passed under clause (a",
+        "oncerned shall forthwith deliver to the Controller of Drugs the essential narcotic drug then in his possession and the Controller of Drugs shall issue orders for the disposal of such drugs. (6) The Controller o",
+        "ment, which says that \"As pointed out by us earlier, since the appellants had no documents in their possession to disclose as to for what purpose such a huge quantity of Schedule 'H' drug containing narcotic su",
+        "ng to the quantity of bottles seized in the present case without any valid documents to justify the possession of such huge quantity of bottles. 32. If, in view of the contention of the petitioners, we consider"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "renewal",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "lease_rental_agreements",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        21043
+      ],
+      "context_snippets": [
+        "istered medical practitioner in accordance with established medical standards and practices (4) For renewal of the authorisation referred to in the second proviso to sub-rule (3), application shall be made t"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "owner",
+      "category": "Intellectual_Property",
+      "subcategory": "copyright_documents",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        2407
+      ],
+      "context_snippets": [
+        "tion of onion and potatoes. 3. Mohanlal was taken into custody. On interrogation, he disclosed that owner Kaushal Singh has taken the truck to the godown of Gopal Mittal situated near Central Point, Mangli"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "cheque",
+      "category": "Financial_and_Security",
+      "subcategory": "promissory_notes",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        3517
+      ],
+      "context_snippets": [
+        "documents regarding storage of this cough syrup were produced by Ranjan Shukla. 13 ATM cards and 5 cheque books of several banks and a note book, a challan book and two plastic seals were also recovered fr"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "charge",
+      "category": "Financial_and_Security",
+      "subcategory": "security_documents",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        4980
+      ],
+      "context_snippets": [
+        "hing is recovered from his possession. He is in jail since 2/05/2018. The investigation is over and charge-sheet is filed. Trial is likely to take time. He will cooperate with the trial. There is no possibi"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "possession",
+      "category": "Financial_and_Security",
+      "subcategory": "recovery_documents",
+      "frequency": 10,
+      "weight": 1.0,
+      "weighted_score": 10.0,
+      "positions": [
+        3630,
+        4907,
+        14171,
+        16167,
+        18099,
+        18230,
+        21762,
+        22030,
+        27096,
+        28549
+      ],
+      "context_snippets": [
+        "of several banks and a note book, a challan book and two plastic seals were also recovered from his possession. 5. The police approached Gopal Mittal, who revealed that the godown, from where the contraband was",
+        "& MCRC Nos.46229/2018 Sandeep vs. The State of M.P. named in the FIR. Nothing is recovered from his possession. He is in jail since 2/05/2018. The investigation is over and charge-sheet is filed. Trial is likel",
+        "of remedial agent. 13. As pointed out by us earlier, since the appellants had no documents in their possession to disclose as to for what purpose such a huge quantity of Schedule 'H' drug containing narcotic su",
+        "ose of determining the quantity of psychotropic substance and when the psychotropic drug is kept in possession without any document to show that it was meant for therapeutic use and the gross weight of psychotr",
+        "he sake of convenience, relevant Rules of this Chapter-VA are being reproduced below:- “CHAPTER VA” POSSESSION, TRANSPORT, IMPORT INTER-STATE, EXPORT INTER-STATE, SALE,PURCHASE, CONSUMPTION AND USE OF ESSENTIAL",
+        "NTER-STATE, EXPORT INTER-STATE, SALE,PURCHASE, CONSUMPTION AND USE OF ESSENTIAL NARCOTIC DRUGS 52A. Possession of essential narcotic drug.-(1) No person shall possess any essential narcotic drug otherwise than",
+        "of any offence under the Act; or (iii) has, in the opinion of the Controller of Drugs, abused such possession or otherwise been rendered unfit to possess such drug. (b) When any order is passed under clause (a",
+        "oncerned shall forthwith deliver to the Controller of Drugs the essential narcotic drug then in his possession and the Controller of Drugs shall issue orders for the disposal of such drugs. (6) The Controller o",
+        "ment, which says that \"As pointed out by us earlier, since the appellants had no documents in their possession to disclose as to for what purpose such a huge quantity of Schedule 'H' drug containing narcotic su",
+        "ng to the quantity of bottles seized in the present case without any valid documents to justify the possession of such huge quantity of bottles. 32. If, in view of the contention of the petitioners, we consider"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    }
+  ],
+  "text_length": 29332,
+  "total_matches": 227,
+  "total_weighted_score": 227.0,
+  "category_scores": {
+    "Constitutional_and_Legislative": 2.027216210362503,
+    "Judicial_Documents": 2.691013227873994,
+    "Personal_and_Family": 0.19332108678736737,
+    "Property_and_Real_Estate": 0.336509413529492,
+    "Business_and_Corporate": 0.0,
+    "Intellectual_Property": 0.04398488701358083,
+    "Financial_and_Security": 0.31605393828061706,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.0
+  },
+  "diversity_scores": {
+    "Constitutional_and_Legislative": 0.8235294117647058,
+    "Judicial_Documents": 1.0,
+    "Personal_and_Family": 0.17647058823529413,
+    "Property_and_Real_Estate": 0.17647058823529413,
+    "Business_and_Corporate": 0.0,
+    "Intellectual_Property": 0.058823529411764705,
+    "Financial_and_Security": 0.17647058823529413,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.0
+  },
+  "processing_metadata": {
+    "classifier_version": "2.0.0",
+    "classification_method": "weighted_regex_pattern_matching",
+    "total_patterns_checked": 784,
+    "confidence_thresholds": {
+      "very_low": 0.0,
+      "low": 0.1,
+      "medium": 0.4,
+      "high": 0.7
+    },
+    "document_metadata": {},
+    "timestamp": "2025-09-20T22:59:18.842706Z"
+  },
+  "summary": {
+    "primary_label": "Judicial_Documents",
+    "confidence": "high",
+    "score": 2.691,
+    "top_keywords": [
+      "vs",
+      "act",
+      "high court",
+      "rules",
+      "order"
+    ],
+    "total_matches": 227,
+    "categories_considered": 6
+  },
+  "statistics": {
+    "total_patterns_matched": 42,
+    "unique_categories_found": 6,
+    "average_pattern_weight": 1.0,
+    "text_coverage_ratio": 0.007738988135824356
+  }
+}

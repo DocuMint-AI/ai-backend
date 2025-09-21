@@ -1,0 +1,794 @@
+{
+  "label": "Judicial_Documents",
+  "score": 1.0,
+  "confidence": "high",
+  "matched_patterns": [
+    {
+      "keyword": "amendment",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "constitution_documents",
+      "frequency": 1,
+      "positions": [
+        24489
+      ],
+      "context_snippets": [
+        "hat in the old Criminal Procedure Code before the amendment of) 973, of S. 251(A) which dealt\nwith the trial"
+      ]
+    },
+    {
+      "keyword": "act",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 4,
+      "positions": [
+        276,
+        908,
+        18964,
+        34245
+      ],
+      "context_snippets": [
+        "1973 (CrPC) â€” Section 255(1)\nMadras Prohibition Act, 1937 â€” Section 4(1)(b)\nCitation: (1980) LW(Cri",
+        "le under\nS. 4(1)(b) of the Tamil\nNadu Prohibition Act are before us, in as much as on a reference by on",
+        "accused was prosecuted under S. 34 of the Police Act. The case was to be tried according to the\nproced"
+      ]
+    },
+    {
+      "keyword": "section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 6,
+      "positions": [
+        242,
+        290,
+        4273,
+        4695,
+        6340,
+        24161
+      ],
+      "context_snippets": [
+        "eferred: Criminal Procedure Code, 1973 (CrPC) â€” Section 255(1)\nMadras Prohibition Act, 1937 â€” Section 4",
+        "” Section 255(1)\nMadras Prohibition Act, 1937 â€” Section 4(1)(b)\nCitation: (1980) LW(Cri) 187\nHon'ble Judg",
+        "t\ndefence, It was to be noted that\nunder that sub-section a duty is cast on the prosecution to produce its"
+      ]
+    },
+    {
+      "keyword": "sub-section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 1,
+      "positions": [
+        4269
+      ],
+      "context_snippets": [
+        "n hit\ndefence, It was to be noted that\nunder that sub-section a duty is cast on the prosecution to produce its"
+      ]
+    },
+    {
+      "keyword": "explanation",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 2,
+      "positions": [
+        16448,
+        16558
+      ],
+      "context_snippets": [
+        "can be\nlaid under S. 174, I.P.C.\n\nThen again, the Explanation (2) in S. 309, Crl. P.C. also can be made use of",
+        "in suitable cases by the Magistrate, for,''\nthat Explanation states ''the\nterms on which an adjournment or pos"
+      ]
+    },
+    {
+      "keyword": "legislature",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 1,
+      "positions": [
+        23769
+      ],
+      "context_snippets": [
+        "P.C. 1898 in\ncases instituted by the\npolice, the Legislature has deliberately departed from that procedure and"
+      ]
+    },
+    {
+      "keyword": "rules",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 2,
+      "positions": [
+        13824,
+        16762
+      ],
+      "context_snippets": [
+        "be served by a police officer or subject to such rules as the State Government may make in\nthis behalf,",
+        "ion or\naccused.'' We might also note here that no rules have been framed by the State Government under S."
+      ]
+    },
+    {
+      "keyword": "state government",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 2,
+      "positions": [
+        13837,
+        16792
+      ],
+      "context_snippets": [
+        "a police officer or subject to such rules as the State Government may make in\nthis behalf, by an officer of\nthe cou",
+        "o note here that no rules have been framed by the State Government under S. 62, Crl. P.C.\nTherefore, (sic) as it is,"
+      ]
+    },
+    {
+      "keyword": "department",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 2,
+      "positions": [
+        18487,
+        18731
+      ],
+      "context_snippets": [
+        "is.\nbrought before the Court and the prosecuting department does not take any steps it will be an abuse of th",
+        "however petty the\noffence may be, the prosecuting\ndepartment, must do its duty towards the accused as well as"
+      ]
+    },
+    {
+      "keyword": "judgment",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 2,
+      "positions": [
+        6010,
+        6136
+      ],
+      "context_snippets": [
+        "proceedings at any stage\nwithout pronouncing any\njudgment and such stoppage of proceedings is made after th",
+        "principal witnesses has been recorded\npronounce a judgment of\nacquittal, and In any other case, release the"
+      ]
+    },
+    {
+      "keyword": "order",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 9,
+      "positions": [
+        3229,
+        5246,
+        6842,
+        9683,
+        14741,
+        18113,
+        19402,
+        28801,
+        29175
+      ],
+      "context_snippets": [
+        "finds the accused not guilty, he shall record an order of acquittal.\nS. 254, Crl. P.C. states as follows",
+        "duced. Under S. 255(1) a Magistrate can record an order of acquittal if he finds the\naccused not guilty u",
+        "the cases\nnow before us are summons cases but in order to answer the question No, 2, referred to us in t"
+      ]
+    },
+    {
+      "keyword": "disposed of",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 1,
+      "positions": [
+        2556
+      ],
+      "context_snippets": [
+        "n spite of a notice issued that the case would be disposed of without examining the witnesses if\nthey are not p"
+      ]
+    },
+    {
+      "keyword": "dismissed",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 1,
+      "positions": [
+        19524
+      ],
+      "context_snippets": [
+        "referred by the State which appeal was eventually dismissed by the Division Bench of the Madhya Pradesh High"
+      ]
+    },
+    {
+      "keyword": "high court",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 9,
+      "positions": [
+        142,
+        11800,
+        17536,
+        21836,
+        22965,
+        23440,
+        29292,
+        31147,
+        31737
+      ],
+      "context_snippets": [
+        "/2025\nState Vs Veerappan and Others\nCourt: Madras High Court\nDate of Decision: March 24, 1980\nActs Referred: C",
+        "issa and the Rajasthan High Courts. The\nRajasthan High Court went on to\npoint out that the Magistrate should n",
+        "Kalthawaix a Division Bench of the Madhya Pradesh High Court observed as\nfollows:-\nIt was the duty of the pros"
+      ]
+    },
+    {
+      "keyword": "respondent",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 2,
+      "positions": [
+        580,
+        804
+      ],
+      "context_snippets": [
+        "K.V. Sankaran for Advocates Association, for the Respondent\nJudgement\nPaul J.\n1. These appeals which have bee",
+        "econd Class Magistrate of Namakkal acquitting the respondent-accused in each case of an offence punishable und"
+      ]
+    },
+    {
+      "keyword": "appellant",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        451
+      ],
+      "context_snippets": [
+        "ull Bench\nAdvocate: P. Rajamanickam, P.P, for the Appellant; K. Doraiswami for Respts, Mr. M.S. Menon for Bar"
+      ]
+    },
+    {
+      "keyword": "complainant",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        28492
+      ],
+      "context_snippets": [
+        "sion of the case irrespective of the\nlaces of the complainant.\nTherefore, this Court had already emphasized the"
+      ]
+    },
+    {
+      "keyword": "accused",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 50,
+      "positions": [
+        815,
+        1389,
+        1848,
+        2252,
+        2965,
+        3190,
+        3329,
+        3512,
+        3665,
+        4168,
+        4359,
+        4467,
+        4805,
+        4947,
+        5281,
+        6194,
+        6381,
+        6550,
+        7277,
+        7370,
+        7482,
+        7690,
+        7731,
+        7836,
+        8263,
+        8361,
+        8457,
+        9956,
+        16719,
+        17344,
+        18168,
+        18430,
+        18772,
+        18816,
+        18915,
+        19738,
+        22852,
+        25127,
+        25970,
+        26793,
+        27521,
+        28288,
+        29134,
+        30201,
+        31017,
+        31610,
+        32813,
+        33802,
+        34159,
+        34552
+      ],
+      "context_snippets": [
+        "Magistrate of Namakkal acquitting the respondent-accused in each case of an offence punishable under\nS. 4(",
+        "S. 255(1), Crl.\nP.C., a Magistrate can\nacquit the accused if the prosecution fails to apply for the issue o",
+        "cidentally is\nwhether a Magistrate can acquit the accused under S. 245(1), Crl. P.C., if the prosecution do"
+      ]
+    },
+    {
+      "keyword": "convict",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 2,
+      "positions": [
+        3317,
+        7823
+      ],
+      "context_snippets": [
+        "states as follows-\n(1) If the Magistrate does not convict the accused under S. 255 or S. 253, the Magistrat",
+        "or claims to be tried or the\nMagistrate does not convict the\n\naccused under S. 241, on his plea of guilt t"
+      ]
+    },
+    {
+      "keyword": "vs",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 4,
+      "positions": [
+        104,
+        10646,
+        26220,
+        29217
+      ],
+      "context_snippets": [
+        "tchehry.com\nPrinted For :\nDate : 24/08/2025\nState Vs Veerappan and Others\nCourt: Madras High Court\nDat",
+        "ords ''as\nmaybe produced''.\n7. In State of Orissa Vs. Sib Charan Singh, it has been observed as follow",
+        "iff A.I. R.\n1971 Mys. 60 and The\nState of Gujarat Vs. Thakorbhai Sukhabhai and Others, State of Rajast"
+      ]
+    },
+    {
+      "keyword": "against",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 6,
+      "positions": [
+        710,
+        7678,
+        19451,
+        21079,
+        28276,
+        30250
+      ],
+      "context_snippets": [
+        "tate represented by the learned Public Prosecutor against the\norders of the learned Judicial\nSecond Class M",
+        "nished by him, he shall frame\nin writing a charge against\nthe accused. Under S. 242, Crl. P. C. if the accu",
+        "order of acquittal, aggrieved by which an\nappeal against acquittal was\npreferred by the State which appeal"
+      ]
+    },
+    {
+      "keyword": "written statement",
+      "category": "Judicial_Documents",
+      "subcategory": "pleadings",
+      "frequency": 1,
+      "positions": [
+        8381
+      ],
+      "context_snippets": [
+        "duce his evidence, and if the accused puts in any\nwritten statement, the\nMagistrate shall file it with the record, an"
+      ]
+    },
+    {
+      "keyword": "prayer",
+      "category": "Judicial_Documents",
+      "subcategory": "pleadings",
+      "frequency": 1,
+      "positions": [
+        21729
+      ],
+      "context_snippets": [
+        "cute kychits and seeking orders, but there was no prayer to issue process\nfor compelling the\nattendance of"
+      ]
+    },
+    {
+      "keyword": "evidence",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 43,
+      "positions": [
+        2670,
+        2740,
+        3062,
+        3110,
+        3432,
+        3538,
+        4093,
+        4194,
+        4330,
+        4378,
+        4535,
+        4970,
+        5083,
+        5135,
+        5316,
+        5363,
+        6070,
+        6612,
+        8181,
+        8340,
+        9165,
+        10104,
+        10203,
+        10378,
+        10928,
+        11136,
+        12611,
+        12857,
+        13457,
+        18147,
+        19188,
+        21593,
+        22189,
+        23579,
+        23644,
+        26075,
+        26857,
+        27069,
+        27347,
+        29468,
+        30241,
+        31548,
+        33822
+      ],
+      "context_snippets": [
+        "uced the\nprosecution did not choose to let in any evidence and as such the Magistrate found that the prosecu",
+        "the Magistrate found that the prosecution had no\nevidence to let in.\n4. S. 81, Crl. P.C. 1861, (sic) the Ma",
+        "es as\nfollows-\nIf the Magistrate, upon taking the evidence referred to in S. 254 and such further evidence,"
+      ]
+    },
+    {
+      "keyword": "witness",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 19,
+      "positions": [
+        1463,
+        1496,
+        1992,
+        3696,
+        3816,
+        3889,
+        4584,
+        8588,
+        9310,
+        12395,
+        12465,
+        15004,
+        15161,
+        15322,
+        15400,
+        16098,
+        16144,
+        16258,
+        23109
+      ],
+      "context_snippets": [
+        "on fails to apply for the issue of summons to any witness and does not produce the\nwitness for several hear",
+        "f summons to any witness and does not produce the\nwitness for several hearings\nand does not serve summons o",
+        "to any of the\nwitnesses and does not produce the witness for several hearings and does not serve the summo"
+      ]
+    },
+    {
+      "keyword": "cross-examination",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 1,
+      "positions": [
+        8630
+      ],
+      "context_snippets": [
+        "of any witness for the purpose of examination or cross-examination or the production of the\ndocument or other things"
+      ]
+    },
+    {
+      "keyword": "summons",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 58,
+      "positions": [
+        1448,
+        1544,
+        1634,
+        1935,
+        2044,
+        2135,
+        2378,
+        3681,
+        4569,
+        4752,
+        5729,
+        6821,
+        7138,
+        8012,
+        9029,
+        9295,
+        9522,
+        9580,
+        9666,
+        9746,
+        9978,
+        10244,
+        13091,
+        13761,
+        14038,
+        14190,
+        14504,
+        14709,
+        14843,
+        14991,
+        15075,
+        15104,
+        15440,
+        15488,
+        15517,
+        15893,
+        16049,
+        16377,
+        16910,
+        17247,
+        17390,
+        18324,
+        19073,
+        19244,
+        24393,
+        24689,
+        24960,
+        25653,
+        26731,
+        26931,
+        27151,
+        27451,
+        28911,
+        29902,
+        32971,
+        33192,
+        33304,
+        33980
+      ],
+      "context_snippets": [
+        "f the prosecution fails to apply for the issue of summons to any witness and does not produce the\nwitness f",
+        "e\nwitness for several hearings\nand does not serve summons on the. witnesses despite having been granted suf",
+        "been granted sufficient opportunity to serve the\nsummons or to produce the\nwitnesses, is the one that dire"
+      ]
+    },
+    {
+      "keyword": "cognizable",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "positions": [
+        11626
+      ],
+      "context_snippets": [
+        "though the primary responsibility of prosecuting cognizable offence is on the executive authorities.\nWe are i"
+      ]
+    },
+    {
+      "keyword": "bailable",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 2,
+      "positions": [
+        32418,
+        32659
+      ],
+      "context_snippets": [
+        "he prosecution was not at all diligent as the non-bailable warrants issued to the witnesses\nhad neither been",
+        "oducing its witnesses and\nhad failed to serve the bailable warrants on the witnesses and return the same the"
+      ]
+    },
+    {
+      "keyword": "non-bailable",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "positions": [
+        32414
+      ],
+      "context_snippets": [
+        "at the prosecution was not at all diligent as the non-bailable warrants issued to the witnesses\nhad neither been"
+      ]
+    },
+    {
+      "keyword": "warrant",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 13,
+      "positions": [
+        2818,
+        6724,
+        6973,
+        9067,
+        10016,
+        17437,
+        23258,
+        24551,
+        24873,
+        26631,
+        28192,
+        31265,
+        33902
+      ],
+      "context_snippets": [
+        ", Crl. P.C. 1861, (sic) the Magistrate to issue a warrant. We shall first examine the provisions of the Crl",
+        "w examine the provisions relating to the trial of warrant cases instituted on a police report. We might\nnot",
+        "ry to examine the position\nregarding the trial of warrant cases instituted on a police report, for, those p"
+      ]
+    },
+    {
+      "keyword": "crpc",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "positions": [
+        232
+      ],
+      "context_snippets": [
+        "980\nActs Referred: Criminal Procedure Code, 1973 (CrPC) â€” Section 255(1)\nMadras Prohibition Act, 1937"
+      ]
+    },
+    {
+      "keyword": "will",
+      "category": "Personal_and_Family",
+      "subcategory": "wills_succession",
+      "frequency": 3,
+      "positions": [
+        3975,
+        17803,
+        18525
+      ],
+      "context_snippets": [
+        "e purposes of the trial be deposited In Court.\nIt will be noticed that under Sub-s. (1) of S. 254, the M",
+        "annot just send a challan and think that the rest will be done by the Court. When\nnobody appeared in the",
+        "prosecuting department does not take any steps it will be an abuse of the process of\nthe Court to contin"
+      ]
+    },
+    {
+      "keyword": "principal",
+      "category": "Personal_and_Family",
+      "subcategory": "power_of_attorney",
+      "frequency": 1,
+      "positions": [
+        6086
+      ],
+      "context_snippets": [
+        "of proceedings is made after the evidence of the principal witnesses has been recorded\npronounce a judgment"
+      ]
+    },
+    {
+      "keyword": "consideration",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "sale_deeds",
+      "frequency": 1,
+      "positions": [
+        7174
+      ],
+      "context_snippets": [
+        "ch relates to summons cases. Under S. 240 if upon consideration of the Police report and the\ndocuments sent with"
+      ]
+    },
+    {
+      "keyword": "due diligence",
+      "category": "Business_and_Corporate",
+      "subcategory": "compliance_documents",
+      "frequency": 2,
+      "positions": [
+        14010,
+        14381
+      ],
+      "context_snippets": [
+        "re the persons summoned cannot by the exercise of due diligence be found, the summons may be\nserved by leaving on",
+        ".C. states:-\nIf service cannot by the exercise of due diligence be effected as provided in S62, S. 63 or S. 64, t"
+      ]
+    },
+    {
+      "keyword": "claims",
+      "category": "Intellectual_Property",
+      "subcategory": "patent_documents",
+      "frequency": 1,
+      "positions": [
+        7777
+      ],
+      "context_snippets": [
+        "the accused refuses to plead or does not plead or claims to be tried or the\nMagistrate does not convict th"
+      ]
+    },
+    {
+      "keyword": "class",
+      "category": "Intellectual_Property",
+      "subcategory": "trademark_documents",
+      "frequency": 2,
+      "positions": [
+        760,
+        5810
+      ],
+      "context_snippets": [
+        "against the\norders of the learned Judicial\nSecond Class Magistrate of Namakkal acquitting the respondent-",
+        "se than upon complaint, a Magistrate of the first class or, with the previous\nsanction of the Chief Judic"
+      ]
+    },
+    {
+      "keyword": "endorsement",
+      "category": "Financial_and_Security",
+      "subcategory": "promissory_notes",
+      "frequency": 1,
+      "positions": [
+        15336
+      ],
+      "context_snippets": [
+        "ment purporting to be signed by the witness or an endorsement purporting to be made by a\npostal employee that t"
+      ]
+    },
+    {
+      "keyword": "charge",
+      "category": "Financial_and_Security",
+      "subcategory": "security_documents",
+      "frequency": 3,
+      "positions": [
+        7671,
+        28243,
+        31243
+      ],
+      "context_snippets": [
+        "tely punished by him, he shall frame\nin writing a charge against\nthe accused. Under S. 242, Crl. P. C. if",
+        "arrant cases where the\nCourt had already framed a charge under S. 251-A Crl. P.C., against the accused an",
+        "a Bhadya 1962 2 CrI. L.J. 537\nas follows-\nWhere a charge is framed in a warrant case on police report, if"
+      ]
+    },
+    {
+      "keyword": "association",
+      "category": "Specialized_Documents",
+      "subcategory": "society_documents",
+      "frequency": 2,
+      "positions": [
+        511,
+        559
+      ],
+      "context_snippets": [
+        "K. Doraiswami for Respts, Mr. M.S. Menon for Bar Association\nand Mr. K.V. Sankaran for Advocates Association,",
+        "r Association\nand Mr. K.V. Sankaran for Advocates Association, for the Respondent\nJudgement\nPaul J.\n1. These ap"
+      ]
+    }
+  ],
+  "text_length": 34796,
+  "total_matches": 266,
+  "category_scores": {
+    "Constitutional_and_Legislative": 0.9624623519944822,
+    "Judicial_Documents": 1.0,
+    "Personal_and_Family": 0.18046901942752042,
+    "Property_and_Real_Estate": 0.0576172548568801,
+    "Business_and_Corporate": 0.0777345097137602,
+    "Intellectual_Property": 0.1803517645706403,
+    "Financial_and_Security": 0.18046901942752042,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.09023450971376021
+  },
+  "processing_metadata": {
+    "classifier_version": "1.0.0",
+    "classification_method": "regex_pattern_matching",
+    "total_patterns_checked": 784,
+    "document_metadata": {},
+    "timestamp": "2025-09-20T21:21:55.286608"
+  },
+  "summary": {
+    "classification_successful": true,
+    "primary_label": "Judicial_Documents",
+    "confidence_level": "high",
+    "pattern_diversity": 41,
+    "top_keywords": [
+      "summons",
+      "accused",
+      "evidence",
+      "witness",
+      "warrant"
+    ]
+  }
+}

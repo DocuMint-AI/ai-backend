@@ -1,0 +1,557 @@
+{
+  "success": true,
+  "pipeline_id": "test-1758411760",
+  "processing_method": "pypdfium2+pdfplumber",
+  "total_pages": 6,
+  "processed_pages": 6,
+  "text_length": 17479,
+  "classification": {
+    "label": "Financial_and_Security",
+    "score": 2.493941300989759,
+    "confidence": "high",
+    "matched_patterns": [
+      {
+        "keyword": "schedule",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "constitution_documents",
+        "frequency": 7,
+        "weight": 1.0,
+        "weighted_score": 7.0,
+        "positions": [
+          367,
+          704,
+          904,
+          1021,
+          1352,
+          1459,
+          5123
+        ],
+        "context_snippets": [
+          "n\") having received a Proposal and Declaration and the first premium from the Proposer named in the Schedule referred to herein below and the said Proposal and Declaration with the statements contained and re",
+          "ee, in consideration of and subject to the due receipt of the subsequent premiums as set out in the Schedule, to pay the Benefit /s without interest at the Micro Insurance Unit of the Corporation where this P",
+          "e this Policy is serviced to the person or persons to whom the same is payable in terms of the said Schedule,, on proof to the satisfaction of the Corporation of the Benefit /s having become payable as set ou",
+          "of to the satisfaction of the Corporation of the Benefit /s having become payable as set out in the Schedule, of the title of the said person or persons claiming payment and of the correctness of the age of t",
+          "shall be subject to the Conditions and Privileges printed on the back hereof and that the following Schedule and every endorsement placed on the Policy by the Corporation shall be deemed part of the Policy. S",
+          "e and every endorsement placed on the Policy by the Corporation shall be deemed part of the Policy. SCHEDULE DIVISIONAL OFFICE Policy No.: Date of Commencement of Policy: Date of Commencement of Risk: Date of",
+          "such as would have made him uninsurable under the class or terms of assurance specified in the said Schedule hereto, the class or terms shall stand altered to such as are granted by the Corporation according"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "act",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "acts_statutes",
+        "frequency": 6,
+        "weight": 1.0,
+        "weighted_score": 6.0,
+        "positions": [
+          83,
+          2024,
+          2594,
+          3948,
+          7425,
+          15980
+        ],
+        "context_snippets": [
+          "LIFE INSURANCE CORPORATION OF INDIA (Established by the Life Insurance Corporation Act, 1956) LIC'S JEEVAN MANGAL (UIN: 512N257V01) Micro Insurance Term Assurance Plan with Return of Pre",
+          "e of the Life Assured: Whether Age admitted? Plan & Term: Nominee under section 39 of the Insurance Act, 1938 If Nominee is a minor, the name of the Appointee: Name & Address of the Life Assured Events o",
+          "Assured for Basic Plan. The Proposer or his Assignees or Nominees under section 39 of the Insuranc Act, 1938 or proving Executors or Administrators or other Legal Representative who should take out repr",
+          "thout prejudice to the Corporation's other rights and remedies, including those under the Insurance Act, 1938, the premiums shall be payable in such case at the rate calculated on the Sum Assured for the",
+          "withheld, then and in every such case but subject to the provisions of Section 45 of the Insurance Act, 1938, wherever applicable, this policy shall be void and all claims to any benefit in virtue hereo",
+          "l policy document besides proof of age, if the age is not admitted earlier. Section 45 of Insurance Act, 1938: No policy of life insurance shall after the expiry of two years from the date on which it wa"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "section",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "acts_statutes",
+        "frequency": 5,
+        "weight": 1.0,
+        "weighted_score": 5.0,
+        "positions": [
+          1996,
+          2567,
+          7397,
+          15956,
+          16717
+        ],
+        "context_snippets": [
+          "t premium: Date of Birth: Age of the Life Assured: Whether Age admitted? Plan & Term: Nominee under section 39 of the Insurance Act, 1938 If Nominee is a minor, the name of the Appointee: Name & Address of t",
+          "s then alive. On Death: Sum Assured for Basic Plan. The Proposer or his Assignees or Nominees under section 39 of the Insuranc Act, 1938 or proving Executors or Administrators or other Legal Representative w",
+          "any material information is withheld, then and in every such case but subject to the provisions of Section 45 of the Insurance Act, 1938, wherever applicable, this policy shall be void and all claims to any",
+          "m along with the original policy document besides proof of age, if the age is not admitted earlier. Section 45 of Insurance Act, 1938: No policy of life insurance shall after the expiry of two years from the",
+          "false or that it suppressed facts which it was material to disclose. Provided that nothing in this section shall prevent the insurer from calling for proof of age at any time. if he is entitled to do so, an"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "clause",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "acts_statutes",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          11903,
+          13612
+        ],
+        "context_snippets": [
+          "r of premium shall extinguish all options under this policy and the benefits covered by (b) of this clause.  The disability above referred to must be disability which is the result of an accident and must b",
+          "he Corporation may require. In the event of it being discovered at any time that a claim under this clause has been wrongly admitted, all premiums falling due after the date of the Corporation's intimation"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "regulations",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "rules_regulations",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          7804
+        ],
+        "context_snippets": [
+          "f the Privileges herein contained or may be lawfully granted by the Corporation.  5. Non-forfeiture Regulations (applicable to regular premium policies only): If after at least three full years' premiums have be"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "allowed",
+        "category": "Judicial_Documents",
+        "subcategory": "judgments_orders",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          5396,
+          13335
+        ],
+        "context_snippets": [
+          ". Payment of Premiums: A grace period of two calendar months or 60 days whichever is higher will be allowed for all modes of payments. If death occurs within this period but before the payment of the premium",
+          ", of the continuance of such disability. Any Medical Examiner nominated by the Corporation shall be allowed to examine the Life Assured in respect of any disability claimed, in such manner and at such times"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "against",
+        "category": "Judicial_Documents",
+        "subcategory": "parties_litigation",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          4851
+        ],
+        "context_snippets": [
+          "as may be prevailing at the time of claim, shall accrue and be treated as a debt due by the Assured against the said Policy and shall be deducted from the Policy moneys payable on the Policy becoming a claim"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "without prejudice",
+        "category": "Judicial_Documents",
+        "subcategory": "legal_notices",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          3846
+        ],
+        "context_snippets": [
+          "of the Life Assured as declared in the proposal, in case the age is found different from such age, without prejudice to the Corporation's other rights and remedies, including those under the Insurance Act, 1938, the"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "will",
+        "category": "Personal_and_Family",
+        "subcategory": "wills_succession",
+        "frequency": 9,
+        "weight": 1.0,
+        "weighted_score": 9.0,
+        "positions": [
+          3210,
+          5388,
+          5525,
+          6952,
+          8864,
+          9340,
+          10629,
+          11713,
+          14310
+        ],
+        "context_snippets": [
+          "enefit Rider is opted for and the same is in force: Condition No. 10 of \"Conditions and Privileges\" will apply for an amount equal to the Accident Benefit Rider Sum Assured. If Accident Benefit Rider is n",
+          "rance. 2. Payment of Premiums: A grace period of two calendar months or 60 days whichever is higher will be allowed for all modes of payments. If death occurs within this period but before the payment of",
+          "ents. If death occurs within this period but before the payment of the premium then due, the Policy will still be valid and the sum assured shall be paid after deduction of the said premium as also premiu",
+          "d. 4. Further, if death takes place within one year from the date of revival then the death benefit will be the refund of total premiums paid. Forfeiture in certain events: In case premiums shall not be d",
+          "death of the Life Assured within six months from the due date of first unpaid premium, the benefits will be paid as if the Policy had remained in full force after deduction of (a) the premium or premiums",
+          "death of the Life Assured within 12 months from the due date of first unpaid premium, the benefits will be paid as if the Policy had remained in full force after deduction of (a) the premium or premiums",
+          "iums for the first year, Accident Benefit rider premium and extra premium, if any. 8. Loan: No loan will be available under this policy. 9. Assignments and Nominations: Notice of assignment or nomination",
+          "expiry of the said period of 10 years, the disability benefit instalments which have not fallen due will be paid along with the claim, (ii) to waive the payment of future premiums. The waiver of premium s",
+          "directly and independently of all other causes result in death of the Life Assured. The Corporation will not be liable to pay the additional sum referred in (a) or (b) above, if the disability or the deat"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "consideration",
+        "category": "Property_and_Real_Estate",
+        "subcategory": "sale_deeds",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          611
+        ],
+        "context_snippets": [
+          "to by the said Proposer and the Corporation as basis of this assurance do by this Policy agree, in consideration of and subject to the due receipt of the subsequent premiums as set out in the Schedule, to pay the"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "claims",
+        "category": "Intellectual_Property",
+        "subcategory": "patent_documents",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          7491
+        ],
+        "context_snippets": [
+          "ns of Section 45 of the Insurance Act, 1938, wherever applicable, this policy shall be void and all claims to any benefit in virtue hereof shall cease and determine and all moneys that have been paid in con"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "class",
+        "category": "Intellectual_Property",
+        "subcategory": "trademark_documents",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          5073,
+          5144
+        ],
+        "context_snippets": [
+          "her that if the Assured's correct age at entry is such as would have made him uninsurable under the class or terms of assurance specified in the said Schedule hereto, the class or terms shall stand altered",
+          "de him uninsurable under the class or terms of assurance specified in the said Schedule hereto, the class or terms shall stand altered to such as are granted by the Corporation according to the practice in"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "endorsement",
+        "category": "Financial_and_Security",
+        "subcategory": "promissory_notes",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          1371
+        ],
+        "context_snippets": [
+          "the Conditions and Privileges printed on the back hereof and that the following Schedule and every endorsement placed on the Policy by the Corporation shall be deemed part of the Policy. SCHEDULE DIVISIONAL OFF"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "life insurance",
+        "category": "Financial_and_Security",
+        "subcategory": "insurance_policies",
+        "frequency": 4,
+        "weight": 1.0,
+        "weighted_score": 4.0,
+        "positions": [
+          0,
+          56,
+          196,
+          16004
+        ],
+        "context_snippets": [
+          "LIFE INSURANCE CORPORATION OF INDIA (Established by the Life Insurance Corporation Act, 1956) LIC'S JEEVAN MANGAL",
+          "LIFE INSURANCE CORPORATION OF INDIA (Established by the Life Insurance Corporation Act, 1956) LIC'S JEEVAN MANGAL (UIN: 512N257V01) Micro Insurance Term Assurance Plan wi",
+          "C'S JEEVAN MANGAL (UIN: 512N257V01) Micro Insurance Term Assurance Plan with Return of Premiums THE LIFE INSURANCE CORPORATION OF INDIA (hereinafter called \"the Corporation\") having received a Proposal and Declarat",
+          "s proof of age, if the age is not admitted earlier. Section 45 of Insurance Act, 1938: No policy of life insurance shall after the expiry of two years from the date on which it was effected, be called in question b"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "premium",
+        "category": "Financial_and_Security",
+        "subcategory": "insurance_policies",
+        "frequency": 35,
+        "weight": 1.0,
+        "weighted_score": 35.0,
+        "positions": [
+          328,
+          1693,
+          1741,
+          1807,
+          1833,
+          1861,
+          1898,
+          2299,
+          2375,
+          2397,
+          2921,
+          2968,
+          5496,
+          5607,
+          5623,
+          5695,
+          5886,
+          6088,
+          6262,
+          6429,
+          7839,
+          7942,
+          8350,
+          8722,
+          8842,
+          8948,
+          9199,
+          9318,
+          9424,
+          10305,
+          10348,
+          10443,
+          10577,
+          10595,
+          11808
+        ],
+        "context_snippets": [
+          "DIA (hereinafter called \"the Corporation\") having received a Proposal and Declaration and the first premium from the Proposer named in the Schedule referred to herein below and the said Proposal and Declarat",
+          "Basic Plan: (Rs.): Accident Benefit Rider Sum assured (Rs): MICRO INSURANCE UNIT Single/Instalment Premium for Basic Plan: (Rs): Single/Instalment Premium for Accident Benefit Rider: (Rs): Total Single/Inst",
+          "ssured (Rs): MICRO INSURANCE UNIT Single/Instalment Premium for Basic Plan: (Rs): Single/Instalment Premium for Accident Benefit Rider: (Rs): Total Single/Instalment Premium (Rs:) Due Date of Premium: Mode o",
+          "sic Plan: (Rs): Single/Instalment Premium for Accident Benefit Rider: (Rs): Total Single/Instalment Premium (Rs:) Due Date of Premium: Mode of Payment of Premium: Due Date of Payment of last premium: Date of",
+          "talment Premium for Accident Benefit Rider: (Rs): Total Single/Instalment Premium (Rs:) Due Date of Premium: Mode of Payment of Premium: Due Date of Payment of last premium: Date of Birth: Age of the Life As",
+          "Benefit Rider: (Rs): Total Single/Instalment Premium (Rs:) Due Date of Premium: Mode of Payment of Premium: Due Date of Payment of last premium: Date of Birth: Age of the Life Assured: Whether Age admitted?",
+          "stalment Premium (Rs:) Due Date of Premium: Mode of Payment of Premium: Due Date of Payment of last premium: Date of Birth: Age of the Life Assured: Whether Age admitted? Plan & Term: Nominee under section 3",
+          "is payable Proposal No.: Date of the Proposal: On Maturity: An amount equal to the total amount of premium paid during the terr of the contract excluding the accident benefit premium and all extra premium,",
+          "to the total amount of premium paid during the terr of the contract excluding the accident benefit premium and all extra premium, any, on the stipulated date of maturity if the Life Assured is then alive. O",
+          "f premium paid during the terr of the contract excluding the accident benefit premium and all extra premium, any, on the stipulated date of maturity if the Life Assured is then alive. On Death: Sum Assured f",
+          "nion of India. Period during which premiums payable Till the stipulated due date of payment of last premium or earlier death of the lit Dates when premium payable assured. On the or On ..of each month every",
+          "able Till the stipulated due date of payment of last premium or earlier death of the lit Dates when premium payable assured. On the or On ..of each month every year.  Special Provisions: Accident Benefit Rid",
+          "allowed for all modes of payments. If death occurs within this period but before the payment of the premium then due, the Policy will still be valid and the sum assured shall be paid after deduction of the s",
+          "n due, the Policy will still be valid and the sum assured shall be paid after deduction of the said premium as also premium/s falling due before the next anniversary of the Policy. If the premium is not paid",
+          "y will still be valid and the sum assured shall be paid after deduction of the said premium as also premium/s falling due before the next anniversary of the Policy. If the premium is not paid before the expi",
+          "of the said premium as also premium/s falling due before the next anniversary of the Policy. If the premium is not paid before the expiry of days of grace, the Policy lapses. If the Policy has not lapsed and",
+          "s not lapsed and the claim is admitted in case of death under a Policy where the mode of payment of Premium is other than yearly, unpaid premiums, if any, falling due before the next Policy anniversary shall",
+          "shall be deducted from the claim amount. 3. Revival of Discontinued Policies (applicable to regular premium policies only): If the Policy has lapsed, it may be revived during the lifetime of the life assured",
+          "the lifetime of the life assured, but within a period of 5 years from the due date of first unpaid premium and before the date of maturity, on submission of proof of continued insurability to the satisfacti",
+          "continued insurability to the satisfaction of the Corporation and the payment of all the arrears of premium together with interest (compounding half-yearly) at such rate as may be fixed by the Corporation fr",
+          "r may be lawfully granted by the Corporation.  5. Non-forfeiture Regulations (applicable to regular premium policies only): If after at least three full years' premiums have been paid and any subsequent prem",
+          "mium policies only): If after at least three full years' premiums have been paid and any subsequent premium be not duly paid, this policy shall not be wholly void, but the Sum Assured under the basic plan sh",
+          "policy so reduced shall thereafter be free from all liabilities for payment of the within mentioned premium. In the event of death of Life Assured during the policy term, the reduced Paid-up Sum Assured as d",
+          "rm. If after at least 3 full years premiums have been paid in respect of this policy any subsequent premium be not duly paid, in the event of death of the Life Assured within six months from the due date of",
+          "paid, in the event of death of the Life Assured within six months from the due date of first unpaid premium, the benefits will be paid as if the Policy had remained in full force after deduction of (a) the p",
+          "m, the benefits will be paid as if the Policy had remained in full force after deduction of (a) the premium or premiums unpaid with interest thereon until the date of death, and (b) the unpaid premiums falli",
+          "f after at least five full years' premiums have been paid in respect of this policy, any subsequent premium be not duly paid, in the event of death of the Life Assured within 12 months from the due date of f",
+          "paid, in the event of death of the Life Assured within 12 months from the due date of first unpaid premium, the benefits will be paid as if the Policy had remained in full force after deduction of (a) the p",
+          "m, the benefits will be paid as if the Policy had remained in full force after deduction of (a) the premium or premiums unpaid with interest thereon to the date of death, and (b) the unpaid premiums falling",
+          "t three full years' premiums have been paid. The Guaranteed Surrender Value is as under: For Single Premium policies 90 per cent of the Single Premium, excluding premiums for Accident. Benefit rider and extr",
+          ". The Guaranteed Surrender Value is as under: For Single Premium policies 90 per cent of the Single Premium, excluding premiums for Accident. Benefit rider and extra premiums, if any. For Annual Premium poli",
+          "ngle Premium, excluding premiums for Accident. Benefit rider and extra premiums, if any. For Annual Premium policies - 30 per cent of the total amount of premiums paid excluding the premiums for the first ye",
+          "the total amount of premiums paid excluding the premiums for the first year, Accident Benefit rider premium and extra premium, if any. 8. Loan: No loan will be available under this policy. 9. Assignments and",
+          "f premiums paid excluding the premiums for the first year, Accident Benefit rider premium and extra premium, if any. 8. Loan: No loan will be available under this policy. 9. Assignments and Nominations: Noti",
+          "due will be paid along with the claim, (ii) to waive the payment of future premiums. The waiver of premium shall extinguish all options under this policy and the benefits covered by (b) of this clause.  The"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "policyholder",
+        "category": "Financial_and_Security",
+        "subcategory": "insurance_policies",
+        "frequency": 3,
+        "weight": 1.0,
+        "weighted_score": 3.0,
+        "positions": [
+          15315,
+          16526,
+          16552
+        ],
+        "context_snippets": [
+          "he normal documents which the claimant shall submit while lodging the claim in case of death of the policyholder shall be the claim forms, as prescribed by the Corporation, accompanied with original policy docume",
+          "tter or suppressed facts which it was material to disclose and that it was fraudulently made by the policyholder and that the policyholder knew at the time of making it that the statement was false or that it sup",
+          "hich it was material to disclose and that it was fraudulently made by the policyholder and that the policyholder knew at the time of making it that the statement was false or that it suppressed facts which it was"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "insured",
+        "category": "Financial_and_Security",
+        "subcategory": "insurance_policies",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          16265
+        ],
+        "context_snippets": [
+          "e in the proposal for insurance or in any report of a medical officer, or referee, or friend of the insured, or in any other document leading to the issue of the policy, was inaccurate or false, unless the i"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "insurer",
+        "category": "Financial_and_Security",
+        "subcategory": "insurance_policies",
+        "frequency": 3,
+        "weight": 1.0,
+        "weighted_score": 3.0,
+        "positions": [
+          16123,
+          16371,
+          16743
+        ],
+        "context_snippets": [
+          "l after the expiry of two years from the date on which it was effected, be called in question by an insurer on the ground that a statement made in the proposal for insurance or in any report of a medical off",
+          "d, or in any other document leading to the issue of the policy, was inaccurate or false, unless the insurer shows that such  statement was on a material matter or suppressed facts which it was material to di",
+          "ed facts which it was material to disclose. Provided that nothing in this section shall prevent the insurer from calling for proof of age at any time. if he is entitled to do so, and no policy shall be deeme"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "nominee",
+        "category": "Financial_and_Security",
+        "subcategory": "insurance_policies",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          1982,
+          2037
+        ],
+        "context_snippets": [
+          "Payment of last premium: Date of Birth: Age of the Life Assured: Whether Age admitted? Plan & Term: Nominee under section 39 of the Insurance Act, 1938 If Nominee is a minor, the name of the Appointee: Name",
+          "Assured: Whether Age admitted? Plan & Term: Nominee under section 39 of the Insurance Act, 1938 If Nominee is a minor, the name of the Appointee: Name & Address of the Life Assured Events on the happening o"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "claim",
+        "category": "Financial_and_Security",
+        "subcategory": "insurance_policies",
+        "frequency": 12,
+        "weight": 1.0,
+        "weighted_score": 12.0,
+        "positions": [
+          4679,
+          4787,
+          4953,
+          5807,
+          6015,
+          11561,
+          11741,
+          13595,
+          15207,
+          15285,
+          15341,
+          15764
+        ],
+        "context_snippets": [
+          "original premiums from the commencement of this Policy up to the date on which the Policy becomes a claim, with interest on each instalment of such difference at such rate as may be prevailing at the time",
+          "ith interest on each instalment of such difference at such rate as may be prevailing at the time of claim, shall accrue and be treated as a debt due by the Assured against the said Policy and shall be dedu",
+          "ainst the said Policy and shall be deducted from the Policy moneys payable on the Policy becoming a claim. Provided further that if the Assured's correct age at entry is such as would have made him uninsur",
+          "ot paid before the expiry of days of grace, the Policy lapses. If the Policy has not lapsed and the claim is admitted in case of death under a Policy where the mode of payment of Premium is other than year",
+          "unpaid premiums, if any, falling due before the next Policy anniversary shall be deducted from the claim amount. 3. Revival of Discontinued Policies (applicable to regular premium policies only): If the P",
+          "ars an additional sum equal to Death Benefit Sum Assured under this policy. If the policy becomes a claim either by way of death or maturity before the expiry of the said period of 10 years, the disability",
+          "10 years, the disability benefit instalments which have not fallen due will be paid along with the claim, (ii) to waive the payment of future premiums. The waiver of premium shall extinguish all options u",
+          "Corporation as the Corporation may require. In the event of it being discovered at any time that a claim under this clause has been wrongly admitted, all premiums falling due after the date of the Corpora",
+          "v) occur after 180 days from the date of accident of the Life Assured. 11. Normal Requirement for a claim: The normal documents which the claimant shall submit while lodging the claim in case of death of t",
+          "mal Requirement for a claim: The normal documents which the claimant shall submit while lodging the claim in case of death of the policyholder shall be the claim forms, as prescribed by the Corporation, ac",
+          "the claimant shall submit while lodging the claim in case of death of the policyholder shall be the claim forms, as prescribed by the Corporation, accompanied with original policy document, proof of title,",
+          "proof of age of the Life Assured shall also be submitted. Where the policy results into a maturity claim or in case of surrender of the policy, the Life Assured shall submit the discharge form along with"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      }
+    ],
+    "text_length": 17479,
+    "total_matches": 99,
+    "total_weighted_score": 99.0,
+    "category_scores": {
+      "Constitutional_and_Legislative": 0.9708650380456548,
+      "Judicial_Documents": 0.2873076262944104,
+      "Personal_and_Family": 0.35894215916242345,
+      "Property_and_Real_Estate": 0.08432690657360262,
+      "Business_and_Corporate": 0.0,
+      "Intellectual_Property": 0.20298071972080783,
+      "Financial_and_Security": 2.493941300989759,
+      "Licenses_Permits_Certificates": 0.0,
+      "Specialized_Documents": 0.0
+    },
+    "diversity_scores": {
+      "Constitutional_and_Legislative": 0.625,
+      "Judicial_Documents": 0.375,
+      "Personal_and_Family": 0.125,
+      "Property_and_Real_Estate": 0.125,
+      "Business_and_Corporate": 0.0,
+      "Intellectual_Property": 0.25,
+      "Financial_and_Security": 1.0,
+      "Licenses_Permits_Certificates": 0.0,
+      "Specialized_Documents": 0.0
+    },
+    "processing_metadata": {
+      "classifier_version": "2.0.0",
+      "classification_method": "weighted_regex_pattern_matching",
+      "total_patterns_checked": 784,
+      "confidence_thresholds": {
+        "very_low": 0.0,
+        "low": 0.1,
+        "medium": 0.4,
+        "high": 0.7
+      },
+      "document_metadata": {},
+      "timestamp": "2025-09-20T23:43:07.372396Z"
+    },
+    "summary": {
+      "primary_label": "Financial_and_Security",
+      "confidence": "high",
+      "score": 2.494,
+      "top_keywords": [
+        "premium",
+        "claim",
+        "will",
+        "schedule",
+        "act"
+      ],
+      "total_matches": 99,
+      "categories_considered": 6
+    },
+    "statistics": {
+      "total_patterns_matched": 20,
+      "unique_categories_found": 6,
+      "average_pattern_weight": 1.0,
+      "text_coverage_ratio": 0.005663939584644431
+    }
+  },
+  "artifacts": {
+    "parsed_output": "artifacts\\single_test\\test-1758411760\\parsed_output.json",
+    "classification_verdict": "artifacts\\single_test\\test-1758411760\\classification_verdict.json",
+    "kag_input": "artifacts\\single_test\\test-1758411760\\kag_input.json"
+  },
+  "timestamp": "2025-09-21T05:13:07.381482"
+}

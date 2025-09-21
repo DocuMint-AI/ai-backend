@@ -1,0 +1,494 @@
+{
+  "label": "Constitutional_and_Legislative",
+  "score": 1.0,
+  "confidence": "high",
+  "matched_patterns": [
+    {
+      "keyword": "act",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 10,
+      "positions": [
+        385,
+        2181,
+        3389,
+        5577,
+        6102,
+        9621,
+        10085,
+        10116,
+        10182,
+        10548
+      ],
+      "context_snippets": [
+        "forgery—Penal Code, se. 452, 453, 454—Citizenship Act,\ns. 6—Defence of autrefois acquit—Burden of proof",
+        "izenship in terms of section 6 of the Citizenship\nAct. In the appeal to the Privy Council the appellant",
+        "Affairs in terms of Section 6\nof the Citizenship Act (Cap. 349) with the intention of causing it to be"
+      ]
+    },
+    {
+      "keyword": "section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 18,
+      "positions": [
+        2152,
+        2883,
+        3360,
+        3858,
+        4306,
+        4640,
+        5182,
+        5548,
+        6073,
+        7705,
+        8121,
+        9592,
+        10056,
+        10299,
+        10321,
+        10519,
+        10890,
+        11754
+      ],
+      "context_snippets": [
+        "him\nfor a certificate of citizenship in terms of section 6 of the Citizenship\nAct. In the appeal to the Pr",
+        "risonment on a charge of forgery punishable under section 454 of the\nPenal Code which provides for a maximu",
+        "ister of Defence and External Affairs in terms of Section 6\nof the Citizenship Act (Cap. 349) with the inte"
+      ]
+    },
+    {
+      "keyword": "ministry",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "positions": [
+        5384
+      ],
+      "context_snippets": [
+        "In July 195S he wrote to the Permanent\nSecretary, Ministry of Defence and External Affairs, at Colombo askin"
+      ]
+    },
+    {
+      "keyword": "department",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "positions": [
+        6192
+      ],
+      "context_snippets": [
+        "he appellant\n.subsequently signed and sent to the Department a form of application\nverified by affidavit in wh"
+      ]
+    },
+    {
+      "keyword": "rule",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 2,
+      "positions": [
+        1689,
+        14941
+      ],
+      "context_snippets": [
+        "cial Committee of the Privy Council does not as a rule interfere\nwith sentences.\nIn appeals against acqu",
+        "cannot uphold this objection. They vcill not as a\nrule interfere.Avith sentences. Moreover on the face o"
+      ]
+    },
+    {
+      "keyword": "judgment",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 6,
+      "positions": [
+        1938,
+        2424,
+        8899,
+        14486,
+        14642,
+        15099
+      ],
+      "context_snippets": [
+        "of sentence,\nA pPEAL, with special leave, from a judgment of the Supreme Court.\nThe appellant was convicted",
+        "defence of autrefois\nacquit for setting aside the judgment of the Supreme Court.\nE. F. N. Gratiaen, Q.G., wi",
+        "ters as substantial grounds for\nsetting aside the judgment of the Sujweme Court.\nFirst he relied on the defe"
+      ]
+    },
+    {
+      "keyword": "order",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 2,
+      "positions": [
+        3033,
+        15381
+      ],
+      "context_snippets": [
+        "mposed.\nHe was granted special leave to appeal by Order of Her Majesty in\nCouncil on 13th November 1967.",
+        "ttorney-General Avas\npraying not only to have the order of acquittal made by the Magistrate\nreversed but"
+      ]
+    },
+    {
+      "keyword": "delivered by",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 1,
+      "positions": [
+        2676
+      ],
+      "context_snippets": [
+        "N—Veerappen v. Attorney-General\nOctober 6, 1969. [Delivered by Lord Hodson]—\nThe appellant was convicted in the"
+      ]
+    },
+    {
+      "keyword": "dismissed",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 2,
+      "positions": [
+        16228,
+        16246
+      ],
+      "context_snippets": [
+        "mbly advise Her\nMajesty that the appeal should be dismissed.\nAppeal dismissed.",
+        "jesty that the appeal should be dismissed.\nAppeal dismissed."
+      ]
+    },
+    {
+      "keyword": "district court",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 1,
+      "positions": [
+        4420
+      ],
+      "context_snippets": [
+        "d no power to\nimpose any sentence but one which a District Court might lawfully\nimpose. The punishment which he co"
+      ]
+    },
+    {
+      "keyword": "appellate court",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 2,
+      "positions": [
+        1846,
+        16083
+      ],
+      "context_snippets": [
+        "ould have the opportunity, after conviction by an appellate court, of pleading\nin mitigation of sentence,\nA pPEAL,",
+        "hould\nhave the opportunity after conviction by an appellate court of pleading\nin mitigation.\nFor the reasons given"
+      ]
+    },
+    {
+      "keyword": "case no",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 2,
+      "positions": [
+        9161,
+        11796
+      ],
+      "context_snippets": [
+        "of Discharge in Joint Magistrate’s\nCourt Colombo, Case No. 29950, 28th October 1963 to 24th February\n1965.",
+        "e under section 454 was not one of the charges'in\ncase No. 29950 but in their Lordships’ view it is unneces"
+      ]
+    },
+    {
+      "keyword": "respondent",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 2,
+      "positions": [
+        197,
+        2550
+      ],
+      "context_snippets": [
+        ". VEERAPPEN, Appellant, and THE\nATTORNEY-GENERAL, Respondent\nP r iv y C ou n cil A ppe al No. 11 o f 1968\nS. C",
+        "the accused-appellant.\nMontague Solomon, for the respondent,\nCur. adv. Dull\nLxxn—16\n!•—~J no4S-2,:!5 (1/70)"
+      ]
+    },
+    {
+      "keyword": "appellant",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 36,
+      "positions": [
+        160,
+        1099,
+        1973,
+        2225,
+        2513,
+        2707,
+        4521,
+        4676,
+        5235,
+        5848,
+        6145,
+        6691,
+        6800,
+        6913,
+        6971,
+        7003,
+        7111,
+        7335,
+        7591,
+        8683,
+        11383,
+        11548,
+        12025,
+        12451,
+        12647,
+        13011,
+        13225,
+        13472,
+        13657,
+        14248,
+        14427,
+        14770,
+        15200,
+        15478,
+        15536,
+        15670
+      ],
+      "context_snippets": [
+        "n, Lord Pearson and Lord Diplock\nT. P. VEERAPPEN, Appellant, and THE\nATTORNEY-GENERAL, Respondent\nP r iv y C",
+        "charge. In\nsuch a case it cannot be said that the appellant was ever put in peril on the\nfirst occasion.\nWher",
+        "leave, from a judgment of the Supreme Court.\nThe appellant was convicted by the Supreme Court of forgery for"
+      ]
+    },
+    {
+      "keyword": "accused",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 18,
+      "positions": [
+        447,
+        706,
+        836,
+        965,
+        1009,
+        1210,
+        1509,
+        1577,
+        1609,
+        1778,
+        2505,
+        9256,
+        11027,
+        11186,
+        11303,
+        11341,
+        12211,
+        16002
+      ],
+      "context_snippets": [
+        "fence of autrefois acquit—Burden of proof—Whether accused should\nhe given an opportunity of calling evidenc",
+        "acquittal—Conviction thereafter—\nDesirability of accused being heard—in-mitigation of sentence.\nThe defenc",
+        "annot succeed if in the relevant earlier case\nthe accused was discharged because counsel for the prosecutio"
+      ]
+    },
+    {
+      "keyword": "against",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 8,
+      "positions": [
+        649,
+        953,
+        1731,
+        5071,
+        11291,
+        12199,
+        14862,
+        15922
+      ],
+      "context_snippets": [
+        "uncil will not\ngenerally interfere with it—Appeal against acquittal—Conviction thereafter—\nDesirability of",
+        "hat\nthe prosecution was not adducing any evidence against the accused and thero\nis no indication that the a",
+        "ot as a rule interfere\nwith sentences.\nIn appeals against acquittals it is highly desirable that accused pe"
+      ]
+    },
+    {
+      "keyword": "issues",
+      "category": "Judicial_Documents",
+      "subcategory": "pleadings",
+      "frequency": 1,
+      "positions": [
+        11907
+      ],
+      "context_snippets": [
+        "to consider\nthe question whether the substantial issues raised in the second\nproceedings are the same as"
+      ]
+    },
+    {
+      "keyword": "evidence",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 18,
+      "positions": [
+        497,
+        944,
+        1252,
+        1314,
+        1528,
+        4761,
+        5987,
+        9074,
+        11071,
+        11281,
+        12190,
+        12522,
+        12718,
+        12779,
+        13047,
+        13550,
+        13813,
+        14538
+      ],
+      "context_snippets": [
+        "accused should\nhe given an opportunity of calling evidence if the defence that prosecution\ndoes not support",
+        "stated that\nthe prosecution was not adducing any evidence against the accused and thero\nis no indication th",
+        "for the accused states that\nhe is not calling any evidence but makes a submission in law to the effect that"
+      ]
+    },
+    {
+      "keyword": "witness",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 1,
+      "positions": [
+        4730
+      ],
+      "context_snippets": [
+        "llant pleaded \" not guilty ”, was not called as a witness nor did\nhe ofFer other evidence save that he put"
+      ]
+    },
+    {
+      "keyword": "documentary evidence",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 1,
+      "positions": [
+        5975
+      ],
+      "context_snippets": [
+        "had been born in Ceylon\nand tint he could produce documentary evidence of his own birth in\nCeylon, the point being that"
+      ]
+    },
+    {
+      "keyword": "affidavit",
+      "category": "Judicial_Documents",
+      "subcategory": "affidavits",
+      "frequency": 1,
+      "positions": [
+        6237
+      ],
+      "context_snippets": [
+        "the Department a form of application\nverified by affidavit in which he gave his date and place of birth as\n1"
+      ]
+    },
+    {
+      "keyword": "charge sheet",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 3,
+      "positions": [
+        9087,
+        9222,
+        13597
+      ],
+      "context_snippets": [
+        "May 1968 by counsel who tendered\nin evidence the Charge Sheet and Record of Discharge in Joint Magistrate’s\nCou",
+        "950, 28th October 1963 to 24th February\n1965. The Charge Sheet reads as follows :\n“ Accused Palanimalay Veerappa",
+        "no evidence\nand confined himself to tendering the Charge Sheet and the record of\nthe earlier proceedings. The ap"
+      ]
+    },
+    {
+      "keyword": "will",
+      "category": "Personal_and_Family",
+      "subcategory": "wills_succession",
+      "frequency": 3,
+      "positions": [
+        605,
+        4820,
+        15680
+      ],
+      "context_snippets": [
+        "the charge is not accepted—Sentence—Privy Council will not\ngenerally interfere with it—Appeal against ac",
+        "save that he put in a document to which reference\nwill be made hereafter. He was acquitted on the ground",
+        "is true that this is\na course which an appellant will not readily take Avhen the question of\nconviction"
+      ]
+    },
+    {
+      "keyword": "charge",
+      "category": "Financial_and_Security",
+      "subcategory": "security_documents",
+      "frequency": 12,
+      "positions": [
+        325,
+        559,
+        1049,
+        1364,
+        2848,
+        4925,
+        9087,
+        9222,
+        11425,
+        11736,
+        12828,
+        13597
+      ],
+      "context_snippets": [
+        "dulla (holden at Bandarawela), 44156\nCriminal law—Charge of forgery—Penal Code, se. 452, 453, 454—Citizens",
+        "the defence that prosecution\ndoes not support the charge is not accepted—Sentence—Privy Council will not\ng",
+        "that the accused was called upon to plead to the charge. In\nsuch a case it cannot be said that the appell"
+      ]
+    },
+    {
+      "keyword": "claim",
+      "category": "Financial_and_Security",
+      "subcategory": "insurance_policies",
+      "frequency": 1,
+      "positions": [
+        7881
+      ],
+      "context_snippets": [
+        "ny person, or\nto the Government or to support any claim or title, or to cause any\nperson to part with pro"
+      ]
+    }
+  ],
+  "text_length": 16256,
+  "total_matches": 153,
+  "category_scores": {
+    "Constitutional_and_Legislative": 1.0,
+    "Judicial_Documents": 1.0,
+    "Personal_and_Family": 0.1791830708661417,
+    "Property_and_Real_Estate": 0.0,
+    "Business_and_Corporate": 0.0,
+    "Intellectual_Property": 0.0,
+    "Financial_and_Security": 0.6597933070866141,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.0
+  },
+  "processing_metadata": {
+    "classifier_version": "1.0.0",
+    "classification_method": "regex_pattern_matching",
+    "total_patterns_checked": 784,
+    "document_metadata": {},
+    "timestamp": "2025-09-20T21:20:49.373603"
+  },
+  "summary": {
+    "classification_successful": true,
+    "primary_label": "Constitutional_and_Legislative",
+    "confidence_level": "high",
+    "pattern_diversity": 25,
+    "top_keywords": [
+      "appellant",
+      "section",
+      "accused",
+      "evidence",
+      "charge"
+    ]
+  }
+}

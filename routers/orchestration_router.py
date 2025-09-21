@@ -38,6 +38,13 @@ from .doc_ai_router import (
 # Import services for direct access
 # from services.doc_ai.schema import ParseRequest as DocAIParseRequest
 from services.project_utils import get_user_session_structure, resolve_user_session_paths
+from services.template_matching.regex_classifier import create_classifier
+from services.kag_component import create_kag_component
+from services.feature_emitter import emit_feature_vector
+from services.kag_input_enhanced import create_kag_input_generator, create_kag_input_validator
+from services.kag.kag_writer import generate_kag_input
+from services.util_services import process_pdf_hybrid
+from services.preprocessing.ocr_processing import GoogleVisionOCR
 
 # Load environment variables
 load_dotenv()
@@ -159,6 +166,8 @@ def save_final_results(
     upload_result: Dict[str, Any],
     ocr_result: Dict[str, Any],
     docai_result: Dict[str, Any],
+    classification_result: Optional[Dict[str, Any]],
+    kag_result: Optional[Dict[str, Any]],
     stage_timings: Dict[str, float],
     pdf_filename: str,
     username: Optional[str] = None
@@ -213,6 +222,12 @@ def save_final_results(
                 "processing_time": docai_result.get("processing_time_seconds")
             },
             
+            # Classification results (MVP regex-based)
+            "classification_processing": classification_result,
+            
+            # KAG processing results
+            "kag_processing": kag_result,
+            
             # Performance metrics
             "performance": {
                 "total_processing_time": sum(stage_timings.values()),
@@ -220,7 +235,10 @@ def save_final_results(
                 "pipeline_efficiency": {
                     "upload_time_ratio": stage_timings.get("upload", 0) / sum(stage_timings.values()),
                     "ocr_time_ratio": stage_timings.get("ocr", 0) / sum(stage_timings.values()),
-                    "docai_time_ratio": stage_timings.get("docai", 0) / sum(stage_timings.values())
+                    "docai_time_ratio": stage_timings.get("docai", 0) / sum(stage_timings.values()),
+                    "classification_time_ratio": stage_timings.get("classification", 0) / sum(stage_timings.values()),
+                    "kag_input_time_ratio": stage_timings.get("kag_input", 0) / sum(stage_timings.values()),
+                    "kag_time_ratio": stage_timings.get("kag", 0) / sum(stage_timings.values())
                 }
             },
             
@@ -229,7 +247,9 @@ def save_final_results(
                 "text_content": docai_result.get("document", {}).get("text", ""),
                 "named_entities": docai_result.get("document", {}).get("named_entities", []),
                 "clauses": docai_result.get("document", {}).get("clauses", []),
-                "key_value_pairs": docai_result.get("document", {}).get("key_value_pairs", [])
+                "key_value_pairs": docai_result.get("document", {}).get("key_value_pairs", []),
+                "classification_verdict": classification_result.get("classification_verdict") if classification_result else None,
+                "kag_input_path": kag_result.get("kag_input_path") if kag_result else None
             },
             
             # Session information
@@ -291,17 +311,25 @@ async def process_document_pipeline(
     background_tasks: BackgroundTasks = None
 ):
     """
-    Complete document processing pipeline.
+    Complete document processing pipeline (MVP with regex classification).
     
     This endpoint orchestrates the full document processing flow:
     1. Upload PDF file securely
     2. Convert PDF to images
     3. Process with Vision AI (OCR)
     4. Parse with Document AI
-    5. Save consolidated results
+    5. Classify document using regex-based template matcher
+    6. Process with KAG (Knowledge Augmented Generation) component
+    7. Save consolidated results and artifacts
+    
+    MVP Features:
+    - Single-document mode only (no multi-document handling)
+    - Regex-based classification (no Vertex Matching Engine)
+    - Vertex embedding disabled
+    - KAG handoff active for downstream processing
     
     Args:
-        file: PDF file to process
+        file: PDF file to process (SINGLE DOCUMENT ONLY)
         language_hints: Comma-separated language codes for OCR (e.g., "en,es")
         confidence_threshold: Confidence threshold for DocAI parsing (0.0-1.0)
         processor_id: Optional DocAI processor ID override
@@ -310,7 +338,10 @@ async def process_document_pipeline(
         background_tasks: FastAPI background tasks
         
     Returns:
-        ProcessingPipelineResponse with complete processing results
+        ProcessingPipelineResponse with complete processing results including:
+        - classification_verdict.json in artifacts folder
+        - kag_input.json for downstream processing
+        - feature_vector.json with classifier_verdict field
         
     Example:
         curl -X POST "http://localhost:8000/api/v1/process-document" \
@@ -318,18 +349,30 @@ async def process_document_pipeline(
              -F "language_hints=en,hi" \
              -F "confidence_threshold=0.8"
     """
+    # MVP: Enforce single-document mode
+    if not file or not file.filename:
+        raise HTTPException(
+            status_code=400,
+            detail="MVP prototype supports single-document mode only. Please provide exactly one PDF file."
+        )
+    
+    if not file.filename.lower().endswith('.pdf'):
+        raise HTTPException(
+            status_code=400,
+            detail="MVP prototype supports PDF files only. Please upload a single PDF document."
+        )
     pipeline_id = str(uuid.uuid4())
     start_time = time.time()
     stage_timings = {}
     errors = []
     warnings = []
     
-    # Initialize pipeline status
+    # Initialize pipeline status (MVP: 6 stages - Upload, OCR, DocAI, Classification, KAG Input, Final Save)
     PIPELINE_STATUS[pipeline_id] = ProcessingStatus(
         pipeline_id=pipeline_id,
         current_stage="initializing",
         progress_percentage=0.0,
-        total_stages=4,
+        total_stages=6,
         completed_stages=0,
         start_time=datetime.now(),
         current_stage_start=datetime.now()
@@ -358,90 +401,454 @@ async def process_document_pipeline(
         
         logger.info(f"Pipeline {pipeline_id}: Upload completed in {stage_timings['upload']:.2f}s")
         
-        # Stage 2: OCR Processing (PDF → Images → Vision AI)
-        update_pipeline_status(pipeline_id, "ocr_processing", 30.0)
+        # Stage 2: Hybrid PDF Processing (Images + Text Extraction)
+        update_pipeline_status(pipeline_id, "pdf_processing", 30.0)
         stage_start = time.time()
         
-        ocr_request = OCRRequest(
-            pdf_path=upload_result.file_path,
-            language_hints=lang_hints,
-            force_reprocess=force_reprocess
+        # Create processing directory
+        from pathlib import Path
+        pdf_path = Path(upload_result.file_path)
+        user_session = get_user_session_structure(file.filename)
+        artifacts_folder = user_session["base_path"] / "artifacts" / pipeline_id
+        artifacts_folder.mkdir(parents=True, exist_ok=True)
+        
+        # Process PDF with hybrid approach
+        logger.info(f"Pipeline {pipeline_id}: Starting hybrid PDF processing")
+        hybrid_result = process_pdf_hybrid(
+            pdf_path=pdf_path,
+            output_dir=artifacts_folder,
+            dpi=300,
+            prefer_pymupdf=True
         )
         
-        ocr_result = await ocr_process(ocr_request, background_tasks)
-        
-        if not ocr_result.success:
-            error_msg = f"OCR processing failed: {ocr_result.message}"
+        if not hybrid_result["success"] or not hybrid_result["page_texts"]:
+            error_msg = f"Hybrid PDF processing failed: {hybrid_result.get('errors', ['Unknown error'])}"
             errors.append(error_msg)
             raise HTTPException(status_code=500, detail=error_msg)
         
-        stage_timings["ocr"] = time.time() - stage_start
-        update_pipeline_status(pipeline_id, "ocr_complete", 65.0)
+        stage_timings["pdf_processing"] = time.time() - stage_start
+        logger.info(f"Pipeline {pipeline_id}: PDF processing completed in {stage_timings['pdf_processing']:.2f}s")
+        logger.info(f"Successfully extracted text from {hybrid_result['processed_pages']}/{hybrid_result['total_pages']} pages")
         
-        logger.info(f"Pipeline {pipeline_id}: OCR completed in {stage_timings['ocr']:.2f}s")
-        
-        # Stage 3: Document AI Processing
-        update_pipeline_status(pipeline_id, "docai_processing", 70.0)
+        # Stage 3: Vision OCR Processing (if images available)
+        update_pipeline_status(pipeline_id, "ocr_processing", 45.0)
         stage_start = time.time()
         
-        # Try to upload to GCS for DocAI (optional)
-        gcs_uri = await upload_pdf_to_gcs(upload_result.file_path)
-        
-        if not gcs_uri:
-            # Use local file path - DocAI may need different approach for local files
-            # For now, we'll create a file:// URI
-            gcs_uri = f"file://{upload_result.file_path}"
-            warnings.append("Using local file path for DocAI - consider configuring GCS for better performance")
-        
-        # Create DocAI parse request
-        docai_request = ParseRequest(
-            gcs_uri=gcs_uri,
-            confidence_threshold=confidence_threshold,
-            processor_id=processor_id,
-            include_raw_response=include_raw_response,
-            metadata={
-                "pipeline_id": pipeline_id,
-                "original_filename": file.filename,
-                "ocr_uid": ocr_result.uid,
-                "processing_timestamp": datetime.now().isoformat()
-            }
-        )
-        
-        try:
-            docai_result = await parse_document(docai_request, background_tasks)
-            
-            if not docai_result.success:
-                error_msg = f"DocAI processing failed: {docai_result.error_message}"
-                errors.append(error_msg)
+        vision_results = []
+        if hybrid_result["image_paths"]:
+            try:
+                # Initialize Vision OCR
+                ocr_service = GoogleVisionOCR.from_env(language_hints=lang_hints)
                 
-                # Continue without DocAI results
-                docai_result = ParseResponse(
-                    success=False,
-                    error_message=error_msg,
-                    processing_time_seconds=0.0,
-                    request_id=pipeline_id
+                # Process images with Vision OCR
+                vision_results = ocr_service.process_image_list(
+                    image_paths=hybrid_result["image_paths"],
+                    plumber_texts=hybrid_result["page_texts"]
                 )
-                warnings.append("Document AI processing failed, continuing with OCR results only")
+                
+                stage_timings["ocr"] = time.time() - stage_start
+                logger.info(f"Pipeline {pipeline_id}: OCR completed in {stage_timings['ocr']:.2f}s")
+                
+            except Exception as e:
+                logger.warning(f"Vision OCR processing failed: {e}")
+                warnings.append(f"Vision OCR failed: {str(e)}")
+                # Create fallback vision results
+                for i, text in enumerate(hybrid_result["page_texts"]):
+                    vision_results.append({
+                        "page": i + 1,
+                        "image_path": hybrid_result["image_paths"][i] if i < len(hybrid_result["image_paths"]) else "",
+                        "vision_text": "",
+                        "vision_confidence": 0.0,
+                        "plumber_text": text,
+                        "has_vision": False,
+                        "has_plumber": bool(text.strip()),
+                        "processing_error": str(e)
+                    })
+                stage_timings["ocr"] = time.time() - stage_start
+        else:
+            # No images available, use text-only results
+            logger.info(f"Pipeline {pipeline_id}: No images available, using text-only processing")
+            for i, text in enumerate(hybrid_result["page_texts"]):
+                vision_results.append({
+                    "page": i + 1,
+                    "image_path": "",
+                    "vision_text": "",
+                    "vision_confidence": 0.0,
+                    "plumber_text": text,
+                    "has_vision": False,
+                    "has_plumber": bool(text.strip()),
+                    "processing_error": None
+                })
+            stage_timings["ocr"] = 0.0
+        
+        update_pipeline_status(pipeline_id, "ocr_complete", 60.0)
+        
+        # Merge text sources to create full document text
+        full_text_parts = []
+        total_confidence = 0.0
+        confidence_count = 0
+        
+        for result in vision_results:
+            # Prefer plumber text, fallback to vision text
+            page_text = result.get("plumber_text", "") or result.get("vision_text", "")
+            if page_text.strip():
+                full_text_parts.append(page_text.strip())
+            
+            # Aggregate confidence values
+            vision_conf = result.get("vision_confidence", 0.0)
+            if vision_conf > 0.0:
+                total_confidence += vision_conf
+                confidence_count += 1
+        
+        full_text = "\n\n".join(full_text_parts)
+        document_confidence = total_confidence / confidence_count if confidence_count > 0 else 0.0
+        
+        logger.info(f"Pipeline {pipeline_id}: Document confidence aggregated: {document_confidence:.3f} (from {confidence_count} pages)")
+        
+        # Create parsed_output.json with hybrid results
+        parsed_output = {
+            "full_text": full_text,
+            "pages": vision_results,
+            "document_confidence": document_confidence,  # Add aggregated confidence
+            "metadata": {
+                "processor_id": processor_id or "hybrid-processor",
+                "pipeline_id": pipeline_id,
+                "gcs_uri": f"file://{upload_result.file_path}",
+                "processing_method": hybrid_result["method"],
+                "total_pages": hybrid_result["total_pages"],
+                "processed_pages": hybrid_result["processed_pages"],
+                "timestamp": datetime.now().isoformat(),
+                "language_hints": lang_hints,
+                "errors": hybrid_result.get("errors", []),
+                "warnings": warnings,
+                "confidence_pages_processed": confidence_count
+            }
+        }
+        
+        # Save parsed_output.json atomically
+        parsed_output_path = artifacts_folder / "parsed_output.json"
+        temp_path = parsed_output_path.with_suffix('.tmp')
+        
+        with open(temp_path, 'w', encoding='utf-8') as f:
+            json.dump(parsed_output, f, indent=2, ensure_ascii=False, default=str)
+        temp_path.replace(parsed_output_path)
+        
+        logger.info(f"Pipeline {pipeline_id}: Saved parsed_output.json with {len(full_text)} characters")
+        
+        # Stage 4: Document AI Processing (optional, using full_text)
+        update_pipeline_status(pipeline_id, "docai_processing", 65.0)
+        stage_start = time.time()
+        
+        docai_result = None
+        try:
+            # Skip DocAI for MVP, use parsed_output as source of truth
+            logger.info(f"Pipeline {pipeline_id}: Skipping DocAI in MVP mode, using hybrid text extraction")
+            docai_result = {
+                "success": True,
+                "document": {
+                    "text": full_text,
+                    "clauses": [],
+                    "named_entities": [],
+                    "key_value_pairs": []
+                },
+                "request_id": pipeline_id,
+                "processing_time_seconds": 0.0
+            }
+            warnings.append("DocAI processing skipped in MVP mode")
             
         except Exception as e:
-            error_msg = f"DocAI processing error: {str(e)}"
-            errors.append(error_msg)
-            warnings.append("Document AI processing failed, continuing with OCR results only")
-            
-            # Create minimal response
-            docai_result = ParseResponse(
-                success=False,
-                error_message=error_msg,
-                processing_time_seconds=0.0,
-                request_id=pipeline_id
-            )
+            error_msg = f"DocAI processing failed: {str(e)}"
+            logger.error(error_msg)
+            warnings.append(error_msg)
+            docai_result = {
+                "success": False,
+                "error_message": error_msg,
+                "request_id": pipeline_id,
+                "processing_time_seconds": 0.0
+            }
         
         stage_timings["docai"] = time.time() - stage_start
-        update_pipeline_status(pipeline_id, "docai_complete", 90.0)
-        
+        update_pipeline_status(pipeline_id, "docai_complete", 70.0)
         logger.info(f"Pipeline {pipeline_id}: DocAI completed in {stage_timings['docai']:.2f}s")
         
-        # Stage 4: Save Final Results
+        # Stage 5: Document Classification (Regex-based)
+        update_pipeline_status(pipeline_id, "classification_processing", 75.0)
+        stage_start = time.time()
+        
+        classification_result = None
+        try:
+            # Create classifier and classify using full_text
+            classifier = create_classifier()
+            
+            if full_text.strip():
+                # Perform regex classification
+                classification_verdict = classifier.classify_document(
+                    parsed_text=full_text,
+                    document_metadata={
+                        "pipeline_id": pipeline_id,
+                        "original_filename": file.filename,
+                        "source": "hybrid_processing",
+                        "processing_method": hybrid_result["method"],
+                        "total_pages": hybrid_result["total_pages"],
+                        "document_confidence": document_confidence
+                    }
+                )
+                
+                # Export classification verdict
+                verdict_dict = classifier.export_classification_verdict(classification_verdict)
+                
+                # Save classification verdict to artifacts folder
+                classification_verdict_path = artifacts_folder / "classification_verdict.json"
+                temp_path = classification_verdict_path.with_suffix('.tmp')
+                
+                with open(temp_path, 'w', encoding='utf-8') as f:
+                    json.dump(verdict_dict, f, indent=2, ensure_ascii=False, default=str)
+                temp_path.replace(classification_verdict_path)
+                
+                classification_result = {
+                    "success": True,
+                    "classification_verdict": verdict_dict,
+                    "classification_verdict_path": str(classification_verdict_path),
+                    "document_text_length": len(full_text),
+                    "source": "hybrid_processing"
+                }
+                
+                logger.info(f"Document classified as '{classification_verdict.label}' (score={classification_verdict.score:.3f}, confidence={classification_verdict.confidence})")
+                
+            else:
+                raise ValueError("No document text available for classification")
+                
+        except Exception as e:
+            error_msg = f"Classification processing failed: {str(e)}"
+            logger.error(error_msg)
+            errors.append(error_msg)
+            
+            # Create minimal classification result
+            classification_result = {
+                "success": False,
+                "error_message": error_msg,
+                "classification_verdict": None,
+                "classification_verdict_path": None
+            }
+        
+        stage_timings["classification"] = time.time() - stage_start
+        update_pipeline_status(pipeline_id, "classification_complete", 85.0)
+        logger.info(f"Pipeline {pipeline_id}: Classification completed in {stage_timings['classification']:.2f}s")
+        
+        # Stage 6: Generate KAG Input (Unified Schema)
+        update_pipeline_status(pipeline_id, "kag_input_generation", 87.0)
+        stage_start = time.time()
+        
+        kag_input_result = None
+        try:
+            # Only proceed if we have classification results
+            if classification_result and classification_result["success"]:
+                # Generate KAG input using the new unified writer
+                kag_input_path = generate_kag_input(
+                    artifact_dir=artifacts_folder,
+                    doc_id=pipeline_id,
+                    processor_id=processor_id or "hybrid-processor",
+                    gcs_uri=f"file://{upload_result.file_path}",
+                    pipeline_version="v1",
+                    metadata={
+                        "processing_method": hybrid_result["method"],
+                        "total_pages": hybrid_result["total_pages"],
+                        "processed_pages": hybrid_result["processed_pages"],
+                        "original_filename": file.filename,
+                        "language_hints": lang_hints,
+                        "confidence_threshold": confidence_threshold,
+                        "pipeline_timestamp": datetime.now().isoformat()
+                    }
+                )
+                
+                kag_input_result = {
+                    "success": True,
+                    "kag_input_path": kag_input_path,
+                    "message": "KAG input generated successfully"
+                }
+                
+                logger.info(f"KAG Input generated -> {kag_input_path}")
+                
+            else:
+                error_msg = "Classification failed - cannot proceed with KAG input generation"
+                logger.error(error_msg)
+                kag_input_result = {
+                    "success": False,
+                    "error_message": error_msg,
+                    "kag_input_path": None
+                }
+                
+        except Exception as e:
+            error_msg = f"KAG input generation failed: {str(e)}"
+            logger.error(error_msg)
+            errors.append(error_msg)
+            
+            kag_input_result = {
+                "success": False,
+                "error_message": error_msg,
+                "kag_input_path": None
+            }
+        
+        stage_timings["kag_input"] = time.time() - stage_start
+        update_pipeline_status(pipeline_id, "kag_input_generation_complete", 90.0)
+        logger.info(f"Pipeline {pipeline_id}: KAG input generation completed in {stage_timings['kag_input']:.2f}s")
+                
+                # Create parsed_output.json from DocAI results (required for KAG writer)
+                parsed_output_path = artifacts_folder / "parsed_output.json"
+                parsed_output_data = {
+                    "text": document_text,
+                    "clauses": docai_result.document.get("clauses", []) if docai_result.success else [],
+                    "named_entities": docai_result.document.get("named_entities", []) if docai_result.success else [],
+                    "key_value_pairs": docai_result.document.get("key_value_pairs", []) if docai_result.success else [],
+                    "needs_review": False,
+                    "extraction_method": "docai" if docai_result.success else "ocr_fallback",
+                    "processor_id": docai_result.request_id if docai_result.success else "ocr_processor"
+                }
+                
+                with open(parsed_output_path, 'w', encoding='utf-8') as f:
+                    json.dump(parsed_output_data, f, indent=2, ensure_ascii=False, default=str)
+                
+                logger.info(f"Parsed output saved to: {parsed_output_path}")
+                
+                # Generate KAG input using the new writer
+                classification_verdict_path = classification_result["classification_verdict_path"]
+                
+                kag_input_path = generate_kag_input(
+                    artifact_dir=artifacts_folder,
+                    doc_id=pipeline_id,
+                    processor_id=parsed_output_data["processor_id"],
+                    gcs_uri=gcs_uri,
+                    pipeline_version="v1",
+                    metadata={
+                        "pipeline_id": pipeline_id,
+                        "original_filename": file.filename,
+                        "processing_timestamp": datetime.now().isoformat(),
+                        "source_method": "docai" if docai_result.success else "ocr",
+                        "mvp_mode": True,
+                        "classification_method": "regex_pattern_matching"
+                    }
+                )
+                
+                # Generate feature vector with classifier verdict
+                try:
+                    feature_vector_path = artifacts_folder / "feature_vector.json"
+                    
+                    emit_feature_vector(
+                        parsed_output=parsed_output_data,
+                        out_path=str(feature_vector_path),
+                        classifier_verdict=classification_result["classification_verdict"]
+                    )
+                    
+                    logger.info(f"Feature vector with classifier verdict saved to: {feature_vector_path}")
+                    
+                except Exception as e:
+                    logger.warning(f"Failed to generate feature vector: {e}")
+                    warnings.append(f"Feature vector generation failed: {str(e)}")
+                
+                kag_input_result = {
+                    "success": True,
+                    "kag_input_path": kag_input_path,
+                    "parsed_output_path": str(parsed_output_path),
+                    "processing_summary": {
+                        "unified_schema_used": True,
+                        "atomic_write_performed": True,
+                        "artifacts_generated": ["kag_input.json", "parsed_output.json", "feature_vector.json"]
+                    }
+                }
+                
+                logger.info(f"KAG input generated successfully: {kag_input_path}")
+                
+            else:
+                raise ValueError("Classification failed - cannot proceed with KAG input generation")
+                
+        except Exception as e:
+            error_msg = f"KAG input generation failed: {str(e)}"
+            logger.error(error_msg)
+            warnings.append(error_msg)
+            
+            kag_input_result = {
+                "success": False,
+                "error_message": error_msg,
+                "kag_input_path": None,
+                "processing_summary": {}
+            }
+        
+        stage_timings["kag_input"] = time.time() - stage_start
+        update_pipeline_status(pipeline_id, "kag_input_complete", 90.0)
+        
+        logger.info(f"Pipeline {pipeline_id}: KAG input generation completed in {stage_timings['kag_input']:.2f}s")
+        
+        # Stage 6: Enhanced KAG Processing (Legacy - Optional)
+        update_pipeline_status(pipeline_id, "kag_processing", 92.0)
+        stage_start = time.time()
+        
+        kag_result = None
+        try:
+            # Only proceed if we have classification results and the new KAG input was generated
+            if classification_result and classification_result["success"] and kag_input_result and kag_input_result["success"]:
+                # Use the enhanced KAG component for additional processing if needed
+                kag_generator = create_kag_input_generator()
+                kag_validator = create_kag_input_validator()
+                
+                # Validate the generated KAG input using enhanced validator
+                is_valid, validation_errors, validation_warnings = kag_validator.validate_kag_input(
+                    kag_input_path=kag_input_result["kag_input_path"],
+                    parsed_output_path=kag_input_result["parsed_output_path"],
+                    classification_verdict_path=classification_result["classification_verdict_path"]
+                )
+                
+                if validation_errors:
+                    error_msg = f"KAG input validation failed: {'; '.join(validation_errors)}"
+                    logger.error(error_msg)
+                    warnings.append(error_msg)
+                else:
+                    logger.info("KAG input validation passed successfully")
+                
+                if validation_warnings:
+                    for warning in validation_warnings:
+                        logger.warning(f"KAG validation warning: {warning}")
+                        warnings.append(f"KAG validation: {warning}")
+                
+                kag_result = {
+                    "success": True,
+                    "kag_input_path": kag_input_result["kag_input_path"],
+                    "parsed_output_path": kag_input_result["parsed_output_path"],
+                    "validation_passed": is_valid,
+                    "validation_errors": validation_errors,
+                    "validation_warnings": validation_warnings,
+                    "processing_summary": {
+                        "unified_schema_compliant": True,
+                        "enhanced_validation_performed": True,
+                        "legacy_kag_component_used": False,  # Using new writer instead
+                        "artifacts_generated": ["kag_input.json", "parsed_output.json", "feature_vector.json"]
+                    }
+                }
+                
+                logger.info(f"Enhanced KAG validation completed successfully")
+                
+            else:
+                # Use the KAG input result as the main result
+                kag_result = kag_input_result
+                
+        except Exception as e:
+            error_msg = f"Enhanced KAG processing failed: {str(e)}"
+            logger.error(error_msg)
+            warnings.append(error_msg)
+            
+            # Fall back to the KAG input result
+            kag_result = kag_input_result if kag_input_result else {
+                "success": False,
+                "error_message": error_msg,
+                "kag_input_path": None,
+                "processing_summary": {}
+            }
+        
+        stage_timings["kag"] = time.time() - stage_start
+        update_pipeline_status(pipeline_id, "kag_complete", 95.0)
+        
+        logger.info(f"Pipeline {pipeline_id}: Enhanced KAG completed in {stage_timings['kag']:.2f}s")
+        
+        # Stage 7: Save Final Results
         update_pipeline_status(pipeline_id, "saving_results", 95.0)
         stage_start = time.time()
         
@@ -450,6 +857,8 @@ async def process_document_pipeline(
             upload_result=upload_result.dict(),
             ocr_result=ocr_result.dict(),
             docai_result=docai_result.dict(),
+            classification_result=classification_result,
+            kag_result=kag_result,
             stage_timings=stage_timings,
             pdf_filename=file.filename
         )

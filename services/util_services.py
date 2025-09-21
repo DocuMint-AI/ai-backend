@@ -37,6 +37,12 @@ try:
 except ImportError:
     pypdf = None
 
+# Try pypdfium2 for image rendering
+try:
+    import pypdfium2 as pdfium
+except ImportError:
+    pdfium = None
+
 from PIL import Image
 import io
 
@@ -668,6 +674,317 @@ class PDFToImageConverter:
         except Exception as e:
             logger.error(f"Error cleaning up folder for UID {uid}: {e}")
             return False
+
+
+# Hybrid PDF Processing Functions for improved pipeline resilience
+
+def render_pages_with_pdfium(pdf_path: Path, out_dir: Path, dpi: int = 300) -> List[str]:
+    """
+    Render PDF pages to PNG images using pypdfium2.
+    
+    This function provides a fallback image rendering capability when PyMuPDF
+    is not available. It uses pypdfium2 to convert each page to a PNG image.
+    
+    Args:
+        pdf_path: Path to the PDF file
+        out_dir: Output directory for images
+        dpi: DPI for image rendering (default 300)
+        
+    Returns:
+        List of paths to generated image files
+        
+    Raises:
+        ImportError: If pypdfium2 is not available
+        PDFProcessingError: If PDF processing fails
+        
+    Example:
+        >>> images = render_pages_with_pdfium(
+        ...     Path("document.pdf"), 
+        ...     Path("images/"), 
+        ...     dpi=300
+        ... )
+        >>> print(f"Generated {len(images)} images")
+    """
+    if pdfium is None:
+        raise ImportError("pypdfium2 not available. Install with: uv pip install pypdfium2")
+    
+    try:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        image_paths = []
+        
+        # Open PDF with pypdfium2
+        pdf = pdfium.PdfDocument(pdf_path)
+        page_count = len(pdf)
+        
+        logger.info(f"Rendering {page_count} pages using pypdfium2 at {dpi} DPI")
+        
+        for page_index in range(page_count):
+            try:
+                # Get page and render to bitmap
+                page = pdf[page_index]
+                bitmap = page.render(
+                    scale=dpi / 72.0,  # Convert DPI to scale factor
+                    rotation=0
+                )
+                
+                # Convert to PIL Image
+                pil_image = bitmap.to_pil()
+                
+                # Save as PNG
+                image_filename = f"page_{page_index + 1:03d}.png"
+                image_path = out_dir / image_filename
+                pil_image.save(image_path, "PNG", optimize=True)
+                
+                image_paths.append(str(image_path))
+                logger.debug(f"Rendered page {page_index + 1} -> {image_path}")
+                
+            except Exception as e:
+                logger.warning(f"Failed to render page {page_index + 1}: {e}")
+                continue
+        
+        pdf.close()
+        
+        if image_paths:
+            logger.info(f"Saved images: {image_paths[0]} ... (total: {len(image_paths)})")
+        else:
+            logger.warning("No images were successfully rendered")
+        
+        return image_paths
+        
+    except Exception as e:
+        error_msg = f"Failed to render PDF pages with pypdfium2: {str(e)}"
+        logger.error(error_msg)
+        raise PDFProcessingError(error_msg) from e
+
+
+def extract_text_with_pdfplumber(pdf_path: Path, text_out_dir: Path) -> List[str]:
+    """
+    Extract text from PDF pages using pdfplumber.
+    
+    This function extracts text content from each page of a PDF using pdfplumber
+    and saves individual page texts to separate files. This provides a reliable
+    text extraction method that doesn't depend on image conversion.
+    
+    Args:
+        pdf_path: Path to the PDF file
+        text_out_dir: Output directory for text files
+        
+    Returns:
+        List of extracted text strings (one per page)
+        
+    Raises:
+        ImportError: If pdfplumber is not available
+        PDFProcessingError: If PDF processing fails
+        
+    Example:
+        >>> texts = extract_text_with_pdfplumber(
+        ...     Path("document.pdf"), 
+        ...     Path("text/")
+        ... )
+        >>> print(f"Extracted text from {len(texts)} pages")
+    """
+    if pdfplumber is None:
+        raise ImportError("pdfplumber not available. Install with: uv pip install pdfplumber")
+    
+    try:
+        text_out_dir.mkdir(parents=True, exist_ok=True)
+        page_texts = []
+        text_file_paths = []
+        
+        with pdfplumber.open(pdf_path) as pdf:
+            page_count = len(pdf.pages)
+            logger.info(f"Extracting text from {page_count} pages using pdfplumber")
+            
+            for page_index, page in enumerate(pdf.pages):
+                try:
+                    # Extract text from page
+                    page_text = page.extract_text() or ""
+                    page_texts.append(page_text)
+                    
+                    # Save text to file
+                    text_filename = f"page_{page_index + 1:03d}.txt"
+                    text_path = text_out_dir / text_filename
+                    
+                    with open(text_path, 'w', encoding='utf-8') as f:
+                        f.write(page_text)
+                    
+                    text_file_paths.append(str(text_path))
+                    logger.debug(f"Extracted text from page {page_index + 1} -> {text_path}")
+                    
+                except Exception as e:
+                    logger.warning(f"Failed to extract text from page {page_index + 1}: {e}")
+                    page_texts.append("")  # Add empty string to maintain index consistency
+                    continue
+        
+        if text_file_paths:
+            logger.info(f"Saved page text: {text_file_paths[0]} ... (total: {len(text_file_paths)})")
+        else:
+            logger.warning("No text was successfully extracted")
+        
+        return page_texts
+        
+    except Exception as e:
+        error_msg = f"Failed to extract text with pdfplumber: {str(e)}"
+        logger.error(error_msg)
+        raise PDFProcessingError(error_msg) from e
+
+
+def process_pdf_hybrid(
+    pdf_path: Path,
+    output_dir: Path,
+    dpi: int = 300,
+    prefer_pymupdf: bool = True
+) -> Dict[str, Any]:
+    """
+    Process PDF using hybrid approach: render images + extract text.
+    
+    This function implements the hybrid approach for PDF processing:
+    1. Attempts to use PyMuPDF for both image and text if available
+    2. Falls back to pypdfium2 for images + pdfplumber for text
+    3. Always extracts both images and text for maximum pipeline reliability
+    
+    Args:
+        pdf_path: Path to the PDF file
+        output_dir: Output directory for processed files
+        dpi: DPI for image rendering
+        prefer_pymupdf: Whether to prefer PyMuPDF when available
+        
+    Returns:
+        Dictionary with processing results:
+        {
+            "success": bool,
+            "method": str,
+            "image_paths": List[str],
+            "page_texts": List[str],
+            "total_pages": int,
+            "processed_pages": int,
+            "errors": List[str]
+        }
+        
+    Example:
+        >>> result = process_pdf_hybrid(
+        ...     Path("document.pdf"),
+        ...     Path("output/"),
+        ...     dpi=300
+        ... )
+        >>> print(f"Processed {result['processed_pages']}/{result['total_pages']} pages")
+    """
+    output_dir.mkdir(parents=True, exist_ok=True)
+    images_dir = output_dir / "images"
+    text_dir = output_dir / "text"
+    
+    result = {
+        "success": False,
+        "method": "unknown",
+        "image_paths": [],
+        "page_texts": [],
+        "total_pages": 0,
+        "processed_pages": 0,
+        "errors": []
+    }
+    
+    try:
+        # Determine processing method
+        use_pymupdf = prefer_pymupdf and fitz is not None
+        
+        if use_pymupdf:
+            try:
+                # Test PyMuPDF functionality
+                test_doc = fitz.open(str(pdf_path))
+                result["total_pages"] = len(test_doc)
+                test_doc.close()
+                
+                # Use PyMuPDF for both images and text
+                result["method"] = "PyMuPDF"
+                logger.info(f"Initialized PDF converter using PyMuPDF")
+                
+                # Process with PyMuPDF
+                image_paths, page_texts = _process_with_pymupdf_hybrid(
+                    pdf_path, images_dir, text_dir, dpi
+                )
+                result["image_paths"] = image_paths
+                result["page_texts"] = page_texts
+                result["processed_pages"] = min(len(image_paths), len(page_texts))
+                result["success"] = True
+                
+            except Exception as e:
+                logger.warning(f"PyMuPDF processing failed: {e}")
+                result["errors"].append(f"PyMuPDF failed: {str(e)}")
+                use_pymupdf = False
+        
+        if not use_pymupdf:
+            # Use hybrid approach: pypdfium2 + pdfplumber
+            result["method"] = "pypdfium2+pdfplumber"
+            logger.info(f"Initialized PDF converter using pypdfium2")
+            
+            # Extract text with pdfplumber
+            page_texts = extract_text_with_pdfplumber(pdf_path, text_dir)
+            result["page_texts"] = page_texts
+            result["total_pages"] = len(page_texts)
+            
+            # Render images with pypdfium2
+            try:
+                image_paths = render_pages_with_pdfium(pdf_path, images_dir, dpi)
+                result["image_paths"] = image_paths
+            except Exception as e:
+                logger.warning(f"Image rendering failed: {e}")
+                result["errors"].append(f"Image rendering failed: {str(e)}")
+                result["image_paths"] = []
+            
+            result["processed_pages"] = min(len(result["image_paths"]), len(page_texts))
+            result["success"] = len(page_texts) > 0  # Success if we have text
+        
+        return result
+        
+    except Exception as e:
+        error_msg = f"Hybrid PDF processing failed: {str(e)}"
+        logger.error(error_msg)
+        result["errors"].append(error_msg)
+        return result
+
+
+def _process_with_pymupdf_hybrid(
+    pdf_path: Path,
+    images_dir: Path,
+    text_dir: Path,
+    dpi: int
+) -> Tuple[List[str], List[str]]:
+    """Process PDF with PyMuPDF for both images and text."""
+    images_dir.mkdir(parents=True, exist_ok=True)
+    text_dir.mkdir(parents=True, exist_ok=True)
+    
+    image_paths = []
+    page_texts = []
+    
+    pdf_document = fitz.open(str(pdf_path))
+    
+    try:
+        for page_num in range(len(pdf_document)):
+            page = pdf_document[page_num]
+            
+            # Extract text
+            text = page.get_text()
+            page_texts.append(text)
+            
+            # Save text to file
+            text_filename = f"page_{page_num + 1:03d}.txt"
+            text_path = text_dir / text_filename
+            with open(text_path, 'w', encoding='utf-8') as f:
+                f.write(text)
+            
+            # Convert to image
+            mat = fitz.Matrix(dpi / 72, dpi / 72)
+            pix = page.get_pixmap(matrix=mat)
+            
+            image_filename = f"page_{page_num + 1:03d}.png"
+            image_path = images_dir / image_filename
+            pix.save(str(image_path))
+            image_paths.append(str(image_path))
+    
+    finally:
+        pdf_document.close()
+    
+    return image_paths, page_texts
 
 
 def get_file_info(file_path: str) -> Dict[str, Any]:
