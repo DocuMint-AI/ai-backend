@@ -1,0 +1,1095 @@
+{
+  "label": "Constitutional_and_Legislative",
+  "score": 1.0,
+  "confidence": "high",
+  "matched_patterns": [
+    {
+      "keyword": "article",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "constitution_documents",
+      "frequency": 6,
+      "positions": [
+        12583,
+        15040,
+        15169,
+        15684,
+        15822,
+        21443
+      ],
+      "context_snippets": [
+        "he case that if the fact of seizure\nof contraband article has not been proved by the independent\n\n10\nwitnes",
+        "s Act has been committed or any document\nor other article which may furnish evidence of the\ncommission of s",
+        "egally acquired\nproperty or any document or other article which may\nfurnish evidence of holding any illegal"
+      ]
+    },
+    {
+      "keyword": "preamble",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "constitution_documents",
+      "frequency": 4,
+      "positions": [
+        23705,
+        24108,
+        26572,
+        33444
+      ],
+      "context_snippets": [
+        "NDPS Act is required to be considered. As\nper the preamble of NDPS Act, 1985, it is an Act to\nconsolidate an",
+        "nce. The\nStatement of objects and reasons and the preamble of\nthe NDPS Act imply that the Act is required to",
+        "ring the statement of\nobjects and reasons and the preamble of the NDPS Act\nand the relevant provisions of th"
+      ]
+    },
+    {
+      "keyword": "act",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 56,
+      "positions": [
+        1531,
+        1737,
+        1776,
+        4061,
+        7061,
+        9340,
+        11096,
+        11269,
+        13721,
+        13875,
+        14023,
+        14992,
+        15326,
+        15792,
+        15937,
+        16083,
+        16241,
+        16404,
+        17684,
+        18877,
+        19129,
+        19675,
+        21384,
+        21992,
+        22145,
+        22470,
+        23660,
+        23722,
+        23742,
+        24129,
+        24148,
+        24167,
+        24254,
+        26593,
+        26637,
+        26994,
+        30974,
+        31504,
+        31601,
+        31613,
+        32014,
+        32035,
+        32069,
+        32500,
+        32535,
+        32950,
+        33199,
+        33281,
+        33327,
+        33460,
+        35596,
+        35629,
+        35859,
+        39445,
+        39734,
+        39877
+      ],
+      "context_snippets": [
+        "01.2021 passed by the learned Special Judge\n(NDPS Act), Surguja, Ambikapur, District – Surguja in Speci",
+        "of the Narcotic Drugs\nand Psychotropic Substances Act, 1985 (hereinafter called as\n'NDPS Act') and sent",
+        "Substances Act, 1985 (hereinafter called as\n'NDPS Act') and sentenced them to undergo rigorous\nimprison"
+      ]
+    },
+    {
+      "keyword": "section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 37,
+      "positions": [
+        1375,
+        1672,
+        4045,
+        7388,
+        9317,
+        11073,
+        11246,
+        13849,
+        13997,
+        16971,
+        17726,
+        17913,
+        18200,
+        19649,
+        19730,
+        19745,
+        20283,
+        20681,
+        20696,
+        20830,
+        20919,
+        21057,
+        21072,
+        21099,
+        21288,
+        21366,
+        22122,
+        22447,
+        26976,
+        35570,
+        35605,
+        37561,
+        37662,
+        38016,
+        39421,
+        39708,
+        39851
+      ],
+      "context_snippets": [
+        "has preferred\nCriminal Appeal No. 349/2021 under Section 374(2) of the CrPC\nquestioning the impugned judgm",
+        "which they have been\nconvicted for offence under Section 21 (c) of the Narcotic Drugs\nand Psychotropic Sub",
+        "'s information and were given notice Ex.P-6 under\nSection-50 NDPS Act, on which the suspects gave acceptanc"
+      ]
+    },
+    {
+      "keyword": "sub-section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 5,
+      "positions": [
+        17909,
+        19726,
+        20279,
+        20677,
+        20826
+      ],
+      "context_snippets": [
+        "ed so on and so forth as mentioned therein.\nUnder sub-section (2) only a Gazetted Officer or other\nofficers men",
+        "ct have held in paragraphs 9 & 10 as under: -\n“9. Sub-section (1) of Section 42 lays down that the\nempowered of",
+        "ing his reasons of belief.\n\n15\n10. The proviso to sub-section (1) lays down that if the\nempowered officer has r"
+      ]
+    },
+    {
+      "keyword": "clause",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 2,
+      "positions": [
+        7140,
+        26946
+      ],
+      "context_snippets": [
+        ".). On being reading out the charges mentioned\nin Clause-1 and explaining it to the accused, they denied t",
+        "l quantity or commercial\nquantity. Right from sub-clause (viia) and (xxiiia) of\nSection 2 of NDPS Act emph"
+      ]
+    },
+    {
+      "keyword": "proviso",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 2,
+      "positions": [
+        20268,
+        20815
+      ],
+      "context_snippets": [
+        "hout\nrecording his reasons of belief.\n\n15\n10. The proviso to sub-section (1) lays down that if the\nempowere",
+        "ng or records the grounds of\nhis belief under the proviso to sub-section (1), shall\nforthwith send a copy o"
+      ]
+    },
+    {
+      "keyword": "legislature",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 6,
+      "positions": [
+        18772,
+        24641,
+        25984,
+        26690,
+        29408,
+        31110
+      ],
+      "context_snippets": [
+        "requirement is concerned, it can be seen that the\nLegislature intended that only certain Magistrates and\ncertai",
+        "und the\nlaw and not to legislate, nonetheless the legislature\ncannot be asked to sit to resolve the difficultie",
+        "of concept of purpose and\nobject will render the legislature inane. It is further\nobserved that in given circu"
+      ]
+    },
+    {
+      "keyword": "enactment",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 7,
+      "positions": [
+        25176,
+        26220,
+        26353,
+        30956,
+        31583,
+        32381,
+        32482
+      ],
+      "context_snippets": [
+        "fest contradiction\nof the apparent purpose of the enactment, or\nto some inconvenience or absurdity, hardship",
+        "may be even\nnecessary to go behind the words and enactment and\ntake other factors into consideration to give",
+        "ve intention and to the purpose and spirit of the\nenactment so that no absurdity or practical\ninconvenience m"
+      ]
+    },
+    {
+      "keyword": "statute",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 5,
+      "positions": [
+        24877,
+        25048,
+        25434,
+        29345,
+        33529
+      ],
+      "context_snippets": [
+        "ret\nthe legislation by liberally interpreting the statute. In the\nsaid decision this Court has also quoted",
+        "Edition page 229:\n\"25. ….Where the language of a statute,\nin its ordinary meaning and grammatical\nconstruc",
+        "nce. ... Where the\nmain object and intention of a statute are\nclear, it must not be reduced to a nullity by"
+      ]
+    },
+    {
+      "keyword": "legislation",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 2,
+      "positions": [
+        24835,
+        32410
+      ],
+      "context_snippets": [
+        "of the Court to mould or creatively interpret\nthe legislation by liberally interpreting the statute. In the\nsai",
+        "urgent need for the enactment of\na comprehensive legislation on Narcotic Drugs and\nPsychotropic Substances, wh"
+      ]
+    },
+    {
+      "keyword": "notification",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 2,
+      "positions": [
+        27129,
+        27341
+      ],
+      "context_snippets": [
+        "24, 27 and 43). Even in the table attached to the\nNotification dated 19.10.2001, column no. 2 is with\nrespect to",
+        "quantity and commercial quantity”. Note 2 of the\nNotification dated 19.10.2001 specifically provides that\nquant"
+      ]
+    },
+    {
+      "keyword": "central government",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 2,
+      "positions": [
+        14338,
+        14470
+      ],
+      "context_snippets": [
+        "venue intelligence or any other\ndepartment of the Central Government including\npara-military forces or armed forces as",
+        "in this behalf by general or special order by the\nCentral Government, or any such officer (being an\nofficer superior i"
+      ]
+    },
+    {
+      "keyword": "state government",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 2,
+      "positions": [
+        14651,
+        14734
+      ],
+      "context_snippets": [
+        "trol, excise, police or any\nother department of a State Government as is\nempowered in this behalf by general or spec",
+        "in this behalf by general or special order\nof the State Government, if he has reason to believe\nfrom persons knowled"
+      ]
+    },
+    {
+      "keyword": "department",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 3,
+      "positions": [
+        13947,
+        14320,
+        14635
+      ],
+      "context_snippets": [
+        "Officer, Amit\nGupta, Sub Inspector of the Police Department is allowed to\ninvestigate or not ?\n16. Section 42",
+        "otics, customs, revenue intelligence or any other\ndepartment of the Central Government including\npara-military",
+        "venue, drugs control, excise, police or any\nother department of a State Government as is\nempowered in this beh"
+      ]
+    },
+    {
+      "keyword": "rule",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "positions": [
+        16415
+      ],
+      "context_snippets": [
+        "trolled substances, granted under\nthis Act or any rule or order made thereunder, such\npower shall be exe"
+      ]
+    },
+    {
+      "keyword": "regulation",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "positions": [
+        23856
+      ],
+      "context_snippets": [
+        "to make stringent provisions for the control and\nregulation of operation relating to Narcotic Drugs and\nPsych"
+      ]
+    },
+    {
+      "keyword": "judgment",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 15,
+      "positions": [
+        973,
+        1090,
+        1212,
+        1427,
+        7726,
+        8599,
+        8786,
+        10440,
+        11509,
+        34629,
+        35125,
+        38659,
+        40629,
+        40790,
+        40993
+      ],
+      "context_snippets": [
+        "e and\nHon'ble S hri Ravindra Kumar Agrawal, Judge\nJudgment on Board\n\n2\nPer Ramesh Sinha, C.J.\n16/01/2025\n1.",
+        "aforesaid two criminal appeals arise out of same\njudgment of conviction and order of sentence, they were cl",
+        "together and are being disposed of by this common\njudgment.\n2. Appellant – Ambika Vishwakarma has preferred"
+      ]
+    },
+    {
+      "keyword": "order",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 7,
+      "positions": [
+        1117,
+        1454,
+        7218,
+        14457,
+        14721,
+        16423,
+        32299
+      ],
+      "context_snippets": [
+        "eals arise out of same\njudgment of conviction and order of sentence, they were clubbed\n& heard together a",
+        "estioning the impugned judgment of conviction and order of\nsentence dated 21.01.2021 passed by the learne",
+        "o the accused, they denied the\nabove crime.\n5. In order to bring home the offence, the prosecution examin"
+      ]
+    },
+    {
+      "keyword": "precedent",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 1,
+      "positions": [
+        12999
+      ],
+      "context_snippets": [
+        "eliable evidence also. Similarly, in the judicial precedent\nNathusingh Vs. State of Madhya Pradesh reported i"
+      ]
+    },
+    {
+      "keyword": "chief justice",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 2,
+      "positions": [
+        911,
+        41258
+      ],
+      "context_snippets": [
+        "Pandey, Govt. Advocate\nHon'ble Shri Ramesh Sinha, Chief Justice and\nHon'ble S hri Ravindra Kumar Agrawal, Judge\nJ",
+        "d/-\n(Ravindra Kumar Agrawal) (Ramesh Sinha)\nJudge Chief Justice\nChandra\n\n26\nHead – Note\nWhile considering the mix"
+      ]
+    },
+    {
+      "keyword": "disposed of",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 1,
+      "positions": [
+        1185
+      ],
+      "context_snippets": [
+        "they were clubbed\n& heard together and are being disposed of by this common\njudgment.\n2. Appellant – Ambika Vi"
+      ]
+    },
+    {
+      "keyword": "allowed",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 4,
+      "positions": [
+        10235,
+        13961,
+        39312,
+        40409
+      ],
+      "context_snippets": [
+        "issions. Hence, the present appeal\ndeserves to be allowed in full or in part.\n11. On the other hand, Mr. Sa",
+        "Gupta, Sub Inspector of the Police Department is allowed to\ninvestigate or not ?\n16. Section 42(1) of the",
+        "imprisonment for six months.\nThe appeal is partly allowed to the extent as\nindicated above. ”\n28. As such,"
+      ]
+    },
+    {
+      "keyword": "high court",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 7,
+      "positions": [
+        24,
+        8809,
+        38138,
+        38350,
+        38577,
+        38871,
+        41119
+      ],
+      "context_snippets": [
+        "1\n2025:CGHC:2738-DB\nAFR\nHIGH COURT OF CHHATTISGARH AT BILASPUR\nCRA No. 260 of 2021\nA",
+        "ted 11 March, 2008\nand the Judgment passed by the High Court of Delhi in Bail\nApplication No.136 of 2021 in th",
+        "n be interfered\nwith.\n24. In the present case The High Court held that\nalthough gross quantity of 8.175 Kg. of"
+      ]
+    },
+    {
+      "keyword": "criminal appeal",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 2,
+      "positions": [
+        1270,
+        1340
+      ],
+      "context_snippets": [
+        ".\n2. Appellant – Ambika Vishwakarma has preferred Criminal Appeal\nNo.260/2021 and Appellant – Narayan Das has prefe",
+        "60/2021 and Appellant – Narayan Das has preferred\nCriminal Appeal No. 349/2021 under Section 374(2) of the CrPC\nque"
+      ]
+    },
+    {
+      "keyword": "case no",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 1,
+      "positions": [
+        1603
+      ],
+      "context_snippets": [
+        "ur, District – Surguja in Special\nCriminal (NDPS) Case No.04/2019, by which they have been\nconvicted for of"
+      ]
+    },
+    {
+      "keyword": "appeal no",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 1,
+      "positions": [
+        1349
+      ],
+      "context_snippets": [
+        "nd Appellant – Narayan Das has preferred\nCriminal Appeal No. 349/2021 under Section 374(2) of the CrPC\nquesti"
+      ]
+    },
+    {
+      "keyword": "respondent",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 4,
+      "positions": [
+        368,
+        652,
+        828,
+        10361
+      ],
+      "context_snippets": [
+        "ion\nAmbikapur, District Surguja Chhattisgarh.\n--- Respondent\nCRA No. 349 of 2021\nNarayan Das, S/o Late Shri Ra",
+        ", Ambikapur,\nDistrict - Sarguja Chhattisgarh.\n--- Respondent\nFor Appellant : Smt. Anju Ahuja and Mr. Yashesh A",
+        "and Mr. Rishi Sahu,\nin CRA 349/2021 Advocates\nFor respondent/State : Mr. Sangharsh Pandey, Govt. Advocate\nHon'"
+      ]
+    },
+    {
+      "keyword": "appellant",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 16,
+      "positions": [
+        232,
+        532,
+        667,
+        748,
+        1225,
+        1302,
+        7883,
+        8983,
+        22053,
+        22707,
+        38250,
+        38381,
+        38891,
+        39071,
+        39085,
+        39217
+      ],
+      "context_snippets": [
+        "ion Lakhanpur, District Surguja\nChhattisgarh.\n--- Appellant\nversus\nState of Chhattisgarh, through the Station",
+        "- Lakhanpur, District - Sarguja Chhattisgarh.\n--- Appellant\nVersus\nState of Chhattisgarh, through Police Stat",
+        "strict - Sarguja Chhattisgarh.\n--- Respondent\nFor Appellant : Smt. Anju Ahuja and Mr. Yashesh Ahuja,\nin CRA 2"
+      ]
+    },
+    {
+      "keyword": "accused",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 18,
+      "positions": [
+        4163,
+        5240,
+        5446,
+        5635,
+        5773,
+        6005,
+        6241,
+        6467,
+        6615,
+        7174,
+        7413,
+        9385,
+        11214,
+        12901,
+        22190,
+        22415,
+        33564,
+        34790
+      ],
+      "context_snippets": [
+        "respective search as per Ex.P-7. Thereafter, the accused\nwere made to search the witnesses, accompanying s",
+        "ed. The bags recovered from the possession\nof the accused and a total of 236 psychotropic substance syrups",
+        "les of syrup recovered from the\npossession of the accused, it was found that a substance called\nCodeine Pho"
+      ]
+    },
+    {
+      "keyword": "vs",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 5,
+      "positions": [
+        8673,
+        8892,
+        10512,
+        13020,
+        24321
+      ],
+      "context_snippets": [
+        "on’ble Supreme Court in the Case\nof E.Micheal Raj Vs. Intelligence Officer, Narcotic Control\nBureau in",
+        "cation No.136 of 2021 in the matter of Mohd Ahsan Vs.\nCustoms decided on 25 June, 2021.\n9. Mr. Surfara",
+        "preme Court in the Case of Hira Singh\nand Another Vs. Union of India and Another reported in\n(2020) 20"
+      ]
+    },
+    {
+      "keyword": "versus",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 2,
+      "positions": [
+        242,
+        542
+      ],
+      "context_snippets": [
+        "pur, District Surguja\nChhattisgarh.\n--- Appellant\nversus\nState of Chhattisgarh, through the Station House",
+        "r, District - Sarguja Chhattisgarh.\n--- Appellant\nVersus\nState of Chhattisgarh, through Police Station Kot"
+      ]
+    },
+    {
+      "keyword": "against",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 7,
+      "positions": [
+        6745,
+        27413,
+        27615,
+        28268,
+        28420,
+        28807,
+        31743
+      ],
+      "context_snippets": [
+        "ation, where crime number-480/2018 was\nregistered against them. In the sequence of investigation, the\n\n6\nst",
+        "10.2001 specifically provides that\nquantity shown against the respective drugs listed in\nthe table also app",
+        "the small quantity and commercial quantity given\nagainst the respective drugs listed in the table apply to"
+      ]
+    },
+    {
+      "keyword": "verification",
+      "category": "Judicial_Documents",
+      "subcategory": "pleadings",
+      "frequency": 1,
+      "positions": [
+        3111
+      ],
+      "context_snippets": [
+        "ssibility\nof the goods being destroyed, hence for verification of the\ninformation without obtaining a search war"
+      ]
+    },
+    {
+      "keyword": "evidence",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 20,
+      "positions": [
+        7689,
+        10948,
+        11680,
+        12280,
+        12662,
+        12843,
+        12957,
+        13269,
+        13357,
+        13577,
+        13753,
+        15066,
+        15195,
+        15873,
+        15952,
+        16698,
+        19520,
+        20038,
+        20468,
+        35053
+      ],
+      "context_snippets": [
+        "ial Court after appreciating oral and documentary evidence\navailable on record, by its judgment dated 21.01.",
+        "contraband has been\nproved from reliable coherent evidence of Investigating Officer-\nAmit Gupta, PW-7, who e",
+        "considering the material available on\nrecord and evidence adduced by the prosecution has rightly\nconvicted"
+      ]
+    },
+    {
+      "keyword": "witness",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 1,
+      "positions": [
+        2515
+      ],
+      "context_snippets": [
+        "nesses through Constable No.464 Abhay Choubey and\nwitness Manish Upadhyay, S/o Shyamdhar Upadhyay, age 35\ny"
+      ]
+    },
+    {
+      "keyword": "cross-examination",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 2,
+      "positions": [
+        11381,
+        22585
+      ],
+      "context_snippets": [
+        "re searched by the Police Officer. In para-\n19 of cross-examination, this fact has been elicited by\nInvestigating Off",
+        "searched by the\nPolice Officer. In para-19 of his cross-examination, this fact has\nbeen elicited by Investigating Off"
+      ]
+    },
+    {
+      "keyword": "examination-in-chief",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 2,
+      "positions": [
+        11184,
+        22373
+      ],
+      "context_snippets": [
+        "icer-Amit Gupta, PW-7 has stated in para 4 of his\nexamination-in-chief that the accused were given notice under\nSection",
+        "ating Officer Amit Gupta (PW-7), in para-4\nof his examination-in-chief, has stated that the accused were\ngiven notice un"
+      ]
+    },
+    {
+      "keyword": "documentary evidence",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 1,
+      "positions": [
+        7677
+      ],
+      "context_snippets": [
+        "s.\n7. The trial Court after appreciating oral and documentary evidence\navailable on record, by its judgment dated 21.01."
+      ]
+    },
+    {
+      "keyword": "commission",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 8,
+      "positions": [
+        15082,
+        15889,
+        18111,
+        20050,
+        21225,
+        36352,
+        36768,
+        36886
+      ],
+      "context_snippets": [
+        "r other article which may furnish evidence of the\ncommission of such offence or any illegally acquired\npropert",
+        "has reason to believe\nmay furnish evidence of the commission of any\noffence punishable under this Act or furni",
+        "h\nif such officer has reason to believe about the\ncommission of an offence and after reducing the\ninformation,"
+      ]
+    },
+    {
+      "keyword": "verification",
+      "category": "Judicial_Documents",
+      "subcategory": "affidavits",
+      "frequency": 1,
+      "positions": [
+        3111
+      ],
+      "context_snippets": [
+        "ssibility\nof the goods being destroyed, hence for verification of the\ninformation without obtaining a search war"
+      ]
+    },
+    {
+      "keyword": "notice under section",
+      "category": "Judicial_Documents",
+      "subcategory": "legal_notices",
+      "frequency": 1,
+      "positions": [
+        22434
+      ],
+      "context_snippets": [
+        "-in-chief, has stated that the accused were\ngiven notice under Section 50 of the NDPS Act regarding their\nright and only"
+      ]
+    },
+    {
+      "keyword": "charge sheet",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "positions": [
+        9684
+      ],
+      "context_snippets": [
+        "e Station, has continued to investigate\nand filed charge sheet, therefore, the investigation is vitiated.\n10. Ap"
+      ]
+    },
+    {
+      "keyword": "warrant",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 7,
+      "positions": [
+        3035,
+        3170,
+        14114,
+        16601,
+        17749,
+        20162,
+        20371
+      ],
+      "context_snippets": [
+        "on tour and due\nto time taken in obtaining search warrant, there was full possibility\nof the goods being de",
+        "ion of the\ninformation without obtaining a search warrant, information about\ndeparture was sent to the City",
+        "ower of entry, search, seizure and arrest without\nwarrant or authorisation.- (1) Any such officer (being\nan"
+      ]
+    },
+    {
+      "keyword": "police station",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 9,
+      "positions": [
+        171,
+        307,
+        467,
+        580,
+        2103,
+        3830,
+        3919,
+        6686,
+        9629
+      ],
+      "context_snippets": [
+        "awkarma aged about 31\nyears resident of Chainpur, Police Station Lakhanpur, District Surguja\nChhattisgarh.\n--- App",
+        "Chhattisgarh, through the Station House Officer, Police Station\nAmbikapur, District Surguja Chhattisgarh.\n--- Res",
+        "ate Shri Ramdas, aged about 43 years R/o.- Kewra,\nPolice Station - Lakhanpur, District - Sarguja Chhattisgarh.\n---"
+      ]
+    },
+    {
+      "keyword": "investigation",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 5,
+      "positions": [
+        6778,
+        6979,
+        9713,
+        13643,
+        21718
+      ],
+      "context_snippets": [
+        "8 was\nregistered against them. In the sequence of investigation, the\n\n6\nstatements of witnesses Manish Upadhyay a",
+        ", as per their statements.\n4. After completion of investigation, charge-sheet was presented\nbefore the Court of S",
+        "nvestigate\nand filed charge sheet, therefore, the investigation is vitiated.\n10. Apart from aforesaid submissions"
+      ]
+    },
+    {
+      "keyword": "bail",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "positions": [
+        8832
+      ],
+      "context_snippets": [
+        "the Judgment passed by the High Court of Delhi in Bail\nApplication No.136 of 2021 in the matter of Mohd"
+      ]
+    },
+    {
+      "keyword": "crpc",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "positions": [
+        1397
+      ],
+      "context_snippets": [
+        "l Appeal No. 349/2021 under Section 374(2) of the CrPC\nquestioning the impugned judgment of conviction a"
+      ]
+    },
+    {
+      "keyword": "search warrant",
+      "category": "Judicial_Documents",
+      "subcategory": "warrants",
+      "frequency": 3,
+      "positions": [
+        3028,
+        3163,
+        16594
+      ],
+      "context_snippets": [
+        "office on tour and due\nto time taken in obtaining search warrant, there was full possibility\nof the goods being de",
+        "rification of the\ninformation without obtaining a search warrant, information about\ndeparture was sent to the City",
+        "that if such officer has reason to\nbelieve that a search warrant or authorisation cannot\nbe obtained without affor"
+      ]
+    },
+    {
+      "keyword": "will",
+      "category": "Personal_and_Family",
+      "subcategory": "wills_succession",
+      "frequency": 5,
+      "positions": [
+        19477,
+        25968,
+        30033,
+        33096,
+        38954
+      ],
+      "context_snippets": [
+        "upon the facts\nand circumstances of the case and will have a bearing in\nappreciation of the evidence.\n1",
+        "ve intent devoid of concept of purpose and\nobject will render the legislature inane. It is further\nobser",
+        "different substances. This\nmeans that drug dealer will add other drugs or non -\nintoxicating substances"
+      ]
+    },
+    {
+      "keyword": "consideration",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "sale_deeds",
+      "frequency": 8,
+      "positions": [
+        23414,
+        26258,
+        27975,
+        28532,
+        33654,
+        37611,
+        37820,
+        41584
+      ],
+      "context_snippets": [
+        "y of neutral\nsubstance(s) is not to be taken into consideration or it is\nonly the actual content by weight of the",
+        "e words and enactment and\ntake other factors into consideration to give effect to the\nlegislative intention and t",
+        "the clauses 5\nand 6 are required to be taken into consideration.\nHowever, in the case of mixture of the narcotic"
+      ]
+    },
+    {
+      "keyword": "possession",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "sale_deeds",
+      "frequency": 12,
+      "positions": [
+        4631,
+        4771,
+        5222,
+        5428,
+        5728,
+        21501,
+        21588,
+        34044,
+        34184,
+        34772,
+        38316,
+        38404
+      ],
+      "context_snippets": [
+        "Flyte King\ncompany's monochrome was found in his possession, which was\nopened and searched. R.C. KUFF COUGH S",
+        "ntaining 100 ml was found in it and a backpack in\npossession of second suspect Narayan Das which was blackish",
+        "uspects was prepared. The bags recovered from the possession\nof the accused and a total of 236 psychotropic su"
+      ]
+    },
+    {
+      "keyword": "functional",
+      "category": "Intellectual_Property",
+      "subcategory": "design_documents",
+      "frequency": 1,
+      "positions": [
+        26092
+      ],
+      "context_snippets": [
+        "rcumstances, it is permissible\nfor courts to have functional approaches and look into\nthe legislative intentio"
+      ]
+    },
+    {
+      "keyword": "charge",
+      "category": "Financial_and_Security",
+      "subcategory": "security_documents",
+      "frequency": 2,
+      "positions": [
+        6994,
+        9684
+      ],
+      "context_snippets": [
+        "statements.\n4. After completion of investigation, charge-sheet was presented\nbefore the Court of Special J",
+        "e Station, has continued to investigate\nand filed charge sheet, therefore, the investigation is vitiated."
+      ]
+    },
+    {
+      "keyword": "recovery",
+      "category": "Financial_and_Security",
+      "subcategory": "recovery_documents",
+      "frequency": 2,
+      "positions": [
+        5319,
+        13403
+      ],
+      "context_snippets": [
+        "ychotropic substance syrups\n\n5\nwere recovered and recovery panchnama Ex.P.-12 was prepared.\nAfter reading th",
+        "ole evidence, a conclusion\ncan be drawn about the recovery of something (narcotic\nsubstance). In the context"
+      ]
+    },
+    {
+      "keyword": "possession",
+      "category": "Financial_and_Security",
+      "subcategory": "recovery_documents",
+      "frequency": 12,
+      "positions": [
+        4631,
+        4771,
+        5222,
+        5428,
+        5728,
+        21501,
+        21588,
+        34044,
+        34184,
+        34772,
+        38316,
+        38404
+      ],
+      "context_snippets": [
+        "Flyte King\ncompany's monochrome was found in his possession, which was\nopened and searched. R.C. KUFF COUGH S",
+        "ntaining 100 ml was found in it and a backpack in\npossession of second suspect Narayan Das which was blackish",
+        "uspects was prepared. The bags recovered from the possession\nof the accused and a total of 236 psychotropic su"
+      ]
+    },
+    {
+      "keyword": "society",
+      "category": "Specialized_Documents",
+      "subcategory": "society_documents",
+      "frequency": 2,
+      "positions": [
+        31755,
+        33300
+      ],
+      "context_snippets": [
+        "g throughout the world. It is a\ncrime against the society and it has to be dealt with iron\nhands. Use of dr",
+        "the object and purpose\nof NDPS Act; impact on the society as a whole and the\nAct is required to be interpre"
+      ]
+    },
+    {
+      "keyword": "consent",
+      "category": "Specialized_Documents",
+      "subcategory": "data_protection",
+      "frequency": 2,
+      "positions": [
+        11315,
+        22516
+      ],
+      "context_snippets": [
+        "DPS Act regarding their right and only upon\ntheir consent, they were searched by the Police Officer. In par",
+        "DPS Act regarding their\nright and only upon their consent, they were searched by the\nPolice Officer. In par"
+      ]
+    }
+  ],
+  "text_length": 41598,
+  "total_matches": 346,
+  "category_scores": {
+    "Constitutional_and_Legislative": 1.0,
+    "Judicial_Documents": 1.0,
+    "Personal_and_Family": 0.13413866051252463,
+    "Property_and_Real_Estate": 0.41155464205009856,
+    "Business_and_Corporate": 0.0,
+    "Intellectual_Property": 0.07682773210250493,
+    "Financial_and_Security": 0.41924371364007884,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.1673109284100197
+  },
+  "processing_metadata": {
+    "classifier_version": "1.0.0",
+    "classification_method": "regex_pattern_matching",
+    "total_patterns_checked": 784,
+    "document_metadata": {},
+    "timestamp": "2025-09-20T21:21:27.414976"
+  },
+  "summary": {
+    "classification_successful": true,
+    "primary_label": "Constitutional_and_Legislative",
+    "confidence_level": "high",
+    "pattern_diversity": 56,
+    "top_keywords": [
+      "act",
+      "section",
+      "evidence",
+      "accused",
+      "appellant"
+    ]
+  }
+}

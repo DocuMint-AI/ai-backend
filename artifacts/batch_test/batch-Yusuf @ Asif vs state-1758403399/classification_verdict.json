@@ -1,0 +1,444 @@
+{
+  "label": "Constitutional_and_Legislative",
+  "score": 1.0,
+  "confidence": "high",
+  "matched_patterns": [
+    {
+      "keyword": "act",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 13,
+      "positions": [
+        1315,
+        1564,
+        2825,
+        3976,
+        4117,
+        4611,
+        4698,
+        5718,
+        6361,
+        6477,
+        7665,
+        8157,
+        8585
+      ],
+      "context_snippets": [
+        "of the\nNarcotic Drugs and Psychotropic Substances Act, 19852 and\nconvicted them to undergo rigorous imp",
+        "ed to as “NCB”\n2 hereinafter referred to as “NDPS Act”\n2 | 10\n\n5. All the four accused persons preferre",
+        "ndatory provisions of Section 52A (2) of the NDPS Act as\nthe procedure prescribed therein was not follo"
+      ]
+    },
+    {
+      "keyword": "section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 16,
+      "positions": [
+        2797,
+        3953,
+        4076,
+        4674,
+        5035,
+        5078,
+        5551,
+        6222,
+        6648,
+        6943,
+        6998,
+        7641,
+        8118,
+        8133,
+        8561,
+        8807
+      ],
+      "context_snippets": [
+        "done in violation of the\nmandatory provisions of Section 52A (2) of the NDPS Act as\nthe procedure prescrib",
+        "duly submitted their report as referred to\nunder Section 57 of the NDPS Act.\n10. In order to test the abov",
+        "t would be relevant to\nrefer to the provisions of Section 52A (2), (3) and (4) of the\nNDPS Act. The aforesa"
+      ]
+    },
+    {
+      "keyword": "judgment",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 3,
+      "positions": [
+        1806,
+        2247,
+        9933
+      ],
+      "context_snippets": [
+        "vide\norder dated 15.07.2022. The High Court vide judgment and or­\nder dated 11.10.2022 dismissed the appeal",
+        "ne has preferred\nthe present appeal assailing the judgment and order of the\nHigh Court dated 11.10.2022.\n7.",
+        "appellant deserves to be set aside. The impugned judgment\nand order of the High Court as well as the trial"
+      ]
+    },
+    {
+      "keyword": "order",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 5,
+      "positions": [
+        1762,
+        2260,
+        3988,
+        9946,
+        10477
+      ],
+      "context_snippets": [
+        "e appeal was dismissed as abated against him vide\norder dated 15.07.2022. The High Court vide judgment an",
+        "red\nthe present appeal assailing the judgment and order of the\nHigh Court dated 11.10.2022.\n7. It may be",
+        "erred to\nunder Section 57 of the NDPS Act.\n10. In order to test the above submissions, it would be releva"
+      ]
+    },
+    {
+      "keyword": "dismissed",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 2,
+      "positions": [
+        1725,
+        1844
+      ],
+      "context_snippets": [
+        "appeal, A­4 (Ganesh Ram)\ndied and the appeal was dismissed as abated against him vide\norder dated 15.07.2022",
+        "Court vide judgment and or­\nder dated 11.10.2022 dismissed the appeal holding that there\nis no error in the"
+      ]
+    },
+    {
+      "keyword": "allowed",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 1,
+      "positions": [
+        10461
+      ],
+      "context_snippets": [
+        "onds, if any, stands cancelled.\n19. The appeal is allowed with no order as to costs.\n……………………….. J.\n(ABHAY"
+      ]
+    },
+    {
+      "keyword": "supreme court of india",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 1,
+      "positions": [
+        36
+      ],
+      "context_snippets": [
+        "2023 INSC 912 NON­REPORTABLE\nIN THE SUPREME COURT OF INDIA\nCRIMINAL APPELLATE JURISDICTION\nCRIMINAL APPEAL N"
+      ]
+    },
+    {
+      "keyword": "high court",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 4,
+      "positions": [
+        1790,
+        2178,
+        2273,
+        9959
+      ],
+      "context_snippets": [
+        "ated against him vide\norder dated 15.07.2022. The High Court vide judgment and or­\nder dated 11.10.2022 dismis",
+        "ing by the trial court\nand its affirmation by the High Court, A­1 alone has preferred\nthe present appeal assai",
+        "nt appeal assailing the judgment and order of the\nHigh Court dated 11.10.2022.\n7. It may be relevant to mentio"
+      ]
+    },
+    {
+      "keyword": "criminal appeal",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 1,
+      "positions": [
+        91
+      ],
+      "context_snippets": [
+        "ME COURT OF INDIA\nCRIMINAL APPELLATE JURISDICTION\nCRIMINAL APPEAL NO.3191 OF 2023\n[Arising out of SLP (Crl.) No. 30"
+      ]
+    },
+    {
+      "keyword": "appeal no",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 1,
+      "positions": [
+        100
+      ],
+      "context_snippets": [
+        "OF INDIA\nCRIMINAL APPELLATE JURISDICTION\nCRIMINAL APPEAL NO.3191 OF 2023\n[Arising out of SLP (Crl.) No. 3010"
+      ]
+    },
+    {
+      "keyword": "slp",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 1,
+      "positions": [
+        139
+      ],
+      "context_snippets": [
+        "N\nCRIMINAL APPEAL NO.3191 OF 2023\n[Arising out of SLP (Crl.) No. 3010 of 2023]\nYUSUF @ ASIF …APPELLANT"
+      ]
+    },
+    {
+      "keyword": "respondent",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 4,
+      "positions": [
+        206,
+        409,
+        3134,
+        7487
+      ],
+      "context_snippets": [
+        "10 of 2023]\nYUSUF @ ASIF …APPELLANT\nVERSUS\nSTATE …RESPONDENT\nJ U D G M E N T\nPANKAJ MITHAL, J.\n1. Leave grante",
+        "ati, learned Additional\nSolicitor General for the respondent.\n1 | 10\n\n3. On the basis of the information recei",
+        "the seized contraband.\n9. Learned counsel for the respondent on behalf of the State\nsubmitted that the search"
+      ]
+    },
+    {
+      "keyword": "appellant",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 6,
+      "positions": [
+        182,
+        329,
+        2630,
+        9884,
+        10012,
+        10217
+      ],
+      "context_snippets": [
+        "out of SLP (Crl.) No. 3010 of 2023]\nYUSUF @ ASIF …APPELLANT\nVERSUS\nSTATE …RESPONDENT\nJ U D G M E N T\nPANKAJ M",
+        "r. Narendra Hooda, learned Senior counsel for the\nappellant and Ms. Aishwarya Bhati, learned Additional\nSolic",
+        "8. We have heard learned Senior counsel for the appellant. The\nmain plank of his argument is that the entir"
+      ]
+    },
+    {
+      "keyword": "accused",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 3,
+      "positions": [
+        1593,
+        1960,
+        3321
+      ],
+      "context_snippets": [
+        "referred to as “NDPS Act”\n2 | 10\n\n5. All the four accused persons preferred appeal before the High\nCourt. D",
+        "s recorded by the trial court and,\ntherefore, the accused persons were directed to serve the re­\nmaining se",
+        "Officer of NCB\nwho has been examined as PW1. The accused persons were\ndisclosed the identity of the office"
+      ]
+    },
+    {
+      "keyword": "vs",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        9137
+      ],
+      "context_snippets": [
+        "thereof on being certified alone\n3 Union of India vs Mohanlal and Anr(2016) 3 SCC 379\n9 | 10\n\nwould co"
+      ]
+    },
+    {
+      "keyword": "versus",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        192
+      ],
+      "context_snippets": [
+        "(Crl.) No. 3010 of 2023]\nYUSUF @ ASIF …APPELLANT\nVERSUS\nSTATE …RESPONDENT\nJ U D G M E N T\nPANKAJ MITHAL,"
+      ]
+    },
+    {
+      "keyword": "against",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        1745
+      ],
+      "context_snippets": [
+        "Ram)\ndied and the appeal was dismissed as abated against him vide\norder dated 15.07.2022. The High Court v"
+      ]
+    },
+    {
+      "keyword": "evidence",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 9,
+      "positions": [
+        1192,
+        6352,
+        6704,
+        7522,
+        7805,
+        9206,
+        9594,
+        9642,
+        9801
+      ],
+      "context_snippets": [
+        "stered.\nThe trial court upon consideration of the evidence on record\nheld all the four persons guilty under",
+        "Notwithstanding anything contained in the\nIndian Evidence Act, 1872 (1 of 1872) or the\nCode of Criminal Pro",
+        "n (2) and\ncertified by the Magistrate, as primary evidence\nin respect of such offence.”\n12. A simple reading"
+      ]
+    },
+    {
+      "keyword": "affirmation",
+      "category": "Judicial_Documents",
+      "subcategory": "affidavits",
+      "frequency": 1,
+      "positions": [
+        2159
+      ],
+      "context_snippets": [
+        "viction and sentencing by the trial court\nand its affirmation by the High Court, A­1 alone has preferred\nthe pr"
+      ]
+    },
+    {
+      "keyword": "police station",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 2,
+      "positions": [
+        4986,
+        8758
+      ],
+      "context_snippets": [
+        "forwarded to\nthe officer­in­charge of the nearest police station\nor to the officer empowered under section 53, the",
+        "ed either to the officer­in­charge of the nearest\npolice station or to the officer empowered under Section 53\nwho"
+      ]
+    },
+    {
+      "keyword": "bail",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 2,
+      "positions": [
+        10324,
+        10405
+      ],
+      "context_snippets": [
+        "isonment out of 10 years awarded to him. He is on bail\nand has been granted exemption from surrender by",
+        "tion from surrender by this\nCourt. Therefore, his bail bonds, if any, stands cancelled.\n19. The appeal i"
+      ]
+    },
+    {
+      "keyword": "consideration",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "sale_deeds",
+      "frequency": 1,
+      "positions": [
+        1171
+      ],
+      "context_snippets": [
+        "No.113/2000 was registered.\nThe trial court upon consideration of the evidence on record\nheld all the four perso"
+      ]
+    },
+    {
+      "keyword": "possession",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "sale_deeds",
+      "frequency": 1,
+      "positions": [
+        713
+      ],
+      "context_snippets": [
+        "in\nthe lorry and upon search, they were found in possession of\ncommercial quantity i.e. 20 kgs of heroin kept"
+      ]
+    },
+    {
+      "keyword": "owner",
+      "category": "Intellectual_Property",
+      "subcategory": "copyright_documents",
+      "frequency": 1,
+      "positions": [
+        2356
+      ],
+      "context_snippets": [
+        "t may be relevant to mention here that A­1 is the owner of the\ncontraband and the same was being transpor"
+      ]
+    },
+    {
+      "keyword": "charge",
+      "category": "Financial_and_Security",
+      "subcategory": "security_documents",
+      "frequency": 2,
+      "positions": [
+        4964,
+        8736
+      ],
+      "context_snippets": [
+        "] has been seized and forwarded to\nthe officer­in­charge of the nearest police station\nor to the officer e",
+        ", it has\nto be forwarded either to the officer­in­charge of the nearest\npolice station or to the officer e"
+      ]
+    },
+    {
+      "keyword": "possession",
+      "category": "Financial_and_Security",
+      "subcategory": "recovery_documents",
+      "frequency": 1,
+      "positions": [
+        713
+      ],
+      "context_snippets": [
+        "in\nthe lorry and upon search, they were found in possession of\ncommercial quantity i.e. 20 kgs of heroin kept"
+      ]
+    },
+    {
+      "keyword": "consent",
+      "category": "Specialized_Documents",
+      "subcategory": "data_protection",
+      "frequency": 1,
+      "positions": [
+        3407
+      ],
+      "context_snippets": [
+        "dentity of the officers and after obtaining their\nconsent in writing, the search was carried out in the pre"
+      ]
+    }
+  ],
+  "text_length": 10593,
+  "total_matches": 85,
+  "category_scores": {
+    "Constitutional_and_Legislative": 1.0,
+    "Judicial_Documents": 1.0,
+    "Personal_and_Family": 0.0,
+    "Property_and_Real_Estate": 0.2071627489851789,
+    "Business_and_Corporate": 0.0,
+    "Intellectual_Property": 0.12608137449258944,
+    "Financial_and_Security": 0.29824412347776835,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.11608137449258943
+  },
+  "processing_metadata": {
+    "classifier_version": "1.0.0",
+    "classification_method": "regex_pattern_matching",
+    "total_patterns_checked": 784,
+    "document_metadata": {},
+    "timestamp": "2025-09-20T21:23:38.527079"
+  },
+  "summary": {
+    "classification_successful": true,
+    "primary_label": "Constitutional_and_Legislative",
+    "confidence_level": "high",
+    "pattern_diversity": 26,
+    "top_keywords": [
+      "section",
+      "act",
+      "evidence",
+      "appellant",
+      "order"
+    ]
+  }
+}

@@ -1,0 +1,721 @@
+{
+  "label": "Judicial_Documents",
+  "score": 4.275492125984251,
+  "confidence": "high",
+  "matched_patterns": [
+    {
+      "keyword": "act",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 10,
+      "weight": 1.0,
+      "weighted_score": 10.0,
+      "positions": [
+        385,
+        2181,
+        3389,
+        5577,
+        6102,
+        9621,
+        10085,
+        10116,
+        10182,
+        10548
+      ],
+      "context_snippets": [
+        "den at Bandarawela), 44156 Criminal law—Charge of forgery—Penal Code, se. 452, 453, 454—Citizenship Act, s. 6—Defence of autrefois acquit—Burden of proof—Whether accused should he given an opportunity of",
+        "n application made by him for a certificate of citizenship in terms of section 6 of the Citizenship Act. In the appeal to the Privy Council the appellant by his counsel did not argue that the conclusion",
+        "be issued by the Minister of Defence and External Affairs in terms of Section 6 of the Citizenship Act (Cap. 349) with the intention of causing it to be believed that the said document was signed by Vee",
+        "ey-General 3G3 tKit his position as a citizen of Ceylon by birth under section C of the Cilizendiip Act. Xo. IS of 194S, should be clarified and also asking fur an application form. He signed the letter",
+        "own birth in Ceylon, the point being that he would then qualify under section 4 of the Citizenship Act as a citizen of Ceylon by descent. The appellant .subsequently signed and sent to the Department a",
+        "lla with your application for a certificate of Citizenship in terms of Section 6 of the Citizenship Act (Chapter 349 L.E.C.) attempt to deceive the Hon. S. W. R. D. Bandaranayake, Minister of Defence and",
+        "ndaranayake to issue you with a certificate of Citizenship in terms of Section 6 of the Citizenship Act (Chapter 349 L.E.C.) which act he would not have done had he not been so deceived, and whioh act wa",
+        "certificate of Citizenship in terms of Section 6 of the Citizenship Act (Chapter 349 L.E.C.) which act he would not have done had he not been so deceived, and whioh act was likely to cause loss or damag",
+        "ip Act (Chapter 349 L.E.C.) which act he would not have done had he not been so deceived, and whioh act was likely to cause loss or damago to the Government and you have thereby committed an.offence\" pun",
+        "e purpose of procuring a certificate ■f Citizenship issued in terms of Section 6 of the Citizenship Act (Chapter 349 L.E.C.) make a statement to w it: that you were Veerappan S/O Tiruman born at Sherwood"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 18,
+      "weight": 1.0,
+      "weighted_score": 18.0,
+      "positions": [
+        2152,
+        2883,
+        3360,
+        3858,
+        4306,
+        4640,
+        5182,
+        5548,
+        6073,
+        7705,
+        8121,
+        9592,
+        10056,
+        10299,
+        10321,
+        10519,
+        10890,
+        11754
+      ],
+      "context_snippets": [
+        "tificate in connection with an application made by him for a certificate of citizenship in terms of section 6 of the Citizenship Act. In the appeal to the Privy Council the appellant by his counsel did not a",
+        "and sentenced to a term of two years rigorous imprisonment on a charge of forgery punishable under section 454 of the Penal Code which provides for a maximum period of five years imprisonment to be imposed.",
+        "of citizenship by descent, to be issued by the Minister of Defence and External Affairs in terms of Section 6 of the Citizenship Act (Cap. 349) with the intention of causing it to be believed that the said d",
+        "ew that the said document was not signed, and he lias thereby committed an offence punishable under Section 454 of the Penal Code.’ ” The offence with which lie was charged is not ordinarily triable summaril",
+        "ed in 105S and (3) no complicated points of law arose. Though entitled to assume jurisdiction under section 152 (3) of the Criminal Procedure Code the Magistrate had no power to impose any sentence but one w",
+        "as therefore limited to two years imprisonment as opposed to the maximum of five years laid down in section 454 of the Penal Code. .The appellant pleaded \" not guilty ”, was not called as a witness nor did h",
+        "acquittal the Court held that upon the facts found by the Magistrate forgery within the meaning of section 453 of the Pena! Code had been made put. The appellant was an Indian Tamil resident in Ceylon. He.h",
+        "D IIODSOX—Vecrappcn v. Attorney-General 3G3 tKit his position as a citizen of Ceylon by birth under section C of the Cilizendiip Act. Xo. IS of 194S, should be clarified and also asking fur an application fo",
+        "e documentary evidence of his own birth in Ceylon, the point being that he would then qualify under section 4 of the Citizenship Act as a citizen of Ceylon by descent. The appellant .subsequently signed and",
+        "orgery should be recorded. Forgery is defined by the Penal Code sections 452 and 453 as follows : “ Section 452 Whoever makes any false document or part of a document with intent to cause damage or injury to",
+        "ud, or that fraud may be committed, commits forgery.  364 LORD HODSON'—Veerappenv. Attorney-General Section 453 A person is said to make a false document: Firstly who dishonestly or fraudulently makes, signs",
+        "ict Registrar of Births, Badulla with your application for a certificate of Citizenship in terms of Section 6 of the Citizenship Act (Chapter 349 L.E.C.) attempt to deceive the Hon. S. W. R. D. Bandaranayake",
+        "the said Hon. S. W. R. D. Bandaranayake to issue you with a certificate of Citizenship in terms of Section 6 of the Citizenship Act (Chapter 349 L.E.C.) which act he would not have done had he not been so d",
+        "cause loss or damago to the Government and you have thereby committed an.offence\" punishablo under Section 400 read with Section 490 of the Penal Code. 2. That at the time and place aforesaid and in the cou",
+        "to the Government and you have thereby committed an.offence\" punishablo under Section 400 read with Section 490 of the Penal Code. 2. That at the time and place aforesaid and in the course of tho same transa",
+        "me transaction you did for the purpose of procuring a certificate ■f Citizenship issued in terms of Section 6 of the Citizenship Act (Chapter 349 L.E.C.) make a statement to w it: that you were Veerappan S/O",
+        "Tiruman a Citizen of Ceylon by descent and you are thereby guilty of an offence punishable • under section 25 of the Citizenship Aot.”  LORD HODSO>f— Veerappen v. Attorney-General 365 The Record of Discharg",
+        "ty ”. The Magistrate rejected the plea of autrefois acquit on the ground that the charge made under section 454 was not one of the charges'in case No. 29950 but in their Lordships’ view it is unnecessary to"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "ministry",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        5384
+      ],
+      "context_snippets": [
+        "He.had been a watcher on aii estate in Haputale. In July 195S he wrote to the Permanent Secretary, Ministry of Defence and External Affairs, at Colombo asking  LOUD IIODSOX—Vecrappcn v. Attorney-General 3G3"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "department",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        6192
+      ],
+      "context_snippets": [
+        "tizenship Act as a citizen of Ceylon by descent. The appellant .subsequently signed and sent to the Department a form of application verified by affidavit in which he gave his date and place of birth as 1.5.191"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "rule",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        1689,
+        14941
+      ],
+      "context_snippets": [
+        "ot accepted and the accused is convicted. The Judicial Committee of the Privy Council does not as a rule interfere with sentences. In appeals against acquittals it is highly desirable that accused persons",
+        "iction being entered against him. Their Lordships cannot uphold this objection. They vcill not as a rule interfere.Avith sentences. Moreover on the face of it the sentence is not in their Lordships’ opini"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "judgment",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 6,
+      "weight": 1.0,
+      "weighted_score": 6.0,
+      "positions": [
+        1938,
+        2424,
+        8899,
+        14486,
+        14642,
+        15099
+      ],
+      "context_snippets": [
+        "n by an appellate court, of pleading in mitigation of sentence, A pPEAL, with special leave, from a judgment of the Supreme Court. The appellant was convicted by the Supreme Court of forgery for forging a bir",
+        "as not sustainable but relied inter alia upon the defence of autrefois acquit for setting aside the judgment of the Supreme Court. E. F. N. Gratiaen, Q.G., with John Baker, fgr the accused-appellant. Montague",
+        "gery was not sustainable but relied upon other matters as substantial grounds for setting aside the judgment of the Sujweme Court. First he relied on the defence of “ autrefois acquit\". This defence was raise",
+        "set aside. No injustice was done to the appellant in that the Supreme Court did not, before giving judgment, give him a further opportunity of calling evidence. Finally it was submitted that there was a grav",
+        "ence. Finally it was submitted that there was a grave irregularity in the Supreme Court in that the Judgment in its final paragraph imposed a sentence of two years rigorous imprisonment Avithout gi\\'ing an .",
+        "the sentence is not in their Lordships’ opinion an excessive one. It is recognised that, since the judgment ivas handed out by the Court to the parties, there was no separate opportunity given to the appella"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "order",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        3033,
+        15381
+      ],
+      "context_snippets": [
+        "maximum period of five years imprisonment to be imposed. He was granted special leave to appeal by Order of Her Majesty in Council on 13th November 1967. He had been charged on 10th March I960 in the Magi",
+        "ad been given by the Petition of Appeal that the Attorney-General Avas praying not only to have the order of acquittal made by the Magistrate reversed but also that sentence might be passed on the appellan"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "delivered by",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        2676
+      ],
+      "context_snippets": [
+        "Lxxn—16 !•—~J no4S-2,:!5 (1/70)  . 362 LORD HODSON—Veerappen v. Attorney-General October 6, 1969. [Delivered by Lord Hodson]— The appellant was convicted in the Supreme Court of Ceylon on 27th February 1967 and"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "dismissed",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        16228,
+        16246
+      ],
+      "context_snippets": [
+        "r the reasons given above their Lordships Avill humbly advise Her Majesty that the appeal should be dismissed. Appeal dismissed.",
+        "n above their Lordships Avill humbly advise Her Majesty that the appeal should be dismissed. Appeal dismissed."
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "district court",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        4420
+      ],
+      "context_snippets": [
+        ") of the Criminal Procedure Code the Magistrate had no power to impose any sentence but one which a District Court might lawfully impose. The punishment which he could have imposed if he had found the appellant- gu"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "appellate court",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        1846,
+        16083
+      ],
+      "context_snippets": [
+        "als it is highly desirable that accused persons should have the opportunity, after conviction by an appellate court, of pleading in mitigation of sentence, A pPEAL, with special leave, from a judgment of the Supreme",
+        "hly desirable that accused persons in such cases should have the opportunity after conviction by an appellate court of pleading in mitigation. For the reasons given above their Lordships Avill humbly advise Her Maje"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "case no",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        9161,
+        11796
+      ],
+      "context_snippets": [
+        "tendered in evidence the Charge Sheet and Record of Discharge in Joint Magistrate’s Court Colombo, Case No. 29950, 28th October 1963 to 24th February 1965. The Charge Sheet reads as follows : “ Accused Pala",
+        "autrefois acquit on the ground that the charge made under section 454 was not one of the charges'in case No. 29950 but in their Lordships’ view it is unnecessary to consider the question whether the substant"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "respondent",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 2,
+      "weight": 1.0,
+      "weighted_score": 2.0,
+      "positions": [
+        197,
+        2550
+      ],
+      "context_snippets": [
+        "e Lord Donovan, Lord Pearson and Lord Diplock T. P. VEERAPPEN, Appellant, and THE ATTORNEY-GENERAL, Respondent P r iv y C ou n cil A ppe al No. 11 o f 1968 S. C. 1249/56—M. 0. Badulla (holden at Bandarawela), 4",
+        "urt. E. F. N. Gratiaen, Q.G., with John Baker, fgr the accused-appellant. Montague Solomon, for the respondent, Cur. adv. Dull Lxxn—16 !•—~J no4S-2,:!5 (1/70)  . 362 LORD HODSON—Veerappen v. Attorney-General Oc"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "appellant",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 36,
+      "weight": 1.0,
+      "weighted_score": 36.0,
+      "positions": [
+        160,
+        1099,
+        1973,
+        2225,
+        2513,
+        2707,
+        4521,
+        4676,
+        5235,
+        5848,
+        6145,
+        6691,
+        6800,
+        6913,
+        6971,
+        7003,
+        7111,
+        7335,
+        7591,
+        8683,
+        11383,
+        11548,
+        12025,
+        12451,
+        12647,
+        13011,
+        13225,
+        13472,
+        13657,
+        14248,
+        14427,
+        14770,
+        15200,
+        15478,
+        15536,
+        15670
+      ],
+      "context_snippets": [
+        "resent: Lord Hodson, Viscount Diihorne Lord Donovan, Lord Pearson and Lord Diplock T. P. VEERAPPEN, Appellant, and THE ATTORNEY-GENERAL, Respondent P r iv y C ou n cil A ppe al No. 11 o f 1968 S. C. 1249/56—M.",
+        "that the accused was called upon to plead to the charge. In such a case it cannot be said that the appellant was ever put in peril on the first occasion. Where, at the trial of a criminal case, Counsel for th",
+        "g in mitigation of sentence, A pPEAL, with special leave, from a judgment of the Supreme Court. The appellant was convicted by the Supreme Court of forgery for forging a birth certificate in connection with an",
+        "of citizenship in terms of section 6 of the Citizenship Act. In the appeal to the Privy Council the appellant by his counsel did not argue that the conclusion of the Supreme Court as to the forgery was not sus",
+        "aside the judgment of the Supreme Court. E. F. N. Gratiaen, Q.G., with John Baker, fgr the accused-appellant. Montague Solomon, for the respondent, Cur. adv. Dull Lxxn—16 !•—~J no4S-2,:!5 (1/70)  . 362 LORD H",
+        ")  . 362 LORD HODSON—Veerappen v. Attorney-General October 6, 1969. [Delivered by Lord Hodson]— The appellant was convicted in the Supreme Court of Ceylon on 27th February 1967 and sentenced to a term of two y",
+        "istrict Court might lawfully impose. The punishment which he could have imposed if he had found the appellant- guilty was therefore limited to two years imprisonment as opposed to the maximum of five years lai",
+        "prisonment as opposed to the maximum of five years laid down in section 454 of the Penal Code. .The appellant pleaded \" not guilty ”, was not called as a witness nor did he ofFer other evidence save that he pu",
+        "y the Magistrate forgery within the meaning of section 453 of the Pena! Code had been made put. The appellant was an Indian Tamil resident in Ceylon. He.had been a watcher on aii estate in Haputale. In July 19",
+        "PALAXDIALAI VEERAPPEX ” . Xo jmint was made of the difference between Thiruman and Thimnialai. The appellant did however state, in answer to the questionnaire, that his father had been born in Ceylon and tint",
+        "he would then qualify under section 4 of the Citizenship Act as a citizen of Ceylon by descent. The appellant .subsequently signed and sent to the Department a form of application verified by affidavit in whic",
+        "on 1st May 191S at the Sherwood Estate. A certificate of Citizenship was accordingly issued to the appellant stating his name and place of birth as set out in his application. The prosecution proved that the",
+        "stating his name and place of birth as set out in his application. The prosecution proved that the appellant was not the person to whom the birth certificate related. They produced (1) a birth certificate of",
+        "not the person to whom the birth certificate related. They produced (1) a birth certificate of the appellant’s grandson based on information supplied by the appellant which showed that the appellant was not b",
+        "y produced (1) a birth certificate of the appellant’s grandson based on information supplied by the appellant which showed that the appellant was not born in Ceylon, (2) a Provident Fund record card filled in",
+        "te of the appellant’s grandson based on information supplied by the appellant which showed that the appellant was not born in Ceylon, (2) a Provident Fund record card filled in on information supplied by the a",
+        "t was not born in Ceylon, (2) a Provident Fund record card filled in on information supplied by the appellant showing that lie was born in South India, and (3) a Labour discharge certificate of less significan",
+        "n of the Magistrate was that by enclosing the false birth certificate with his application form the appellant was seeking to pass himself off as the “ Vecrappcn ” son of Tiruman who had the qualification for c",
+        "urt, upon these facts, reversing the decision of the Magistrate, held that a verdict convicting the appellant of forgery should be recorded. Forgery is defined by the Penal Code sections 452 and 453 as follows",
+        "xecuted, or at a time at which he knows that it was not made, signed, sealed, or executed ..: ” The appellant by his counsel did not argue before their Lordships that the conclusion of the Supreme Court as to",
+        "idence .against the accused in this case. J discharge the accused.” There is no indication that the appellant was called upon to plead to the charge. This case can be contrasted with the procedure followed on",
+        "e contrasted with the procedure followed on the trial with which this appeal is concerned; when the appellant on being asked if he had any cause to show why he should not be convicted stated “ I am not guilty",
+        "he second proceedings are the same as those raised in the first. The Record does not showr that the appellant was ever put in peril on the first occasion. It shows the reverse namely that counsel for the prose",
+        "of the Court journal has not shown any indication that he w'as called upon. Tire burden being upon appellant to establish the plea of autrefois acquit and there being no evidence to support it this ground of",
+        "is ground of appeal is not established. A second point, taken somewhat tentatively on behalf of the appellant was that when his Counsel stated that he was not calling any evidence but made a submission in law",
+        "f the Magistrate had over-ruled that submission justice required that he should then have given the appellant an opportunity of leading evidence. Further it was submitted that the Supreme Court should not have",
+        "aside the verdict of acquittal entered by the Magistrate without giving the same opportunity to the appellant since the Supreme Court was in effect doing no more than over-ruling a submission of “ No case to a",
+        "s point. When the case for the prosecution was closed on 8th July 1966 the Magistrate called on the appellant for his defence. His Counsel then indicated that he w'as calling no evidence and confined himself t",
+        "e and confined himself to tendering the Charge Sheet and the record of the earlier proceedings. The appellant’s counsel in whose hands he was, J**------J 11043 (1/70)  366 LORD HODSOK—Vee'rappen v. Attorney-Ge",
+        "fence of forgery was not established. The Supreme Court, upon those facts, the only facts which the appellant had sought to put forward substituted a verdict convicting the appollant of forgery for the verdict",
+        "ant of forgery for the verdict of acquittal which the Court set aside. No injustice was done to the appellant in that the Supreme Court did not, before giving judgment, give him a further opportunity of callin",
+        "aph imposed a sentence of two years rigorous imprisonment Avithout gi\\'ing an . opportunity for the appellant to be heard in mitigation of sentence in .the event of a conviction being entered against him. Thei",
+        "udgment ivas handed out by the Court to the parties, there was no separate opportunity given to the appellant by himself or his counsel to plead in mitigation. Nevertheless notice had been given by the Petitio",
+        "he order of acquittal made by the Magistrate reversed but also that sentence might be passed on the appellant according .to law. It was therefore open to the appellant to deal at the hearing before the Supreme",
+        "also that sentence might be passed on the appellant according .to law. It was therefore open to the appellant to deal at the hearing before the Supreme Court Avith tho question of punishment. It is true that t",
+        "efore the Supreme Court Avith tho question of punishment. It is true that this is a course which an appellant will not readily take Avhen the question of conviction is still in suspense. Their Lordships do not"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "accused",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 18,
+      "weight": 1.0,
+      "weighted_score": 18.0,
+      "positions": [
+        447,
+        706,
+        836,
+        965,
+        1009,
+        1210,
+        1509,
+        1577,
+        1609,
+        1778,
+        2505,
+        9256,
+        11027,
+        11186,
+        11303,
+        11341,
+        12211,
+        16002
+      ],
+      "context_snippets": [
+        "l Code, se. 452, 453, 454—Citizenship Act, s. 6—Defence of autrefois acquit—Burden of proof—Whether accused should he given an opportunity of calling evidence if the defence that prosecution does not support",
+        "ill not generally interfere with it—Appeal against acquittal—Conviction thereafter— Desirability of accused being heard—in-mitigation of sentence. The defence of autrefois acquit cannot succeed if in the rel",
+        "ion of sentence. The defence of autrefois acquit cannot succeed if in the relevant earlier case the accused was discharged because counsel for the prosecution stated that the prosecution was not adducing any",
+        "e counsel for the prosecution stated that the prosecution was not adducing any evidence against the accused and thero is no indication that the accused was called upon to plead to the charge. In such a case",
+        "e prosecution was not adducing any evidence against the accused and thero is no indication that the accused was called upon to plead to the charge. In such a case it cannot be said that the appellant was eve",
+        "as ever put in peril on the first occasion. Where, at the trial of a criminal case, Counsel for the accused states that he is not calling any evidence but makes a submission in law to the effect that the evi",
+        "trial Court or the Supreme Court (on appeal from an acquittal) to give a further opportunity to the accused of calling evidence if the submission made on behalf of the accused is not accepted and the accused",
+        "ve a further opportunity to the accused of calling evidence if the submission made on behalf of the accused is not accepted and the accused is convicted. The Judicial Committee of the Privy Council does not",
+        "accused of calling evidence if the submission made on behalf of the accused is not accepted and the accused is convicted. The Judicial Committee of the Privy Council does not as a rule interfere with sentenc",
+        "s not as a rule interfere with sentences. In appeals against acquittals it is highly desirable that accused persons should have the opportunity, after conviction by an appellate court, of pleading in mitigat",
+        "setting aside the judgment of the Supreme Court. E. F. N. Gratiaen, Q.G., with John Baker, fgr the accused-appellant. Montague Solomon, for the respondent, Cur. adv. Dull Lxxn—16 !•—~J no4S-2,:!5 (1/70)  .",
+        "mbo, Case No. 29950, 28th October 1963 to 24th February 1965. The Charge Sheet reads as follows : “ Accused Palanimalay Veerappan. 1. That between the 2nd day of July, 195S and the 22nd day of September, 195",
+        "LORD HODSO>f— Veerappen v. Attorney-General 365 The Record of Discharge in this case shows that the accused was present. Then follows the word \"Evidence” and underneath appears the following: “ Jlr. Adv. Sit",
+        "nderneath appears the following: “ Jlr. Adv. Sittampalam instructed by Mr. Siva Subramaniam for the accused. ^Ir. W. Paul C.C. for the prosecution states that the prosecution is not adducing any evidence .ag",
+        "Paul C.C. for the prosecution states that the prosecution is not adducing any evidence .against the accused in this case. J discharge the accused.” There is no indication that the appellant was called upon t",
+        "hat the prosecution is not adducing any evidence .against the accused in this case. J discharge the accused.” There is no indication that the appellant was called upon to plead to the charge. This case can b",
+        "t counsel for the prosecution stated that the prosecution was not adducing any evidence against the accused in the ease whereupon he was discharged. There is nothing to indicate that the apjiellant was ever",
+        "Even though appeals against acquittals may be few in number they regard it as highly desirable that accused persons in such cases should have the opportunity after conviction by an appellate court of pleadin"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "against",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 8,
+      "weight": 1.0,
+      "weighted_score": 8.0,
+      "positions": [
+        649,
+        953,
+        1731,
+        5071,
+        11291,
+        12199,
+        14862,
+        15922
+      ],
+      "context_snippets": [
+        "pport the charge is not accepted—Sentence—Privy Council will not generally interfere with it—Appeal against acquittal—Conviction thereafter— Desirability of accused being heard—in-mitigation of sentence. The",
+        "arged because counsel for the prosecution stated that the prosecution was not adducing any evidence against the accused and thero is no indication that the accused was called upon to plead to the charge. In",
+        "The Judicial Committee of the Privy Council does not as a rule interfere with sentences. In appeals against acquittals it is highly desirable that accused persons should have the opportunity, after convictio",
+        "s offence, if any, being that of cheating. Upon appeal by the Attorney-General to the Supreme Court against the acquittal the Court held that upon the facts found by the Magistrate forgery within the meaning",
+        "ed. ^Ir. W. Paul C.C. for the prosecution states that the prosecution is not adducing any evidence .against the accused in this case. J discharge the accused.” There is no indication that the appellant was c",
+        "e namely that counsel for the prosecution stated that the prosecution was not adducing any evidence against the accused in the ease whereupon he was discharged. There is nothing to indicate that the apjiella",
+        "for the appellant to be heard in mitigation of sentence in .the event of a conviction being entered against him. Their Lordships cannot uphold this objection. They vcill not as a rule interfere.Avith sentenc",
+        "such there bo, of dealing Avith sentences without hearing a pica in mitigation. Even though appeals against acquittals may be few in number they regard it as highly desirable that accused persons in such cas"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "issues",
+      "category": "Judicial_Documents",
+      "subcategory": "pleadings",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        11907
+      ],
+      "context_snippets": [
+        "950 but in their Lordships’ view it is unnecessary to consider the question whether the substantial issues raised in the second proceedings are the same as those raised in the first. The Record does not sho"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "evidence",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 18,
+      "weight": 1.0,
+      "weighted_score": 18.0,
+      "positions": [
+        497,
+        944,
+        1252,
+        1314,
+        1528,
+        4761,
+        5987,
+        9074,
+        11071,
+        11281,
+        12190,
+        12522,
+        12718,
+        12779,
+        13047,
+        13550,
+        13813,
+        14538
+      ],
+      "context_snippets": [
+        "fence of autrefois acquit—Burden of proof—Whether accused should he given an opportunity of calling evidence if the defence that prosecution does not support the charge is not accepted—Sentence—Privy Council",
+        "was discharged because counsel for the prosecution stated that the prosecution was not adducing any evidence against the accused and thero is no indication that the accused was called upon to plead to the cha",
+        ". Where, at the trial of a criminal case, Counsel for the accused states that he is not calling any evidence but makes a submission in law to the effect that the evidence for the prosecution does not support",
+        "sed states that he is not calling any evidence but makes a submission in law to the effect that the evidence for the prosecution does not support the charge, there is no obligation on either the trial Court o",
+        "Supreme Court (on appeal from an acquittal) to give a further opportunity to the accused of calling evidence if the submission made on behalf of the accused is not accepted and the accused is convicted. The J",
+        "nal Code. .The appellant pleaded \" not guilty ”, was not called as a witness nor did he ofFer other evidence save that he put in a document to which reference will be made hereafter. He was acquitted on the g",
+        "to the questionnaire, that his father had been born in Ceylon and tint he could produce documentary evidence of his own birth in Ceylon, the point being that he would then qualify under section 4 of the Citiz",
+        "s acquit\". This defence was raised before the Magistrate on 7th May 1968 by counsel who tendered in evidence the Charge Sheet and Record of Discharge in Joint Magistrate’s Court Colombo, Case No. 29950, 28th",
+        "365 The Record of Discharge in this case shows that the accused was present. Then follows the word \"Evidence” and underneath appears the following: “ Jlr. Adv. Sittampalam instructed by Mr. Siva Subramaniam f",
+        "the accused. ^Ir. W. Paul C.C. for the prosecution states that the prosecution is not adducing any evidence .against the accused in this case. J discharge the accused.” There is no indication that the appell",
+        "he reverse namely that counsel for the prosecution stated that the prosecution was not adducing any evidence against the accused in the ease whereupon he was discharged. There is nothing to indicate that the",
+        "upon. Tire burden being upon appellant to establish the plea of autrefois acquit and there being no evidence to support it this ground of appeal is not established. A second point, taken somewhat tentatively",
+        "tentatively on behalf of the appellant was that when his Counsel stated that he was not calling any evidence but made a submission in law to the effect that the evidence for the prosecution could not support",
+        "sel stated that he was not calling any evidence but made a submission in law to the effect that the evidence for the prosecution could not support a charge of forgery, he was making a submission of “ No case",
+        "submission justice required that he should then have given the appellant an opportunity of leading evidence. Further it was submitted that the Supreme Court should not have set aside the verdict of acquittal",
+        "istrate called on the appellant for his defence. His Counsel then indicated that he w'as calling no evidence and confined himself to tendering the Charge Sheet and the record of the earlier proceedings. The a",
+        "043 (1/70)  366 LORD HODSOK—Vee'rappen v. Attorney-General indicated plainly that he was calling no evidence apart from the document to which reference lias been made. In so lar as it can be inferred that . C",
+        "n that the Supreme Court did not, before giving judgment, give him a further opportunity of calling evidence. Finally it was submitted that there was a grave irregularity in the Supreme Court in that the Judg"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "witness",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        4730
+      ],
+      "context_snippets": [
+        "d down in section 454 of the Penal Code. .The appellant pleaded \" not guilty ”, was not called as a witness nor did he ofFer other evidence save that he put in a document to which reference will be made here"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "documentary evidence",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        5975
+      ],
+      "context_snippets": [
+        ", in answer to the questionnaire, that his father had been born in Ceylon and tint he could produce documentary evidence of his own birth in Ceylon, the point being that he would then qualify under section 4 of the Citiz"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "affidavit",
+      "category": "Judicial_Documents",
+      "subcategory": "affidavits",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        6237
+      ],
+      "context_snippets": [
+        "nt. The appellant .subsequently signed and sent to the Department a form of application verified by affidavit in which he gave his date and place of birth as 1.5.191S Sherwood Estate, Haputalc and also gave hi"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "charge sheet",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 3,
+      "weight": 1.0,
+      "weighted_score": 3.0,
+      "positions": [
+        9087,
+        9222,
+        13597
+      ],
+      "context_snippets": [
+        "is defence was raised before the Magistrate on 7th May 1968 by counsel who tendered in evidence the Charge Sheet and Record of Discharge in Joint Magistrate’s Court Colombo, Case No. 29950, 28th October 1963 to 2",
+        "e in Joint Magistrate’s Court Colombo, Case No. 29950, 28th October 1963 to 24th February 1965. The Charge Sheet reads as follows : “ Accused Palanimalay Veerappan. 1. That between the 2nd day of July, 195S and t",
+        ". His Counsel then indicated that he w'as calling no evidence and confined himself to tendering the Charge Sheet and the record of the earlier proceedings. The appellant’s counsel in whose hands he was, J**------"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "will",
+      "category": "Personal_and_Family",
+      "subcategory": "wills_succession",
+      "frequency": 3,
+      "weight": 1.0,
+      "weighted_score": 3.0,
+      "positions": [
+        605,
+        4820,
+        15680
+      ],
+      "context_snippets": [
+        "if the defence that prosecution does not support the charge is not accepted—Sentence—Privy Council will not generally interfere with it—Appeal against acquittal—Conviction thereafter— Desirability of acc",
+        "lled as a witness nor did he ofFer other evidence save that he put in a document to which reference will be made hereafter. He was acquitted on the ground that, on the facts proved by the prosecution, the",
+        "Supreme Court Avith tho question of punishment. It is true that this is a course which an appellant will not readily take Avhen the question of conviction is still in suspense. Their Lordships do not rega"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "charge",
+      "category": "Financial_and_Security",
+      "subcategory": "security_documents",
+      "frequency": 12,
+      "weight": 1.0,
+      "weighted_score": 12.0,
+      "positions": [
+        325,
+        559,
+        1049,
+        1364,
+        2848,
+        4925,
+        9087,
+        9222,
+        11425,
+        11736,
+        12828,
+        13597
+      ],
+      "context_snippets": [
+        "il A ppe al No. 11 o f 1968 S. C. 1249/56—M. 0. Badulla (holden at Bandarawela), 44156 Criminal law—Charge of forgery—Penal Code, se. 452, 453, 454—Citizenship Act, s. 6—Defence of autrefois acquit—Burden o",
+        "ld he given an opportunity of calling evidence if the defence that prosecution does not support the charge is not accepted—Sentence—Privy Council will not generally interfere with it—Appeal against acquitta",
+        "nce against the accused and thero is no indication that the accused was called upon to plead to the charge. In such a case it cannot be said that the appellant was ever put in peril on the first occasion. W",
+        "makes a submission in law to the effect that the evidence for the prosecution does not support the charge, there is no obligation on either the trial Court or the Supreme Court (on appeal from an acquittal",
+        "urt of Ceylon on 27th February 1967 and sentenced to a term of two years rigorous imprisonment on a charge of forgery punishable under section 454 of the Penal Code which provides for a maximum period of fi",
+        "be made hereafter. He was acquitted on the ground that, on the facts proved by the prosecution, the charge of forgery had not been established, his offence, if any, being that of cheating. Upon appeal by th",
+        "is defence was raised before the Magistrate on 7th May 1968 by counsel who tendered in evidence the Charge Sheet and Record of Discharge in Joint Magistrate’s Court Colombo, Case No. 29950, 28th October 196",
+        "e in Joint Magistrate’s Court Colombo, Case No. 29950, 28th October 1963 to 24th February 1965. The Charge Sheet reads as follows : “ Accused Palanimalay Veerappan. 1. That between the 2nd day of July, 195S",
+        "J discharge the accused.” There is no indication that the appellant was called upon to plead to the charge. This case can be contrasted with the procedure followed on the trial with which this appeal is con",
+        "ed “ I am not guilty ”. The Magistrate rejected the plea of autrefois acquit on the ground that the charge made under section 454 was not one of the charges'in case No. 29950 but in their Lordships’ view it",
+        "ut made a submission in law to the effect that the evidence for the prosecution could not support a charge of forgery, he was making a submission of “ No case to answer ” ; and that if the Magistrate had ov",
+        ". His Counsel then indicated that he w'as calling no evidence and confined himself to tendering the Charge Sheet and the record of the earlier proceedings. The appellant’s counsel in whose hands he was, J**"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    },
+    {
+      "keyword": "claim",
+      "category": "Financial_and_Security",
+      "subcategory": "insurance_policies",
+      "frequency": 1,
+      "weight": 1.0,
+      "weighted_score": 1.0,
+      "positions": [
+        7881
+      ],
+      "context_snippets": [
+        "nt to cause damage or injury to the public or to any person, or to the Government or to support any claim or title, or to cause any person to part with property, or to enter into any express or implied con"
+      ],
+      "is_regex": false,
+      "pattern_type": "string"
+    }
+  ],
+  "text_length": 16256,
+  "total_matches": 153,
+  "total_weighted_score": 153.0,
+  "category_scores": {
+    "Constitutional_and_Legislative": 1.2987494210282537,
+    "Judicial_Documents": 4.275492125984251,
+    "Personal_and_Family": 0.1342577582213988,
+    "Property_and_Real_Estate": 0.0,
+    "Business_and_Corporate": 0.0,
+    "Intellectual_Property": 0.0,
+    "Financial_and_Security": 0.526881658175081,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.0
+  },
+  "diversity_scores": {
+    "Constitutional_and_Legislative": 0.29411764705882354,
+    "Judicial_Documents": 1.0,
+    "Personal_and_Family": 0.058823529411764705,
+    "Property_and_Real_Estate": 0.0,
+    "Business_and_Corporate": 0.0,
+    "Intellectual_Property": 0.0,
+    "Financial_and_Security": 0.11764705882352941,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.0
+  },
+  "processing_metadata": {
+    "classifier_version": "2.0.0",
+    "classification_method": "weighted_regex_pattern_matching",
+    "total_patterns_checked": 784,
+    "confidence_thresholds": {
+      "very_low": 0.0,
+      "low": 0.1,
+      "medium": 0.4,
+      "high": 0.7
+    },
+    "document_metadata": {},
+    "timestamp": "2025-09-21T02:06:50.268973Z"
+  },
+  "summary": {
+    "primary_label": "Judicial_Documents",
+    "confidence": "high",
+    "score": 4.275,
+    "top_keywords": [
+      "appellant",
+      "section",
+      "accused",
+      "evidence",
+      "charge"
+    ],
+    "total_matches": 153,
+    "categories_considered": 4
+  },
+  "statistics": {
+    "total_patterns_matched": 25,
+    "unique_categories_found": 4,
+    "average_pattern_weight": 1.0,
+    "text_coverage_ratio": 0.009411909448818898
+  }
+}

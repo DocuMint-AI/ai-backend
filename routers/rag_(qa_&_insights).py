@@ -1,9 +1,13 @@
 import os
 import json
+import logging
 from google.cloud import aiplatform
 from google.cloud import storage
 from vertexai.preview.language_models import TextGenerationModel
 from services.project_utils import get_user_session_structure, get_gcs_paths, get_username_from_env
+from services.rag_adapter import load_and_normalize, create_chunks_for_embeddings
+
+logger = logging.getLogger(__name__)
 
 # Config
 PROJECT_ID = "your-project-id"
@@ -16,7 +20,7 @@ TOP_N_CHUNKS = 5  # Number of text chunks to retrieve
 
 # Initialize Vertex AI SDK
 aiplatform.init(project=PROJECT_ID, location=LOCATION)
-embed_model = aiplatform.TextEmbeddingModel(EMBED_MODEL)
+embed_model = aiplatform.TextEmbeddingModel.from_pretrained(EMBED_MODEL)
 gemini = TextGenerationModel.from_pretrained(model_name=GEMINI_MODEL)
 storage_client = storage.Client()
 bucket = storage_client.bucket(BUCKET)
@@ -24,38 +28,82 @@ bucket = storage_client.bucket(BUCKET)
 
 def get_chunks_from_json(json_dir, user_session_id=None):
     """
-    Get text chunks from JSON files in user session structure.
+    Get text chunks from JSON files using RAG adapter for KAG compatibility.
+    
+    This function now uses the RAG adapter to automatically detect and normalize
+    both KAG input format and legacy JSON formats. The adapter handles:
+    - KAG format: parsed_document.full_text, clauses, entities, classifier_verdict
+    - Legacy format: content, extracted_data.text_content fields
+    - Configurable chunking with overlap for optimal embedding
     
     Args:
         json_dir: Directory containing JSON files (legacy) or user session ID
         user_session_id: Optional user session ID for new structure
+        
+    Returns:
+        List of chunk dictionaries compatible with existing RAG pipeline
     """
     chunks = []
     
     # If user_session_id provided, use new structure
     if user_session_id:
-        # Parse user_session_id to get parts for path resolution
         parts = user_session_id.split('-', 1)
         if len(parts) >= 2:
             username = parts[0]
             uid = parts[1]
-            # Create dummy filename for structure resolution
             session_structure = get_user_session_structure("document.pdf", username, uid)
             json_dir = session_structure["pipeline"]
     
-    for filename in os.listdir(json_dir):
-        if filename.endswith(".json"):
-            with open(os.path.join(json_dir, filename), "r") as f:
-                data = json.load(f)
-                # Handle both old and new JSON structures
+    try:
+        # Use RAG adapter to load and normalize documents
+        adapter_docs = load_and_normalize(json_dir, chunk_size=500, chunk_overlap=50)
+        
+        # Convert adapter format to existing RAG chunk format
+        for doc in adapter_docs:
+            doc_chunks = create_chunks_for_embeddings(doc)
+            
+            for chunk in doc_chunks:
+                # Convert to legacy chunk format expected by existing RAG functions
+                chunks.append({
+                    "text": chunk["text"],
+                    "chunk_id": chunk["chunk_id"],
+                    "document_id": chunk["metadata"]["document_id"],
+                    "classifier_label": chunk["metadata"]["classifier_label"],
+                    "document_confidence": chunk["metadata"]["document_confidence"],
+                    "chunk_type": chunk["metadata"]["chunk_type"],
+                    "source_format": chunk["metadata"]["source_format"]
+                })
+        
+        logger.info(f"Loaded {len(chunks)} chunks from {len(adapter_docs)} documents using RAG adapter")
+        
+    except Exception as e:
+        logger.error(f"RAG adapter failed, falling back to legacy processing: {e}")
+        
+        # Fallback to legacy processing for backward compatibility
+        for filename in os.listdir(json_dir):
+            if filename.endswith(".json"):
+                with open(os.path.join(json_dir, filename), "r") as f:
+                    data = json.load(f)
+                    
+                # Extract text using legacy method
                 text = data.get("content", "")
                 if not text and "extracted_data" in data:
                     text = data["extracted_data"].get("text_content", "")
                 
+                # Create legacy chunks
                 for idx, paragraph in enumerate(text.split("\n\n")):
                     if paragraph.strip():
                         chunk_id = f"{filename}_c{idx:04d}"
-                        chunks.append({"text": paragraph.strip(), "chunk_id": chunk_id})
+                        chunks.append({
+                            "text": paragraph.strip(), 
+                            "chunk_id": chunk_id,
+                            "document_id": filename,
+                            "classifier_label": "unknown",
+                            "document_confidence": 0.0,
+                            "chunk_type": "text",
+                            "source_format": "legacy"
+                        })
+    
     return chunks
 
 
@@ -135,15 +183,23 @@ def retrieve_top_chunks(index_endpoint, deployed_index, chunks, query, top_k=TOP
 
 
 def prepare_rag_prompt_QA(chunks, user_query):
-    # Build numbered context items with chunk text and IDs
+    """
+    Build numbered context items with enhanced chunk metadata for better QA.
+    Now includes classifier labels and confidence scores from KAG processing.
+    """
     context_items = []
     for i, chunk in enumerate(chunks, start=1):
-        ctxt = f"Context {i}: {chunk['text']} (doc:{chunk['chunk_id']})"
+        # Include enhanced metadata in context
+        classifier_info = f" [{chunk.get('classifier_label', 'unknown')}]" if chunk.get('classifier_label') != 'unknown' else ""
+        confidence_info = f" (confidence: {chunk.get('document_confidence', 0.0):.2f})" if chunk.get('document_confidence', 0.0) > 0 else ""
+        
+        ctxt = f"Context {i}{classifier_info}{confidence_info}: {chunk['text']} (doc:{chunk['chunk_id']})"
         context_items.append(ctxt)
     context_str = "\n".join(context_items)
 
     qa_prompt = (
         "You are a legal assistant. Use ONLY the following numbered context items to answer the question. "
+        "Context items include document classification and confidence scores for better accuracy. "
         "If the law is not present in the context, say \"not found in documents\".\n\n"
         f"{context_str}\n\n"
         f"Question: {user_query}\n"
@@ -153,14 +209,23 @@ def prepare_rag_prompt_QA(chunks, user_query):
 
 
 def prepare_rag_prompt_risk_insights(chunks):
+    """
+    Prepare risk analysis prompt with enhanced metadata from KAG processing.
+    Includes classifier labels and confidence scores for better risk assessment.
+    """
     context_items = []
     for chunk in chunks:
-        context_items.append(f"{chunk['chunk_id']}: {chunk['text']}")
+        # Include classifier and confidence metadata for risk analysis
+        classifier_info = f" (Type: {chunk.get('classifier_label', 'unknown')})" if chunk.get('classifier_label') != 'unknown' else ""
+        confidence_info = f" (Confidence: {chunk.get('document_confidence', 0.0):.2f})" if chunk.get('document_confidence', 0.0) > 0 else ""
+        
+        context_items.append(f"{chunk['chunk_id']}{classifier_info}{confidence_info}: {chunk['text']}")
     context_str = "\n\n".join(context_items)
 
     risk_prompt = (
-        "You are a legal risk evaluator. For each provided clause, return JSON array of objects:\n"
-        '{ "chunk_id": "...", "risk_level": "High|Medium|Low|None", "reason": "...", "suggested_text": "..." }\n\n'
+        "You are a legal risk evaluator. For each provided clause, return JSON array of objects.\n"
+        "Consider the document classification and confidence scores in your risk assessment.\n"
+        'Return format: { "chunk_id": "...", "risk_level": "High|Medium|Low|None", "reason": "...", "suggested_text": "..." }\n\n'
         f"Clauses:\n{context_str}\n"
     )
     return risk_prompt

@@ -1,0 +1,771 @@
+{
+  "label": "Constitutional_and_Legislative",
+  "score": 1.0,
+  "confidence": "high",
+  "matched_patterns": [
+    {
+      "keyword": "schedule",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "constitution_documents",
+      "frequency": 3,
+      "positions": [
+        11102,
+        14241,
+        27166
+      ],
+      "context_snippets": [
+        "he actual weight of the drugs in reference to\nthe schedule under the NDPS Act.\n20. Same view has earlier bee",
+        "se as\nto for what purpose such a huge quantity of\nSchedule 'H' drug containing narcotic substance\nwas being",
+        "se as to for what purpose such a huge quantity of\nSchedule 'H' drug containing narcotic substance was being"
+      ]
+    },
+    {
+      "keyword": "amendment",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "constitution_documents",
+      "frequency": 1,
+      "positions": [
+        17983
+      ],
+      "context_snippets": [
+        "gs and Psychotropic Substances Rule,\n1985 by this amendment. For the sake of convenience,\nrelevant Rules of t"
+      ]
+    },
+    {
+      "keyword": "act",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 21,
+      "positions": [
+        878,
+        5327,
+        5429,
+        5565,
+        5611,
+        5978,
+        7172,
+        7321,
+        7450,
+        11126,
+        12123,
+        12167,
+        14797,
+        16421,
+        16958,
+        21688,
+        23170,
+        23758,
+        25636,
+        25976,
+        27862
+      ],
+      "context_snippets": [
+        "Crime\nNo.08/2018 under Sections 8/21 of the NDPS Act, 1985\nregistered at Police Station-Narcotics Cell",
+        "earned senior counsel that Section 21 of the NDPS Act\nprescribes punishment for dealing in “manufacture",
+        "ed drug” in\ncontravention of any provision of The Act, 1985 or any Rule\nor Order made or condition of l"
+      ]
+    },
+    {
+      "keyword": "section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 11,
+      "positions": [
+        803,
+        5304,
+        5544,
+        5590,
+        7153,
+        16360,
+        16565,
+        16902,
+        23152,
+        23740,
+        25619
+      ],
+      "context_snippets": [
+        "rst bail applications of\nRanjan and Sandeep under Section 439 of Cr.P.C. in Crime\nNo.08/2018 under Sections",
+        "is been given by the\nlearned senior counsel that Section 21 of the NDPS Act\nprescribes punishment for deal",
+        "ed there under.\n“Manufactured Drug” is defined in Section 2(xi) of The Act,\n1985. Clause (b) of Section 2(x"
+      ]
+    },
+    {
+      "keyword": "clause",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 3,
+      "positions": [
+        5576,
+        16884,
+        21863
+      ],
+      "context_snippets": [
+        "ug” is defined in Section 2(xi) of The Act,\n1985. Clause (b) of Section 2(xi) of The Act provides that\n“Ma",
+        "S.O.1181(E). - In exercise of powers conferred by clause\n(viiia) of Section 2 of Narcotic Drugs and Psycho",
+        "ess such drug.\n(b) When any order is passed under clause (a) of this sub-\nrule, the registered medical pra"
+      ]
+    },
+    {
+      "keyword": "proviso",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 1,
+      "positions": [
+        21098
+      ],
+      "context_snippets": [
+        "al of the authorisation referred to in the second\nproviso to sub-rule (3), application shall be made to the"
+      ]
+    },
+    {
+      "keyword": "explanation",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 2,
+      "positions": [
+        12605,
+        20792
+      ],
+      "context_snippets": [
+        "al\nproducts and in the absence of any other valid\nexplanation for effecting the transportation of such\na huge q",
+        "for a period not exceeding three years at a time.\nExplanation.- The expression “for use in his practice” covers"
+      ]
+    },
+    {
+      "keyword": "rules",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 14,
+      "positions": [
+        17623,
+        18032,
+        18383,
+        18558,
+        21629,
+        22406,
+        22550,
+        22726,
+        23133,
+        23721,
+        23923,
+        24495,
+        25411,
+        25983
+      ],
+      "context_snippets": [
+        ")............ and (6)........\n24. In this regard, Rules are also amended and notified by\nthe Government o",
+        "amendment. For the sake of convenience,\nrelevant Rules of this Chapter-VA are being reproduced\nbelow:-\n“",
+        "e than in\naccordance with the provisions of these rules.\n(2) Any person may possess an essential narcotic"
+      ]
+    },
+    {
+      "keyword": "notification",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 11,
+      "positions": [
+        5856,
+        6019,
+        6114,
+        9289,
+        9379,
+        10215,
+        16684,
+        16808,
+        17691,
+        25188,
+        25362
+      ],
+      "context_snippets": [
+        "n, if any, under any International Convention, by\nnotification in the Official Gazette, declared to be a\n“manufa",
+        "nder The Act, 1985,\nthe Central Government issued notification S.O.826 (E)\ndated 14.11.1985 and S.O.40 (E) dated",
+        "S.O.40 (E) dated 29.01.1993. Entry\nNo.35 of this notification defined specifications of Codeine,\nwhich reads as"
+      ]
+    },
+    {
+      "keyword": "central government",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 3,
+      "positions": [
+        5707,
+        5993,
+        16986
+      ],
+      "context_snippets": [
+        "y psychotropic substance or\npreparation which the Central Government may, having\nregard to the available information a",
+        "cise of powers conferred under The Act, 1985,\nthe Central Government issued notification S.O.826 (E)\ndated 14.11.1985",
+        "ychotropic\nSubstances Act, 1985 (61 of 1985), the Central government\nhereby notices for medical and scientific use,the"
+      ]
+    },
+    {
+      "keyword": "state government",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 2,
+      "positions": [
+        23177,
+        23769
+      ],
+      "context_snippets": [
+        "r the rules framed under Section 10\nof the Act by State Government of the State in which he has\nhis place of busines",
+        "e rules framed under\nsection 10 of the Act by the State Government.\n(4) The licence under this rule shall be obtaine"
+      ]
+    },
+    {
+      "keyword": "ministry",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "positions": [
+        16630
+      ],
+      "context_snippets": [
+        "rther, in the year 2015, The Government of India,\nMinistry of Finance (Department of Revenue), issued a\nnoti"
+      ]
+    },
+    {
+      "keyword": "department",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "positions": [
+        16651
+      ],
+      "context_snippets": [
+        "15, The Government of India,\nMinistry of Finance (Department of Revenue), issued a\nnotification No.S.O.1181(E)"
+      ]
+    },
+    {
+      "keyword": "rule",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 9,
+      "positions": [
+        5446,
+        17964,
+        21113,
+        21388,
+        21887,
+        22533,
+        23309,
+        23416,
+        23814
+      ],
+      "context_snippets": [
+        "avention of any provision of The Act, 1985 or any Rule\nor Order made or condition of license granted the",
+        "in the Narcotic Drugs and Psychotropic Substances Rule,\n1985 by this amendment. For the sake of convenie",
+        "risation referred to in the second\nproviso to sub-rule (3), application shall be made to the\nController"
+      ]
+    },
+    {
+      "keyword": "order",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 13,
+      "positions": [
+        702,
+        5454,
+        15088,
+        15344,
+        15432,
+        15476,
+        15551,
+        20534,
+        21285,
+        21841,
+        22177,
+        22268,
+        28153
+      ],
+      "context_snippets": [
+        "nalogously and are being decided with this common\norder.\nO R D E R\n1. Both these petitions are the first",
+        "of any provision of The Act, 1985 or any Rule\nor Order made or condition of license granted there under.",
+        "xemption provided under the\nsaid notifications in order to consider the appellants'\napplication for bail"
+      ]
+    },
+    {
+      "keyword": "dismissed",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 1,
+      "positions": [
+        29287
+      ],
+      "context_snippets": [
+        "il is made out. Therefore, both the\npetitions are dismissed hereby.\n(Virender Singh)\nJudge\namit"
+      ]
+    },
+    {
+      "keyword": "high court",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 20,
+      "positions": [
+        3,
+        1350,
+        3036,
+        4724,
+        6420,
+        8113,
+        8135,
+        9703,
+        11446,
+        13281,
+        13753,
+        15588,
+        15797,
+        17725,
+        19365,
+        21454,
+        23994,
+        25681,
+        27400,
+        29079
+      ],
+      "context_snippets": [
+        "1. High Court of M.P. Bench At Indore\nMCRC No.26515/2018\nRanjan",
+        "s parked at a petrol pump on A.B. Road before\n\n2. High Court of M.P. Bench At Indore\nMCRC No.26515/2018\nRanjan",
+        "ness from this godown and he works for Manish\n\n3. High Court of M.P. Bench At Indore\nMCRC No.26515/2018\nRanjan"
+      ]
+    },
+    {
+      "keyword": "criminal appeal",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 1,
+      "positions": [
+        11262
+      ],
+      "context_snippets": [
+        "hahabuddin and Ors. Vs.\nState of Assam, passed in Criminal Appeal No.629/2010\ndecided on 13/12/2012 reported in 201"
+      ]
+    },
+    {
+      "keyword": "case no",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 2,
+      "positions": [
+        161,
+        237
+      ],
+      "context_snippets": [
+        "deep vs. The State of M.P.\nMiscellaneous Criminal Case No.26515 of 2018\nRanjan\nVs.\nThe State of M.P.\n&\nMisc",
+        "an\nVs.\nThe State of M.P.\n&\nMiscellaneous Criminal Case No.46229 of 2018\nSandeep\nVs.\nThe State of M.P.\nShri"
+      ]
+    },
+    {
+      "keyword": "appeal no",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 1,
+      "positions": [
+        11271
+      ],
+      "context_snippets": [
+        "n and Ors. Vs.\nState of Assam, passed in Criminal Appeal No.629/2010\ndecided on 13/12/2012 reported in 2012(1"
+      ]
+    },
+    {
+      "keyword": "petitioner",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 6,
+      "positions": [
+        371,
+        436,
+        2564,
+        3863,
+        4142,
+        5194
+      ],
+      "context_snippets": [
+        "ounsel with Shri N.\nDave, learned counsel for the petitioner - Ranjan.\nShri A.K. Saraswat, learned counsel for",
+        "njan.\nShri A.K. Saraswat, learned counsel for the petitioner\n-Sandeep.\nShri Mukesh Kumawat, learned Public Pro",
+        ", Indore and from that godown, Ranjan Shukla (the\npetitioner) has loaded the syrup.\n4. The police went to the"
+      ]
+    },
+    {
+      "keyword": "respondent",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        512
+      ],
+      "context_snippets": [
+        "Mukesh Kumawat, learned Public Prosecutor for\nthe respondent/State.\nBoth these bail petitions have arisen out"
+      ]
+    },
+    {
+      "keyword": "applicant",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        8749
+      ],
+      "context_snippets": [
+        "eme Court has granted bail on the\nground that the applicant was only employee of the transport\ncompany which"
+      ]
+    },
+    {
+      "keyword": "vs",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 45,
+      "positions": [
+        64,
+        116,
+        190,
+        267,
+        1411,
+        1463,
+        3097,
+        3149,
+        4785,
+        4837,
+        6481,
+        6533,
+        7622,
+        7714,
+        8196,
+        8248,
+        8286,
+        8621,
+        9764,
+        9816,
+        10287,
+        10543,
+        11232,
+        11507,
+        11559,
+        13814,
+        13866,
+        15400,
+        15663,
+        15858,
+        15910,
+        17786,
+        17838,
+        19426,
+        19478,
+        21515,
+        21567,
+        24055,
+        24107,
+        25742,
+        25794,
+        27461,
+        27513,
+        29140,
+        29192
+      ],
+      "context_snippets": [
+        "of M.P. Bench At Indore\nMCRC No.26515/2018\nRanjan vs. The State of M.P.\n&\nMCRC Nos.46229/2018\nSandeep",
+        ". The State of M.P.\n&\nMCRC Nos.46229/2018\nSandeep vs. The State of M.P.\nMiscellaneous Criminal Case No",
+        "scellaneous Criminal Case No.26515 of 2018\nRanjan\nVs.\nThe State of M.P.\n&\nMiscellaneous Criminal Case"
+      ]
+    },
+    {
+      "keyword": "v/s",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        15535
+      ],
+      "context_snippets": [
+        "ed 28.05.2018 and in\nMCRC 26037 Nilesh @ Nilkamal V/s State of MP order\ndated 10.07.2018. The Rajsthan"
+      ]
+    },
+    {
+      "keyword": "against",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 2,
+      "positions": [
+        6884,
+        6965
+      ],
+      "context_snippets": [
+        "ach dose of 5 ML\ncontains 10 mg Codeine Phosphate against permissive limit\nof 100 Mg. Similarly, its concen",
+        "Mg. Similarly, its concentration is mentioned 1%\nagainst permissive limit of 2.5% in undivided preparation"
+      ]
+    },
+    {
+      "keyword": "verification",
+      "category": "Judicial_Documents",
+      "subcategory": "pleadings",
+      "frequency": 2,
+      "positions": [
+        4269,
+        4565
+      ],
+      "context_snippets": [
+        "transported in usual\ncourse of his business after verification of tax invoice and\nbills, keep them in his godown",
+        "He accepted the goods to\ntransport the same after verification of tax invoice and bills.\nHe or any of his employ"
+      ]
+    },
+    {
+      "keyword": "verification",
+      "category": "Judicial_Documents",
+      "subcategory": "affidavits",
+      "frequency": 2,
+      "positions": [
+        4269,
+        4565
+      ],
+      "context_snippets": [
+        "transported in usual\ncourse of his business after verification of tax invoice and\nbills, keep them in his godown",
+        "He accepted the goods to\ntransport the same after verification of tax invoice and bills.\nHe or any of his employ"
+      ]
+    },
+    {
+      "keyword": "fir",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "positions": [
+        4872
+      ],
+      "context_snippets": [
+        "9/2018\nSandeep vs. The State of M.P.\nnamed in the FIR. Nothing is recovered from his possession.\nHe is"
+      ]
+    },
+    {
+      "keyword": "police station",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 3,
+      "positions": [
+        609,
+        902,
+        1015
+      ],
+      "context_snippets": [
+        "e arisen out of the same\ncrime number of the same police station, therefore, they are\nheard analogously and are be",
+        "Sections 8/21 of the NDPS Act, 1985\nregistered at Police Station-Narcotics Cell, District-\nIndore.\n2. In short, th",
+        "he case of the prosecution is that on\n09.04.2018, Police Station, Narcotics Cell, Indore received\ninformation that"
+      ]
+    },
+    {
+      "keyword": "investigation",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "positions": [
+        4954
+      ],
+      "context_snippets": [
+        "is possession.\nHe is in jail since 2/05/2018. The investigation is over and\ncharge-sheet is filed. Trial is likel"
+      ]
+    },
+    {
+      "keyword": "bail",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 9,
+      "positions": [
+        541,
+        757,
+        5139,
+        8721,
+        12811,
+        15138,
+        28203,
+        29009,
+        29235
+      ],
+      "context_snippets": [
+        "c Prosecutor for\nthe respondent/State.\nBoth these bail petitions have arisen out of the same\ncrime numbe",
+        ".\nO R D E R\n1. Both these petitions are the first bail applications of\nRanjan and Sandeep under Section",
+        "y of his\nabsconding. Therefore, he be released on bail.\n8. Almost similar grounds have been taken by the"
+      ]
+    },
+    {
+      "keyword": "custody",
+      "category": "Personal_and_Family",
+      "subcategory": "divorce_documents",
+      "frequency": 1,
+      "positions": [
+        2362
+      ],
+      "context_snippets": [
+        "of onion and potatoes.\n3. Mohanlal was taken into custody. On interrogation, he\ndisclosed that owner Kausha"
+      ]
+    },
+    {
+      "keyword": "will",
+      "category": "Personal_and_Family",
+      "subcategory": "wills_succession",
+      "frequency": 3,
+      "positions": [
+        1514,
+        1619,
+        5036
+      ],
+      "context_snippets": [
+        "s. The State of M.P.\nDakachya and driver Mohanlal will take it to Siliguri (West\nBangal) to sell that Es",
+        "uf cough Syrup to the\ndruggies/addicts. The truck will depart about 5-5:30 P.M. If\nthe action is taken w",
+        "-sheet is filed. Trial is likely to take time. He will\ncooperate with the trial. There is no possibility"
+      ]
+    },
+    {
+      "keyword": "agent",
+      "category": "Personal_and_Family",
+      "subcategory": "power_of_attorney",
+      "frequency": 2,
+      "positions": [
+        14083,
+        26927
+      ],
+      "context_snippets": [
+        "for curing a disease and as an action of remedial\nagent.\n13. As pointed out by us earlier, since the appe",
+        "for curing a disease and as an action of remedial agent.\n30. At the cost of repetition I can refer para 1"
+      ]
+    },
+    {
+      "keyword": "consideration",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "sale_deeds",
+      "frequency": 2,
+      "positions": [
+        9574,
+        10459
+      ],
+      "context_snippets": [
+        "of the\npsychotropic substance shall be taken into consideration.\nNote 4 reads thus:\n\"(4) The quantities shown in",
+        "substance, the whole\nquantity is to be taken into consideration.\n19. The Hon'ble Supreme Court in the case of Uni"
+      ]
+    },
+    {
+      "keyword": "possession",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "sale_deeds",
+      "frequency": 10,
+      "positions": [
+        3630,
+        4907,
+        14171,
+        16167,
+        18099,
+        18230,
+        21762,
+        22030,
+        27096,
+        28549
+      ],
+      "context_snippets": [
+        "nd two plastic seals were also\nrecovered from his possession.\n5. The police approached Gopal Mittal, who revea",
+        ".\nnamed in the FIR. Nothing is recovered from his possession.\nHe is in jail since 2/05/2018. The investigation",
+        "r, since the appellants\nhad no documents in their possession to disclose as\nto for what purpose such a huge qu"
+      ]
+    },
+    {
+      "keyword": "renewal",
+      "category": "Property_and_Real_Estate",
+      "subcategory": "lease_rental_agreements",
+      "frequency": 1,
+      "positions": [
+        21043
+      ],
+      "context_snippets": [
+        "tablished medical standards and practices\n(4) For renewal of the authorisation referred to in the second\npr"
+      ]
+    },
+    {
+      "keyword": "owner",
+      "category": "Intellectual_Property",
+      "subcategory": "copyright_documents",
+      "frequency": 1,
+      "positions": [
+        2407
+      ],
+      "context_snippets": [
+        "into custody. On interrogation, he\ndisclosed that owner Kaushal Singh has taken the truck to the\ngodown o"
+      ]
+    },
+    {
+      "keyword": "cheque",
+      "category": "Financial_and_Security",
+      "subcategory": "promissory_notes",
+      "frequency": 1,
+      "positions": [
+        3517
+      ],
+      "context_snippets": [
+        "ere produced by Ranjan Shukla. 13\nATM cards and 5 cheque books of several banks and a note\nbook, a challan"
+      ]
+    },
+    {
+      "keyword": "charge",
+      "category": "Financial_and_Security",
+      "subcategory": "security_documents",
+      "frequency": 1,
+      "positions": [
+        4980
+      ],
+      "context_snippets": [
+        "il since 2/05/2018. The investigation is over and\ncharge-sheet is filed. Trial is likely to take time. He"
+      ]
+    },
+    {
+      "keyword": "possession",
+      "category": "Financial_and_Security",
+      "subcategory": "recovery_documents",
+      "frequency": 10,
+      "positions": [
+        3630,
+        4907,
+        14171,
+        16167,
+        18099,
+        18230,
+        21762,
+        22030,
+        27096,
+        28549
+      ],
+      "context_snippets": [
+        "nd two plastic seals were also\nrecovered from his possession.\n5. The police approached Gopal Mittal, who revea",
+        ".\nnamed in the FIR. Nothing is recovered from his possession.\nHe is in jail since 2/05/2018. The investigation",
+        "r, since the appellants\nhad no documents in their possession to disclose as\nto for what purpose such a huge qu"
+      ]
+    }
+  ],
+  "text_length": 29332,
+  "total_matches": 227,
+  "category_scores": {
+    "Constitutional_and_Legislative": 1.0,
+    "Judicial_Documents": 1.0,
+    "Personal_and_Family": 0.29318832674212464,
+    "Property_and_Real_Estate": 0.4227413746079367,
+    "Business_and_Corporate": 0.0,
+    "Intellectual_Property": 0.08386472112368744,
+    "Financial_and_Security": 0.43637665348424926,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.0
+  },
+  "processing_metadata": {
+    "classifier_version": "1.0.0",
+    "classification_method": "regex_pattern_matching",
+    "total_patterns_checked": 784,
+    "document_metadata": {},
+    "timestamp": "2025-09-20T21:16:41.759097"
+  },
+  "summary": {
+    "classification_successful": true,
+    "primary_label": "Constitutional_and_Legislative",
+    "confidence_level": "high",
+    "pattern_diversity": 40,
+    "top_keywords": [
+      "vs",
+      "act",
+      "high court",
+      "rules",
+      "order"
+    ]
+  }
+}

@@ -15,6 +15,8 @@ google-api-core>=2.12.0
 # PDF and image processing
 PyMuPDF>=1.23.0
 Pillow>=10.0.0
+pypdfium2>=4.18.0
+pdfplumber>=0.11.0
 
 # Configuration management
 python-dotenv>=1.0.0

@@ -1,0 +1,206 @@
+{
+  "batch_summary": {
+    "start_time": "2025-09-21T02:50:29.942584",
+    "end_time": "2025-09-21T02:53:38.535172",
+    "total_processing_time": 188.59258818626404,
+    "total_pdfs": 7,
+    "successful_pdfs": 7,
+    "failed_pdfs": 0,
+    "success_rate": 100.0
+  },
+  "processing_statistics": {
+    "avg_processing_time": 26.94095594542367,
+    "total_pages_processed": 91,
+    "processing_methods": {
+      "pypdfium2+pdfplumber": 7
+    },
+    "classification_distribution": {
+      "Constitutional_and_Legislative": 5,
+      "Judicial_Documents": 2
+    }
+  },
+  "detailed_results": [
+    {
+      "pdf_file": "077-NLR-NLR-V-72-T.-P.-VEERAPPEN-Appellant-and-THE-ATTORNEY-GENERAL-Respondent.pdf",
+      "pipeline_id": "batch-077-NLR-NLR-V-72-T.-P.-VEERAPPEN-Appellant-and-THE-ATTORNEY-GENERAL-Respondent-1758403229",
+      "success": true,
+      "start_time": "2025-09-21T02:50:29.943584",
+      "processing_time": 19.438497304916382,
+      "error_message": null,
+      "statistics": {
+        "processing_method": "pypdfium2+pdfplumber",
+        "total_pages": 6,
+        "processed_pages": 6,
+        "text_length": 16256,
+        "classification_label": "Constitutional_and_Legislative",
+        "classification_score": 1.0,
+        "classification_confidence": "high",
+        "vision_ocr_pages": 3,
+        "plumber_text_pages": 6,
+        "ocr_errors": 0
+      },
+      "artifacts": {
+        "parsed_output": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-077-NLR-NLR-V-72-T.-P.-VEERAPPEN-Appellant-and-THE-ATTORNEY-GENERAL-Respondent-1758403229\\parsed_output.json",
+        "classification_verdict": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-077-NLR-NLR-V-72-T.-P.-VEERAPPEN-Appellant-and-THE-ATTORNEY-GENERAL-Respondent-1758403229\\classification_verdict.json",
+        "kag_input": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-077-NLR-NLR-V-72-T.-P.-VEERAPPEN-Appellant-and-THE-ATTORNEY-GENERAL-Respondent-1758403229\\kag_input.json"
+      },
+      "end_time": "2025-09-21T02:50:49.382081"
+    },
+    {
+      "pdf_file": "CRA260_21(16.01.25)_10.pdf",
+      "pipeline_id": "batch-CRA260_21(16.01.25)_10-1758403249",
+      "success": true,
+      "start_time": "2025-09-21T02:50:49.383083",
+      "processing_time": 38.04709005355835,
+      "error_message": null,
+      "statistics": {
+        "processing_method": "pypdfium2+pdfplumber",
+        "total_pages": 26,
+        "processed_pages": 26,
+        "text_length": 41598,
+        "classification_label": "Constitutional_and_Legislative",
+        "classification_score": 1.0,
+        "classification_confidence": "high",
+        "vision_ocr_pages": 3,
+        "plumber_text_pages": 26,
+        "ocr_errors": 0
+      },
+      "artifacts": {
+        "parsed_output": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-CRA260_21(16.01.25)_10-1758403249\\parsed_output.json",
+        "classification_verdict": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-CRA260_21(16.01.25)_10-1758403249\\classification_verdict.json",
+        "kag_input": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-CRA260_21(16.01.25)_10-1758403249\\kag_input.json"
+      },
+      "end_time": "2025-09-21T02:51:27.430173"
+    },
+    {
+      "pdf_file": "judgement_20142.pdf",
+      "pipeline_id": "batch-judgement_20142-1758403287",
+      "success": true,
+      "start_time": "2025-09-21T02:51:27.431184",
+      "processing_time": 27.86344289779663,
+      "error_message": null,
+      "statistics": {
+        "processing_method": "pypdfium2+pdfplumber",
+        "total_pages": 13,
+        "processed_pages": 13,
+        "text_length": 34796,
+        "classification_label": "Judicial_Documents",
+        "classification_score": 1.0,
+        "classification_confidence": "high",
+        "vision_ocr_pages": 3,
+        "plumber_text_pages": 13,
+        "ocr_errors": 0
+      },
+      "artifacts": {
+        "parsed_output": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-judgement_20142-1758403287\\parsed_output.json",
+        "classification_verdict": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-judgement_20142-1758403287\\classification_verdict.json",
+        "kag_input": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-judgement_20142-1758403287\\kag_input.json"
+      },
+      "end_time": "2025-09-21T02:51:55.294627"
+    },
+    {
+      "pdf_file": "MCRC_46229_2018_FinalOrder_02-Jan-2019.pdf",
+      "pipeline_id": "batch-MCRC_46229_2018_FinalOrder_02-Jan-2019-1758403315",
+      "success": true,
+      "start_time": "2025-09-21T02:51:55.295501",
+      "processing_time": 32.019270181655884,
+      "error_message": null,
+      "statistics": {
+        "processing_method": "pypdfium2+pdfplumber",
+        "total_pages": 17,
+        "processed_pages": 17,
+        "text_length": 29332,
+        "classification_label": "Constitutional_and_Legislative",
+        "classification_score": 1.0,
+        "classification_confidence": "high",
+        "vision_ocr_pages": 3,
+        "plumber_text_pages": 17,
+        "ocr_errors": 0
+      },
+      "artifacts": {
+        "parsed_output": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-MCRC_46229_2018_FinalOrder_02-Jan-2019-1758403315\\parsed_output.json",
+        "classification_verdict": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-MCRC_46229_2018_FinalOrder_02-Jan-2019-1758403315\\classification_verdict.json",
+        "kag_input": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-MCRC_46229_2018_FinalOrder_02-Jan-2019-1758403315\\kag_input.json"
+      },
+      "end_time": "2025-09-21T02:52:27.314771"
+    },
+    {
+      "pdf_file": "SKS03072025CRLMM4172025_172401.pdf",
+      "pipeline_id": "batch-SKS03072025CRLMM4172025_172401-1758403347",
+      "success": true,
+      "start_time": "2025-09-21T02:52:27.314771",
+      "processing_time": 21.831724882125854,
+      "error_message": null,
+      "statistics": {
+        "processing_method": "pypdfium2+pdfplumber",
+        "total_pages": 12,
+        "processed_pages": 12,
+        "text_length": 18016,
+        "classification_label": "Judicial_Documents",
+        "classification_score": 1.0,
+        "classification_confidence": "high",
+        "vision_ocr_pages": 3,
+        "plumber_text_pages": 12,
+        "ocr_errors": 0
+      },
+      "artifacts": {
+        "parsed_output": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-SKS03072025CRLMM4172025_172401-1758403347\\parsed_output.json",
+        "classification_verdict": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-SKS03072025CRLMM4172025_172401-1758403347\\classification_verdict.json",
+        "kag_input": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-SKS03072025CRLMM4172025_172401-1758403347\\kag_input.json"
+      },
+      "end_time": "2025-09-21T02:52:49.146496"
+    },
+    {
+      "pdf_file": "testing-ocr-pdf-1.pdf",
+      "pipeline_id": "batch-testing-ocr-pdf-1-1758403369",
+      "success": true,
+      "start_time": "2025-09-21T02:52:49.147511",
+      "processing_time": 29.903867959976196,
+      "error_message": null,
+      "statistics": {
+        "processing_method": "pypdfium2+pdfplumber",
+        "total_pages": 6,
+        "processed_pages": 6,
+        "text_length": 7784,
+        "classification_label": "Constitutional_and_Legislative",
+        "classification_score": 1.0,
+        "classification_confidence": "high",
+        "vision_ocr_pages": 3,
+        "plumber_text_pages": 0,
+        "ocr_errors": 0
+      },
+      "artifacts": {
+        "parsed_output": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-testing-ocr-pdf-1-1758403369\\parsed_output.json",
+        "classification_verdict": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-testing-ocr-pdf-1-1758403369\\classification_verdict.json",
+        "kag_input": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-testing-ocr-pdf-1-1758403369\\kag_input.json"
+      },
+      "end_time": "2025-09-21T02:53:19.051379"
+    },
+    {
+      "pdf_file": "Yusuf @ Asif vs state.pdf",
+      "pipeline_id": "batch-Yusuf @ Asif vs state-1758403399",
+      "success": true,
+      "start_time": "2025-09-21T02:53:19.051379",
+      "processing_time": 19.4827983379364,
+      "error_message": null,
+      "statistics": {
+        "processing_method": "pypdfium2+pdfplumber",
+        "total_pages": 11,
+        "processed_pages": 11,
+        "text_length": 10593,
+        "classification_label": "Constitutional_and_Legislative",
+        "classification_score": 1.0,
+        "classification_confidence": "high",
+        "vision_ocr_pages": 3,
+        "plumber_text_pages": 11,
+        "ocr_errors": 0
+      },
+      "artifacts": {
+        "parsed_output": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-Yusuf @ Asif vs state-1758403399\\parsed_output.json",
+        "classification_verdict": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-Yusuf @ Asif vs state-1758403399\\classification_verdict.json",
+        "kag_input": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\artifacts\\batch_test\\batch-Yusuf @ Asif vs state-1758403399\\kag_input.json"
+      },
+      "end_time": "2025-09-21T02:53:38.534177"
+    }
+  ]
+}

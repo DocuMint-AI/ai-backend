@@ -1,0 +1,589 @@
+{
+  "label": "Judicial_Documents",
+  "score": 1.0,
+  "confidence": "high",
+  "matched_patterns": [
+    {
+      "keyword": "act",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 4,
+      "positions": [
+        567,
+        3286,
+        4200,
+        9362
+      ],
+      "context_snippets": [
+        "d order‟]\npassed by the learned Special Judge (PC Act)(ACB)-02, Rouse\nAvenue District Courts, New Delhi",
+        "Sections 7 and 13 of the Prevention of\nCorruption Act, 1988 were also invoked against Mr. Girish Chandr",
+        "tificate under Section 65B of the Indian\nEvidence Act pertaining to bank account statements.\n5. It is p"
+      ]
+    },
+    {
+      "keyword": "section",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "acts_statutes",
+      "frequency": 5,
+      "positions": [
+        793,
+        2214,
+        2238,
+        2260,
+        4165
+      ],
+      "context_snippets": [
+        "Dwarka-South, Delhi, for offence\npunishable under Section 420 of the Indian Penal Code, 1860\n[hereafter „IP",
+        "mount, and IDs, were forwarded by the\nScholarship Section to the Accounts Section. The Accounts Section\nwou",
+        "warded by the\nScholarship Section to the Accounts Section. The Accounts Section\nwould then send this data i"
+      ]
+    },
+    {
+      "keyword": "ministry",
+      "category": "Constitutional_and_Legislative",
+      "subcategory": "rules_regulations",
+      "frequency": 1,
+      "positions": [
+        1196
+      ],
+      "context_snippets": [
+        "an autonomous organization under the aegis of the Ministry of\nCulture, Government of India, with its office"
+      ]
+    },
+    {
+      "keyword": "judgment",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 3,
+      "positions": [
+        47,
+        357,
+        17892
+      ],
+      "context_snippets": [
+        "$~\n* IN THE HIGH COURT OF DELHI AT NEW DELHI\n% Judgment delivered on: 03.07.2025\n+ CRL.M.C. 417/2025 & CR",
+        ".\nCORAM:\nHON’BLE DR. JUSTICE SWARANA KANTA SHARMA\nJUDGMENT\nDR. SWARANA KANTA SHARMA, J\n1. The petitioner, by",
+        "ication, if any, also stands disposed of.\n20. The judgment be uploaded on the website forthwith.\nDR. SWARANA"
+      ]
+    },
+    {
+      "keyword": "order",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 14,
+      "positions": [
+        461,
+        519,
+        2916,
+        3597,
+        5444,
+        5530,
+        5623,
+        7845,
+        10280,
+        10572,
+        13941,
+        16678,
+        17591,
+        17644
+      ],
+      "context_snippets": [
+        ", by way of this petition, seeks setting aside of\norder of cognizance dated 08.02.2024 [hereafter „impugn",
+        "cognizance dated 08.02.2024 [hereafter „impugned order‟]\npassed by the learned Special Judge (PC Act)(AC",
+        "er of the\ninvestigation to the CBI. However, vide order dated 06.03.2018, the\ninvestigation was instead t"
+      ]
+    },
+    {
+      "keyword": "disposed of",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 2,
+      "positions": [
+        17783,
+        17871
+      ],
+      "context_snippets": [
+        "In view of the above, the present petition stands disposed of.\nCRL. M.C. 417/2025 Page 11 of 12\n\nPending applic",
+        "1 of 12\n\nPending application, if any, also stands disposed of.\n20. The judgment be uploaded on the website fort"
+      ]
+    },
+    {
+      "keyword": "allowed",
+      "category": "Judicial_Documents",
+      "subcategory": "judgments_orders",
+      "frequency": 3,
+      "positions": [
+        6897,
+        9463,
+        14083
+      ],
+      "context_snippets": [
+        "in her bank account without any protest and also\nallowed part of it viz. Rs.10,000/ - to be apportioned to",
+        "refore, it is prayed that the present petition be allowed.\n10. The learned APP for the State submits that i",
+        "in her bank account without any protest and also allowed\npart of it viz. Rs.10,000/ - to be apportioned to"
+      ]
+    },
+    {
+      "keyword": "high court",
+      "category": "Judicial_Documents",
+      "subcategory": "court_proceedings",
+      "frequency": 2,
+      "positions": [
+        12,
+        2811
+      ],
+      "context_snippets": [
+        "$~\n* IN THE HIGH COURT OF DELHI AT NEW DELHI\n% Judgment delivered on: 03",
+        "ne Brijesh Kumar had approached the Hon‟ble Delhi\nHigh Court by way of W.P.(CRL.) 687/2019 seeking transfer of"
+      ]
+    },
+    {
+      "keyword": "w.p",
+      "category": "Judicial_Documents",
+      "subcategory": "case_documents",
+      "frequency": 1,
+      "positions": [
+        2832
+      ],
+      "context_snippets": [
+        "approached the Hon‟ble Delhi\nHigh Court by way of W.P.(CRL.) 687/2019 seeking transfer of the\ninvestiga"
+      ]
+    },
+    {
+      "keyword": "petitioner",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 28,
+      "positions": [
+        140,
+        401,
+        859,
+        953,
+        4304,
+        4735,
+        5315,
+        5480,
+        7743,
+        7772,
+        8046,
+        8499,
+        8579,
+        9082,
+        9257,
+        9564,
+        10789,
+        10910,
+        11118,
+        11169,
+        11495,
+        12402,
+        13638,
+        13750,
+        16627,
+        16789,
+        16883,
+        17502
+      ],
+      "context_snippets": [
+        ". 417/2025 & CRL.M.A. 1992/2025\nMILI DEBNATH .....Petitioner\nThrough: Ms. Harsha Sharma, Mr. Anand\nDubey and M",
+        "HARMA\nJUDGMENT\nDR. SWARANA KANTA SHARMA, J\n1. The petitioner, by way of this petition, seeks setting aside of",
+        "he Indian Penal Code, 1860\n[hereafter „IPC‟]. The petitioner further seeks quashing of\nsupplementary chargeshe"
+      ]
+    },
+    {
+      "keyword": "respondent",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        254
+      ],
+      "context_snippets": [
+        "ahul,\nAdvocates\nversus\nSTATE OF NCT OF DELHI .....Respondent\nThrough: Mr. Manoj Pant, APP for the\nState.\nCORAM"
+      ]
+    },
+    {
+      "keyword": "accused",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 37,
+      "positions": [
+        3125,
+        3422,
+        4036,
+        4379,
+        4669,
+        5012,
+        5170,
+        5727,
+        5875,
+        6427,
+        6498,
+        6573,
+        6745,
+        7200,
+        7259,
+        7335,
+        7524,
+        7569,
+        9642,
+        10820,
+        12439,
+        12767,
+        13135,
+        13172,
+        13416,
+        13678,
+        14386,
+        14445,
+        14521,
+        14720,
+        15093,
+        15186,
+        15264,
+        15751,
+        16227,
+        17128,
+        17231
+      ],
+      "context_snippets": [
+        "before the learned CMM, Dwarka Courts, against 11 accused persons\nunder Sections 408/409/420/471/201/120B/3",
+        "rs. A supplementary chargesheet was\nfiled against accused persons numbered 12 to 16. Cognizance was\ntaken b",
+        "sh\nchargesheet was filed on 20.04.2023 against 16 accused persons.\nSubsequently, on 02.11.2023, a first sup"
+      ]
+    },
+    {
+      "keyword": "versus",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 1,
+      "positions": [
+        220
+      ],
+      "context_snippets": [
+        "Sharma, Mr. Anand\nDubey and Mr. Rahul,\nAdvocates\nversus\nSTATE OF NCT OF DELHI .....Respondent\nThrough: Mr"
+      ]
+    },
+    {
+      "keyword": "against",
+      "category": "Judicial_Documents",
+      "subcategory": "parties_litigation",
+      "frequency": 10,
+      "positions": [
+        3114,
+        3314,
+        3414,
+        4025,
+        5468,
+        8034,
+        9070,
+        13403,
+        15165,
+        16615
+      ],
+      "context_snippets": [
+        "15.10.2018\nbefore the learned CMM, Dwarka Courts, against 11 accused persons\nunder Sections 408/409/420/471",
+        "vention of\nCorruption Act, 1988 were also invoked against Mr. Girish Chandra\nJoshi, Mr. Anil Kohli, and oth",
+        "and others. A supplementary chargesheet was\nfiled against accused persons numbered 12 to 16. Cognizance was"
+      ]
+    },
+    {
+      "keyword": "evidence",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 5,
+      "positions": [
+        4191,
+        13394,
+        15156,
+        16596,
+        17264
+      ],
+      "context_snippets": [
+        "ord a certificate under Section 65B of the Indian\nEvidence Act pertaining to bank account statements.\n5. It",
+        "once again concluded that there is\nno sufficient evidence against such accused, the learned Special Judge\ni",
+        "splaced. Even\notherwise, if there is insufficient evidence against a particular accused,\nthe mere apprehensi"
+      ]
+    },
+    {
+      "keyword": "commission",
+      "category": "Judicial_Documents",
+      "subcategory": "evidence_procedure",
+      "frequency": 1,
+      "positions": [
+        15667
+      ],
+      "context_snippets": [
+        "ong suspicion that the person was involved in the commission of\nthe offence. In particular, the Court must be"
+      ]
+    },
+    {
+      "keyword": "fir",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 4,
+      "positions": [
+        683,
+        1030,
+        2624,
+        10486
+      ],
+      "context_snippets": [
+        "Special Judge‟] in CC\nNo. 28/2023, arising out of FIR No. 36/2018, registered on\n07.02.2018 at Police S",
+        ".\nCRL. M.C. 417/2025 Page 1 of 12\n\n2. The present FIR was registered on the complaint of Mr. G.C.\nJoshi",
+        "nces. Based on the above\nallegations, the present FIR was registered.\nCRL. M.C. 417/2025 Page 2 of 12"
+      ]
+    },
+    {
+      "keyword": "charge sheet",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 6,
+      "positions": [
+        6054,
+        6191,
+        9114,
+        9239,
+        10115,
+        10186
+      ],
+      "context_snippets": [
+        "s submitted that he has now\nfiled a supplementary charge sheet in respect of Ms. Mili\nCRL. M.C. 417/2025 Page 4",
+        "er as a suspect in column no.12.\n5. The aforesaid charge sheet has been perused. Upon perusal\nthereof, I am unab",
+        "erial\nagainst the petitioner in the supplementary charge sheet, which merely\nreiterates the same facts regarding"
+      ]
+    },
+    {
+      "keyword": "police station",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 2,
+      "positions": [
+        728,
+        1371
+      ],
+      "context_snippets": [
+        "t of FIR No. 36/2018, registered on\n07.02.2018 at Police Station Dwarka-South, Delhi, for offence\npunishable under",
+        "was received vide DD\nNo. 27B dated 21.09.2017 at Police Station Dwarka South, Delhi. It\nwas alleged that the CCRT"
+      ]
+    },
+    {
+      "keyword": "investigation",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 18,
+      "positions": [
+        2745,
+        2876,
+        2944,
+        3022,
+        3221,
+        3669,
+        3717,
+        9519,
+        10639,
+        10690,
+        11037,
+        11975,
+        12354,
+        13291,
+        13602,
+        13879,
+        16923,
+        17444
+      ],
+      "context_snippets": [
+        "the case reveal further that during the course of\ninvestigation, one Brijesh Kumar had approached the Hon‟ble Del",
+        "ay of W.P.(CRL.) 687/2019 seeking transfer of the\ninvestigation to the CBI. However, vide order dated 06.03.2018,",
+        "he CBI. However, vide order dated 06.03.2018, the\ninvestigation was instead transferred to the Crime Branch. Upon"
+      ]
+    },
+    {
+      "keyword": "section 420",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 1,
+      "positions": [
+        793
+      ],
+      "context_snippets": [
+        "Dwarka-South, Delhi, for offence\npunishable under Section 420 of the Indian Penal Code, 1860\n[hereafter „IPC‟]."
+      ]
+    },
+    {
+      "keyword": "ipc",
+      "category": "Judicial_Documents",
+      "subcategory": "criminal_documents",
+      "frequency": 2,
+      "positions": [
+        848,
+        3187
+      ],
+      "context_snippets": [
+        "on 420 of the Indian Penal Code, 1860\n[hereafter „IPC‟]. The petitioner further seeks quashing of\nsuppl",
+        "ons\nunder Sections 408/409/420/471/201/120B/34 of IPC. Subsequently,\nduring further investigation, Sect"
+      ]
+    },
+    {
+      "keyword": "surety",
+      "category": "Judicial_Documents",
+      "subcategory": "bail_documents",
+      "frequency": 3,
+      "positions": [
+        4658,
+        5001,
+        5713
+      ],
+      "context_snippets": [
+        "ings, the\nlearned Special Judge observed that the surety for Accused No. 4 (Mr.\nProsanta Mondal) was one M",
+        "2024, the IO submitted\nthat Ms. Mili Debnath, the surety for Accused No. 4, was indeed the\nsame person who",
+        "sh Kumar\nhas submitted that Ms. Mili Debnath, the surety of the accused\nno.4 (Sh. Prosanta Mandal) is the"
+      ]
+    },
+    {
+      "keyword": "will",
+      "category": "Personal_and_Family",
+      "subcategory": "wills_succession",
+      "frequency": 2,
+      "positions": [
+        7160,
+        14346
+      ],
+      "context_snippets": [
+        "n my view, if Ms. Mili Debnath\nis let off, equity will get created in favour of the other accused,\nwho a",
+        "n\nmy view, if Ms. Mili Debnath is let off, equity will get created in\nfavour of the other accused, who a"
+      ]
+    },
+    {
+      "keyword": "beneficiary",
+      "category": "Personal_and_Family",
+      "subcategory": "wills_succession",
+      "frequency": 3,
+      "positions": [
+        9331,
+        9999,
+        12655
+      ],
+      "context_snippets": [
+        "argued, was mentioned only in Column No. 12 as a beneficiary,\nwithout any overt act or criminal intent being a",
+        "417/2025 Page 6 of 12\n\nher account, making her a beneficiary of the cheated amount.\nAccordingly, her name was",
+        ". 12 of the second supplementary chargesheet as a\nbeneficiary.\n13. This Court is of the view that there is no c"
+      ]
+    },
+    {
+      "keyword": "charge",
+      "category": "Financial_and_Security",
+      "subcategory": "security_documents",
+      "frequency": 9,
+      "positions": [
+        5937,
+        6054,
+        6191,
+        7437,
+        7678,
+        9114,
+        9239,
+        10115,
+        10186
+      ],
+      "context_snippets": [
+        ", on 02.12.2016 and who\nwas shown untraced in the charge sheets filed till date. Further,\nthe IO, ACP Nare",
+        "s submitted that he has now\nfiled a supplementary charge sheet in respect of Ms. Mili\nCRL. M.C. 417/2025 P",
+        "er as a suspect in column no.12.\n5. The aforesaid charge sheet has been perused. Upon perusal\nthereof, I a"
+      ]
+    },
+    {
+      "keyword": "surety",
+      "category": "Financial_and_Security",
+      "subcategory": "security_documents",
+      "frequency": 3,
+      "positions": [
+        4658,
+        5001,
+        5713
+      ],
+      "context_snippets": [
+        "ings, the\nlearned Special Judge observed that the surety for Accused No. 4 (Mr.\nProsanta Mondal) was one M",
+        "2024, the IO submitted\nthat Ms. Mili Debnath, the surety for Accused No. 4, was indeed the\nsame person who",
+        "sh Kumar\nhas submitted that Ms. Mili Debnath, the surety of the accused\nno.4 (Sh. Prosanta Mandal) is the"
+      ]
+    },
+    {
+      "keyword": "beneficiary",
+      "category": "Financial_and_Security",
+      "subcategory": "insurance_policies",
+      "frequency": 3,
+      "positions": [
+        9331,
+        9999,
+        12655
+      ],
+      "context_snippets": [
+        "argued, was mentioned only in Column No. 12 as a beneficiary,\nwithout any overt act or criminal intent being a",
+        "417/2025 Page 6 of 12\n\nher account, making her a beneficiary of the cheated amount.\nAccordingly, her name was",
+        ". 12 of the second supplementary chargesheet as a\nbeneficiary.\n13. This Court is of the view that there is no c"
+      ]
+    },
+    {
+      "keyword": "beneficiary",
+      "category": "Specialized_Documents",
+      "subcategory": "trust_documents",
+      "frequency": 3,
+      "positions": [
+        9331,
+        9999,
+        12655
+      ],
+      "context_snippets": [
+        "argued, was mentioned only in Column No. 12 as a beneficiary,\nwithout any overt act or criminal intent being a",
+        "417/2025 Page 6 of 12\n\nher account, making her a beneficiary of the cheated amount.\nAccordingly, her name was",
+        ". 12 of the second supplementary chargesheet as a\nbeneficiary.\n13. This Court is of the view that there is no c"
+      ]
+    },
+    {
+      "keyword": "association",
+      "category": "Specialized_Documents",
+      "subcategory": "society_documents",
+      "frequency": 1,
+      "positions": [
+        12383
+      ],
+      "context_snippets": [
+        "ted by the bank.\nThe investigation did not reveal association of the petitioner\n●\nwith CCRT or any of the accus"
+      ]
+    }
+  ],
+  "text_length": 18016,
+  "total_matches": 178,
+  "category_scores": {
+    "Constitutional_and_Legislative": 0.5685435168738899,
+    "Judicial_Documents": 1.0,
+    "Personal_and_Family": 0.2942717584369449,
+    "Property_and_Real_Estate": 0.0,
+    "Business_and_Corporate": 0.0,
+    "Intellectual_Property": 0.0,
+    "Financial_and_Security": 0.7328152753108349,
+    "Licenses_Permits_Certificates": 0.0,
+    "Specialized_Documents": 0.25541740674955593
+  },
+  "processing_metadata": {
+    "classifier_version": "1.0.0",
+    "classification_method": "regex_pattern_matching",
+    "total_patterns_checked": 784,
+    "document_metadata": {},
+    "timestamp": "2025-09-20T21:22:49.137972"
+  },
+  "summary": {
+    "classification_successful": true,
+    "primary_label": "Judicial_Documents",
+    "confidence_level": "high",
+    "pattern_diversity": 27,
+    "top_keywords": [
+      "accused",
+      "petitioner",
+      "investigation",
+      "order",
+      "against"
+    ]
+  }
+}
