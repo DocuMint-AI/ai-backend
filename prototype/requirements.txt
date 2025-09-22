@@ -1,0 +1,22 @@
+# Core text + pdf processing
+pdfplumber>=0.6.0
+pypdfium2>=2.0.0
+Pillow>=9.0.0
+PyMuPDF>=1.22.0   # optional, pipeline will prefer if available
+
+# Google / Vertex
+google-cloud-vision>=3.0.0
+google-cloud-storage>=2.0.0
+google-auth>=2.0.0
+vertexai>=1.0.0   # if using Vertex embedding/generation in rag component
+
+# NLP / utilities
+regex>=2023.8.8
+ahocorasick>=1.4.0
+python-dotenv>=1.0.0
+
+# Testing / formatting
+pytest>=7.0.0
+
+# Optional / convenience
+tqdm>=4.0.0

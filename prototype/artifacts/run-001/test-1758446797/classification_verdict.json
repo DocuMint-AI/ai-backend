@@ -1,0 +1,31 @@
+{
+  "label": "Unclassified",
+  "score": 0.0,
+  "confidence": "very_low",
+  "matched_patterns": [],
+  "text_length": 0,
+  "total_matches": 0,
+  "total_weighted_score": 0.0,
+  "category_scores": {},
+  "diversity_scores": {},
+  "processing_metadata": {
+    "classifier_version": "2.0.0",
+    "classification_method": "weighted_regex_pattern_matching",
+    "timestamp": "2025-09-21T09:26:41.748762Z",
+    "error": "Empty or invalid input text"
+  },
+  "summary": {
+    "primary_label": "Unclassified",
+    "confidence": "very_low",
+    "score": 0.0,
+    "top_keywords": [],
+    "total_matches": 0,
+    "categories_considered": 0
+  },
+  "statistics": {
+    "total_patterns_matched": 0,
+    "unique_categories_found": 0,
+    "average_pattern_weight": 0.0,
+    "text_coverage_ratio": 0.0
+  }
+}

@@ -1,0 +1,1192 @@
+{
+  "success": true,
+  "pipeline_id": "test-1758464792",
+  "processing_method": "pypdfium2+pdfplumber",
+  "total_pages": 13,
+  "processed_pages": 13,
+  "text_length": 34796,
+  "classification": {
+    "label": "Judicial_Documents",
+    "score": 4.348729739050466,
+    "confidence": "high",
+    "matched_patterns": [
+      {
+        "keyword": "amendment",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "constitution_documents",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          24489
+        ],
+        "context_snippets": [
+          "of summons by the is Court. 17. It may be noted that in the old Criminal Procedure Code before the amendment of) 973, of S. 251(A) which dealt with the trial of warrant cases instituted on police report there"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "act",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "acts_statutes",
+        "frequency": 4,
+        "weight": 1.0,
+        "weighted_score": 4.0,
+        "positions": [
+          276,
+          908,
+          18964,
+          34245
+        ],
+        "context_snippets": [
+          "24, 1980 Acts Referred: Criminal Procedure Code, 1973 (CrPC) â€” Section 255(1) Madras Prohibition Act, 1937 â€” Section 4(1)(b) Citation: (1980) LW(Cri) 187 Hon'ble Judges: Rataare Pandian, J; Paul, J;",
+          "ondent-accused in each case of an offence punishable under S. 4(1)(b) of the Tamil Nadu Prohibition Act are before us, in as much as on a reference by one of us, before whom the appeals originally came u",
+          "n to the police to remain absent. In that case the accused was prosecuted under S. 34 of the Police Act. The case was to be tried according to the procedure prescribed in the Crl. P.C., 1898, for the tri",
+          "e respondents-accused have been charged are offences under S. 4(1)(b) of the Tamil Nadu Prohibition Act, and those prosecutions were launched nearly four years ago. Furthermore, the prosecution had not,"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "section",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "acts_statutes",
+        "frequency": 6,
+        "weight": 1.0,
+        "weighted_score": 6.0,
+        "positions": [
+          242,
+          290,
+          4273,
+          4695,
+          6340,
+          24161
+        ],
+        "context_snippets": [
+          "High Court Date of Decision: March 24, 1980 Acts Referred: Criminal Procedure Code, 1973 (CrPC) â€” Section 255(1) Madras Prohibition Act, 1937 â€” Section 4(1)(b) Citation: (1980) LW(Cri) 187 Hon'ble Judges",
+          "Referred: Criminal Procedure Code, 1973 (CrPC) â€” Section 255(1) Madras Prohibition Act, 1937 â€” Section 4(1)(b) Citation: (1980) LW(Cri) 187 Hon'ble Judges: Rataare Pandian, J; Paul, J; Natarajan, J Benc",
+          "ed and take all such evidence as he produces in hit defence, It was to be noted that under that sub-section a duty is cast on the prosecution to produce its evidence and likewise on the accused to produce ev",
+          "ecting him to attend or to produce any document or other thing. It may also be noted that this sub- section gives a discretion to the Magistrate to so issue summons on the application of the prosecution or t",
+          "of discharge. In all the cases now before us, the Magistrate could have very well resorted to this section But instead he has acquitted the accused under S. 255(1), Crl. P. C. and it is this acquittal which",
+          "esses and in such a case the Magistrate is found to summon those witnesses.-The whole object of the section appears to have been that the police should be prepared to produce its witnesses when the case is c"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "sub-section",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "acts_statutes",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          4269
+        ],
+        "context_snippets": [
+          "ccused and take all such evidence as he produces in hit defence, It was to be noted that under that sub-section a duty is cast on the prosecution to produce its evidence and likewise on the accused to produce ev"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "explanation",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "acts_statutes",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          16448,
+          16558
+        ],
+        "context_snippets": [
+          "to appear in response to the summons, a complaint can be laid under S. 174, I.P.C.  Then again, the Explanation (2) in S. 309, Crl. P.C. also can be made use of in suitable cases by the Magistrate, for,'' that E",
+          "n (2) in S. 309, Crl. P.C. also can be made use of in suitable cases by the Magistrate, for,'' that Explanation states ''the terms on which an adjournment or postponement may be granted including in appropriate"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "legislature",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "acts_statutes",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          23769
+        ],
+        "context_snippets": [
+          "ng an entirely new procedure, under S. 251(A) Crl. P.C. 1898 in cases instituted by the police, the Legislature has deliberately departed from that procedure and in the new procedure has made no provision for su"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "rules",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "rules_regulations",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          13824,
+          16762
+        ],
+        "context_snippets": [
+          "P. C. reads as follows:-- (1) Every summons shall be served by a police officer or subject to such rules as the State Government may make in this behalf, by an officer of the court issuing it or other pub",
+          "priate cases; the payment of costs by the prosecution or accused.'' We might also note here that no rules have been framed by the State Government under S. 62, Crl. P.C. Therefore, (sic) as it is, there ap"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "state government",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "rules_regulations",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          13837,
+          16792
+        ],
+        "context_snippets": [
+          "as follows:-- (1) Every summons shall be served by a police officer or subject to such rules as the State Government may make in this behalf, by an officer of the court issuing it or other public servant. S. 64 state",
+          "osts by the prosecution or accused.'' We might also note here that no rules have been framed by the State Government under S. 62, Crl. P.C. Therefore, (sic) as it is, there appears to us to be no bar to the serving o"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "department",
+        "category": "Constitutional_and_Legislative",
+        "subcategory": "rules_regulations",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          18487,
+          18731
+        ],
+        "context_snippets": [
+          "e has a duty towards the citizen. When the accused is. brought before the Court and the prosecuting department does not take any steps it will be an abuse of the process of the Court to continue the trial. Brin",
+          "using him of some offence is a serious matter and however petty the offence may be, the prosecuting department, must do its duty towards the accused as well as the Court. When once the accused is challenged the"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "judgment",
+        "category": "Judicial_Documents",
+        "subcategory": "judgments_orders",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          6010,
+          6136
+        ],
+        "context_snippets": [
+          ", may, for reasons to be recorded by him, stop the proceedings at any stage without pronouncing any judgment and such stoppage of proceedings is made after the evidence of the principal witnesses has been rec",
+          "of proceedings is made after the evidence of the principal witnesses has been recorded pronounce a judgment of acquittal, and In any other case, release the accused and such release shall have the effect of"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "order",
+        "category": "Judicial_Documents",
+        "subcategory": "judgments_orders",
+        "frequency": 9,
+        "weight": 1.0,
+        "weighted_score": 9.0,
+        "positions": [
+          3229,
+          5246,
+          6842,
+          9683,
+          14741,
+          18113,
+          19402,
+          28801,
+          29175
+        ],
+        "context_snippets": [
+          "s he may, of his own motion, cause to be produced, finds the accused not guilty, he shall record an order of acquittal. S. 254, Crl. P.C. states as follows- (1) If the Magistrate does not convict the accus",
+          "f any, as he may of his own motion cause to be produced. Under S. 255(1) a Magistrate can record an order of acquittal if he finds the accused not guilty upon taking the evidence learned to in S. 254 and s",
+          "ituted on a police report. We might note here that the cases now before us are summons cases but in order to answer the question No, 2, referred to us in the reference it is necessary to examine the positi",
+          "mons Apparently, the words ''if he thinks fit'' have been included in S. 254(2) in summons cases in order to give the Magistrate the power to refuse to issue such summons if he thinks it proper to do so. T",
+          "making such enquiries as it thinks fit may either declare that the summons has been duly served or order fresh service in such manner as it considers proper. S. 69 which makes provision for service of sum",
+          "erious in prosecuting the offence which was a minor one. Under S. 245. the Magistrate can record an order of acquittal if there is no evidence to hold the accused guilty. If the prosecution did not take pr",
+          "on the date of hearing the witnesses did not tarn up and the learned Magistrate forthwith passed an order of acquittal, aggrieved by which an appeal against acquittal was preferred by the State which appea",
+          "n of the case. Likewise, in Paban Chandra Majumdar v. Dulal Ghosh AIR IWCF 187 it was held that the order of acquittal was unwarranted by law when in a case instituted on a police report the Magistrate ord",
+          "s were issued he proceeded further and after examining the accused who pleaded not guilty passed an order of acquittal. In The State of Bihar Vs. Polo Mistry and Others, it was observed by a single Judge o"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "disposed of",
+        "category": "Judicial_Documents",
+        "subcategory": "judgments_orders",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          2556
+        ],
+        "context_snippets": [
+          "ere not produced on any of the hearing dates and in spite of a notice issued that the case would be disposed of without examining the witnesses if they are not produced the prosecution did not choose to let in a"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "dismissed",
+        "category": "Judicial_Documents",
+        "subcategory": "judgments_orders",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          19524
+        ],
+        "context_snippets": [
+          "grieved by which an appeal against acquittal was preferred by the State which appeal was eventually dismissed by the Division Bench of the Madhya Pradesh High Court, with the above observations. That was an ex"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "high court",
+        "category": "Judicial_Documents",
+        "subcategory": "court_proceedings",
+        "frequency": 9,
+        "weight": 1.0,
+        "weighted_score": 9.0,
+        "positions": [
+          142,
+          11800,
+          17536,
+          21836,
+          22965,
+          23440,
+          29292,
+          31147,
+          31737
+        ],
+        "context_snippets": [
+          "www.courtkutchehry.com Printed For : Date : 24/08/2025 State Vs Veerappan and Others Court: Madras High Court Date of Decision: March 24, 1980 Acts Referred: Criminal Procedure Code, 1973 (CrPC) â€” Section 25",
+          "greement with the aforesaid observations of the Orissa and the Rajasthan High Courts. The Rajasthan High Court went on to point out that the Magistrate should not feel himself helpless in such situations and sh",
+          "warrant cases? 11. In State of Madhya Pradesh v. Kalthawaix a Division Bench of the Madhya Pradesh High Court observed as follows:- It was the duty of the prosecution to make necessary arrangements for the pro",
+          "to issue process for compelling the attendance of witnesses. The learned single Judge of the Kerala High Court repelled the argument advanced on behalf of the State that under S.  251(A)(7) of the Crl. P.C. 189",
+          "In Sri Jyothi Mayee Bose v. Birendranath Prodkan, AIR 1960 Cal 265 a Division Bench of the Calcutta High Court observed that Sub-s. (6) of S. 251(A), Crl. P.C., 1898, does not enjoin upon the Magistrate any dut",
+          "256 and 257 of the Code. 16. In Slate v. Ramlal 1961 2 Crl L.J. 331 a single Judge of the Allahabad High Court observed as follows;- S. 252, Crl. P.C. Imposes a duty upon the Magistrate to ascertain the names o",
+          "l. In The State of Bihar Vs. Polo Mistry and Others, it was observed by a single Judge of the Patna High Court as follows. Where the prosecutor in a criminal trial has himself undertaken to produce the prosecut",
+          "ll),Crl. P.C. if the prosecution failed to produce their witnesses, a Division Bench of the Gujarat High Court observed in State of Gujarat v. Bava Bhadya 1962 2 CrI. L.J. 537 as follows- Where a charge is fram",
+          "1. In State of Karnataka v, Subramania Setty 1980 M.L.J. Crl.131, a Division Bench of the Karnataka High Court referring to the decisions in State of Mysore v. Narasimla Gowda 1964 2 Mys. L.J. 241 and the State"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "respondent",
+        "category": "Judicial_Documents",
+        "subcategory": "parties_litigation",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          580,
+          804
+        ],
+        "context_snippets": [
+          "Respts, Mr. M.S. Menon for Bar Association and Mr. K.V. Sankaran for Advocates Association, for the Respondent Judgement Paul J. 1. These appeals which have been preferred by the State represented by the learne",
+          "cutor against the orders of the learned Judicial Second Class Magistrate of Namakkal acquitting the respondent-accused in each case of an offence punishable under S. 4(1)(b) of the Tamil Nadu Prohibition Act ar"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "appellant",
+        "category": "Judicial_Documents",
+        "subcategory": "parties_litigation",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          451
+        ],
+        "context_snippets": [
+          "Rataare Pandian, J; Paul, J; Natarajan, J Bench: Full Bench Advocate: P. Rajamanickam, P.P, for the Appellant; K. Doraiswami for Respts, Mr. M.S. Menon for Bar Association and Mr. K.V. Sankaran for Advocates A"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "complainant",
+        "category": "Judicial_Documents",
+        "subcategory": "parties_litigation",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          28492
+        ],
+        "context_snippets": [
+          "nation of witnesses were exercised for a just decision of the case irrespective of the laces of the complainant. Therefore, this Court had already emphasized the important duty laid on the Court to see that all"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "accused",
+        "category": "Judicial_Documents",
+        "subcategory": "parties_litigation",
+        "frequency": 50,
+        "weight": 1.0,
+        "weighted_score": 50.0,
+        "positions": [
+          815,
+          1389,
+          1848,
+          2252,
+          2965,
+          3190,
+          3329,
+          3512,
+          3665,
+          4168,
+          4359,
+          4467,
+          4805,
+          4947,
+          5281,
+          6194,
+          6381,
+          6550,
+          7277,
+          7370,
+          7482,
+          7690,
+          7731,
+          7836,
+          8263,
+          8361,
+          8457,
+          9956,
+          16719,
+          17344,
+          18168,
+          18430,
+          18772,
+          18816,
+          18915,
+          19738,
+          22852,
+          25127,
+          25970,
+          26793,
+          27521,
+          28288,
+          29134,
+          30201,
+          31017,
+          31610,
+          32813,
+          33802,
+          34159,
+          34552
+        ],
+        "context_snippets": [
+          "st the orders of the learned Judicial Second Class Magistrate of Namakkal acquitting the respondent-accused in each case of an offence punishable under S. 4(1)(b) of the Tamil Nadu Prohibition Act are before",
+          "Full Bench, the first one, namely, whether under S. 255(1), Crl. P.C., a Magistrate can acquit the accused if the prosecution fails to apply for the issue of summons to any witness and does not produce the",
+          "d question which arises for determination by us incidentally is whether a Magistrate can acquit the accused under S. 245(1), Crl. P.C., if the prosecution does not apply for the issue of summons to any of th",
+          "tnesses or to produce the witnesses.  3. In all these appeals, the learned Magistrate acquitted the accused under S. 255(I), Crl. P.C., on the ground that even though the cases had been posted for hearing on",
+          "of the Crl. P.C. of 1973, which have relevance to this matter. S. 255(1), Crl. P.C. under which the accused have been acquitted in these cases states as follows- If the Magistrate, upon taking the evidence r",
+          "54 and such further evidence, if any, as he may, of his own motion, cause to be produced, finds the accused not guilty, he shall record an order of acquittal. S. 254, Crl. P.C. states as follows- (1) If the",
+          "order of acquittal. S. 254, Crl. P.C. states as follows- (1) If the Magistrate does not convict the accused under S. 255 or S. 253, the Magistrate shall proceed to hear the prosecution and take all such evid",
+          "n and take all such evidence as may be produced in support of the prosecution, and also to hear the accused and take all such evidence as he produces in his defence. (2) The Magistrate may; if he thinks fit,",
+          "his defence. (2) The Magistrate may; if he thinks fit, on the application of the prosecution or the accused issue a summons to any witness directing him to attend or to produce any document or other thing. (",
+          "cution and take all such evidence as may be produced in support of prosecution and also to hear the accused and take all such evidence as he produces in hit defence, It was to be noted that under that sub-se",
+          "nder that sub-section a duty is cast on the prosecution to produce its evidence and likewise on the accused to produce evidence in his defence. Sub-S. (2) of S. 254 makes provision for the prosecution of the",
+          "to produce evidence in his defence. Sub-S. (2) of S. 254 makes provision for the prosecution of the accused to seek the assistance of the Court in producing its or his evidence by applying for issue of summo",
+          "ves a discretion to the Magistrate to so issue summons on the application of the prosecution or the accused by using the words ''the Magistrate may, if he thinks fit. Thus an emphasis is placed by S. 254 on",
+          "e may, if he thinks fit. Thus an emphasis is placed by S. 254 on the duty of the prosecution or the accused to produce all evidence in  support of its case or his defence: 5. S. 255(1) makes provision for th",
+          "cause to be produced. Under S. 255(1) a Magistrate can record an order of acquittal if he finds the accused not guilty upon taking the evidence learned to in S. 254 and such further evidence, if any, as he m",
+          "l witnesses has been recorded pronounce a judgment of acquittal, and In any other case, release the accused and such release shall have the effect of discharge. In all the cases now before us, the Magistrate",
+          "e us, the Magistrate could have very well resorted to this section But instead he has acquitted the accused under S. 255(1), Crl. P. C. and it is this acquittal which has been challenged by the State in thes",
+          "s been challenged by the State in these appeals on the ground that the Magistrate cannot acquit the accused under S. 255(1), Crl. P. C. when he has not taken the evidence referred to in S. 254, Crl. P. C. 6.",
+          "sideration of the Police report and the documents sent with it under S. 173, and examination of the accused, if any, as the Magistrate thinks necessary and after giving the prosecution and the accused an opp",
+          "of the accused, if any, as the Magistrate thinks necessary and after giving the prosecution and the accused an opportunity of being heard. the Magistrate is of opinion that there is ground for presuming that",
+          "pportunity of being heard. the Magistrate is of opinion that there is ground for presuming that the accused has committed an offence tribal under Chapter 19 which such Magistrate is competent to try and whic",
+          "in his opinion could be adequately punished by him, he shall frame in writing a charge against the accused. Under S. 242, Crl. P. C. if the accused refuses to plead or does not plead or claims to be tried o",
+          "hed by him, he shall frame in writing a charge against the accused. Under S. 242, Crl. P. C. if the accused refuses to plead or does not plead or claims to be tried or the Magistrate does not convict the  ac",
+          "ed refuses to plead or does not plead or claims to be tried or the Magistrate does not convict the  accused under S. 241, on his plea of guilt the Magistrate should fix a date for examination of the witnesse",
+          "to take all such evidence as may be produced In support of the prosecution. S. 243 states that the accused shall then be called upon to enter up.-m his defence and produce his evidence, and if the accused p",
+          "e accused shall then be called upon to enter up.-m his defence and produce his evidence, and if the accused puts in any written statement, the Magistrate shall file it with the record, and if the accused aft",
+          "the accused puts in any written statement, the Magistrate shall file it with the record, and if the accused after he Has entered upon his defence, applies to the Magistrate to issue any process for compellin",
+          "ate that the Magistrate has to apply his mind when an application is made by the prosecution or the accused to issue such summons. Therefore, even in regard to warrant cases instituted on police report, a du",
+          "tponement may be granted including in appropriate cases; the payment of costs by the prosecution or accused.'' We might also note here that no rules have been framed by the State Government under S. 62, Crl.",
+          "he summons on the witnesses or to produce them, the Magistrate would be justified in acquitting the accused either under S. 255(1), Crl. P. C. in summons cases or under S. 248(1), Crl. P.C. in warrant cases?",
+          ". Under S. 245. the Magistrate can record an order of acquittal if there is no evidence to hold the accused guilty. If the prosecution did not take proper steps to produce the witnesses, or ask the Court to",
+          "s, the Court was not bound to fix another date. The police has a duty towards the citizen. When the accused is. brought before the Court and the prosecuting department does not take any steps it will be an a",
+          "tter and however petty the offence may be, the prosecuting department, must do its duty towards the accused as well as the Court. When once the accused is challenged there is no privilege given to the police",
+          "he prosecuting department, must do its duty towards the accused as well as the Court. When once the accused is challenged there is no privilege given to the police to remain absent. In that case the accused",
+          "accused is challenged there is no privilege given to the police to remain absent. In that case the accused was prosecuted under S. 34 of the Police Act. The case was to be tried according to the procedure p",
+          "case. 12. There are quite a number of decisions in which it had been held that an acquittal of the accused on the failure of the prosecution to produce the witnesses is not legal. (Vide State v. Kaliram Nan",
+          "at the Magistrate could not be said to have acted illegally if he closed the case and acquitted the accused. 15. In Sri Jyothi Mayee Bose v. Birendranath Prodkan, AIR 1960 Cal 265 a Division Bench of the Cal",
+          "ger be good law. 18. In almost all the decisions in which it has been held that an acquittal of the accused on the ground that the prosecution did not produce the witnesses was improper, the courts have poin",
+          "e duty of the Magistrate of the Court. In some of those decisions it has been held that finding the accused not guilty implies that the Court has applied its mind to the merits of the case after recording ev",
+          "r Chapter XX relating to the trial of summons cases instituted on police report, for acquitting the accused on the ground that the prosecution had not produced its evidence. Nevertheless provisions have been",
+          "to the Court for the issue of summons to the witnesses. Therefore, in our view, an acquittal of the accused merely on the ground that the prosecution had not produced the witnesses would not be proper if the",
+          "in warrant cases where the Court had already framed a charge under S. 251-A Crl. P.C., against the accused an important duty was laid on it to see that all the powers available to the Court for the examinat",
+          "attendance of witnesses to whom summonses were issued he proceeded further and after examining the accused who pleaded not guilty passed an order of acquittal. In The State of Bihar Vs. Polo Mistry and Othe",
+          "teps to compel the attendance of the witnesses and it is wrong on his part to proceed to acquit the accused on the footing that there is no evidence against them. 19. It was further observed- It is undoubted",
+          "attendance of the prosecution witnesses. 20. On the question as to whether Magistrate can acquit an accused at all under S. 251-A(ll),Crl. P.C. if the prosecution failed to produce their witnesses, a Divisio",
+          "70 and 71, Crl. P.C. 1896 there is no evidence before the Magistrate, the Magistrate can acquit the accused under S. 25A(11). 21. In State of Karnataka v, Subramania Setty 1980 M.L.J. Crl.131, a Division Ben",
+          "the Magistrate would be justified in refusing to grant an adjournment and to proceed to acquit the accused on the material on record. We may note here that in State of Kirnataka v. Subramani Setty 1980 M.L.",
+          "o do so, then the Court, being left with no other alternative, would be justified in acquitting the accused for want of evidence to prove the prosecution case, under S. 248, Crl. P. C. in the case of warrant",
+          "s. 23. Coming now to these appeals, we might note here that the offences with which the respondents-accused have been charged are offences under S. 4(1)(b) of the Tamil Nadu Prohibition Act, and those prosec",
+          "attitude. In view of these circumstances, while pointing out that the acquittal of the respondents-accused in the circumstances of these cases is not proper, inasmuch as the Court had not discharged its dut"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "convict",
+        "category": "Judicial_Documents",
+        "subcategory": "parties_litigation",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          3317,
+          7823
+        ],
+        "context_snippets": [
+          "l record an order of acquittal. S. 254, Crl. P.C. states as follows- (1) If the Magistrate does not convict the accused under S. 255 or S. 253, the Magistrate shall proceed to hear the prosecution and take a",
+          "if the accused refuses to plead or does not plead or claims to be tried or the Magistrate does not convict the  accused under S. 241, on his plea of guilt the Magistrate should fix a date for examination of"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "vs",
+        "category": "Judicial_Documents",
+        "subcategory": "parties_litigation",
+        "frequency": 4,
+        "weight": 1.0,
+        "weighted_score": 4.0,
+        "positions": [
+          104,
+          10646,
+          26220,
+          29217
+        ],
+        "context_snippets": [
+          "any : Sol Infotech Pvt. Ltd. Website : www.courtkutchehry.com Printed For : Date : 24/08/2025 State Vs Veerappan and Others Court: Madras High Court Date of Decision: March 24, 1980 Acts Referred: Crimi",
+          "cessary for us to examine the connotation of the words ''as maybe produced''. 7. In State of Orissa Vs. Sib Charan Singh, it has been observed as follows: (Head note):-  The word ''produced'' in Sub-s.",
+          "ty. (Vide State of Mysore v. Kalibuliah Ahmed Sheriff A.I. R. 1971 Mys. 60 and The State of Gujarat Vs. Thakorbhai Sukhabhai and Others, State of Rajasthan v. Mukthiar Singh 1965 2 Cri.L.J. 885 State of",
+          "er examining the accused who pleaded not guilty passed an order of acquittal. In The State of Bihar Vs. Polo Mistry and Others, it was observed by a single Judge of the Patna High Court as follows. Wher"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "against",
+        "category": "Judicial_Documents",
+        "subcategory": "parties_litigation",
+        "frequency": 6,
+        "weight": 1.0,
+        "weighted_score": 6.0,
+        "positions": [
+          710,
+          7678,
+          19451,
+          21079,
+          28276,
+          30250
+        ],
+        "context_snippets": [
+          ". These appeals which have been preferred by the State represented by the learned Public Prosecutor against the orders of the learned Judicial Second Class Magistrate of Namakkal acquitting the respondent-ac",
+          "ry and which in his opinion could be adequately punished by him, he shall frame in writing a charge against the accused. Under S. 242, Crl. P. C. if the accused refuses to plead or does not plead or claims t",
+          "up and the learned Magistrate forthwith passed an order of acquittal, aggrieved by which an appeal against acquittal was preferred by the State which appeal was eventually dismissed by the Division Bench of",
+          "Cri. L.J.; 03 Apr an Joseph alias Kjrant Kunju Kunju v. State of Kerala 1972 M.L.J. Crl. 10. 13. As against these decisions, there are the following decisions in which it has been held that acquittal on the",
+          "J, held that in warrant cases where the Court had already framed a charge under S. 251-A Crl. P.C., against the accused an important duty was laid on it to see that all the powers available to the Court for",
+          "d it is wrong on his part to proceed to acquit the accused on the footing that there is no evidence against them. 19. It was further observed- It is undoubtedly the duty of the Magistrate to take steps for s"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "written statement",
+        "category": "Judicial_Documents",
+        "subcategory": "pleadings",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          8381
+        ],
+        "context_snippets": [
+          "be called upon to enter up.-m his defence and produce his evidence, and if the accused puts in any written statement, the Magistrate shall file it with the record, and if the accused after he Has entered upon his def"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "prayer",
+        "category": "Judicial_Documents",
+        "subcategory": "pleadings",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          21729
+        ],
+        "context_snippets": [
+          "port stating that the witnesses had refused to execute kychits and seeking orders, but there was no prayer to issue process for compelling the attendance of witnesses. The learned single Judge of the Kerala"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "evidence",
+        "category": "Judicial_Documents",
+        "subcategory": "evidence_procedure",
+        "frequency": 43,
+        "weight": 1.0,
+        "weighted_score": 43.0,
+        "positions": [
+          2670,
+          2740,
+          3062,
+          3110,
+          3432,
+          3538,
+          4093,
+          4194,
+          4330,
+          4378,
+          4535,
+          4970,
+          5083,
+          5135,
+          5316,
+          5363,
+          6070,
+          6612,
+          8181,
+          8340,
+          9165,
+          10104,
+          10203,
+          10378,
+          10928,
+          11136,
+          12611,
+          12857,
+          13457,
+          18147,
+          19188,
+          21593,
+          22189,
+          23579,
+          23644,
+          26075,
+          26857,
+          27069,
+          27347,
+          29468,
+          30241,
+          31548,
+          33822
+        ],
+        "context_snippets": [
+          "thout examining the witnesses if they are not produced the prosecution did not choose to let in any evidence and as such the Magistrate found that the prosecution had no evidence to let in. 4. S. 81, Crl. P.C",
+          "did not choose to let in any evidence and as such the Magistrate found that the prosecution had no evidence to let in. 4. S. 81, Crl. P.C. 1861, (sic) the Magistrate to issue a warrant. We shall first examin",
+          "he accused have been acquitted in these cases states as follows- If the Magistrate, upon taking the evidence referred to in S. 254 and such further evidence, if any, as he may, of his own motion, cause to be",
+          "ates as follows- If the Magistrate, upon taking the evidence referred to in S. 254 and such further evidence, if any, as he may, of his own motion, cause to be produced, finds the accused not guilty, he shall",
+          "used under S. 255 or S. 253, the Magistrate shall proceed to hear the prosecution and take all such evidence as may be produced in support of the prosecution, and also to hear the accused and take all such ev",
+          "ce as may be produced in support of the prosecution, and also to hear the accused and take all such evidence as he produces in his defence. (2) The Magistrate may; if he thinks fit, on the application of the",
+          "at under Sub-s. (1) of S. 254, the Magistrate is enjoined to hear the prosecution and take all such evidence as may be produced in support of prosecution and also to hear the accused and take all such evidenc",
+          "vidence as may be produced in support of prosecution and also to hear the accused and take all such evidence as he produces in hit defence, It was to be noted that under that sub-section a duty is cast on the",
+          "ce, It was to be noted that under that sub-section a duty is cast on the prosecution to produce its evidence and likewise on the accused to produce evidence in his defence. Sub-S. (2) of S. 254 makes provisio",
+          "on a duty is cast on the prosecution to produce its evidence and likewise on the accused to produce evidence in his defence. Sub-S. (2) of S. 254 makes provision for the prosecution of the accused to seek the",
+          "sion for the prosecution of the accused to seek the assistance of the Court in producing its or his evidence by applying for issue of summons to any witness directing him to attend or to produce any document",
+          ". Thus an emphasis is placed by S. 254 on the duty of the prosecution or the accused to produce all evidence in  support of its case or his defence: 5. S. 255(1) makes provision for the Magistrate upon taking",
+          "support of its case or his defence: 5. S. 255(1) makes provision for the Magistrate upon taking the evidence referred to in S. 254 to take such further evidence, if any, as he may of his own motion cause to b",
+          "es provision for the Magistrate upon taking the evidence referred to in S. 254 to take such further evidence, if any, as he may of his own motion cause to be produced. Under S. 255(1) a Magistrate can record",
+          "1) a Magistrate can record an order of acquittal if he finds the accused not guilty upon taking the evidence learned to in S. 254 and such further evidence, if any, as he may, of his own motion, cause to be p",
+          "l if he finds the accused not guilty upon taking the evidence learned to in S. 254 and such further evidence, if any, as he may, of his own motion, cause to be produced. S. 244, Crl. P. C. of 1898 (correspond",
+          "gs at any stage without pronouncing any judgment and such stoppage of proceedings is made after the evidence of the principal witnesses has been recorded pronounce a judgment of acquittal, and In any other ca",
+          "that the Magistrate cannot acquit the accused under S. 255(1), Crl. P. C. when he has not taken the evidence referred to in S. 254, Crl. P. C. 6. We shall also now examine the provisions relating to the trial",
+          "any document or other thing and on the date so fixed the Magistrate shall proceed to take all such evidence as may be produced In support of the prosecution. S. 243 states that the accused shall then be call",
+          "S. 243 states that the accused shall then be called upon to enter up.-m his defence and produce his evidence, and if the accused puts in any written statement, the Magistrate shall file it with the record, an",
+          "n warrant cases instituted on a police reports enjoined under Sub-s. (3) of S. 242 to take all such evidence as may be produced in support of the prosecution and a provision has been made in Sub-s. (2) of S.",
+          "n regard to warrant cases instituted on police report, a duty is cast on the Magistrate to take all evidence that may be produced by the prosecution as well as a duty to facilitate the production of evidence,",
+          "evidence that may be produced by the prosecution as well as a duty to facilitate the production of evidence, by the prosecution, by issuing summons to witnesses on the application of the prosecution, and lik",
+          "ation of the prosecution, and likewise, a duty has also been cast on the prosecution to produce all evidence in support of its case. Since both in S. 254(1) as well as in S. 242(3), the words ''as may be prod",
+          "restricted meaning as to saddle the prosecution '' with the entire responsibility of producing the evidence A duty also is cast upon the courts for enforcing attendance of witnesses by the process provided i",
+          "n the Crl. P.C. The courts are not therefore, absolutely powerless when the parties fail to produce evidence relevant In a case. In State v. Mandkishore, A.I.R 1967 Raj. 228 it has been observed is follows (H",
+          "lready examined and the court shall summon and examine or recall and examine any such person if his evidence appears to it essential to the just decision of the case. The analogous and corresponding provision",
+          "hus the court cannot absolve itself of its responsibility to summon and examine all witnesses whose evidence appears to it to be essential to a just decision of the case, merely because the prosecution does n",
+          "istration of criminal justice the suo motu take all steps to secure the presence of witnesses where evidence appears to it to be essential to a just decision of the case. 9. We shall now proceed to indicate t",
+          "which was a minor one. Under S. 245. the Magistrate can record an order of acquittal if there is no evidence to hold the accused guilty. If the prosecution did not take proper steps to produce the witnesses,",
+          "that is, under S. 244, Crl. P.C., of 1898. The cases was posted to a particular date for recording  evidence and earlier at the instance of the prosecution summons had been issued to the prosecution witnesses",
+          "72 M.L.J. Crl. 10 the case was one of theft and when the case came up for the prosecution to adduce evidence, the prosecution riled a report stating that the witnesses had refused to execute kychits and seeki",
+          "ecution fails to produce them and the learned Judge held that the duty of the Court is only to take evidence which is ready when the case is taken up for hearing and the Magistrate is not bound to go on adjou",
+          ", Crl. P.C. Imposes a duty upon the Magistrate to ascertain the names of the witnesses who can give evidence on the relevant points and to summon those witnesses in evidence. But, by providing an entirely new",
+          "ames of the witnesses who can give evidence on the relevant points and to summon those witnesses in evidence. But, by providing an entirely new procedure, under S. 251(A) Crl. P.C. 1898 in cases instituted by",
+          "ed not guilty implies that the Court has applied its mind to the merits of the case after recording evidence and then only has found him not guilty. (Vide State of Mysore v. Kalibuliah Ahmed Sheriff A.I. R. 1",
+          "n police report, for acquitting the accused on the ground that the prosecution had not produced its evidence. Nevertheless provisions have been made in the present Code, for summons to be issued to the witnes",
+          "on the application of the prosecution and a duty is also cast on the prosecution to produce all its evidence. Thus there is a duty cast on an application by the prosecution to issue summons to the witnesses a",
+          "rred on it by the Code for that purpose and duty is also cast on the prosecution to produce all its evidence and to seek the assistance of the Court for so doing by applying to the Court for the issue of summ",
+          "undertaken to produce the prosecution witnesses the entire responsibility for the production of the evidence in support of the prosecution case is that of the prosecutor. But when the prosecutor has taken rec",
+          "nesses and it is wrong on his part to proceed to acquit the accused on the footing that there is no evidence against them. 19. It was further observed- It is undoubtedly the duty of the Magistrate to take ste",
+          "he summonses according to the provisions contained in Ss. 69, 70 and 71, Crl. P.C. 1896 there is no evidence before the Magistrate, the Magistrate can acquit the accused under S. 25A(11). 21. In State of Karn",
+          "urt, being left with no other alternative, would be justified in acquitting the accused for want of evidence to prove the prosecution case, under S. 248, Crl. P. C. in the case of warrant cases instituted on"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "witness",
+        "category": "Judicial_Documents",
+        "subcategory": "evidence_procedure",
+        "frequency": 19,
+        "weight": 1.0,
+        "weighted_score": 19.0,
+        "positions": [
+          1463,
+          1496,
+          1992,
+          3696,
+          3816,
+          3889,
+          4584,
+          8588,
+          9310,
+          12395,
+          12465,
+          15004,
+          15161,
+          15322,
+          15400,
+          16098,
+          16144,
+          16258,
+          23109
+        ],
+        "context_snippets": [
+          "Magistrate can acquit the accused if the prosecution fails to apply for the issue of summons to any witness and does not produce the witness for several hearings and does not serve summons on the. witnesses",
+          "if the prosecution fails to apply for the issue of summons to any witness and does not produce the witness for several hearings and does not serve summons on the. witnesses despite having been granted suffi",
+          "rosecution does not apply for the issue of summons to any of the witnesses and does not produce the witness for several hearings and does not serve the summons on the witnesses despite having been granted su",
+          "may; if he thinks fit, on the application of the prosecution or the accused issue a summons to any witness directing him to attend or to produce any document or other thing. (3) The Magistrate may, before s",
+          "m to attend or to produce any document or other thing. (3) The Magistrate may, before summoning any witness on such application, require that the reasonable expenses of the witness incurred in attending for",
+          "may, before summoning any witness on such application, require that the reasonable expenses of the witness incurred in attending for the purposes of the trial be deposited In Court. It will be noticed that",
+          "he assistance of the Court in producing its or his evidence by applying for issue of summons to any witness directing him to attend or to produce any document or other thing. It may also be noted that this s",
+          "on his defence, applies to the Magistrate to issue any process for compelling the attendance of any witness for the purpose of examination or cross-examination or the production of the document or other thin",
+          "prosecution and a provision has been made in Sub-s. (2) of S. 242, for the issue of summons to any witness directing him to attend or produce any document or other thing on the application of the prosecutio",
+          "Court may at any stage of enquiry, trial o other proceeding under this Code summon any person as a witness or examine any person in attendance, though not summoned as a witness'' or recall and reexamine any",
+          "s Code summon any person as a witness or examine any person in attendance, though not summoned as a witness'' or recall and reexamine any person already examined and the court shall summon and examine or rec",
+          "anding anything contained in the preceding sections of this Chapter, a court issuing a summons to a witness may, in addition to and simultaneously with the issue of fresh summons direct a copy of the summons",
+          "ssue of fresh summons direct a copy of the summons to be served by registered post addressed to the witness at the place where he ordinarily resides or carries on business or personally works for gain. (2) W",
+          "n business or personally works for gain. (2) Where an acknowledgment purporting to be signed by the witness or an endorsement purporting to be made by a postal employee that the witness refused to take deliv",
+          "g to be signed by the witness or an endorsement purporting to be made by a postal employee that the witness refused to take delivery of the summons has been received the court issuing the summons may declare",
+          "strate may resort to this provision of issuing the summons and sending it by registered post to the witness. Of course, if after due service, the witness does not appear before the Court, the Court should be",
+          "the summons and sending it by registered post to the witness. Of course, if after due service, the witness does not appear before the Court, the Court should be coercive processes for securing the pretence",
+          "ot appear before the Court, the Court should be coercive processes for securing the pretence of the witness before the Court. ID suitable cases, or in cases of chronic or persistent failure to appear in resp",
+          "1(A), Crl. P.C., 1898, does not enjoin upon the Magistrate any duty to compel the attendance of any witness unless it was applied for and in a case tried under S. 251(A), Crl. P.C. the Magistrate is not comp"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "cross-examination",
+        "category": "Judicial_Documents",
+        "subcategory": "evidence_procedure",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          8630
+        ],
+        "context_snippets": [
+          "to issue any process for compelling the attendance of any witness for the purpose of examination or cross-examination or the production of the document or other things, the Magistrate shall issue such process unless h"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "summons",
+        "category": "Judicial_Documents",
+        "subcategory": "evidence_procedure",
+        "frequency": 58,
+        "weight": 1.0,
+        "weighted_score": 58.0,
+        "positions": [
+          1448,
+          1544,
+          1634,
+          1935,
+          2044,
+          2135,
+          2378,
+          3681,
+          4569,
+          4752,
+          5729,
+          6821,
+          7138,
+          8012,
+          9029,
+          9295,
+          9522,
+          9580,
+          9666,
+          9746,
+          9978,
+          10244,
+          13091,
+          13761,
+          14038,
+          14190,
+          14504,
+          14709,
+          14843,
+          14991,
+          15075,
+          15104,
+          15440,
+          15488,
+          15517,
+          15893,
+          16049,
+          16377,
+          16910,
+          17247,
+          17390,
+          18324,
+          19073,
+          19244,
+          24393,
+          24689,
+          24960,
+          25653,
+          26731,
+          26931,
+          27151,
+          27451,
+          28911,
+          29902,
+          32971,
+          33192,
+          33304,
+          33980
+        ],
+        "context_snippets": [
+          ", Crl. P.C., a Magistrate can acquit the accused if the prosecution fails to apply for the issue of summons to any witness and does not produce the witness for several hearings and does not serve summons on",
+          "of summons to any witness and does not produce the witness for several hearings and does not serve summons on the. witnesses despite having been granted sufficient opportunity to serve the summons or to pro",
+          "not serve summons on the. witnesses despite having been granted sufficient opportunity to serve the summons or to produce the witnesses, is the one that directly arises for determination in these appeals. Th",
+          "n acquit the accused under S. 245(1), Crl. P.C., if the prosecution does not apply for the issue of summons to any of the witnesses and does not produce the witness for several hearings and does not serve th",
+          "o any of the witnesses and does not produce the witness for several hearings and does not serve the summons on the witnesses despite having been granted sufficient opportunities to serve the summons on the w",
+          "erve the summons on the witnesses despite having been granted sufficient opportunities to serve the summons on the witnesses or to produce the witnesses.  3. In all these appeals, the learned Magistrate acqu",
+          "rl. P.C., on the ground that even though the cases had been posted for hearing on various dates and summons had been issued to the witnesses for all the hearings, the witnesses were not produced on any of th",
+          "The Magistrate may; if he thinks fit, on the application of the prosecution or the accused issue a summons to any witness directing him to attend or to produce any document or other thing. (3) The Magistrat",
+          "cused to seek the assistance of the Court in producing its or his evidence by applying for issue of summons to any witness directing him to attend or to produce any document or other thing. It may also be no",
+          "thing. It may also be noted that this sub- section gives a discretion to the Magistrate to so issue summons on the application of the prosecution or the accused by using the words ''the Magistrate may, if he",
+          "Crl, P. C, 1973, which is analogous to S. 249 of the Crl. P. C. of 1898, reads as follows :- In any summons case instituted otherwise than upon complaint, a Magistrate of the first class or, with the previou",
+          "of warrant cases instituted on a police report. We might note here that the cases now before us are summons cases but in order to answer the question No, 2, referred to us in the reference it is necessary to",
+          "s also help to throw light on the first question which has been referred to us and which relates to summons cases. Under S. 240 if upon consideration of the Police report and the documents sent with it under",
+          "for examination of the witnesses and the Magistrate may on the application of the prosecution issue summons to any of its witnesses directing him to attend or to produce any document or other thing and on th",
+          "recorded by him in writing. It might be noted that as In S. 254, Crl. P.C. relating to the trial of-summons cases, the Magistrate even in warrant cases instituted on a police reports enjoined under Sub-s. (3",
+          "support of the prosecution and a provision has been made in Sub-s. (2) of S. 242, for the issue of summons to any witness directing him to attend or produce any document or other thing on the application of",
+          "may, however, be noted that while under S. 254(2) the Magistrate '' may if he thinks if issue such summons, under S. 242, the Magistrate ''may'' issue, such summons Apparently, the words ''if he thinks fit'",
+          "istrate '' may if he thinks if issue such summons, under S. 242, the Magistrate ''may'' issue, such summons Apparently, the words ''if he thinks fit'' have been included in S. 254(2) in summons cases in orde",
+          "' issue, such summons Apparently, the words ''if he thinks fit'' have been included in S. 254(2) in summons cases in order to give the Magistrate the power to refuse to issue such summons if he thinks it pro",
+          "ded in S. 254(2) in summons cases in order to give the Magistrate the power to refuse to issue such summons if he thinks it proper to do so. The words ''if he thinks fit'' in Sub-s. (2) of S. 254, further in",
+          "e has to apply his mind when an application is made by the prosecution or the accused to issue such summons. Therefore, even in regard to warrant cases instituted on police report, a duty is cast on the Magi",
+          "secution as well as a duty to facilitate the production of evidence, by the prosecution, by issuing summons to witnesses on the application of the prosecution, and likewise, a duty has also been cast on the",
+          "owing to its negligence or otherwise. It being clear that it is the duty of the Magistrate to issue summons and secure the presence of witnesses and examine them, when the prosecution seeks the court''s assi",
+          "the matter  of securing the presence of witnesses, S. 62, Crl. P. C. reads as follows:-- (1) Every summons shall be served by a police officer or subject to such rules as the State Government may make in th",
+          "nt. S. 64 states \"\"Where the persons summoned cannot by the exercise of due diligence be found, the summons may be served by leaving one of the duplicates for him with some adult male member of his family re",
+          "es for him with some adult male member of his family residing with him and the person with whom the summons is so left, shall, if so required by the serving officer sign a receipt therefore on the back of th",
+          "ed as provided in S62, S. 63 or S. 64, the serving officer shall affix one of the duplicates of the summons to some conspicuous part of the house or homestead in which the person summoned ordinarily resides",
+          "s and thereupon the court, after making such enquiries as it thinks fit may either declare that the summons has been duly served or order fresh service in such manner as it considers proper. S. 69 which make",
+          "der fresh service in such manner as it considers proper. S. 69 which makes provision for service of summons on witnesses by post reads as follows:- (l) Notwithstanding anything contained in the preceding sec",
+          "(l) Notwithstanding anything contained in the preceding sections of this Chapter, a court issuing a summons to a witness may, in addition to and simultaneously with the issue of fresh summons direct a copy o",
+          "court issuing a summons to a witness may, in addition to and simultaneously with the issue of fresh summons direct a copy of the summons to be served by registered post addressed to the witness at the place",
+          "witness may, in addition to and simultaneously with the issue of fresh summons direct a copy of the summons to be served by registered post addressed to the witness at the place where he ordinarily resides o",
+          "rsement purporting to be made by a postal employee that the witness refused to take delivery of the summons has been received the court issuing the summons may declare that the summons has been duly served.",
+          "ee that the witness refused to take delivery of the summons has been received the court issuing the summons may declare that the summons has been duly served. This provision is a new one incorporated in the",
+          "o take delivery of the summons has been received the court issuing the summons may declare that the summons has been duly served. This provision is a new one incorporated in the Crl. P.C. of 1973, and was no",
+          "rocedure in every case, for, it would result in heavy expenditure to the State. Nevertheless, where summons issued has not been served on the witnesses by a police officer under S. 62, repeatedly, the Magist",
+          "police officer under S. 62, repeatedly, the Magistrate may resort to this provision of issuing the summons and sending it by registered post to the witness. Of course, if after due service, the witness does",
+          "Court. ID suitable cases, or in cases of chronic or persistent failure to appear in response to the summons, a complaint can be laid under S. 174, I.P.C.  Then again, the Explanation (2) in S. 309, Crl. P.C.",
+          "nder S. 62, Crl. P.C. Therefore, (sic) as it is, there appears to us to be no bar to the serving of summons by an officer of the court or other public servant. 10. The next question that would arise is wheth",
+          "the prosecution on its part, even after having been given several opportunities, fails to serve the summons on the witnesses or to produce them, the Magistrate would be justified in acquitting the accused ei",
+          ", the Magistrate would be justified in acquitting the accused either under S. 255(1), Crl. P. C. in summons cases or under S. 248(1), Crl. P.C. in warrant cases? 11. In State of Madhya Pradesh v. Kalthawaix",
+          "teps to produce the witnesses, or ask the Court to give them time to do the same, or to issue fresh summons, the Court was not bound to fix another date. The police has a duty towards the citizen. When the a",
+          "case was to be tried according to the procedure prescribed in the Crl. P.C., 1898, for the trial of summons cases, that is, under S. 244, Crl. P.C., of 1898. The cases was posted to a particular date for rec",
+          "posted to a particular date for recording  evidence and earlier at the instance of the prosecution summons had been issued to the prosecution witnesses, but on the date of hearing the witnesses did not tarn",
+          "d it should not be permitted to take shelter behind the absence of witnesses on account of want of summons by the is Court. 17. It may be noted that in the old Criminal Procedure Code before the amendment o",
+          "ort there was no provision whereby the Magistrate on the application of the prosecution could issue summons to any  of its witnesses directing him to attend or produce any documents or other thing. In the pr",
+          "the trial of warrant cases instituted on a police report and in S. 254(2) in regard to the trial of summons cases. Therefore, the aforesaid four decisions would no longer be good law. 18. In almost all the d",
+          "ses provided in the Code and it is the duty of the Court to issue coercive processes if in spite of summons served on the witnesses, the witnesses do not appear before the Court and the prosecution fails to",
+          "warrant cases instituted by the Police report by Magistrates or Chapter XX relating to the trial of summons cases instituted on police report, for acquitting the accused on the ground that the prosecution ha",
+          "tion had not produced its evidence. Nevertheless provisions have been made in the present Code, for summons to be issued to the witnesses on the application of the prosecution and a duty is also cast on the",
+          "o produce all its evidence. Thus there is a duty cast on an application by the prosecution to issue summons to the witnesses and secure the presence of witnesses by exercising all the powers conferred on it",
+          "ence and to seek the assistance of the Court for so doing by applying to the Court for the issue of summons to the witnesses. Therefore, in our view, an acquittal of the accused merely on the ground that the",
+          "cquittal was unwarranted by law when in a case instituted on a police report the Magistrate ordered summons to be issued to the prosecution witnesses, but after certain adjournments without taking any step f",
+          "efore, in the latter case, none of the prosecution witnesses turn up in spite of the service of the summons issued by the Court on them and there are no materials to indicate that there was any reasonable ca",
+          "n State of Kirnataka v. Subramani Setty 1980 M.L.J. (Crl) 138 the Division Bench was dealing with a summons case instituted on a police report. 22. After carefully considering all the aforesaid decisions and",
+          "ressed therein, we are of the view that if the prosecution had made an application for the issue of summons to its witnesses either under S. 242(2) or 254(2) of the Crl. P.C. it is the duty of the Court to i",
+          "ts witnesses either under S. 242(2) or 254(2) of the Crl. P.C. it is the duty of the Court to issue summons  to the prosecution witnesses and to secure the witnesses by exercising all the powers given to it",
+          "P. C. in the case of warrant cases instituted on a police report and under S. 255(1), Crl. P.C. in summons cases, and we answer the two questions referred to us in the above terms. 23. Coming now to these a"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "cognizable",
+        "category": "Judicial_Documents",
+        "subcategory": "criminal_documents",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          11626
+        ],
+        "context_snippets": [
+          "e court to arrive at the truth by all lawful means though the primary responsibility of prosecuting cognizable offence is on the executive authorities. We are in respectful agreement with the aforesaid observat"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "bailable",
+        "category": "Judicial_Documents",
+        "subcategory": "criminal_documents",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          32418,
+          32659
+        ],
+        "context_snippets": [
+          "1869 1 Mys L.J 4, it was found on the facts that the prosecution was not at all diligent as the non-bailable warrants issued to the witnesses had neither been served nor returned to the Court by the concerned",
+          "that where the prosecution was not diligent In producing its witnesses and had failed to serve the bailable warrants on the witnesses and return the same the Magistrate would be justified in refusing to gran"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "non-bailable",
+        "category": "Judicial_Documents",
+        "subcategory": "criminal_documents",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          32414
+        ],
+        "context_snippets": [
+          "ase 1869 1 Mys L.J 4, it was found on the facts that the prosecution was not at all diligent as the non-bailable warrants issued to the witnesses had neither been served nor returned to the Court by the concerned"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "warrant",
+        "category": "Judicial_Documents",
+        "subcategory": "criminal_documents",
+        "frequency": 13,
+        "weight": 1.0,
+        "weighted_score": 13.0,
+        "positions": [
+          2818,
+          6724,
+          6973,
+          9067,
+          10016,
+          17437,
+          23258,
+          24551,
+          24873,
+          26631,
+          28192,
+          31265,
+          33902
+        ],
+        "context_snippets": [
+          "he prosecution had no evidence to let in. 4. S. 81, Crl. P.C. 1861, (sic) the Magistrate to issue a warrant. We shall first examine the provisions of the Crl. P.C. of 1973, which have relevance to this matte",
+          "erred to in S. 254, Crl. P. C. 6. We shall also now examine the provisions relating to the trial of warrant cases instituted on a police report. We might note here that the cases now before us are summons ca",
+          ", 2, referred to us in the reference it is necessary to examine the position regarding the trial of warrant cases instituted on a police report, for, those provisions also help to throw light on the first qu",
+          "e noted that as In S. 254, Crl. P.C. relating to the trial of-summons cases, the Magistrate even in warrant cases instituted on a police reports enjoined under Sub-s. (3) of S. 242 to take all such evidence",
+          "ation is made by the prosecution or the accused to issue such summons. Therefore, even in regard to warrant cases instituted on police report, a duty is cast on the Magistrate to take all evidence that may b",
+          "ng the accused either under S. 255(1), Crl. P. C. in summons cases or under S. 248(1), Crl. P.C. in warrant cases? 11. In State of Madhya Pradesh v. Kalthawaix a Division Bench of the Madhya Pradesh High Cou",
+          "ried under S. 251(A), Crl. P.C. the Magistrate is not compelled as he is, if the case is tried as a warrant case instituted other than on a police report, to proceed in terms of Ss. 256 and 257 of the Code.",
+          "ld Criminal Procedure Code before the amendment of) 973, of S. 251(A) which dealt with the trial of warrant cases instituted on police report there was no provision whereby the Magistrate on the application",
+          "other thing. In the present Code, there is such a provision in S. 242(e) in regard to the trial of warrant cases instituted on a police report and in S. 254(2) in regard to the trial of summons cases. There",
+          "s no specific provision in either the relevant sections of Chapter XIX which deal with the trial of warrant cases instituted by the Police report by Magistrates or Chapter XX relating to the trial of summons",
+          "L.R. Mad.416 : 77 L.W. 478 to which we had already made a reference. Ramakrishnan, J, held that in warrant cases where the Court had already framed a charge under S. 251-A Crl. P.C., against the accused an",
+          "d in State of Gujarat v. Bava Bhadya 1962 2 CrI. L.J. 537 as follows- Where a charge is framed in a warrant case on police report, if owing to the failure of the prosecution to produce their witnesses and ow",
+          "accused for want of evidence to prove the prosecution case, under S. 248, Crl. P. C. in the case of warrant cases instituted on a police report and under S. 255(1), Crl. P.C. in summons cases, and we answer"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "crpc",
+        "category": "Judicial_Documents",
+        "subcategory": "criminal_documents",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          232
+        ],
+        "context_snippets": [
+          "t: Madras High Court Date of Decision: March 24, 1980 Acts Referred: Criminal Procedure Code, 1973 (CrPC) â€” Section 255(1) Madras Prohibition Act, 1937 â€” Section 4(1)(b) Citation: (1980) LW(Cri) 187 H"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "will",
+        "category": "Personal_and_Family",
+        "subcategory": "wills_succession",
+        "frequency": 3,
+        "weight": 1.0,
+        "weighted_score": 3.0,
+        "positions": [
+          3975,
+          17803,
+          18525
+        ],
+        "context_snippets": [
+          "penses of the witness incurred in attending for the purposes of the trial be deposited In Court. It will be noticed that under Sub-s. (1) of S. 254, the Magistrate is enjoined to hear the prosecution and",
+          "ber that it has got a duty to the Court and they cannot just send a challan and think that the rest will be done by the Court. When nobody appeared in the Court to inform what the reason was for non-appea",
+          "the accused is. brought before the Court and the prosecuting department does not take any steps it will be an abuse of the process of the Court to continue the trial. Bringing a person before the Court a"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "principal",
+        "category": "Personal_and_Family",
+        "subcategory": "power_of_attorney",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          6086
+        ],
+        "context_snippets": [
+          "without pronouncing any judgment and such stoppage of proceedings is made after the evidence of the principal witnesses has been recorded pronounce a judgment of acquittal, and In any other case, release the a"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "consideration",
+        "category": "Property_and_Real_Estate",
+        "subcategory": "sale_deeds",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          7174
+        ],
+        "context_snippets": [
+          "rst question which has been referred to us and which relates to summons cases. Under S. 240 if upon consideration of the Police report and the documents sent with it under S. 173, and examination of the accused, i"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "due diligence",
+        "category": "Business_and_Corporate",
+        "subcategory": "compliance_documents",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          14010,
+          14381
+        ],
+        "context_snippets": [
+          "ing it or other public servant. S. 64 states \"\"Where the persons summoned cannot by the exercise of due diligence be found, the summons may be served by leaving one of the duplicates for him with some adult male m",
+          "n the back of the other duplicate,\"\" S. 65, Crl. P.C. states:- If service cannot by the exercise of due diligence be effected as provided in S62, S. 63 or S. 64, the serving officer shall affix one of the duplicat"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "claims",
+        "category": "Intellectual_Property",
+        "subcategory": "patent_documents",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          7777
+        ],
+        "context_snippets": [
+          "against the accused. Under S. 242, Crl. P. C. if the accused refuses to plead or does not plead or claims to be tried or the Magistrate does not convict the  accused under S. 241, on his plea of guilt the"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "class",
+        "category": "Intellectual_Property",
+        "subcategory": "trademark_documents",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          760,
+          5810
+        ],
+        "context_snippets": [
+          "tate represented by the learned Public Prosecutor against the orders of the learned Judicial Second Class Magistrate of Namakkal acquitting the respondent-accused in each case of an offence punishable unde",
+          "follows :- In any summons case instituted otherwise than upon complaint, a Magistrate of the first class or, with the previous sanction of the Chief Judicial Magistrate, any other Judicial Magistrate, may"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "endorsement",
+        "category": "Financial_and_Security",
+        "subcategory": "promissory_notes",
+        "frequency": 1,
+        "weight": 1.0,
+        "weighted_score": 1.0,
+        "positions": [
+          15336
+        ],
+        "context_snippets": [
+          "personally works for gain. (2) Where an acknowledgment purporting to be signed by the witness or an endorsement purporting to be made by a postal employee that the witness refused to take delivery of the summons"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "charge",
+        "category": "Financial_and_Security",
+        "subcategory": "security_documents",
+        "frequency": 3,
+        "weight": 1.0,
+        "weighted_score": 3.0,
+        "positions": [
+          7671,
+          28243,
+          31243
+        ],
+        "context_snippets": [
+          "nt to try and which in his opinion could be adequately punished by him, he shall frame in writing a charge against the accused. Under S. 242, Crl. P. C. if the accused refuses to plead or does not plead or",
+          "made a reference. Ramakrishnan, J, held that in warrant cases where the Court had already framed a charge under S. 251-A Crl. P.C., against the accused an important duty was laid on it to see that all the",
+          "rat High Court observed in State of Gujarat v. Bava Bhadya 1962 2 CrI. L.J. 537 as follows- Where a charge is framed in a warrant case on police report, if owing to the failure of the prosecution to produce"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      },
+      {
+        "keyword": "association",
+        "category": "Specialized_Documents",
+        "subcategory": "society_documents",
+        "frequency": 2,
+        "weight": 1.0,
+        "weighted_score": 2.0,
+        "positions": [
+          511,
+          559
+        ],
+        "context_snippets": [
+          "Advocate: P. Rajamanickam, P.P, for the Appellant; K. Doraiswami for Respts, Mr. M.S. Menon for Bar Association and Mr. K.V. Sankaran for Advocates Association, for the Respondent Judgement Paul J. 1. These appe",
+          "t; K. Doraiswami for Respts, Mr. M.S. Menon for Bar Association and Mr. K.V. Sankaran for Advocates Association, for the Respondent Judgement Paul J. 1. These appeals which have been preferred by the State repre"
+        ],
+        "is_regex": false,
+        "pattern_type": "string"
+      }
+    ],
+    "text_length": 34796,
+    "total_matches": 266,
+    "total_weighted_score": 266.0,
+    "category_scores": {
+      "Constitutional_and_Legislative": 0.5186323265542766,
+      "Judicial_Documents": 4.348729739050466,
+      "Personal_and_Family": 0.10375605391924109,
+      "Property_and_Real_Estate": 0.03463466565372332,
+      "Business_and_Corporate": 0.05187802695962054,
+      "Intellectual_Property": 0.08651269261334386,
+      "Financial_and_Security": 0.10375605391924109,
+      "Licenses_Permits_Certificates": 0.0,
+      "Specialized_Documents": 0.05187802695962054
+    },
+    "diversity_scores": {
+      "Constitutional_and_Legislative": 0.391304347826087,
+      "Judicial_Documents": 1.0,
+      "Personal_and_Family": 0.08695652173913043,
+      "Property_and_Real_Estate": 0.043478260869565216,
+      "Business_and_Corporate": 0.043478260869565216,
+      "Intellectual_Property": 0.08695652173913043,
+      "Financial_and_Security": 0.08695652173913043,
+      "Licenses_Permits_Certificates": 0.0,
+      "Specialized_Documents": 0.043478260869565216
+    },
+    "processing_metadata": {
+      "classifier_version": "2.0.0",
+      "classification_method": "weighted_regex_pattern_matching",
+      "total_patterns_checked": 784,
+      "confidence_thresholds": {
+        "very_low": 0.0,
+        "low": 0.1,
+        "medium": 0.4,
+        "high": 0.7
+      },
+      "document_metadata": {},
+      "timestamp": "2025-09-21T14:27:05.660620Z"
+    },
+    "summary": {
+      "primary_label": "Judicial_Documents",
+      "confidence": "high",
+      "score": 4.349,
+      "top_keywords": [
+        "summons",
+        "accused",
+        "evidence",
+        "witness",
+        "warrant"
+      ],
+      "total_matches": 266,
+      "categories_considered": 8
+    },
+    "statistics": {
+      "total_patterns_matched": 41,
+      "unique_categories_found": 8,
+      "average_pattern_weight": 1.0,
+      "text_coverage_ratio": 0.007644556845614438
+    }
+  },
+  "rag_integration": {
+    "adapter_loaded_docs": 1,
+    "embedding_chunks_created": 97,
+    "rag_chunks_converted": 97,
+    "enhanced_qa_validated": true,
+    "sample_qa_context": "Context 1 [Judicial_Documents] (confidence: 0.85): Company : Sol Infotech Pvt. Ltd. Website : www.courtkutchehry.com\nPrinted For :\n..."
+  },
+  "artifacts": {
+    "parsed_output": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\prototype\\artifacts\\run-judgement\\test-1758464792\\parsed_output.json",
+    "classification_verdict": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\prototype\\artifacts\\run-judgement\\test-1758464792\\classification_verdict.json",
+    "kag_input": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\prototype\\artifacts\\run-judgement\\test-1758464792\\kag_input.json"
+  },
+  "timestamp": "2025-09-21T19:57:05.676435"
+}

@@ -1,0 +1,79 @@
+{
+  "text": "",
+  "full_text": "",
+  "pages": [
+    {
+      "page": 1,
+      "image_path": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\prototype\\artifacts\\run-002\\test-1758447715\\images\\page_001.png",
+      "vision_text": "",
+      "vision_confidence": 0.0,
+      "plumber_text": "",
+      "has_vision": false,
+      "has_plumber": false,
+      "processing_error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\Documents\\\\Code_Projects\\\\ai-backend\\\\prototype\\\\data\\\\.cheetah\\\\gcloud\\\\vision-credentials.json'"
+    },
+    {
+      "page": 2,
+      "image_path": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\prototype\\artifacts\\run-002\\test-1758447715\\images\\page_002.png",
+      "vision_text": "",
+      "vision_confidence": 0.0,
+      "plumber_text": "",
+      "has_vision": false,
+      "has_plumber": false,
+      "processing_error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\Documents\\\\Code_Projects\\\\ai-backend\\\\prototype\\\\data\\\\.cheetah\\\\gcloud\\\\vision-credentials.json'"
+    },
+    {
+      "page": 3,
+      "image_path": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\prototype\\artifacts\\run-002\\test-1758447715\\images\\page_003.png",
+      "vision_text": "",
+      "vision_confidence": 0.0,
+      "plumber_text": "",
+      "has_vision": false,
+      "has_plumber": false,
+      "processing_error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\Documents\\\\Code_Projects\\\\ai-backend\\\\prototype\\\\data\\\\.cheetah\\\\gcloud\\\\vision-credentials.json'"
+    },
+    {
+      "page": 4,
+      "image_path": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\prototype\\artifacts\\run-002\\test-1758447715\\images\\page_004.png",
+      "vision_text": "",
+      "vision_confidence": 0.0,
+      "plumber_text": "",
+      "has_vision": false,
+      "has_plumber": false,
+      "processing_error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\Documents\\\\Code_Projects\\\\ai-backend\\\\prototype\\\\data\\\\.cheetah\\\\gcloud\\\\vision-credentials.json'"
+    },
+    {
+      "page": 5,
+      "image_path": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\prototype\\artifacts\\run-002\\test-1758447715\\images\\page_005.png",
+      "vision_text": "",
+      "vision_confidence": 0.0,
+      "plumber_text": "",
+      "has_vision": false,
+      "has_plumber": false,
+      "processing_error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\Documents\\\\Code_Projects\\\\ai-backend\\\\prototype\\\\data\\\\.cheetah\\\\gcloud\\\\vision-credentials.json'"
+    },
+    {
+      "page": 6,
+      "image_path": "C:\\Users\\admin\\Documents\\Code_Projects\\ai-backend\\prototype\\artifacts\\run-002\\test-1758447715\\images\\page_006.png",
+      "vision_text": "",
+      "vision_confidence": 0.0,
+      "plumber_text": "",
+      "has_vision": false,
+      "has_plumber": false,
+      "processing_error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\admin\\\\Documents\\\\Code_Projects\\\\ai-backend\\\\prototype\\\\data\\\\.cheetah\\\\gcloud\\\\vision-credentials.json'"
+    }
+  ],
+  "document_confidence": 0.0,
+  "clauses": [],
+  "named_entities": [],
+  "key_value_pairs": [],
+  "metadata": {
+    "processor_id": "hybrid-processor",
+    "pipeline_id": "test-1758447715",
+    "processing_method": "pypdfium2+pdfplumber",
+    "total_pages": 6,
+    "processed_pages": 6,
+    "timestamp": "2025-09-21T15:11:59.072938",
+    "confidence_pages_processed": 0
+  }
+}
