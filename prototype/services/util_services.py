@@ -1,0 +1,1300 @@
+"""
+Utility services for document processing.
+
+This module provides utility functions for PDF processing, image conversion,
+file management, and metadata handling for the AI backend system.
+"""
+
+import json
+import logging
+import os
+import subprocess
+import sys
+import uuid
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple, Any
+import hashlib
+
+try:
+    import fitz  # PyMuPDF
+except ImportError:
+    fitz = None
+
+# Fallback PDF libraries
+try:
+    import pdfplumber
+except ImportError:
+    pdfplumber = None
+
+try:
+    import PyPDF2
+except ImportError:
+    PyPDF2 = None
+
+try:
+    import pypdf
+except ImportError:
+    pypdf = None
+
+# Try pypdfium2 for image rendering
+try:
+    import pypdfium2 as pdfium
+except ImportError:
+    pdfium = None
+
+from PIL import Image
+import io
+
+from .exceptions import PDFProcessingError, FileValidationError
+from .project_utils import get_user_session_structure, get_username_from_env
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
+class PDFToImageConverter:
+    """
+    Utility class for converting PDF pages to images and managing file structure.
+    
+    Handles PDF to image conversion, creates organized folder structures,
+    and maintains metadata for processed documents.
+    """
+    
+    def __init__(self, data_root: str = "/data", image_format: str = "PNG", dpi: int = 300, username: Optional[str] = None):
+        """
+        Initialize PDF converter with configuration and fallback support.
+        
+        Args:
+            data_root: Root directory for storing processed data
+            image_format: Output image format (PNG, JPEG)
+            dpi: Resolution for image conversion
+            username: Username for session structure (defaults to environment)
+            
+        Example:
+            >>> converter = PDFToImageConverter("/app/data", "PNG", 300)
+        """
+        self.data_root = Path(data_root)
+        self.image_format = image_format.upper()
+        self.dpi = dpi
+        self.username = username or get_username_from_env()
+        
+        # Ensure data directory exists
+        self.data_root.mkdir(parents=True, exist_ok=True)
+        
+        # Determine PDF processing library with fallback hierarchy
+        self.pdf_library = None
+        self.library_name = None
+        
+        # Try PyMuPDF first
+        if fitz:
+            try:
+                # Test PyMuPDF import with actual functionality
+                test_doc = fitz.open()
+                test_doc.close()
+                self.pdf_library = fitz
+                self.library_name = "PyMuPDF"
+                logger.info("Using PyMuPDF for PDF processing")
+            except Exception as e:
+                logger.warning(f"PyMuPDF import failed: {e}")
+        
+        # Try pdfplumber fallback
+        if not self.pdf_library and pdfplumber:
+            try:
+                # Test pdfplumber functionality
+                self.pdf_library = pdfplumber
+                self.library_name = "pdfplumber"
+                logger.info("Using pdfplumber as fallback for PDF processing")
+            except Exception as e:
+                logger.warning(f"pdfplumber fallback failed: {e}")
+        
+        # Try PyPDF2 fallback
+        if not self.pdf_library and PyPDF2:
+            try:
+                # Test PyPDF2 functionality
+                self.pdf_library = PyPDF2
+                self.library_name = "PyPDF2"
+                logger.info("Using PyPDF2 as fallback for PDF processing")
+            except Exception as e:
+                logger.warning(f"PyPDF2 fallback failed: {e}")
+        
+        # Try pypdf fallback
+        if not self.pdf_library and pypdf:
+            try:
+                # Test pypdf functionality
+                self.pdf_library = pypdf
+                self.library_name = "pypdf"
+                logger.info("Using pypdf as fallback for PDF processing")
+            except Exception as e:
+                logger.warning(f"pypdf fallback failed: {e}")
+        
+        if not self.pdf_library:
+            raise ImportError(
+                "No suitable PDF library available. Install one of: PyMuPDF, pdfplumber, PyPDF2, or pypdf\n"
+                "Recommended: uv pip install PyMuPDF pdfplumber PyPDF2 pypdf"
+            )
+        
+        logger.info(f"Initialized PDF converter using {self.library_name}: {data_root}, {image_format}, {dpi}DPI")
+    
+    def generate_uid(self, pdf_path: str) -> str:
+        """
+        Generate unique identifier for PDF based on file content and metadata.
+        
+        Args:
+            pdf_path: Path to the PDF file
+            
+        Returns:
+            Unique identifier string
+            
+        Example:
+            >>> converter = PDFToImageConverter()
+            >>> uid = converter.generate_uid("document.pdf")
+            >>> print(uid)  # "abc123def-456789"
+        """
+        pdf_path = Path(pdf_path)
+        
+        # Create hash based on file content and metadata
+        hasher = hashlib.sha256()
+        
+        # Include file content hash
+        with open(pdf_path, 'rb') as f:
+            # Read file in chunks to handle large files
+            for chunk in iter(lambda: f.read(4096), b""):
+                hasher.update(chunk)
+        
+        # Include file metadata
+        stat = pdf_path.stat()
+        metadata_string = f"{pdf_path.name}_{stat.st_size}_{stat.st_mtime}"
+        hasher.update(metadata_string.encode())
+        
+        # Generate short UUID-like identifier
+        file_hash = hasher.hexdigest()[:16]
+        unique_id = f"{file_hash[:8]}-{file_hash[8:]}"
+        
+        logger.debug(f"Generated UID for {pdf_path.name}: {unique_id}")
+        return unique_id
+    
+    def create_folder_structure(self, pdf_name: str, uid: str) -> Path:
+        """
+        Create organized folder structure for PDF processing using user session structure.
+        
+        Args:
+            pdf_name: Name of the PDF file (without extension)
+            uid: Unique identifier for the PDF
+            
+        Returns:
+            Path to the created processing folder
+            
+        Example:
+            >>> converter = PDFToImageConverter()
+            >>> folder = converter.create_folder_structure("invoice", "abc123-def456")
+            >>> print(folder)  # /data/processed/{username-UID}/uploads/
+        """
+        # Get user session structure
+        session_structure = get_user_session_structure(f"{pdf_name}.pdf", self.username, uid)
+        processing_folder = session_structure["uploads"]
+        
+        # Create specific processing subfolder for this document
+        document_folder = processing_folder / f"{pdf_name}-{uid}"
+        document_folder.mkdir(parents=True, exist_ok=True)
+        
+        # Create subdirectories
+        (document_folder / "images").mkdir(exist_ok=True)
+        (document_folder / "ocr_results").mkdir(exist_ok=True)
+        (document_folder / "text").mkdir(exist_ok=True)
+        (document_folder / "tables").mkdir(exist_ok=True)
+        
+        logger.info(f"Created folder structure: {document_folder}")
+        return document_folder
+    
+    def convert_pdf_to_images(
+        self, 
+        pdf_path: str, 
+        output_folder: Optional[str] = None
+    ) -> Tuple[str, List[str], Dict[str, Any]]:
+        """
+        Convert PDF pages to images and create organized file structure.
+        
+        Args:
+            pdf_path: Path to the input PDF file
+            output_folder: Optional custom output folder path
+            
+        Returns:
+            Tuple of (uid, image_paths, metadata)
+            
+        Raises:
+            PDFProcessingError: If PDF processing fails
+            FileNotFoundError: If PDF file doesn't exist
+            
+        Example:
+            >>> converter = PDFToImageConverter()
+            >>> uid, images, metadata = converter.convert_pdf_to_images("doc.pdf")
+            >>> print(f"Processed {len(images)} pages with UID: {uid}")
+        """
+        pdf_path = Path(pdf_path)
+        if not pdf_path.exists():
+            raise FileNotFoundError(f"PDF file not found: {pdf_path}")
+        
+        try:
+            # Generate UID and create folder structure
+            uid = self.generate_uid(str(pdf_path))
+            pdf_name = pdf_path.stem
+            
+            if output_folder:
+                folder_path = Path(output_folder)
+                folder_path.mkdir(parents=True, exist_ok=True)
+            else:
+                folder_path = self.create_folder_structure(pdf_name, uid)
+            
+            logger.info(f"Processing PDF: {pdf_path.name} using {self.library_name}")
+            
+            # Process PDF based on available library
+            if self.library_name == "PyMuPDF":
+                return self._convert_with_pymupdf(pdf_path, folder_path, uid, pdf_name)
+            elif self.library_name == "pdfplumber":
+                return self._convert_with_pdfplumber(pdf_path, folder_path, uid, pdf_name)
+            elif self.library_name == "PyPDF2":
+                return self._convert_with_pypdf2(pdf_path, folder_path, uid, pdf_name)
+            elif self.library_name == "pypdf":
+                return self._convert_with_pypdf(pdf_path, folder_path, uid, pdf_name)
+            else:
+                raise PDFProcessingError(f"Unsupported PDF library: {self.library_name}")
+                
+        except Exception as e:
+            error_msg = f"Failed to process PDF {pdf_path}: {str(e)}"
+            logger.error(error_msg)
+            raise PDFProcessingError(error_msg) from e
+    
+    def _convert_with_pymupdf(self, pdf_path: Path, folder_path: Path, uid: str, pdf_name: str) -> Tuple[str, List[str], Dict[str, Any]]:
+        """Convert PDF using PyMuPDF (optimal with image conversion)."""
+        pdf_document = self.pdf_library.open(str(pdf_path))
+        total_pages = len(pdf_document)
+        
+        image_paths = []
+        processing_errors = []
+        
+        for page_num in range(total_pages):
+            try:
+                page = pdf_document[page_num]
+                
+                # Convert page to image
+                mat = self.pdf_library.Matrix(self.dpi / 72, self.dpi / 72)  # Scale factor for DPI
+                pix = page.get_pixmap(matrix=mat)
+                
+                # Save image
+                image_filename = f"page_{page_num + 1:03d}.{self.image_format.lower()}"
+                image_path = folder_path / "images" / image_filename
+                
+                if self.image_format == "PNG":
+                    pix.save(str(image_path))
+                else:  # JPEG
+                    # Convert to PIL Image for JPEG (better quality control)
+                    img_data = pix.tobytes("ppm")
+                    img = Image.open(io.BytesIO(img_data))
+                    img.save(str(image_path), "JPEG", quality=95, optimize=True)
+                
+                image_paths.append(str(image_path))
+                logger.debug(f"Converted page {page_num + 1} -> {image_path}")
+                
+            except Exception as e:
+                error_msg = f"Error processing page {page_num + 1}: {str(e)}"
+                logger.warning(error_msg)
+                processing_errors.append(error_msg)
+        
+        pdf_document.close()
+        
+        # Create metadata
+        metadata = self.create_metadata(
+            pdf_path=str(pdf_path),
+            uid=uid,
+            pdf_name=pdf_name,
+            total_pages=total_pages,
+            processed_pages=len(image_paths),
+            image_paths=image_paths,
+            processing_errors=processing_errors,
+            folder_path=str(folder_path)
+        )
+        
+        # Save metadata
+        self.save_metadata(folder_path, metadata)
+        
+        logger.info(f"Successfully converted {len(image_paths)}/{total_pages} pages with PyMuPDF")
+        return uid, image_paths, metadata
+    
+    def _convert_with_pdfplumber(self, pdf_path: Path, folder_path: Path, uid: str, pdf_name: str) -> Tuple[str, List[str], Dict[str, Any]]:
+        """Convert PDF using pdfplumber (text extraction focus, limited image conversion)."""
+        with self.pdf_library.open(pdf_path) as pdf:
+            total_pages = len(pdf.pages)
+            
+            text_files = []
+            processing_errors = []
+            
+            for i, page in enumerate(pdf.pages):
+                try:
+                    # Extract text with layout information
+                    text = page.extract_text()
+                    
+                    # Extract tables if any
+                    tables = page.extract_tables()
+                    
+                    # Save text file (no image conversion capability)
+                    text_filename = f"page_{i + 1:03d}.txt"
+                    text_path = folder_path / "text" / text_filename
+                    text_path.parent.mkdir(parents=True, exist_ok=True)
+                    
+                    with open(text_path, 'w', encoding='utf-8') as f:
+                        f.write(text or "")
+                    
+                    text_files.append(str(text_path))
+                    
+                    # Save tables if any
+                    if tables:
+                        table_filename = f"page_{i + 1:03d}_tables.json"
+                        table_path = folder_path / "tables" / table_filename
+                        table_path.parent.mkdir(parents=True, exist_ok=True)
+                        
+                        with open(table_path, 'w') as f:
+                            json.dump(tables, f, indent=2)
+                    
+                    logger.debug(f"Extracted text from page {i + 1}")
+                    
+                except Exception as e:
+                    error_msg = f"Error processing page {i + 1}: {str(e)}"
+                    logger.warning(error_msg)
+                    processing_errors.append(error_msg)
+            
+            # Create metadata for text-based processing
+            metadata = self.create_metadata(
+                pdf_path=str(pdf_path),
+                uid=uid,
+                pdf_name=pdf_name,
+                total_pages=total_pages,
+                processed_pages=len(text_files),
+                image_paths=[],  # No image conversion
+                text_paths=text_files,
+                processing_errors=processing_errors,
+                folder_path=str(folder_path),
+                processing_method="text_extraction_pdfplumber"
+            )
+            
+            # Save metadata
+            self.save_metadata(folder_path, metadata)
+            
+            logger.info(f"Successfully extracted text from {len(text_files)}/{total_pages} pages with pdfplumber")
+            logger.warning("Note: pdfplumber fallback - no image conversion, text extraction only")
+            
+            return uid, text_files, metadata
+    
+    def _convert_with_pypdf2(self, pdf_path: Path, folder_path: Path, uid: str, pdf_name: str) -> Tuple[str, List[str], Dict[str, Any]]:
+        """Convert PDF using PyPDF2 (text extraction only)."""
+        with open(pdf_path, 'rb') as file:
+            reader = self.pdf_library.PdfReader(file)
+            total_pages = len(reader.pages)
+            
+            text_files = []
+            processing_errors = []
+            
+            for i, page in enumerate(reader.pages):
+                try:
+                    text = page.extract_text()
+                    
+                    # Save text file
+                    text_filename = f"page_{i + 1:03d}.txt"
+                    text_path = folder_path / "text" / text_filename
+                    text_path.parent.mkdir(parents=True, exist_ok=True)
+                    
+                    with open(text_path, 'w', encoding='utf-8') as f:
+                        f.write(text)
+                    
+                    text_files.append(str(text_path))
+                    logger.debug(f"Extracted text from page {i + 1}")
+                    
+                except Exception as e:
+                    error_msg = f"Error processing page {i + 1}: {str(e)}"
+                    logger.warning(error_msg)
+                    processing_errors.append(error_msg)
+            
+            # Create metadata for text-based processing
+            metadata = self.create_metadata(
+                pdf_path=str(pdf_path),
+                uid=uid,
+                pdf_name=pdf_name,
+                total_pages=total_pages,
+                processed_pages=len(text_files),
+                image_paths=[],  # No image conversion
+                text_paths=text_files,
+                processing_errors=processing_errors,
+                folder_path=str(folder_path),
+                processing_method="text_extraction_pypdf2"
+            )
+            
+            # Save metadata
+            self.save_metadata(folder_path, metadata)
+            
+            logger.info(f"Successfully extracted text from {len(text_files)}/{total_pages} pages with PyPDF2")
+            logger.warning("Note: PyPDF2 fallback - no image conversion, text extraction only")
+            
+            return uid, text_files, metadata
+    
+    def _convert_with_pypdf(self, pdf_path: Path, folder_path: Path, uid: str, pdf_name: str) -> Tuple[str, List[str], Dict[str, Any]]:
+        """Convert PDF using pypdf (text extraction only)."""
+        with open(pdf_path, 'rb') as file:
+            reader = self.pdf_library.PdfReader(file)
+            total_pages = len(reader.pages)
+            
+            text_files = []
+            processing_errors = []
+            
+            for i, page in enumerate(reader.pages):
+                try:
+                    text = page.extract_text()
+                    
+                    # Save text file
+                    text_filename = f"page_{i + 1:03d}.txt"
+                    text_path = folder_path / "text" / text_filename
+                    text_path.parent.mkdir(parents=True, exist_ok=True)
+                    
+                    with open(text_path, 'w', encoding='utf-8') as f:
+                        f.write(text or "")
+                    
+                    text_files.append(str(text_path))
+                    logger.debug(f"Extracted text from page {i + 1}")
+                    
+                except Exception as e:
+                    error_msg = f"Error processing page {i + 1}: {str(e)}"
+                    logger.warning(error_msg)
+                    processing_errors.append(error_msg)
+            
+            # Create metadata for text-based processing
+            metadata = self.create_metadata(
+                pdf_path=str(pdf_path),
+                uid=uid,
+                pdf_name=pdf_name,
+                total_pages=total_pages,
+                processed_pages=len(text_files),
+                image_paths=[],  # No image conversion
+                text_paths=text_files,
+                processing_errors=processing_errors,
+                folder_path=str(folder_path),
+                processing_method="text_extraction_pypdf"
+            )
+            
+            # Save metadata
+            self.save_metadata(folder_path, metadata)
+            
+            logger.info(f"Successfully extracted text from {len(text_files)}/{total_pages} pages with pypdf")
+            logger.warning("Note: pypdf fallback - no image conversion, text extraction only")
+            
+            return uid, text_files, metadata
+    
+    def create_metadata(
+        self,
+        pdf_path: str,
+        uid: str,
+        pdf_name: str,
+        total_pages: int,
+        processed_pages: int,
+        image_paths: List[str],
+        processing_errors: List[str],
+        folder_path: str,
+        text_paths: Optional[List[str]] = None,
+        processing_method: str = "image_conversion_pymupdf"
+    ) -> Dict[str, Any]:
+        """
+        Create comprehensive metadata for processed PDF.
+        
+        Args:
+            pdf_path: Original PDF file path
+            uid: Unique identifier
+            pdf_name: PDF filename without extension
+            total_pages: Total number of pages in PDF
+            processed_pages: Number of successfully processed pages
+            image_paths: List of generated image file paths
+            processing_errors: List of any processing errors
+            folder_path: Output folder path
+            text_paths: Optional list of text file paths (for fallback processing)
+            processing_method: Method used for processing (e.g., image_conversion_pymupdf, text_extraction_pypdf2)
+            
+        Returns:
+            Dictionary containing metadata
+        """
+        pdf_file = Path(pdf_path)
+        stat = pdf_file.stat()
+        
+        metadata = {
+            "uid": uid,
+            "pdf_info": {
+                "name": pdf_name,
+                "original_path": str(pdf_path),
+                "filename": pdf_file.name,
+                "file_size_bytes": stat.st_size,
+                "file_size_mb": round(stat.st_size / (1024 * 1024), 2),
+                "created_date": datetime.fromtimestamp(stat.st_ctime).isoformat(),
+                "modified_date": datetime.fromtimestamp(stat.st_mtime).isoformat()
+            },
+            "processing_info": {
+                "processed_date": datetime.now().isoformat(),
+                "total_pages": total_pages,
+                "processed_pages": processed_pages,
+                "success_rate": round((processed_pages / total_pages) * 100, 2),
+                "image_format": self.image_format,
+                "dpi": self.dpi,
+                "processing_errors": processing_errors,
+                "processing_method": processing_method,
+                "pdf_library": self.library_name
+            },
+            "output_info": {
+                "folder_path": folder_path,
+                "folder_name": Path(folder_path).name,
+                "image_paths": image_paths,
+                "relative_image_paths": [
+                    str(Path(p).relative_to(folder_path)) for p in image_paths
+                ] if image_paths else [],
+                "text_paths": text_paths or [],
+                "relative_text_paths": [
+                    str(Path(p).relative_to(folder_path)) for p in (text_paths or [])
+                ]
+            },
+            "status": {
+                "conversion_complete": len(processing_errors) == 0,
+                "has_errors": len(processing_errors) > 0,
+                "ready_for_ocr": processed_pages > 0,
+                "has_images": len(image_paths) > 0 if image_paths else False,
+                "has_text": len(text_paths) > 0 if text_paths else False,
+                "fallback_mode": processing_method.startswith("text_extraction")
+            }
+        }
+        
+        return metadata
+    
+    def save_metadata(self, folder_path: Path, metadata: Dict[str, Any]) -> str:
+        """
+        Save metadata to JSON file in the user session metadata directory.
+        
+        Args:
+            folder_path: Path to the processing folder
+            metadata: Metadata dictionary to save
+            
+        Returns:
+            Path to the saved metadata file
+        """
+        # Save metadata in both processing folder and session metadata directory
+        metadata_path = folder_path / "metadata.json"
+        
+        with open(metadata_path, 'w', encoding='utf-8') as f:
+            json.dump(metadata, f, indent=2, ensure_ascii=False)
+        
+        # Also save in session metadata directory for easy access
+        try:
+            session_structure = get_user_session_structure("metadata.json", self.username)
+            session_metadata_path = session_structure["metadata"] / f"{metadata['uid']}_metadata.json"
+            
+            with open(session_metadata_path, 'w', encoding='utf-8') as f:
+                json.dump(metadata, f, indent=2, ensure_ascii=False)
+            
+            logger.info(f"Saved metadata: {metadata_path} and {session_metadata_path}")
+        except Exception as e:
+            logger.warning(f"Failed to save session metadata: {e}")
+            logger.info(f"Saved metadata: {metadata_path}")
+        
+        return str(metadata_path)
+    
+    def load_metadata(self, folder_path: str) -> Optional[Dict[str, Any]]:
+        """
+        Load metadata from processing folder.
+        
+        Args:
+            folder_path: Path to the processing folder
+            
+        Returns:
+            Metadata dictionary or None if not found
+        """
+        metadata_path = Path(folder_path) / "metadata.json"
+        
+        if not metadata_path.exists():
+            logger.warning(f"Metadata file not found: {metadata_path}")
+            return None
+        
+        try:
+            with open(metadata_path, 'r', encoding='utf-8') as f:
+                metadata = json.load(f)
+            
+            logger.debug(f"Loaded metadata from: {metadata_path}")
+            return metadata
+            
+        except Exception as e:
+            logger.error(f"Error loading metadata from {metadata_path}: {e}")
+            return None
+    
+    def get_processing_folders(self) -> List[Dict[str, Any]]:
+        """
+        Get list of all processing folders with their metadata.
+        
+        Returns:
+            List of dictionaries containing folder info and metadata
+        """
+        folders = []
+        
+        for item in self.data_root.iterdir():
+            if item.is_dir():
+                metadata = self.load_metadata(str(item))
+                if metadata:
+                    folders.append({
+                        "folder_path": str(item),
+                        "folder_name": item.name,
+                        "metadata": metadata
+                    })
+        
+        logger.info(f"Found {len(folders)} processing folders")
+        return folders
+    
+    def cleanup_folder(self, uid: str) -> bool:
+        """
+        Clean up processing folder for given UID.
+        
+        Args:
+            uid: Unique identifier of the processing folder
+            
+        Returns:
+            True if cleanup successful, False otherwise
+        """
+        try:
+            # Find folder with this UID
+            for folder in self.data_root.iterdir():
+                if folder.is_dir() and uid in folder.name:
+                    import shutil
+                    shutil.rmtree(folder)
+                    logger.info(f"Cleaned up folder: {folder}")
+                    return True
+            
+            logger.warning(f"No folder found for UID: {uid}")
+            return False
+            
+        except Exception as e:
+            logger.error(f"Error cleaning up folder for UID {uid}: {e}")
+            return False
+
+
+# Hybrid PDF Processing Functions for improved pipeline resilience
+
+def render_pages_with_pdfium(pdf_path: Path, out_dir: Path, dpi: int = 300) -> List[str]:
+    """
+    Render PDF pages to PNG images using pypdfium2.
+    
+    This function provides a fallback image rendering capability when PyMuPDF
+    is not available. It uses pypdfium2 to convert each page to a PNG image.
+    
+    Args:
+        pdf_path: Path to the PDF file
+        out_dir: Output directory for images
+        dpi: DPI for image rendering (default 300)
+        
+    Returns:
+        List of paths to generated image files
+        
+    Raises:
+        ImportError: If pypdfium2 is not available
+        PDFProcessingError: If PDF processing fails
+        
+    Example:
+        >>> images = render_pages_with_pdfium(
+        ...     Path("document.pdf"), 
+        ...     Path("images/"), 
+        ...     dpi=300
+        ... )
+        >>> print(f"Generated {len(images)} images")
+    """
+    if pdfium is None:
+        raise ImportError("pypdfium2 not available. Install with: uv pip install pypdfium2")
+    
+    try:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        image_paths = []
+        
+        # Open PDF with pypdfium2
+        pdf = pdfium.PdfDocument(pdf_path)
+        page_count = len(pdf)
+        
+        logger.info(f"Rendering {page_count} pages using pypdfium2 at {dpi} DPI")
+        
+        for page_index in range(page_count):
+            try:
+                # Get page and render to bitmap
+                page = pdf[page_index]
+                bitmap = page.render(
+                    scale=dpi / 72.0,  # Convert DPI to scale factor
+                    rotation=0
+                )
+                
+                # Convert to PIL Image
+                pil_image = bitmap.to_pil()
+                
+                # Save as PNG
+                image_filename = f"page_{page_index + 1:03d}.png"
+                image_path = out_dir / image_filename
+                pil_image.save(image_path, "PNG", optimize=True)
+                
+                image_paths.append(str(image_path))
+                logger.debug(f"Rendered page {page_index + 1} -> {image_path}")
+                
+            except Exception as e:
+                logger.warning(f"Failed to render page {page_index + 1}: {e}")
+                continue
+        
+        pdf.close()
+        
+        if image_paths:
+            logger.info(f"Saved images: {image_paths[0]} ... (total: {len(image_paths)})")
+        else:
+            logger.warning("No images were successfully rendered")
+        
+        return image_paths
+        
+    except Exception as e:
+        error_msg = f"Failed to render PDF pages with pypdfium2: {str(e)}"
+        logger.error(error_msg)
+        raise PDFProcessingError(error_msg) from e
+
+
+def extract_text_with_pdfplumber(pdf_path: Path, text_out_dir: Path) -> List[str]:
+    """
+    Extract text from PDF pages using pdfplumber.
+    
+    This function extracts text content from each page of a PDF using pdfplumber
+    and saves individual page texts to separate files. This provides a reliable
+    text extraction method that doesn't depend on image conversion.
+    
+    Args:
+        pdf_path: Path to the PDF file
+        text_out_dir: Output directory for text files
+        
+    Returns:
+        List of extracted text strings (one per page)
+        
+    Raises:
+        ImportError: If pdfplumber is not available
+        PDFProcessingError: If PDF processing fails
+        
+    Example:
+        >>> texts = extract_text_with_pdfplumber(
+        ...     Path("document.pdf"), 
+        ...     Path("text/")
+        ... )
+        >>> print(f"Extracted text from {len(texts)} pages")
+    """
+    if pdfplumber is None:
+        raise ImportError("pdfplumber not available. Install with: uv pip install pdfplumber")
+    
+    try:
+        text_out_dir.mkdir(parents=True, exist_ok=True)
+        page_texts = []
+        text_file_paths = []
+        
+        with pdfplumber.open(pdf_path) as pdf:
+            page_count = len(pdf.pages)
+            logger.info(f"Extracting text from {page_count} pages using pdfplumber")
+            
+            for page_index, page in enumerate(pdf.pages):
+                try:
+                    # Extract text from page
+                    page_text = page.extract_text() or ""
+                    page_texts.append(page_text)
+                    
+                    # Save text to file
+                    text_filename = f"page_{page_index + 1:03d}.txt"
+                    text_path = text_out_dir / text_filename
+                    
+                    with open(text_path, 'w', encoding='utf-8') as f:
+                        f.write(page_text)
+                    
+                    text_file_paths.append(str(text_path))
+                    logger.debug(f"Extracted text from page {page_index + 1} -> {text_path}")
+                    
+                except Exception as e:
+                    logger.warning(f"Failed to extract text from page {page_index + 1}: {e}")
+                    page_texts.append("")  # Add empty string to maintain index consistency
+                    continue
+        
+        if text_file_paths:
+            logger.info(f"Saved page text: {text_file_paths[0]} ... (total: {len(text_file_paths)})")
+        else:
+            logger.warning("No text was successfully extracted")
+        
+        return page_texts
+        
+    except Exception as e:
+        error_msg = f"Failed to extract text with pdfplumber: {str(e)}"
+        logger.error(error_msg)
+        raise PDFProcessingError(error_msg) from e
+
+
+def process_pdf_hybrid(
+    pdf_path: Path,
+    output_dir: Path,
+    dpi: int = 300,
+    prefer_pymupdf: bool = True
+) -> Dict[str, Any]:
+    """
+    Process PDF using hybrid approach: render images + extract text.
+    
+    This function implements the hybrid approach for PDF processing:
+    1. Attempts to use PyMuPDF for both image and text if available
+    2. Falls back to pypdfium2 for images + pdfplumber for text
+    3. Always extracts both images and text for maximum pipeline reliability
+    
+    Args:
+        pdf_path: Path to the PDF file
+        output_dir: Output directory for processed files
+        dpi: DPI for image rendering
+        prefer_pymupdf: Whether to prefer PyMuPDF when available
+        
+    Returns:
+        Dictionary with processing results:
+        {
+            "success": bool,
+            "method": str,
+            "image_paths": List[str],
+            "page_texts": List[str],
+            "total_pages": int,
+            "processed_pages": int,
+            "errors": List[str]
+        }
+        
+    Example:
+        >>> result = process_pdf_hybrid(
+        ...     Path("document.pdf"),
+        ...     Path("output/"),
+        ...     dpi=300
+        ... )
+        >>> print(f"Processed {result['processed_pages']}/{result['total_pages']} pages")
+    """
+    output_dir.mkdir(parents=True, exist_ok=True)
+    images_dir = output_dir / "images"
+    text_dir = output_dir / "text"
+    
+    result = {
+        "success": False,
+        "method": "unknown",
+        "image_paths": [],
+        "page_texts": [],
+        "total_pages": 0,
+        "processed_pages": 0,
+        "errors": []
+    }
+    
+    try:
+        # Determine processing method
+        use_pymupdf = prefer_pymupdf and fitz is not None
+        
+        if use_pymupdf:
+            try:
+                # Test PyMuPDF functionality
+                test_doc = fitz.open(str(pdf_path))
+                result["total_pages"] = len(test_doc)
+                test_doc.close()
+                
+                # Use PyMuPDF for both images and text
+                result["method"] = "PyMuPDF"
+                logger.info(f"Initialized PDF converter using PyMuPDF")
+                
+                # Process with PyMuPDF
+                image_paths, page_texts = _process_with_pymupdf_hybrid(
+                    pdf_path, images_dir, text_dir, dpi
+                )
+                result["image_paths"] = image_paths
+                result["page_texts"] = page_texts
+                result["processed_pages"] = min(len(image_paths), len(page_texts))
+                result["success"] = True
+                
+            except Exception as e:
+                logger.warning(f"PyMuPDF processing failed: {e}")
+                result["errors"].append(f"PyMuPDF failed: {str(e)}")
+                use_pymupdf = False
+        
+        if not use_pymupdf:
+            # Use hybrid approach: pypdfium2 + pdfplumber
+            result["method"] = "pypdfium2+pdfplumber"
+            logger.info(f"Initialized PDF converter using pypdfium2")
+            
+            # Extract text with pdfplumber
+            page_texts = extract_text_with_pdfplumber(pdf_path, text_dir)
+            result["page_texts"] = page_texts
+            result["total_pages"] = len(page_texts)
+            
+            # Render images with pypdfium2
+            try:
+                image_paths = render_pages_with_pdfium(pdf_path, images_dir, dpi)
+                result["image_paths"] = image_paths
+            except Exception as e:
+                logger.warning(f"Image rendering failed: {e}")
+                result["errors"].append(f"Image rendering failed: {str(e)}")
+                result["image_paths"] = []
+            
+            result["processed_pages"] = min(len(result["image_paths"]), len(page_texts))
+            result["success"] = len(page_texts) > 0  # Success if we have text
+        
+        return result
+        
+    except Exception as e:
+        error_msg = f"Hybrid PDF processing failed: {str(e)}"
+        logger.error(error_msg)
+        result["errors"].append(error_msg)
+        return result
+
+
+def _process_with_pymupdf_hybrid(
+    pdf_path: Path,
+    images_dir: Path,
+    text_dir: Path,
+    dpi: int
+) -> Tuple[List[str], List[str]]:
+    """Process PDF with PyMuPDF for both images and text."""
+    images_dir.mkdir(parents=True, exist_ok=True)
+    text_dir.mkdir(parents=True, exist_ok=True)
+    
+    image_paths = []
+    page_texts = []
+    
+    pdf_document = fitz.open(str(pdf_path))
+    
+    try:
+        for page_num in range(len(pdf_document)):
+            page = pdf_document[page_num]
+            
+            # Extract text
+            text = page.get_text()
+            page_texts.append(text)
+            
+            # Save text to file
+            text_filename = f"page_{page_num + 1:03d}.txt"
+            text_path = text_dir / text_filename
+            with open(text_path, 'w', encoding='utf-8') as f:
+                f.write(text)
+            
+            # Convert to image
+            mat = fitz.Matrix(dpi / 72, dpi / 72)
+            pix = page.get_pixmap(matrix=mat)
+            
+            image_filename = f"page_{page_num + 1:03d}.png"
+            image_path = images_dir / image_filename
+            pix.save(str(image_path))
+            image_paths.append(str(image_path))
+    
+    finally:
+        pdf_document.close()
+    
+    return image_paths, page_texts
+
+
+def get_file_info(file_path: str) -> Dict[str, Any]:
+    """
+    Get comprehensive file information.
+    
+    Args:
+        file_path: Path to the file
+        
+    Returns:
+        Dictionary containing file information
+    """
+    file_path = Path(file_path)
+    
+    if not file_path.exists():
+        raise FileNotFoundError(f"File not found: {file_path}")
+    
+    stat = file_path.stat()
+    
+    return {
+        "name": file_path.name,
+        "stem": file_path.stem,
+        "suffix": file_path.suffix,
+        "size_bytes": stat.st_size,
+        "size_mb": round(stat.st_size / (1024 * 1024), 2),
+        "created": datetime.fromtimestamp(stat.st_ctime).isoformat(),
+        "modified": datetime.fromtimestamp(stat.st_mtime).isoformat(),
+        "is_file": file_path.is_file(),
+        "absolute_path": str(file_path.absolute())
+    }
+
+
+def validate_pdf_file(file_path: str) -> bool:
+    """
+    Validate if file is a valid PDF.
+    
+    Args:
+        file_path: Path to the file to validate
+        
+    Returns:
+        True if valid PDF, False otherwise
+    """
+    try:
+        file_path = Path(file_path)
+        
+        # Check file extension
+        if file_path.suffix.lower() != '.pdf':
+            return False
+        
+        # Check if file exists and is readable
+        if not file_path.exists() or not file_path.is_file():
+            return False
+        
+        # Try to open with PyMuPDF
+        if fitz:
+            try:
+                doc = fitz.open(str(file_path))
+                page_count = len(doc)
+                doc.close()
+                return page_count > 0
+            except Exception:
+                return False
+        
+        # Fallback: check file header
+        with open(file_path, 'rb') as f:
+            header = f.read(4)
+            return header == b'%PDF'
+            
+    except Exception:
+        return False
+
+
+def execute_data_purge(
+    operation: str = "quick",
+    dry_run: bool = True,
+    backup: bool = False
+) -> Dict[str, Any]:
+    """
+    Execute data purge operation using the purge.py script.
+    
+    Args:
+        operation: Type of purge operation ('quick', 'standard', 'full', 'nuclear')
+        dry_run: Whether to perform a dry run (preview only)
+        backup: Whether to create backup before deletion
+        
+    Returns:
+        Dictionary containing purge results
+        
+    Example:
+        >>> result = execute_data_purge("quick", dry_run=True)
+        >>> print(f"Would delete {result['preview']['total_files']} files")
+    """
+    try:
+        # Get project root directory
+        current_dir = Path(__file__).parent.parent.absolute()
+        script_path = current_dir / "scripts" / "purge.py"
+        
+        if not script_path.exists():
+            return {
+                "error": f"Purge script not found: {script_path}",
+                "success": False
+            }
+        
+        # Build command
+        cmd = [sys.executable, str(script_path)]
+        
+        # Add operation flag
+        if operation == "quick":
+            cmd.append("--quick")
+        elif operation == "standard":
+            cmd.append("--standard")
+        elif operation == "full":
+            cmd.append("--full")
+        elif operation == "nuclear":
+            cmd.append("--nuclear")
+        else:
+            return {
+                "error": f"Invalid operation: {operation}",
+                "success": False
+            }
+        
+        # Add options
+        if dry_run:
+            cmd.append("--dry-run")
+        if backup:
+            cmd.append("--backup")
+        
+        # Always use JSON output for API
+        cmd.append("--json")
+        cmd.append("--yes")  # Skip confirmation prompts
+        
+        logger.info(f"Executing purge command: {' '.join(cmd)}")
+        
+        # Execute command
+        result = subprocess.run(
+            cmd,
+            cwd=str(current_dir),
+            capture_output=True,
+            text=True,
+            timeout=300  # 5 minute timeout
+        )
+        
+        if result.returncode == 0:
+            try:
+                # Parse JSON output from script
+                output_data = json.loads(result.stdout)
+                output_data["success"] = True
+                logger.info(f"Purge operation '{operation}' completed successfully")
+                return output_data
+            except json.JSONDecodeError as e:
+                logger.error(f"Failed to parse purge script output: {e}")
+                return {
+                    "error": "Failed to parse purge script output",
+                    "raw_output": result.stdout,
+                    "success": False
+                }
+        else:
+            logger.error(f"Purge script failed with return code {result.returncode}")
+            return {
+                "error": f"Purge script failed: {result.stderr}",
+                "return_code": result.returncode,
+                "success": False
+            }
+            
+    except subprocess.TimeoutExpired:
+        logger.error("Purge operation timed out")
+        return {
+            "error": "Purge operation timed out (>5 minutes)",
+            "success": False
+        }
+    except Exception as e:
+        logger.error(f"Error executing purge operation: {e}")
+        return {
+            "error": f"Purge execution error: {str(e)}",
+            "success": False
+        }
+
+
+def get_data_usage_summary() -> Dict[str, Any]:
+    """
+    Get summary of data directory usage and file counts.
+    
+    Returns:
+        Dictionary containing usage statistics
+        
+    Example:
+        >>> usage = get_data_usage_summary()
+        >>> print(f"Total size: {usage['total_size_formatted']}")
+    """
+    try:
+        # Get project root directory
+        current_dir = Path(__file__).parent.parent.absolute()
+        data_dir = current_dir / "data"
+        
+        if not data_dir.exists():
+            return {
+                "error": "Data directory not found",
+                "success": False
+            }
+        
+        def calculate_dir_size(directory: Path) -> Tuple[int, int]:
+            """Calculate total size and file count for directory."""
+            total_size = 0
+            file_count = 0
+            
+            try:
+                for item in directory.rglob("*"):
+                    if item.is_file():
+                        total_size += item.stat().st_size
+                        file_count += 1
+            except (PermissionError, OSError):
+                pass
+            
+            return total_size, file_count
+        
+        def format_size(size_bytes: int) -> str:
+            """Format bytes as human readable string."""
+            for unit in ['B', 'KB', 'MB', 'GB']:
+                if size_bytes < 1024.0:
+                    return f"{size_bytes:.1f} {unit}"
+                size_bytes /= 1024.0
+            return f"{size_bytes:.1f} TB"
+        
+        # Calculate usage for different categories
+        categories = {
+            "uploads": data_dir / "uploads",
+            "processed": data_dir.glob("*-*/"),  # Processing result folders
+            "temp": data_dir / "temp",
+            "test_files": data_dir / "test-files",
+            "logs": data_dir / "logs",
+            "credentials": data_dir / ".cheetah"
+        }
+        
+        usage_summary = {
+            "data_directory": str(data_dir),
+            "categories": {},
+            "total_size": 0,
+            "total_files": 0,
+            "last_updated": datetime.now().isoformat()
+        }
+        
+        for category, path_pattern in categories.items():
+            category_size = 0
+            category_files = 0
+            
+            if isinstance(path_pattern, Path) and path_pattern.exists():
+                category_size, category_files = calculate_dir_size(path_pattern)
+            elif hasattr(path_pattern, '__iter__'):  # glob pattern
+                for folder in path_pattern:
+                    if folder.is_dir():
+                        size, files = calculate_dir_size(folder)
+                        category_size += size
+                        category_files += files
+            
+            usage_summary["categories"][category] = {
+                "size_bytes": category_size,
+                "size_formatted": format_size(category_size),
+                "file_count": category_files
+            }
+            
+            usage_summary["total_size"] += category_size
+            usage_summary["total_files"] += category_files
+        
+        usage_summary["total_size_formatted"] = format_size(usage_summary["total_size"])
+        usage_summary["success"] = True
+        
+        logger.info(f"Data usage calculated: {usage_summary['total_size_formatted']}")
+        return usage_summary
+        
+    except Exception as e:
+        logger.error(f"Error calculating data usage: {e}")
+        return {
+            "error": f"Failed to calculate data usage: {str(e)}",
+            "success": False
+        }
+
+
+if __name__ == "__main__":
+    """
+    Demo usage of PDF processing utilities.
+    """
+    # Example usage
+    try:
+        converter = PDFToImageConverter(data_root="./test_data", dpi=200)
+        
+        # Note: This would require an actual PDF file for testing
+        # uid, images, metadata = converter.convert_pdf_to_images("sample.pdf")
+        # print(f"Processed PDF with UID: {uid}")
+        # print(f"Generated {len(images)} images")
+        
+        print("PDFToImageConverter initialized successfully!")
+        print("Place a PDF file and uncomment the demo code to test conversion.")
+        
+        # Test file validation
+        print(f"PDF validation test (non-existent): {validate_pdf_file('test.pdf')}")
+        
+        # Get processing folders
+        folders = converter.get_processing_folders()
+        print(f"Found {len(folders)} existing processing folders")
+        
+        # Test data usage summary
+        usage = get_data_usage_summary()
+        if usage.get("success"):
+            print(f"Data usage: {usage['total_size_formatted']} ({usage['total_files']} files)")
+        
+        # Test purge operation (dry run)
+        purge_result = execute_data_purge("quick", dry_run=True)
+        if purge_result.get("success"):
+            preview = purge_result.get("preview", {})
+            print(f"Quick purge preview: {preview.get('total_files', 0)} files")
+        
+    except Exception as e:
+        print(f"Demo error: {e}")
